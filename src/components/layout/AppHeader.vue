@@ -77,7 +77,7 @@ header {
   display: flex;
   justify-content: center;
   background-color: rgba(128, 128, 128, 0.95);
-  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+  transition: transform 1s ease, opacity 0.5s ease, background-color 0.5s ease;
 
   /*backdrop-filter: blur(10px);*/
 }
