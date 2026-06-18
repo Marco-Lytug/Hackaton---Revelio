@@ -44,7 +44,7 @@ onUnmounted(() => {
   </header>
   <div>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cupiditate, recusandae amet adipisci sed quos at molestiae laborum laudantium error suscipit sequi ducimus, eos id explicabo autem quo dicta. Saepe!
+       ipsum dolor sit amet consectetur adipisicing elit. Odio cupiditate, recusandae amet adipisci sed quos at molestiae laborum laudantium error suscipit sequiso ducimus, eos id explicabo autem quo dicta. Saepe!
     </p>
   </div>
 </template>
@@ -54,9 +54,10 @@ p {
   font-size: 5rem;
 }
 img {
-  width: 85px;
+  width: 100px;
   height: auto;
   position: relative;
+
 }
 
 ul {
@@ -76,7 +77,7 @@ header {
   padding: 16px;
   display: flex;
   justify-content: center;
-  background-color: rgba(128, 128, 128, 0.95);
+  background-color: #F4E6CC;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
 
   /*backdrop-filter: blur(10px);*/
@@ -97,22 +98,20 @@ header.hidden {
   background-color: transparent;
   border: 1px solid #135F7D;
   box-shadow: 2px solid black;
-  padding: 10px 40px 10px 40px;
+  padding: 20px 40px 20px 40px;
 }
 
 a{
-  color: white;
-  padding: 10px;
+  color: #135F7D;
+  padding: 20px;
   font-size: 1.2rem;
-  font-family: "Josefin Slab", serif;
-  font-weight: 670;
+  font-weight: 600;
   transition: 1s;
 }
 a:hover {
-  font-weight: 670;
   transition: 1s;
   border: 1px solid #135F7D;
-  padding: 10px 40px 10px 40px;
+  padding: 20px 40px 20px 40px;
   border-radius: 10vw;
 
 }

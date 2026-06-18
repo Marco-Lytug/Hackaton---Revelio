@@ -1,17 +1,24 @@
 @import './base.css';
 
+@view-transition{
+  navigation: auto
+}
+::view-transition-old(:root){
+  animation-duration: 1s;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+
 }
 
-a,
-.green {
+a {
   text-decoration: none;
   transition: 0.4s;
-  padding: 3px;
+  
 }
 
 @media (hover: hover) {
