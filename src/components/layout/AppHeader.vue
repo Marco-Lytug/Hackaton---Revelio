@@ -43,9 +43,6 @@ onUnmounted(() => {
     </nav>
   </header>
   <div>
-    <p>
-       ipsum dolor sit amet consectetur adipisicing elit. Odio cupiditate, recusandae amet adipisci sed quos at molestiae laborum laudantium error suscipit sequiso ducimus, eos id explicabo autem quo dicta. Saepe!
-    </p>
   </div>
 </template>
 
