@@ -8,9 +8,8 @@ import { RouterLink } from 'vue-router'
     <nav>
       <ul>
         <div class="all">
-
-          <div>
-            <img src="/public/images/Revelio.png" alt="">
+          <div class="img">
+            <img src="/public/images/RevelioFooter.png" alt="">
           </div>
           <div class="left">
             <RouterLink to="/">Principal</RouterLink>
@@ -26,25 +25,27 @@ import { RouterLink } from 'vue-router'
 
           </div>
           <div>
-            
+
           </div>
         </div>
       </ul>
     </nav>
+    <div class="copy">
+    </div>
   </footer>
-  <div>
-
-  </div>
 </template>
 
 <style scoped>
+
+div.img{
+}
 
 .all{
   display: flex;
 }
 .left{
   display: grid;
-    margin: 0 0 0 55vw;
+    margin: 0 0 0 40vw;
 
 }
 .right{
@@ -65,8 +66,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  padding: 7vw;
+  padding: 2vw;
   display: flex;
   background-color: #F4E6CC;
 }
@@ -74,6 +74,9 @@ footer {
 nav {
   display: flex;
   width: 100%;
+  padding: 2vw;
+  border-bottom: 1px solid #BCB2A0;
+
 }
 
 footer.transparent {
@@ -93,10 +96,11 @@ a{
   font-size: 1.5rem;
   font-weight: 600;
   transition: 1s;
+
 }
 a:hover {
   transition: 0.5s;
-  color: #726C60;
-}
+    color: #726C60;
+  }
 
 </style>
