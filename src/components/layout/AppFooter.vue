@@ -37,8 +37,15 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 
-div.img{
+.img{
+  position: relative;
 }
+
+div img{
+  position: absolute;
+  top: -94%;
+}
+
 
 .all{
   display: flex;
@@ -46,6 +53,7 @@ div.img{
 .left{
   display: grid;
     margin: 0 0 0 40vw;
+    text-align: right;
 
 }
 .right{
@@ -74,7 +82,6 @@ footer {
 nav {
   display: flex;
   width: 100%;
-  padding: 2vw;
   border-bottom: 1px solid #BCB2A0;
 
 }
@@ -92,10 +99,10 @@ footer.hidden {
 
 a{
   color: #BCB2A0;
-  padding: 20px;
+  padding: 10px;
   font-size: 1.5rem;
-  font-weight: 600;
   transition: 1s;
+
 
 }
 a:hover {
