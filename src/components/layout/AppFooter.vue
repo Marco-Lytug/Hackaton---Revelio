@@ -1,10 +1,29 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { onMounted, onUnmounted, ref } from 'vue'
 
+const isVisible = ref(false)
+
+const checkScroll = () => {
+  const scrollPosition = window.scrollY + window.innerHeight
+  const documentHeight = document.documentElement.scrollHeight
+  isVisible.value = scrollPosition >= documentHeight - 20
+}
+
+onMounted(() => {
+  checkScroll()
+  window.addEventListener('scroll', checkScroll, { passive: true })
+  window.addEventListener('resize', checkScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkScroll)
+  window.removeEventListener('resize', checkScroll)
+})
 </script>
 
 <template>
-  <footer>
+  <footer :class="{ hidden: !isVisible }">
     <nav>
       <ul>
         <div class="all">
@@ -43,7 +62,7 @@ import { RouterLink } from 'vue-router'
 
 div img{
   position: absolute;
-  top: -94%;
+  top: -95%;
 }
 
 
@@ -77,6 +96,9 @@ footer {
   padding: 2vw;
   display: flex;
   background-color: #F4E6CC;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 nav {
@@ -91,7 +113,7 @@ footer.transparent {
 }
 
 footer.hidden {
-  transform: translateY(-100%);
+  transform: translateY(100%);
   opacity: 0;
   pointer-events: none;
 }

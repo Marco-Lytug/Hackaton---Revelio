@@ -74,7 +74,7 @@ header {
   padding: 16px;
   display: flex;
   justify-content: center;
-  background-color: #F4E6CC;
+  background-color: black;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
 
   /*backdrop-filter: blur(10px);*/
@@ -99,18 +99,33 @@ header.hidden {
 }
 
 a{
-  color: #135F7D;
+  color: white;
   padding: 20px;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 300;
   transition: 1s;
+    font-family: "Julius Sans One", sans-serif;
+
 }
+
+
+
 a:hover {
   transition: 1s;
   border: 1px solid #135F7D;
   padding: 20px 40px 20px 40px;
   border-radius: 10vw;
 
+
+
 }
+.julius-sans-one-regular {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
 
 </style>
