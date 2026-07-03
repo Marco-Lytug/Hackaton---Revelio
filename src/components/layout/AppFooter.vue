@@ -99,6 +99,7 @@ footer {
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateY(0);
   opacity: 1;
+  visibility: hidden;
 }
 
 nav {

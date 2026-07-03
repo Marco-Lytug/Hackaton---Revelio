@@ -8,18 +8,28 @@
   </section>
   <section class="dificuldades">
     <h2>COM DIFICULDADES?</h2>
-    <div>
+    <div class="all">
       <div>
         <p>Com a Revelio, podemos te ajudar a <br> melhorar o seu desempenho, com <br> livros e dicas de estudos,
           atividades e <br> videoaulas! </p>
-      </div>
-      <div class="button">
-
       </div>
       <div class="img">
         <img src="/images/GarotoLendo.png" alt="">
       </div>
     </div>
+        <button>NOSSA BIBLIOTECA</button>
+  </section>
+  <section class="help">
+      <h2>Help!</h2>
+    <div class="all">
+      <div>
+        <p>Na Help!, ajudaremos você a estudar, aqui temos video aulas e dicas de estudo, aproveite! </p>
+      </div>
+      <div class="img">
+        <img src="/images/GarotoLendo.png" alt="">
+      </div>
+    </div>
+        <button>NOSSA BIBLIOTECA</button>
   </section>
 </template>
 
@@ -43,13 +53,12 @@
 
 .dificuldades {
   background-color: white;
-
 }
 
 .dificuldades h2 {
   color: #135F7D;
   font-size: 5rem;
-  padding: 4vw;
+  padding: 4vw 0 0 4vw;
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
@@ -59,28 +68,60 @@
 
 .dificuldades p {
   color: black;
-  font-size: 2.5rem;
-  padding: 7vw;
+  font-size: 3rem;
+  padding: 0 7vw 0 7vw;
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
     animation-range: entry 0% 50%;
 
+}
+button{
+  background-color: #135F7D;
+  color: white;
+  border: 6px solid  #F4E6CC;
+  border-radius: 5vw;
+  padding: 2vw;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 10vw  3vw;
+  cursor: pointer;
+  transition: 0.5s;
 
 }
-
+button:hover{
+  background-color: #F4E6CC;
+  color: #135F7D;
+  border: 6px solid  #135F7D;
+  border-radius: 5vw;
+  padding: 2vw;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 15vw 6vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
 div {
   display: flex;
   justify-content: space-between;
 }
 
-div img {
+.all {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img {
   width: 80vh;
+  position: relative;
+  margin: 0 ;
   animation: spawn;
   animation-timeline: view();
-    animation-range: entry 0% 50%;
+  animation-range: entry 0% 50%;
 
 }
+
 
 h1 {
   color: white;
@@ -95,6 +136,60 @@ h1 span {
   color: #135F7D;
   z-index: 1;
   font-size: 4rem;
+}
+.help {
+  background-color: white;
+}
+
+.help h2 {
+  color: #135F7D;
+  font-size: 5rem;
+  padding: 4vw 0 0 4vw;
+  font-family: "Josefin Sans", sans-serif;
+  animation: spawn;
+  animation-timeline: view();
+  animation-range: entry 0% 50%;
+
+}
+
+.help p {
+  color: black;
+  font-size: 3rem;
+  padding: 0 7vw 0 7vw;
+  font-family: "Josefin Sans", sans-serif;
+  animation: spawn;
+  animation-timeline: view();
+    animation-range: entry 0% 50%;
+
+}
+button{
+  background-color: #135F7D;
+  color: white;
+  border: 6px solid  #F4E6CC;
+  border-radius: 5vw;
+  padding: 2vw;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 10vw  3vw;
+  cursor: pointer;
+  transition: 0.5s;
+
+}
+button:hover{
+  background-color: #F4E6CC;
+  color: #135F7D;
+  border: 6px solid  #135F7D;
+  border-radius: 5vw;
+  padding: 2vw;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 15vw 6vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+div {
+  display: flex;
+  justify-content: space-between;
 }
 
 @keyframes fadeIn {
