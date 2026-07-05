@@ -1,2627 +1,496 @@
-export const livrosInfo =   [{
+export const livrosInfo =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         id: 1,
-        titulo: 'Berserk volume 1',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo:
-            'O Volume 1 de Berserk inicia o arco do Espadachim Negro. Ele apresenta Guts, um guerreiro implacável marcado com o "Estigma do Sacrifício", que atrai demônios. Acompanhado pelo elfo Puck',
-        preco: 39.9,
-        capa: '/img/berserk_vol1.jpeg'
+        titulo: 'Introdução à programação com Python ',
+        link: 'https://www.kufunda.net/publicdocs/Introdução%20à%20programação%20com%20Python%20algoritmos%20e%20lógica%20de%20programação%20para%20iniciantes%20(Nilo%20Ney%20Coutinho%20Menezes).pdf',
+        categoria: 'Python',
+        autor: 'Nilo Ney Coutinho Menezes',
+        detalhes:'O livro “Introdução à Programação com Python: Algoritmos e Lógica de Programação para Iniciantes” (Nilo Ney Coutinho Menezes) é uma obra didática voltada para quem está começando a aprender programação. Ele ensina os conceitos fundamentais de lógica de programação usando Python, como variáveis, tipos de dados, estruturas de decisão, repetição (loops), funções, listas, dicionários, arquivos e noções de bancos de dados. O foco principal não é apenas a linguagem Python, mas principalmente o raciocínio lógico e a construção de algoritmos, com muitos exemplos e exercícios para iniciantes. Também é bastante usado em cursos técnicos e de graduação como material base para introdução à programação.' ,
+        capa: '/images/livro_info_1.png'
     },
     {
         id: 2,
-        titulo: 'Berserk volume 12',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Guts retorna após um ano e resgata Griffith da prisão.Fraco, Griffith ativa o Behelit e invoca a Mão de Deus. Cercado por Apóstolos e com seu sonho destruído, ele é forçado a sacrificar o Bando do Falcão.',
-        preco: 49.90,
-        capa: '/img/Berserk_vol12.jpeg',
+        titulo: 'INTRODUÇÃO À PROGRAMAÇÃO E ESTRUTURAS DE DADOS FUNDAMENTAIS COM PYTHON PARA PROGRAMADORES C ',
+        link: 'https://www.editorasynapse.org/wp-content/uploads/2023/04/Livro_Python_v1.pdf',
+        categoria: 'Python',
+        autor: 'Synapse Editora',
+        descricao:
+            ' O livro “Introdução à Programação e Estruturas de Dados Fundamentais com Python” (Synapse Editora, 2023) trata dos conceitos básicos de programação usando Python, com foco em lógica de programação e introdução a estruturas de dados. De forma geral, ele explica como resolver problemas computacionais usando Python, abordando temas como variáveis, tipos de dados, operadores, estruturas de decisão e repetição, funções e noções iniciais de estruturas de dados como listas. O material também faz comparações com a linguagem C para ajudar na transição de quem já conhece outra linguagem, sendo voltado principalmente para iniciantes em programação e estudantes da área de computação.'
+
+,
+        capa: '/images/livro_info_2.png',
     },
     {
         id: 3,
-        titulo: 'Berserk volume 13',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Retrata o clímax brutal do Arco da Era de Ouro. Ele cobre o "Eclipse", onde o Behelit Carmesim é ativado por um Griffith egoísta e desolado, condenando todo o Bando do Falcão a ser sacrificado para que ele renasça como Femto',
-        preco: 60,
-        capa: '/img/Berserk_vol13.jpeg',
+        titulo: 'Lógica de Programação para Iniciantes ',
+        link:'https://revistacontemporanea.com/wp-content/uploads/2025/03/DIAG-Contemporanea-LOGICA-DE-PROGRAMACAO-PARA-INICIANTES-1.pdf',
+        categoria: 'Lógica de Programação',
+        autor: 'DIAG Contemporânea',
+        descricao:
+            'O livro “Lógica de Programação para Iniciantes” (DIAG Contemporânea) é uma obra introdutória voltada ao ensino dos conceitos fundamentais da programação e da construção de algoritmos. De forma geral, ele apresenta os princípios básicos da lógica computacional, como variáveis, operadores, estruturas condicionais (se/então/senão), estruturas de repetição (loops), entrada e saída de dados e noções de algoritmos em pseudocódigo. O material é pensado para iniciantes, ajudando o leitor a desenvolver o raciocínio lógico necessário para começar a programar em qualquer linguagem, como Python, Java ou C.',
+        capa: '/images/livro_info_3.png',
     },
     {
         id: 4,
-        titulo: 'Berserk volume 14',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Ele mostra Guts lidando com os traumas do Eclipse, enquanto busca vingança e tenta proteger Casca, cuja mente foi devastada pelo horror que presenciou',
-        preco: 28.9,
-        capa: '/img/Berserk_vol14.jpg'
+        titulo: 'Lógica de programação',
+        link: 'https://www.kufunda.net/publicdocs/Lógica%20de%20programação%20a%20construção%20de%20algoritmos%20e%20estruturas%20de%20dados%20(André%20Luiz%20Villar%20Forbellone%20etc.).pdf',
+        categoria: 'Lógica de Programação',
+        autor: 'André Luiz Villar Forbellone e Henri Frederico Eberspacher',
+        descricao:
+            'O livro “Lógica de Programação: A Construção de Algoritmos e Estruturas de Dados”, de André Luiz Villar Forbellone, é uma introdução à lógica de programação e à construção de algoritmos. Ele ensina a resolver problemas de forma estruturada, abordando conceitos como variáveis, entrada e saída de dados, condições, laços de repetição e noções básicas de estruturas de dados. É muito usado como base para iniciantes em programação, pois desenvolve o raciocínio lógico antes do aprendizado de linguagens específicas.',
+        capa: '/images/livro_info_4.png'
     },
     {
         id: 5,
-        titulo: 'Berserk volume 26',
-        catagoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'foca na luta desesperada de Guts e seus novos companheiros para salvar Casca e Farnese das garras dos trolls. Após serem arrastadas para a dimensão demoníaca de Qliphot',
-        preco: 35,
-        capa: '/img/Berserk_vol26.jpg'
+        titulo: 'Guia Front-End',
+        link: 'https://www.kufunda.net/publicdocs/Guia%20Front-End%20-%20O%20caminho%20das%20pedras%20para%20ser%20um%20dev%20Front-End%20(Casa%20do%20Codigo).pdf',
+        categoria: 'Front-End',
+        autor: 'Diego Eis (publicado pela Casa do Código)',
+        descricao:
+            ' O livro “Guia Front-End  O caminho das pedras para ser um dev Front-End” (Casa do Código) é um material voltado para quem quer entender como começar e se orientar na área de desenvolvimento front-end.De forma geral, ele não é um manual de uma tecnologia específica, mas sim um guia de carreira e aprendizado, que ajuda o leitor a entender o que estudar e como se posicionar no mercado. O livro discute temas como HTML, CSS, JavaScript, boas práticas de desenvolvimento, organização de código, ferramentas do dia a dia e a evolução constante das tecnologias web. Também traz reflexões sobre o mercado de trabalho, excesso de informações na área e como filtrar o que realmente é importante aprender para se tornar um desenvolvedor front-end',
+
+        capa: '/images/livro_info_5.png'
     },
     {
         id: 6,
-        titulo: 'Berserk volume 42',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'O mangá foca na trágica queda da Ilha dos Elfos (Dwarf Island), onde a paz de Guts e Casca é abruptamente destruída por Griffith, que captura Casca e deixa um rastro de devastação',
-        preco: 36,
-        capa: '/img/Berserk_vol42.jpg'
+        titulo: 'DESENVOLVIMENTO FRONT-END PARA WEB I',
+        link: 'https://camda.com.br/assets/arquivos/informativos/Apostila%20-%20HTML%20e%20CSS.pdf',
+        categoria: 'Front-End',
+        autor: 'Welinton Ozelin',
+        descricao:
+            ' a apostila ensina como criar páginas da internet usando HTML, que estrutura o conteúdo (textos, imagens, links e seções), e CSS, que define o estilo visual dessas páginas (cores, fontes, espaçamento e layout). Também apresenta conceitos básicos de construção de sites, organização de código e boas práticas iniciais para quem está começando na programação web. ',
+       
+        capa: '/images/livro_info_6.png'
     },
     {
         id: 7,
-        titulo: 'Bleach volume 1',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo: 'introduz Ichigo Kurosaki, um estudante capaz de ver fantasmas. Sua vida muda ao conhecer a Ceifeira de Almas (Shinigami) Rukia Kuchiki. Quando um monstro devorador de almas (Hollow) ataca sua família, Ichigo absorve os poderes de Rukia para salvá-los, tornando-se um Shinigami Substituto.',
-        preco: 56.90,
-        capa: '/img/Bleach_vol1.jpg'
+        titulo: 'Guia Prático: HTML e CSS',
+        link: 'https://www.kufunda.net/publicdocs/Guia%20Prático%20HTML%20%20CSS%20Aprenda%20os%20conceitos%20básicos%20de%20como%20construir%20páginas%20web%20(Portuguese%20Edition)%20(Wallace%20Fragoso).pdf',
+        categoria: 'CSS',
+        autor: 'Wallace Fragoso',
+        descricao:
+            ' O livro Guia Prático HTML & CSS apresenta uma introdução simples à criação de páginas web, ensinando como usar HTML para estruturar o conteúdo e CSS para definir o visual dos sites. Ele explica de forma básica como montar textos, imagens, links e organizar o layout de uma página, sendo indicado para quem está começando a aprender desenvolvimento web e quer entender como um site é construído do zero.',
+       
+        capa: '/images/livro_info_7.png'
     },
     {
         id: 8,
-        titulo: 'Bleach volume 10',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'o grupo de resgate (Ichigo, Chad, Orihime e Ishida) se alia aos irmãos Kuukaku e Ganju Shiba para invadir a Seireitei (a base dos Shinigamis na Soul Society) e salvar Rukia.',
-        preco: 24,
-        capa: '/img/Bleach_10.jpg'
+        titulo: 'Desenvolvimento Web com HTML, CSS e Javascript ',
+        link:'https://profsalu.wordpress.com/wp-content/uploads/2014/11/k19-k02-desenvolvimento-web-com-html-css-e-javascript.pdf',
+        categoria: 'Front-End',
+        autor: 'Editora K19',
+        descricao:
+            ' O livro Desenvolvimento Web com HTML, CSS e JavaScript (K19) ensina como criar páginas e sites desde o início, mostrando como cada tecnologia atua na construção da web. Ele explica de forma prática como o HTML organiza o conteúdo da página, como o CSS melhora a aparência visual e como o JavaScript permite interações, como cliques, animações e respostas do sistema. Também apresenta noções básicas de como a internet funciona e como páginas se comunicam com servidores, sendo um material voltado para iniciantes na área de programação web. '
+,
+        
+        capa: '/images/livro_info_8.png'
     },
     {
         id: 9,
-        titulo: 'Bleach volume 4',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'narra a invasão de Ichigo Kurosaki e seus aliados ao mundo espiritual para salvar Rukia Kuchiki, que foi condenada à morte por transferir seus poderes a um humano',
-        preco: 64.90,
-        capa: '/img/Bleach_vol4.jpg'
+        titulo: 'JavaScript: Básico ao Avançado',
+        link: 'https://www.kufunda.net/publicdocs/Javascript%20Básico%20ao%20Avançado%20(Kelvin%20Baumhardt%20Biffi).pdf',
+        categoria: 'Javascript',
+        autor: 'Kelvin Baumhardt Biffi',
+        descricao:
+            ' O livro JavaScript: Básico ao Avançado ensina programação em JavaScript desde os conceitos iniciais até conteúdos mais completos da linguagem. Ele apresenta como criar comandos simples, trabalhar com variáveis, funções e estruturas de decisão, e depois avança para conceitos mais complexos, mostrando como o JavaScript é usado para dar interatividade a sites e aplicações web. ',
+        capa: '/images/livro_info_9.png'
     },
     {
         id: 10,
-        titulo: 'Bleach volume 12',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'Foca no início da invasão de Hueco Mundo. Ichigo, Uryu e Chad chegam ao território dos Hollows para resgatar Orihime Inoue, mas se separam logo após cruzar a barreira',
-        preco: 69.90,
-        capa: '/img/Bleach_vol12.jpg'
+        titulo: 'Javascript : O guia definitivo',
+        link: 'https://projetosufam.com.br/biblioteca/admin/uploads/LivrodeJavascript.pdf',
+        categoria: 'Javascript',
+        autor: 'UFAM (Universidade Federal do Amazonas)',
+        descricao:
+            'BO livro Livro de JavaScript (UFAM) ensina a linguagem JavaScript desde os fundamentos até tópicos mais avançados. Ele mostra como usar variáveis, operadores, estruturas de decisão e repetição, além de explicar funções, objetos e arrays. Também apresenta conceitos mais aprofundados da linguagem e como ela pode ser aplicada para desenvolver aplicações web mais interativas e dinâmicas. '
+,
+        
+        capa: '/images/livro_info_10.png'
     },
     {
         id: 11,
-        titulo: 'Bleach volume 49',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'O arco "O Agente Perdido". Dezessete meses após a derrota de Aizen, um Ichigo impotente conhece Kugo Ginjo e o grupo Xcution. Para proteger sua família, Ichigo começa a treinar para despertar o "Fullbring", um poder místico derivado de objetos.',
-        preco: 38,
-        capa: '/img/Bleach_vol49.jpg'
+        titulo: ' HTML5 e CSS3 com farinha e pimenta ',
+        link: 'https://www.kufunda.net/publicdocs/HTML5%20e%20CSS3%20com%20farinha%20e%20pimenta%20(Diego%20Eis,%20Elcio%20Ferreira)%20(z-lib.org).pdf',
+        categoria: 'Front-End',
+        autor: 'Diego Eis',
+        descricao:
+            'O livro foi concebido em uma época de transição importante da web, quando o HTML5 e o CSS3 deixavam de ser promessas para se tornarem o padrão absoluto do mercado. Os autores utilizam uma linguagem extremamente prática, bem-humorada e direta (daí a metáfora do "com farinha e pimenta") para guiar o leitor no desenvolvimento de sites modernos, sem enrolação acadêmica.O livro é ideal tanto para iniciantes que estão dando os primeiros passos no Front-End quanto para profissionais veteranos que aprenderam a criar sites nos anos 2000 e precisavam se atualizar com as regras modernas da W3C.É um manual focado no "fazer acontecer", que desmistifica os padrões web e mostra como aplicá-los no dia a dia do mercado de trabalho real.'
+
+ ,
+        capa: '/images/livro_info_11.png'
     },
     {
         id: 12,
-        titulo: 'Blue Box volume 1',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'Taiki Inomata, um tímido jogador de badminton apaixonado por Chinatsu Kano, uma veterana e estrela do basquete. A vida deles muda drasticamente quando Chinatsu precisa morar temporariamente na casa de Taiki',
-        preco: 14.90,
-        capa: '/img/BlueB_vol1.jpg'
+        titulo: 'Lógica de Programação Crie seus primeiros programas usando Javascript e HTML',
+        link: 'https://www.kufunda.net/publicdocs/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o%20Crie%20seus%20primeiros%20programas%20usando%20Javascript%20e%20HTML.pdf',
+
+        categoria: 'Lógica de Programação',
+        autor: 'Paulo Silvera',
+        descricao:
+            'Este livro é um guia introdutório voltado para iniciantes absolutos que desejam aprender a programar sem se deparar com teorias exaustivas ou ferramentas complexas. Os autores utilizam uma abordagem prática, ensinando os fundamentos da lógica de programação por meio de recursos simples que qualquer computador possui: um editor de texto e um navegador web.',
+        
+        capa: '/images/livro_info_12.png'
     },
     {
         id: 13,
-        titulo: 'Blue Box volume 2',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'Foca na evolução esportiva e no amadurecimento dos sentimentos entre Taiki e Chinatsu. Enquanto tentam manter o foco nos treinos',
-        preco: 29.16,
-        capa: '/img/BlueB_vol2.jpg'
+        titulo: 'Algoritmos: Lógica para desenvolvimento de programação de computadores',
+        link: 'https://www.kufunda.net/publicdocs/Algoritmos%20(JOSE%20AUGUSTO%20NAVARRO%20GARCIA%20MANZANO).pdf',
+
+        categoria: 'Algoritmos',
+        autor: 'José Augusto N. G. Manzano e Jayr Figueiredo de Oliveira',
+        descricao:
+            'O livro "Algoritmos: Lógica para desenvolvimento de programação de computadores", de José Augusto N. G. Manzano e Jayr Figueiredo de Oliveira, é uma das obras didáticas mais tradicionais do Brasil para o ensino de lógica de programação e introdução à ciência da computação. O objetivo principal do livro é ensinar o leitor a pensar de forma lógica e estruturada para resolver problemas complexos por meio de computadores, independentemente de uma linguagem de programação específica.' 
+,
+       
+        capa: '/images/livro_info_13.png'
     },
     {
         id: 14,
-        titulo: 'Blue Box volume 19',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'foca na tensão do festival cultural e na fase de qualificatórias. Ayame finalmente reconhece seus sentimentos por Kyo, mas seu coração fica partido ao vê-lo com Saki, enquanto Taiki e Chinatsu tentam lidar com seus sentimentos e suas carreiras esportivas',
-        preco: 35.90,
-        capa: '/img/BlueB_vol19.jpg'
+        titulo: 'Aprenda a Programar com Scratch',
+        link: 'https://s3.novatec.com.br/capitulos/capitulo-9788575223123.pdf',
+        categoria: 'Programação',
+        autor: 'Majed Marji',
+        descricao:
+            'Este livro é um guia introdutório e prático para ensinar programação de computadores a iniciantes, utilizando o Scratch, uma linguagem de programação visual baseada em blocos desenvolvida pelo MIT.',
+       
+        capa: '/images/livro_info_14.png'
     },
     {
         id: 15,
-        titulo: 'Blue Box volume 20',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'foca nos dilemas pessoais e esportivos dos protagonistas. A visita do pai de Chinatsu gera conflitos, pois ela revela que está namorando Taiki. Paralelamente, o mangá acompanha as finais das eliminatórias para a Copa de Inverno, onde Chinatsu enfrenta Yumeka e sua grande',
-        preco: 49.90,
-        capa: '/img/BlueB_vol20.jpg'
+        titulo: 'Lógica de Programação e Algorítmos com JavaScript',
+        link: 'https://www.kufunda.net/publicdocs/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o%20e%20Algor%C3%ADtmos%20com%20JavaScript%20(Ed%C3%A9cio%20Fernando%20Iepsen).pdf',
+        categoria: 'JavaScript',
+        autor: 'Edécio Fernando',
+        descricao:
+            'Lógica de Programação e Algoritmos com JavaScript apresenta, de forma gradual, conceitos essenciais para quem quer começar a programar. Com exemplos práticos e exercícios em JavaScript, conduz o leitor desde estruturas básicas até aplicações com Node.js, Express e React.',
+        
+        capa: '/images/livro_info_15.png'
     },
     {
         id: 16,
-        titulo: 'Diario de uma Apotecaria volume 1',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'A vida de Maomao muda drasticamente quando é sequestrada e levada para trabalhar no Palácio Interno chinês',
-        preco: 38.16,
-        capa: '/img/Diario_vol1.jpg'
+        titulo: 'CSS Eficiente Técnicas e ferramentas que fazem a diferença nos seus estilos',
+         link: 'https://www.kufunda.net/publicdocs/CSS%20Eficiente%20T%C3%A9cnicas%20e%20ferramentas%20que%20fazem%20a%20diferen%C3%A7a%20nos%20seus%20estilos%20(T%C3%A1rcio%20Zemel).pdf',
+        categoria: 'CSS',
+        autor: 'Tárcio Zemel',
+        descricao:
+            ' O livro "CSS Eficiente: Técnicas e Ferramentas que Fazem a Diferença nos Seus Estilos" (2015), de Tárcio Zemel, apresenta técnicas e boas práticas para a criação de folhas de estilo CSS organizadas, reutilizáveis e de fácil manutenção. A obra aborda conceitos como especificidade, herança, seletores, organização de código, arquitetura CSS, orientação a objetos aplicada ao CSS (OOCSS) e outras estratégias que auxiliam no desenvolvimento de interfaces mais eficientes e escaláveis. Voltado tanto para iniciantes quanto para desenvolvedores experientes, o livro busca aprofundar o conhecimento em CSS além dos conceitos básicos, contribuindo para a criação de projetos front-end mais profissionais e sustentáveis '
+,
+
+        capa: '/images/livro_info_16.png'
     },
+    
     {
         id: 17,
-        titulo: 'Diario de uma Apotecaria volume 4',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'A história encerra o ciclo de mistérios e envenenamentos antes da viagem da protagonista para a capital ocidental,',
-        preco: 39.16,
-        capa: '/img/Diario_vol4.jpg'
+        titulo: 'Introdução e boas práticas em UX Design ',
+        link: 'https://www.kufunda.net/publicdocs/Introdu%C3%A7%C3%A3o%20e%20boas%20pr%C3%A1ticas%20em%20UX%20Design%20(Fabricio%20Teixeira).pdf',
+        categoria: 'Design',
+        autor: 'Fabricio Teixeira',
+        descricao:
+            ' O livro "Introdução e Boas Práticas em UX Design" (2014), de Fabricio Teixeira, apresenta os fundamentos da experiência do usuário (UX) aplicados ao desenvolvimento de produtos digitais. A obra aborda conceitos, metodologias e boas práticas para projetar interfaces intuitivas e centradas no usuário, utilizando exemplos reais de sucesso e insucesso in sites e aplicativos. Além de introduzir os princípios do UX Design, o autor discute aspectos de usabilidade, arquitetura da informação, pesquisa com usuários e o impacto da experiência do usuário na qualidade e no sucesso de sistemas digitais, tornando o livro uma referência para iniciantes e profissionais da área. ',
+        capa: '/images/livro_info_17.png'
     },
+   
     {
         id: 18,
-        titulo: 'Diario de uma Apotecaria volume 6',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'foca na revelação das origens familiares de Maomao e em uma série de conspirações políticas e assassinatos que se conectam ao seu passado',
-        preco: 29.90,
-        capa: '/img/Diario_vol6.jpg'
+        titulo: 'HTML5 e CSS3: Domine a Web do Futuro',
+        link: 'https://www.kufunda.net/publicdocs/HTML5%20e%20CSS3%20Domine%20a%20web%20do%20futuro%20(Lucas%20Mazza).pdf',
+        categoria: 'CSS',
+        autor: 'Lucas Mazza',
+        descricao: 'Um livro excelente e prático focado na estruturação moderna com HTML5 e na estilização elegante utilizando folhas de estilo CSS3.',
+        capa: '/images/livro_info_18.png'
     },
+   
+   
     {
         id: 19,
-        titulo: 'Diario de uma Apotecaria volume 12',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'foca na revelação das origens familiares de Maomao e em uma série de conspirações políticas e assassinatos que se conectam ao seu passado acompanha Maomao participando de uma caçada noturna a convite de Renshi.',
-        preco: 39.90,
-        capa: '/img/Diario_vol12.jpg'
+        titulo: 'Ebook Lógica de Programação para Iniciantes',
+        link: 'https://dicasdeprogramacao.com.br/download/ebook-logica-de-programacao-para-iniciantes.pdf',
+        categoria: 'Lógica de Programação',
+        autor: 'Gustavo Furtado (Dicas de Programação)',
+        descricao: 'E-book desenhado para quem está dando os primeiros passos no desenvolvimento, ensinando algoritmos com foco prático no VisuAlg.',
+        capa: '/images/livro_info_19.png'
     },
+
+
+   //LIVROS 2 ANOOOOO
+
     {
         id: 20,
-        titulo: 'Diario de uma Apotecaria volume 14',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            ' retorno de Maomao à capital, onde atua no tribunal externo. A trama gira em torno da política na Corte, conflitos de facções e mistérios familiares. ',
-        preco: 63,
-        capa: '/img/Diario_vol14.jpg'
+        titulo: 'Introdução ao Banco de dados',
+        link: 'https://www.kufunda.net/publicdocs/Livro%20de%20Sistemas%20de%20Banco%20de%20Dados%20-%204%C2%AA%20Edi%C3%A7%C3%A3o.pdf',
+        categoria: 'Banco de Dados',
+        autor: 'Ramez Elmasri ,Shamkant B. Navathe ',
+        descricao:
+            ' Este livro é um manual clássico de ciência da computação que ensina como organizar e guardar grandes quantidades de dados. A obra explica os fundamentos para criar, usar e proteger sistemas de armazenamento seguro, além de ensinar a linguagem SQL para fazer buscas rápidas. Os autores dividem o assunto em partes bem fáceis de entender, abordando a modelagem (como desenhar o banco de dados usando o modelo Entidade-Relacionamento), os SGBDs (softwares que gerenciam a base de dados) e as linguagens de consulta. ',
+
+        capa: '/images/livro_info_20.png'
     },
     {
         id: 21,
-        titulo: 'Dragon Ball clasico volume 1',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'acompanha a jornada de Son Goku, um menino ingênuo com cauda de macaco. Ao lado de Bulma, ele parte em busca das sete Esferas do Dragão',
-        resumo:
-            'introduz Son Goku, um menino ingênuo com cauda de macaco e força sobre-humana. Ele conhece a jovem cientista Bulma, que está atrás das sete Esferas do Dragão.',
-        preco: 37.90,
-        capa: '/img/DragonB_vol1.jpg'
+        titulo: 'Desenvolvimento Web com Python e Django',
+        link: 'https://pythonacademy.com.br/assets/ebooks/desenvolvimento-web-com-python-e-django/EBOOK-PythonAcademy-Desenvolvimento-Web-com-Python-e-Django.pdf',
+        categoria: 'Python',
+        autor: 'Python Academy',
+        descricao:
+            ' O livro Desenvolvimento Web com Python e Django (Python Academy) ensina como criar aplicações web completas usando o framework Django. Ele mostra como funciona o desenvolvimento do lado do servidor, explicando a estrutura do Django e como ele organiza um projeto em camadas. O material aborda desde a configuração inicial até a criação de sistemas web, incluindo o uso de models para banco de dados, views para controlar a lógica e templates para montar as páginas. Também apresenta recursos importantes do Django, como formulários, ORM, middlewares e ferramentas que ajudam a construir aplicações de forma mais rápida e organizada. ',
+        capa: '/images/livro_info_21.png'
     },
     {
         id: 22,
-        titulo: 'Dragon Ball super volume 20',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poder',
-        resumo:
-            ' Ele acompanha o clímax da batalha contra o vilão Gas, o despertar das verdadeiras formas de Goku e Vegeta, e uma virada surpreendente com o retorno de Freeza',
-        preco: 52.83,
-        capa: '/img/DragonB_vol20.jpg'
+        titulo: 'Fundamentos de Programação: Algoritmos, Estruturas de Dados e Objetos',
+        link: 'https://www.kufunda.net/publicdocs/Fundamentos%20de%20Programação%20-%20Algoritmos,%20Estruturas%20de%20Dados%20e%20Objetos%20-%203a%20Ed%20(Luis%20Joyanes%20Aguilar)%20(z-lib.org).pdf',
+        categoria: 'Programação',
+        autor: 'Luis JOYANES AGUILAR',
+        descricao:
+            ' O livro começa explicando como funcionam os computadores e a construção de algoritmos, mostrando como resolver problemas usando lógica de programação. Em seguida, aprofunda o estudo das estruturas de dados, como vetores, listas, pilhas, filas, árvores e arquivos, destacando como organizar e manipular informações de forma eficiente. Depois, introduz a programação orientada a objetos, explicando conceitos como classes, objetos, herança e relações entre estruturas, além de usar modelagem UML para representar sistemas. Também aborda a metodologia de desenvolvimento de software, mostrando como planejar, construir e organizar programas de forma mais profissional. ',
+        capa: '/images/livro_info_22.png'
     },
     {
         id: 23,
-        titulo: 'Dragon Ball super volume 24',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poder',
-        resumo:
-            'O grande destaque é o embate épico entre Gohan Beast e Goku Instinto Superior, além de trazer homenagens póstumas ao autor Akira Toriyama',
-        preco: 52.83,
-        capa: '/img/DragonB_vol24.jpg'
+        titulo: 'MySQL: Comece com o principal banco de dados open source do mercado',
+        link: 'https://www.kufunda.net/publicdocs/MySQL%20Comece%20com%20o%20principal%20banco%20de%20dados%20open%20source%20do%20mercado%20(Vinícius%20Carvalho).pdf',
+        categoria: 'Banco de Dados',
+        autor: 'Vinícius Carvalho',
+        descricao:
+            ' O livro MySQL: Comece com o principal banco de dados open source do mercado serve como um guia inicial para o entendimento e aplicação do MySQL no desenvolvimento técnico e de infraestrutura, abordando o gerenciamento do banco de dados open source mais popular do mercado de tecnologia. ',
+        capa: '/images/livro_info_23.png'
     },
     {
         id: 24,
-        titulo: 'Dragon Ball Z volume 22',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poderEle começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        resumo:
-            'Após o Boo Gordo se dividir, a versão maligna consome a bondosa, transformando-se no Super Boo. Com os humanos restantes em perigo, Goten e Trunks treinam na Sala do Espírito e do Tempo para enfrentá-lo',
-        preco: 58.26,
-        capa: '/img/DragonB_vol22.jpg'
+        titulo: 'Banco de Dados MySQL',
+        link: 'https://www.marcosdemelo.com/aulas/files/LF/CURSOS/INFO/3%20info%20-%20Banco%20de%20Dados/livro-banco-de-dados-mysql.pdf',
+        categoria: 'Banco de Dados',
+        autor: 'Marcos de Melo',
+        descricao:
+            ' O livro Banco de Dados MySQL (Marcos de Melo) é um material didático introdutório que ensina os conceitos fundamentais de banco de dados relacionais usando o MySQL. Ele explica o que é um banco de dados e para que ele serve, além de apresentar noções básicas de SGBD e da estrutura de um banco relacional, como tabelas, campos, registros e tipos de dados. O material também aborda a instalação do MySQL (geralmente com o XAMPP) e mostra os primeiros passos práticos, como criar um banco de dados, criar tabelas, inserir dados e visualizar informações armazenadas. ',
+        capa: '/images/livro_info_24.png'
     },
     {
         id: 25,
-        titulo: 'Dragon Ball Z volume 33',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poderEle começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        resumo:
-            'Ele começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        preco: 89.90,
-        capa: '/img/DragonB_vol33.jpg'
+        titulo: 'Scrum 360: Um Guia Completo e Prático de Agilidade',
+        link: 'https://www.kufunda.net/publicdocs/Scrum%20360%20-%20Um%20Guia%20Completo%20e%20Prático%20de%20Agilidade%20(Jorge%20Audy).pdf',
+        categoria: 'Projeto de Software',
+        autor: 'Jorge Audy',
+        descricao:
+            ' O livro Scrum 360 : Um Guia Completo e Prático de Agilidade apresenta de forma detalhada a metodologia Scrum e os conceitos e práticas essenciais da agilidade na gestão e desenvolvimento de projetos de software e produtos digitais. ',
+        capa: '/images/livro_info_25.png'
     },
+
     {
         id: 26,
-        titulo: 'My Dress-up Darling volume 1',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'Wakana Gojo tem seu destino muda quando a extrovertida Marin Kitagawa descobre sua habilidade na costura. Ela pede sua ajuda para criar a fantasia de cosplay de sua personagem favorita de videogame, iniciando uma linda parceria ',
-        preco: 45,
-        capa: '/img/DresUp_vol1.jpg'
+        titulo: 'Aprendendo Django no Planeta Terra - vol. 1',
+        link: 'https://chevitarese.wordpress.com/wp-content/uploads/2009/07/aprendendo-django-no-planeta-terra-volume1.pdf',
+        categoria: 'Django',
+        autor: 'Marinho Brandão',
+        descricao:
+            ' O livro Scrum 360 : Um Guia Completo e Prático de Agilidade apresenta de forma detalhada a metodologia Scrum e os conceitos e práticas essenciais da agilidade na gestão e desenvolvimento de projetos de software e produtos digitais. ',
+        capa: '/images/livro_info_26.png'
     },
-    {
+
+      {
         id: 27,
-        titulo: 'My Dress-up Darling volume 2',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'O foco da história se aprofunda na colaboração entre Wakana Gojo, um artesão de bonecas, e Marin Kitagawa, sua colega popular e cosplayer ',
-        preco: 45,
-        capa: '/img/DresUp_2.jpg'
+        titulo: 'Guia do Scrum',
+        link: 'https://scrumguides.org/docs/scrumguide/v1/Scrum-Guide-Portuguese-BR.pdf',
+        categoria: 'Scrum',
+        autor: ' Ken Schwaber e Jeff Sutherland',
+        descricao:
+            ' O Scrum Guide Português BR é um documento que descreve o framework Scrum, usado principalmente no desenvolvimento de produtos e gestão ágil de projetos. Ele apresenta de forma direta os papéis, eventos, artefatos e regras do Scrum, explicando como equipes trabalham de maneira iterativa e colaborativa para entregar valor continuamente. É um guia curto, mas denso, que serve como base oficial para entender e aplicar Scrum na prática',
+        capa: '/images/livro_info_27.png'
     },
-    {
+
+      {
         id: 28,
-        titulo: 'My Dress-up Darling volume 10',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'foca na preparação para um ensaio fotográfico em grupo com o tema do jogo de terror "Coffin". Após os cosplayers veteranos cancelarem por conflitos de agenda, Marin resolve a situação convidando novos amigos para o projeto',
-        preco: 50.49,
-        capa: '/img/DresUp_vol10.jpg'
+        titulo: 'Introdução a Web Design',
+        link: 'https://sisacad.educacao.pe.gov.br/bibliotecavirtual/bibliotecavirtual/texto/Caderno_INFO(Introducao_a_Web_Design_2017.1).pdf',
+        categoria: 'Design',
+        autor: ' Ewerton Mendonça',
+        descricao:
+            ' O material apresenta uma introdução ao Web Design, abordando os conceitos fundamentais para o planejamento e desenvolvimento de websites. O conteúdo explica desde a estrutura da internet até princípios básicos de design, organização de páginas e construção de interfaces, com foco em iniciantes da área de tecnologia',
+        capa: '/images/livro_info_28.png'
     },
+
     {
         id: 29,
-        titulo: 'My Dress-up Darling volume 13',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'Wakana Gojo finaliza o elogiado cosplay de "Haniel" (Missão Divina). Marin brilha na Comiket de inverno, atraindo uma multidão com maquiagem e figurino impecáveis. Contudo, a imersão assustadora da personagem gera reações inesperadas e confusas em Gojo',
-        preco: 54.90,
-        capa: '/img/DresUp_vol13.jpg'
+        titulo: 'Desenvolvimento para Web',
+        link: 'https://educapes.capes.gov.br/bitstream/capes/432205/2/Livro_Desenvolvimento%20para%20Web.pdf',
+        categoria: 'Front-End',
+        autor: ' Joaquim Celes no Júnior, Robério Gomes Patricio',
+        descricao:
+            ' Este livro apresenta os principais conceitos do desenvolvimento para a Web, explorando tecnologias fundamentais para a criação de sites e aplicações web. O material aborda a estrutura de páginas com HTML, além de conceitos relacionados à Internet, ferramentas e boas práticas utilizadas no desenvolvimento de aplicações modernas, oferecendo uma base sólida para estudantes e iniciantes na área.',
+        capa: '/images/livro_info_29.png'
     },
-    {
+
+     {
         id: 30,
-        titulo: 'Fire Force Volume 1',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Shinra Kusakabe e a Oitava Brigada. Eles formam um esquadrão de bombeiros especiais que combate a combustão humana espontânea — um fenômeno onde pessoas se transformam em monstros de fogo destrutivos chamados de "Infernais',
-        preco: 59.90,
-        capa: '/img/FireF_vol1.jpg'
+        titulo: 'Apostila de Introdução ao Desenvolvimento Web',
+        link: 'https://fit.faccat.br/~fpereira/pagina/autoria/ApostilaDesenvolvimentoWeb-Autoria1-Fevereiro2018.pdf',
+        categoria: 'Front-End',
+        autor: ' Flávia Pereira de Carvalho',
+        descricao:
+            ' Esta apostila apresenta os fundamentos do desenvolvimento de aplicações web, abordando os principais conceitos e tecnologias utilizadas na criação de sites modernos. O material explora HTML, CSS e JavaScript, além de introduzir práticas de estruturação de páginas, organização de conteúdo, estilos e interatividade, oferecendo uma base prática para quem está começando na área de desenvolvimento web.',
+        capa: '/images/livro_info_30.png'
     },
-    {
+
+      {
         id: 31,
-        titulo: 'Fire Force Volume 24',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Ele foca em treinamentos intensos e estratégias, com destaque para a conclusão da Espada Sagrada de Arthur e o treinamento de Shinra com Benimaru para dominar o poderoso Adolla Link',
-        preco: 40.28,
-        capa: '/img/FireF_vol24.jpg'
+        titulo: 'Fundamentos do Desenvolvimento Web',
+        link: 'https://redeetec.mec.gov.br/images/stories/pdf/eixo_infor_comun/tec_inf/081112_fund_desenv.pdf',
+        categoria: 'Front-End',
+        autor: ' Keila Brito',
+        descricao:
+            'Este material apresenta os fundamentos do desenvolvimento de aplicações para web, abordando os conceitos básicos da Internet e da World Wide Web, além das principais tecnologias utilizadas na criação de sites. O conteúdo inclui noções de HTML, estrutura de páginas, funcionamento de sistemas web e práticas iniciais de desenvolvimento, oferecendo uma base introdutória para estudantes da área de informática e programação',
+        capa: '/images/livro_info_31.png'
     },
-    {
+
+     {
         id: 32,
-        titulo: 'Fire Force Volume 26',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Foca quase inteiramente no conflito caótico em Asakusa e na erupção do Doppelganger de Shinmon Hibachi. O antigo líder dos bombeiros retorna como um poderoso Flamejante Demônio para testar o seu discípulo, Benimaru, gerando um combate entre mestre e aprendiz',
-        preco: 40.28,
-        capa: '/img/FireF_vol26.jpg'
+        titulo: 'manual dos dados abertos:desenvolvedores',
+        link: 'https://www.w3c.br/pub/Materiais/PublicacoesW3C/manual_dados_abertos_desenvolvedores_web.pdf',
+        categoria: 'Front-End',
+        autor: ' W3C Brasil',
+        descricao:
+            'Este manual apresenta os conceitos e práticas relacionados aos dados abertos na Web, explicando como publicá-los, estruturá-los e reutilizá-los de forma padronizada. O material aborda princípios fundamentais dos dados abertos, como interoperabilidade, uso de padrões da Web, metadados, vocabulários e tecnologias como Linked Data e ontologias. Também orienta desenvolvedores sobre como disponibilizar informações públicas de maneira acessível, incentivando transparência e reutilização de dados em aplicações web.( http://creativecommons.org/licenses/by/3.0/legalcode)',
+        capa: '/images/livro_info_32.png'
     },
+
     {
         id: 33,
-        titulo: 'Fire Force Volume 31',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Foca na épica e absurda batalha entre Arthur (o Cavaleiro do Rei) e Dragon, que leva o combate até o espaço sideral. Durante a luta, Arthur recebe um novo poder após se lembrar do tesouro confiado a ele por Vulcan',
-        preco: 59.90,
-        capa: '/img/FireF_vol31.jpg'
+        titulo: 'UM ESTUDO SOBRE PADRÕES E TECNOLOGIAS PARA O DESENVOLVIMENTO WEB: BACK-END',
+        link: 'https://pantheon.ufrj.br/bitstream/11422/18209/1/monopoli10018659.pdf',
+        categoria: 'Back-End',
+        autor: ' Vitor de Andrade',
+        descricao:  'Este texto consiste em um estudo comparativo das tecnologias e conceitos a respeito do desenvolvimento do back-end de uma aplicação Web. A fim de demonstrar suas implementações de forma prática, será apresentado ao final do texto um breve exemplo demonstrando a criação de um sistema simples.'
+,      
+        capa: '/images/livro_info_33.png'
     },
+
+
+
+
+    ///3° ANO
     {
         id: 34,
-        titulo: 'Fire Force Volume 33',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Ele gira em torno da revelação de Haumea como a verdadeira vontade de Deus, forçando o mundo ao desespero, enquanto Shinra é empurrado ao limite após a aparente morte de Arthur',
-        preco: 39.90,
-        capa: '/img/FireF_vol33.jpg'
+       titulo: 'Projeto e Desenvolvimento em Dispositivos Móveis',
+        link: 'https://www.seduc.ce.gov.br/wp-content/uploads/sites/37/2022/11/modulo3_alunos_projeto_desenvolvimento.pdf',
+        categoria: 'Redes',
+        autor: 'Eder Jacques Porfírio Farias',
+        descricao:
+            'O material apresenta uma introdução aos conceitos de redes de computadores, explicando como os dispositivos se conectam e trocam informações. Aborda os fundamentos da comunicação de dados, os principais dispositivos de rede e noções básicas de protocolos e funcionamento da internet, sendo indicado para iniciantes na área de tecnologia da informação.',
+        capa: '/images/livro_info_34.png'
     },
     {
         id: 35,
-        titulo: 'Gachiakuta volume 1',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Apresenta Rudo, um jovem que vive na base de uma cidade flutuante cujos habitantes ricos descartam tudo no "Poço" (um abismo abaixo). Injustamente acusado de assassinato, ele é jogado no abismo, onde encontra monstros de lixo e os "Limpadores", ganhando o poder de dar vida a objetos',
-        preco: 43.90,
-        capa: '/img/Gachiakuta_vol1.jpg'
+        titulo: 'Desenvolvimento web com PHP e MySQL',
+        link: 'https://www.kufunda.net/publicdocs/Desenvolvimento%20web%20com%20PHP%20e%20MySQL%20(Evaldo%20Junior%20Bento).pdf',
+        categoria: 'Programação',
+        autor: 'Evaldo Junior Bento',
+        descricao:
+            ' É um livro que ensina como criar sites dinâmicos usando PHP junto com o banco de dados MySQL. Ele explica desde a instalação do PHP até a criação de formulários, manipulação de dados, conexão com banco e construção de aplicações web completas, mostrando como PHP é usado no desenvolvimento de sistemas reais. ',
+        capa: '/images/livro_info_35.png'
     },
     {
         id: 36,
-        titulo: 'Gachiakuta volume 3',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Rudo chegando ao quartel-general dos Zeladores (ou Limpadores) para descobrir como voltar ao "Paraíso". Como o líder está ausente, Rudo decide ajudar em uma missão, mas enfrenta dificuldades com seu poder e logo se torna o alvo de um grupo perigoso chamado Saqueadores',
-        preco: 52.82,
-        capa: '/img/Gachiakuta_vol3.jpg'
+        titulo: 'Aplicativos Web Pro Android: Desenvolvimento Pro Android Usando HTML5, CSS3 e JavaScript',
+        link: 'https://www.hrenatoh.net/curso/textos/AplicativosWebProAndroid.pdf',
+        categoria: 'Programação',
+        autor: 'Damon Oehlman e Sébastien Blanc',
+        descricao:
+            ' O livro apresenta uma abordagem prática para o desenvolvimento de aplicações web voltadas à plataforma Android utilizando tecnologias amplamente empregadas no desenvolvimento web. A obra demonstra como criar aplicativos móveis por meio de HTML5, CSS3 e JavaScript, explorando recursos modernos que permitem desenvolver interfaces interativas e responsivas sem a necessidade de utilizar exclusivamente linguagens nativas. Ao longo dos capítulos, são abordados temas como armazenamento local, criação de aplicações multipágina, sincronização de dados com serviços em nuvem, integração com APIs de geolocalização e mapas, e uso do PhoneGap. ',
+        capa: '/images/livro_info_36.png'
     },
     {
         id: 37,
-        titulo: 'Gachiakuta volume 6',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Foca no confronto contra a enigmática Amo na Zona Proibida Desértica. Ela usa os poderes de seu Utensílio Personalíssimo para dominar os Zeladores um a um. O jogo vira graças a um ataque de Tamsy combinado com o feitiço de proteção de Remlin',
-        preco: 39.90,
-        capa: '/img/Gachiakuta_vol6.jpg'
+        titulo: 'Redes de Computadores',
+        link: 'https://www.kufunda.net/publicdocs/Rede%20de%20Computadores-AMARAL,%20ALLAN%20FRANCISCO%20FORZZA.pdf',
+        categoria: 'Redes',
+        autor: ' Allan Francisco Forzza Amaral',
+        descricao:
+            ' Desenvolvido para cursos técnicos e superiores da área de Informática, o livro combina explicações teóricas com exemplos práticos. A obra aborda temas como a evolução das redes, modelos de referência (OSI e TCP/IP), topologias, meios de transmissão, equipamentos de rede, endereçamento IP, protocolos de comunicação, redes locais (LAN), metropolitanas (MAN) e de longa distância (WAN), além de conceitos básicos sobre segurança e infraestrutura de redes, servindo como base para estudantes que desejam compreender o funcionamento e a administração de redes de computadores. ',
+        capa: '/images/livro_info_37.png'
     },
-    {
+
+     {
         id: 38,
-        titulo: 'Gachiakuta volume 7',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Foca no conflito direto entre os Zeladores e a facção criminosa dos Arruaceiros. A narrativa é marcada pelo sequestro de Rudo, pela revelação de segredos sombrios e por uma aliança inusitada que promete sacudir o universo da obra',
-        preco: 54.68,
-        capa: '/img/gachiakuta_vol7.jpg'
+        titulo: 'Redes de Computadores',
+        link: 'https://sisacad.educacao.pe.gov.br/bibliotecavirtual/bibliotecavirtual/texto/CadernodeINFORedesdeComputadoresRDDI.pdf',
+        categoria: 'Redes',
+        autor: ' Silvio Bandeira e Dailson Fernandes',
+        descricao:
+            ' O material apresenta os conceitos fundamentais de redes de computadores, explicando como os dispositivos se conectam e se comunicam por meio de protocolos, cabos e tecnologias sem fio. Aborda noções básicas de infraestrutura de rede, modelos de comunicação, dispositivos de interconexão e funcionamento da internet, sendo indicado para iniciantes na área de tecnologia da informação.',
+        capa: '/images/livro_info_38.png'
     },
-    {
+
+     {
         id: 39,
-        titulo: 'Gachiakuta volume 15',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'A história foca na preparação de Rudo para atravessar a fronteira em direção ao Paraíso, lidando com a busca pelo criador das gargantilhas e seus deveres como Zelador',
-        preco: 46.90,
-        capa: '/img/gachiakuta_vol15.jpg'
+        titulo: ' Android: Programando Passo a Passo',
+        link: 'https://www.leonardoleandrodev.com.br/downloads/apostila-android.pdf',
+        categoria: 'Redes',
+        autor: ' Luciano Alvez da Silva',
+        descricao:
+            ' Esta apostila apresenta uma introdução ao desenvolvimento de aplicativos para Android utilizando o Android Studio. O material aborda os principais conceitos da plataforma, desde a configuração do ambiente de desenvolvimento até a criação de aplicações práticas, permitindo que iniciantes aprendam os fundamentos da programação mobile de forma simples e objetiva.',
+        capa: '/images/livro_info_39.png'
+    },
+
+      {
+        id: 40,
+        titulo: ' Desenvolvendo Aplicações Mobile com Android Studio.',
+        link: 'https://lms.ev.org.br/mpls/Custom/Cds/COURSES/3283-APLIC_MOB/curso/pdfs/aplicacoes-mobile.pdf',
+        categoria: 'Redes',
+        autor: 'Fundação Bradesco',
+        descricao:
+            'Este material apresenta os fundamentos do desenvolvimento de aplicações móveis com Android Studio, abordando desde a configuração do ambiente de desenvolvimento até a criação de interfaces, gerenciamento de recursos e implementação de funcionalidades. Com uma abordagem prática, a apostila auxilia iniciantes a compreenderem os principais conceitos da programação para dispositivos Android e a desenvolverem seus primeiros aplicativos.',
+         capa: '/images/livro_info_40.png'
     },
     {
-        id: 40,
-        titulo: 'Horimiya volume 1',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'Izumi Miyamura, um garoto introvertido e melancólico. Suas vidas mudam quando eles se encontram fora do colégio e revelam suas verdadeiras personalidades: Hori é uma dona de casa responsável, e Miyamura esconde tatuagens e piercings',
-        preco: 44.90,
-        capa: '/img/Horimiya_vol1.jpg'
+        id: 41,
+        titulo: 'Desenvolvimento para Dispositivos Móveis usando Tecnologias Web com Ênfase em Jogos',
+        link: 'https://books-sol.sbc.org.br/index.php/sbc/catalog/download/15/62/142?inline=1',
+        categoria: 'Front-End',
+        autor: 'André Santanchè, Renoir Boulanger, Gabriela Viana, Ricardo Panaggio, Bruno Melo, Hugo Aboud ',
+        descricao:
+            'Este livro reúne conteúdos introdutórios sobre desenvolvimento para dispositivos móveis, apresentando os principais conceitos, tecnologias e práticas utilizadas na criação de aplicativos. Com uma abordagem didática e exemplos práticos, a obra auxilia estudantes e desenvolvedores iniciantes a compreenderem o processo de desenvolvimento mobile e a construírem aplicações de forma estruturada.',
+        capa: '/images/livro_info_41.png' 
     },
     {
         id: 42,
-        titulo: 'Horimiya volume 2',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'foca na consolidação do relacionamento entre Hori e Miyamura, na mudança de visual radical de Miyamura e nos desdobramentos com outros colegas de classe, como Tooru e Yuki',
-        preco: 35.30,
-        capa: '/img/Horimiya_vol2.jpg'
+        titulo: 'Redes de Computadores II',
+        link: 'https://proedu.rnp.br/bitstream/handle/123456789/1551/Redes_computadores_II_ISBN.pdf?sequence=1&isAllowed=y',
+        categoria: 'Redes',
+        autor: 'Neylor Michel',
+        descricao:
+            'Este material aprofunda os principais conceitos de redes de computadores, abordando protocolos de comunicação, roteamento, serviços de rede, segurança e gerenciamento de redes. Com linguagem didática e exemplos práticos, o conteúdo auxilia estudantes e profissionais a compreenderem o funcionamento das redes e sua aplicação em ambientes computacionais.',
+        capa: '/images/livro_info_42.png'
     },
     {
         id: 43,
-        titulo: 'Horimiya volume 16',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'Ele foca na conclusão do ensino médio, na formatura e no amadurecimento dos personagens, trazendo um vislumbre do futuro do casal principal e de seus amigos',
-        preco: 44.90,
-        capa: '/img/Horimiya_vol16.jpg'
+        titulo: 'DESENVOLVIMENTO WEB MODERNO E ÁGIL',
+        link: 'https://altabooks.com.br/wp-content/uploads/2020/03/AMOSTRA_PythonDjango.pdf',
+        categoria: 'Django',
+        autor: 'FRANCISCO MARCELO DE BARROS MACIEL',
+        descricao:
+            'Este livro apresenta uma abordagem prática para o desenvolvimento de aplicações web utilizando a linguagem Python e o framework Django. Partindo dos conceitos fundamentais da programação, a obra ensina a criar projetos modernos, explorar os principais recursos do Django e desenvolver aplicações completas por meio de exemplos e exercícios práticos.',
+        capa: '/images/livro_info_43.png'
     },
     {
         id: 44,
-        titulo: 'Horimiya volume 17',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'É um volume extra focado em histórias curtas inéditas e na rotina descontraída dos personagens. Ele traz momentos de comédia e nostalgia, servindo como uma celebração e um epílogo para a amada',
-        preco: 41.90,
-        capa: '/img/Horimiya_vol17.jpg'
+        titulo: 'Django Girls Tutorial',
+        link: 'https://we.riseup.net/assets/364554/djangogirls-tutorial-pt.pdf',
+        categoria: 'Django',
+        autor: 'Django Girls',
+        descricao:
+            'Este tutorial ensina o desenvolvimento de aplicações web com Python utilizando o framework Django de forma prática e acessível. Ao longo do material, o leitor aprende desde a configuração do ambiente de desenvolvimento até a criação e publicação de um blog funcional, explorando conceitos como modelos, templates, formulários, banco de dados e implantação de aplicações.',
+        capa: '/images/livro_info_44.png'
     },
     {
         id: 45,
-        titulo: 'Hunter x Hunter volume 1',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Acompanha Gon Freecss, um garoto de 12 anos que parte da Ilha da Baleia para se tornar um Hunter e encontrar seu pai. Pelo caminho, ele faz amizade com Kurapika, Leorio e Killua, e juntos eles iniciam a primeira e mortal fase do Exame Hunters',
-        preco: 27.90,
-        capa: '/img/Hxh_vol1.jpg'
-    },
-    {
-        id: 46,
-        titulo: 'Hunter x Hunter volume 2',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Abrange a reta final da Primeira Fase do Exame Hunter e inicia a épica jornada da Torre de Avaliação (Terceira Fase). Ele foca nos testes de sobrevivência e apresenta o misterioso Killua Zoldyck',
-        preco: 29.90,
-        capa: '/img/Hxh_vol2.jpg'
-    },
-    {
-        id: 47,
-        titulo: 'Hunter x Hunter volume 4',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Foca na tensa prova de caça na Ilha Zevil. Gon persegue Hisoka para recuperar seu crachá, enquanto Kurapika e Leorio enfrentam o mesmo mágico em uma batalha de vida ou morte. O volume conclui com o início da misteriosa e mortal Prova Final.',
-        preco: 29.90,
-        capa: '/img/Hxh_vol4.jpg'
-    },
-    {
-        id: 48,
-        titulo: 'Hunter x Hunter volume 7',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'E marca o clímax do arco da Arena Celestial. O foco principal é a aguardada luta entre Gon e Hisoka, além do desenvolvimento definitivo das técnicas de Nen dos protagonistas.',
-        preco: 27.90,
-        capa: '/img/Hxh_vol7.jpg'
-    },
-    {
-        id: 48,
-        titulo: 'Hunter x Hunter volume 34',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Foca no clímax da luta mortal entre Hisoka e Chrollo na Arena Celestial e inicia a perigosa viagem para o Continente Sombrio, quando Kurapika embarca em um navio repleto de príncipes em meio a assassinatos misteriosos',
-        preco: 35.67,
-        capa: '/img/Hxh_vol34.jpg'
-    },
-    {
-        id: 49,
-        titulo: 'Jujutsu Kaisen volume 1',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'introduz Yuji Itadori, um jovem com força física sobre-humana. Após seus amigos do Clube de Ocultismo abrirem um selo contendo o dedo de Ryomen Sukuna (o Rei das Maldições), monstros atacam a escola. Para salvar os colegas, Yuji engole o dedo e torna-se hospedeiro de Sukuna',
-        preco: 42,
-        capa: '/img/jujutsu_vol1.jpg'
-    },
-    {
-        id: 50,
-        titulo: 'Jujutsu Kaisen volume 11',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'Cobre o início frenético do Incidente de Shibuya. O volume é marcado pelo cerco das maldições a Satoru Gojo na estação de metrô e culmina no chocante confinamento do feiticeiro mais forte do mundo',
-        preco: 33.63,
-        capa: '/img/jujutsu_vol11.jpg'
-    },
-    {
-        id: 51,
-        titulo: 'Jujutsu Kaisen volume 22',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'A narrativa destaca a nova evolução de Maki Zen in e se encerra com revelações bombásticas sobre o Anjo e os planos de Sukuna para o receptáculo de Megumi Fushiguro',
-        preco: 34.01,
-        capa: '/img/jujutsu_vol22.jpg'
-    },
-    {
-        id: 52,
-        titulo: 'Jujutsu Kaisen volume 26',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'cobre o clímax da batalha em Shinjuku entre Satoru Gojo e Ryomen Sukuna. O volume foca na expansão de domínios, na invocação de Mahoraga e culmina no trágico destino do feiticeiro mais forte e em suas memórias finais',
-        preco: 50.12,
-        capa: '/img/jujutsu_vol26.jpg'
-    },
-    {
-        id: 53,
-        titulo: 'Monster volume 1',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Apresenta o Dr. Kenzo Tenma, um neurocirurgião brilhante na Alemanha. Ao desobedecer ordens superiores para salvar uma criança baleada em vez do prefeito, ele desencadeia uma série de assassinatos e descobre que o garoto salvo se tornou um sociopata',
-        preco: 76.95,
-        capa: '/img/Monster_vol1.jpg'
-    },
-    {
-        id: 54,
-        titulo: 'Monster volume 2',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Dr. Kenzo Tenma torna-se o principal suspeito da polícia após cair em uma armadilha de Johan e é caçado pelo inspetor Lunge. Tentando provar sua inocência e parar o assassino, Tenma segue as pistas de Johan até Berlim, enquanto Nina se infiltra em uma facção neonazista',
-        preco: 114.14,
-        capa: '/img/Monster_vol2.jpg'
-    },
-    {
-        id: 55,
-        titulo: 'Monster volume 3',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Investigação do Dr. Tenma em busca das origens de Johan. O neurocirurgião vai a Berlim e descobre um passado sombrio ligado a experimentos secretos da Alemanha Oriental, trazendo à tona verdades assustadoras sobre o infame orfanato onde Johan esteve',
-        preco: 76.90,
-        capa: '/img/Monster_vol3.jpg'
-    },
-    {
-        id: 56,
-        titulo: 'Monster volume 4',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Foca nas investigações do detetive Richard e no cerco a Johan Liebert. Johan infiltra-se na alta cúpula da Baviera manipulando o magnata Schuwald, enquanto o Dr. Tenma tenta aproximar-se do vilão munido de um rifle durante uma conferência universitária',
-        preco: 81.30,
-        capa: '/img/Monster_vol4.jpg'
-    },
-    {
-        id: 57,
-        titulo: 'Nana volume 1',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'Funciona como um prólogo focado em apresentar o contraste entre as duas protagonistas de mesmo nome: Nana Komatsu (uma jovem ingênua e carente que se muda para Tóquio para viver com o namorado) e Nana Osaki (uma vocalista de punk rock decidida a fazer sucesso',
-        preco: 29.27,
-        capa: '/img/Nana_vol1.jpg'
-    },
-    {
-        id: 58,
-        titulo: 'Nana volume 4',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'Nana "Hachi" Komatsu sofre um baque ao flagrar o namorado Shoji a traindo com Sachiko. Enquanto lida com o término devastador, ela se aproxima de Nana Osaki e da banda Blast, além de tentar ingressar no mundo da banda Trapnest',
-        preco: 33.90,
-        capa: '/img/Nana_vol4.jpg'
-    },
-    {
-        id: 59,
-        titulo: 'Nana volume 7',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'A banda Blast chama a atenção de uma grande gravadora e enfrenta um dilema sobre seguir carreira comercial ou independente',
-        preco: 42.92,
-        capa: '/img/Nana_vol7.jpg'
-    },
-    {
-        id: 60,
-        titulo: 'Nana volume 12',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'O casamento de Hachi e Takumi é adiado para dar lugar ao anúncio do noivado público de Nana Osaki e Ren. Isso deixa Hachi isolada, enquanto Nobu tenta seguir em frente com Yuri',
-        preco: 31.34,
-        capa: '/img/Nana_vol12.jpg'
-    },
-    {
-        id: 61,
-        titulo: 'Naruto volume volumo 8',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Foca na conclusão da segunda fase do Exame Chunin na Floresta da Morte e no início da fase preliminar',
-        preco: 43.90,
-        capa: '/img/Naruto_vol8.jpg'
-    },
-    {
-        id: 62,
-        titulo: 'Naruto volume volumo 54',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Destaca o momento em que Naruto domina de vez o chakra da Nove-Caudas, o confronto crucial contra Kisame para impedir o vazamento de informações e os preparativos finais das Vilas Ocultas para a iminente Quarta Guerra Ninja',
-        preco: 27.90,
-        capa: '/img/Naruto_vol54.jpg'
-    },
-    {
-        id: 63,
-        titulo: 'Naruto volume volumo 56',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Cobre o início da Quarta Guerra Ninja, focando nos confrontos desesperados da Aliança Shinobi contra os guerreiros lendários ressuscitados pelo Edo Tensei de Kabuto, além de introduzir a épica batalha da Equipe Asuma contra seus antigos companheiros',
-        preco: 56.40,
-        capa: '/img/Naruto_vol56.jpg'
-    },
-    {
-        id: 64,
-        titulo: 'Naruto volume volumo 67',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Obito absorve o Dez-Caudas, tornando-se seu jinchuriki perfeito. Com um poder avassalador que ameaça o mundo, Naruto e Sasuke unem forças com os Hokages revividos e utilizam o chakra do Nove Caudas com o Estilo Liberação de Vento para criar uma brecha na defesa de Obito',
-        preco: 27.90,
-        capa: '/img/Naruto_vol67.jpg'
-    },
-    {
-        id: 65,
-        titulo: 'One Piece volume 112',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Monkey D. Luffy, um garoto que comeu a Fruta do Diabo Gomu Gomu no Mi e ganhou corpo de borracha. Ele parte em uma jornada para encontrar o tesouro One Piece e se tornar o Rei dos Piratas',
-        preco: 39.81,
-        capa: '/img/OneP_vol1.jpg'
-    },
-    {
-        id: 66,
-        titulo: 'One Piece volume 57',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Início à épica Guerra de Marineford. A frota do Barba Branca chega para salvar Ace, gerando um confronto colossal contra os Almirantes da Marinha e os Shichibukai. O destaque é a chegada dramática de Luffy e dos fugitivos de Impel Down direto do céu',
-        preco: 27.90,
-        capa: '/img/OneP_vol57.jpg'
-    },
-    {
-        id: 67,
-        titulo: 'One Piece volume 88',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'O foco principal é a fuga desesperada dos Chapéus de Palha e a intensa luta de Luffy no Mundo dos Espelhos',
-        preco: 60.00,
-        capa: '/img/OneP_vol88.jpg'
-    },
-    {
-        id: 68,
-        titulo: 'One Piece volume 105',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Mostrando as consequências da derrota de Kaido e Big Mom, a definição dos novos Yonkou e o início da aventura do bando em Egghead',
-        preco: 35.58,
-        capa: '/img/OneP_vol105.jpg'
-    },
-    {
-        id: 69,
-        titulo: 'One Piece volume 108',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'A trama principal narra a desesperada tentativa de fuga da tripulação de Luffy, enquanto a misteriosa "Ilha do Futuro" é sitiada por uma frota colossal da Marinha liderada pelo Almirante Kizaru e por um dos Gorosei (Cinco Anciãos)',
-        preco: 19.96,
-        capa: '/img/OneP_vol108.jpg'
-    },
-    {
-        id: 70,
-        titulo: 'Sakura Card Captor volume 1',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Estudante de 10 anos Sakura Kinomoto abre um livro misterioso na biblioteca de seu pai e liberta as Cartas Clow mágicas. O guardião do livro, Kero, transforma Sakura em uma Card Captor, encarregando-a de capturar todas as cartas.',
-        preco: 32.00,
-        capa: '/img/Sakura_vol1.jpg'
-    },
-    {
-        id: 71,
-        titulo: 'Sakura Card Captor volume 2',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Traz a heroína lidando com novos desafios mágicos e enfrentando seus próprios medos. Sakura captura cartas como A Ilusão, que cria aparições fantasmas.',
-        preco: 34.90,
-        capa: '/img/Sakura_vol2.jpg'
-    },
-    {
-        id: 72,
-        titulo: 'Sakura Card Captor volume 14',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Peça escolar "Alice no País do Relógio" dá lugar a um evento mágico: Sakura desaparece do palco e vai parar em um mundo desconhecido e misterioso.',
-        preco: 14.90,
-        capa: '/img/Sakura_vol14.jpg'
-    },
-    {
-        id: 73,
-        titulo: 'Soul Eater volume 1',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Introduz a Shibusen, uma escola especializada em treinar humanos que podem se transformar em armas e seus parceiros (artesãos). A missão dos alunos é consumir 99 almas corrompidas e 1 alma de bruxa para transformar a arma em uma poderosa Death Scythe',
-        preco: 80.01,
-        capa: '/img/SoulE_vol1.jpg'
-    },
-    {
-        id: 74,
-        titulo: 'Soul Eater volume 7',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Marca o início da corrida pela Ferramenta Demoníaca BREW. Maka, Black☆Star e Kid enfrentam dificuldades para sincronizar seus comprimentos de onda enquanto lutam contra o servo imortal Mosquito pelo controle do poderoso artefato',
-        preco: 65.25,
-        capa: '/img/SoulE_vol7.jpg'
-    }, {
-        id: 74,
-        titulo: 'Soul Eater volume 12',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Foca na busca por Death the Kid, que ficou preso no misterioso Livro de Eibon. Para resgatá-lo, a AMAAN faz uma aliança com bruxas. Maka, Soul e seus amigos entram no livro, onde enfrentam tentações mortais ligadas aos sete pecados capitais antes de salvarem Kid',
-        preco: 59.75,
-        capa: '/img/SoulE_vol12.jpg'
-    }, {
-        id: 75,
-        titulo: 'Soul Eater volume 15',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Marca o clímax da invasão ao Castelo Baba Yaga. O foco principal está no intenso confronto psicológico e físico de Maka, Soul e Medusa contra Arachne, além do início da perigosa investida de Death the Kid e das Death Scythes contra o Kishin',
-        preco: 80.90,
-        capa: '/img/SoulE_vol15.jpg'
-    }, {
-        id: 76,
-        titulo: 'Soul Eater volume 19',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Os principais conflitos incluem o resgate de Death the Kid, tomado pela loucura, e o confronto de Maka Albarn contra uma antiga ameaça',
-        preco: 37.35,
-        capa: '/img/SoulE_vol19.jpg'
-    }, {
-        id: 77,
-        titulo: 'Tokyo Ghoulvolume 1',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Tokyo Ghoul acompanha a trágica transformação do estudante universitário Ken Kaneki em um híbrido de humano e ghoul após um encontro fatal. Ele passa a lutar para conciliar sua nova natureza carnívoraintroduz o estudante Ken Kaneki, cuja vida muda após um encontro com Rize, uma ghoul que tenta devorá-lo. Após um acidente, ele recebe órgãos dela em um transplante, tornando-se o primeiro híbrido meio humano e meio ghoul. Ele passa a lutar com sua nova identidade e a necessidade de carne humana ',
-        preco: 71.45,
-        capa: '/img/TokyoG_vol1.jpg'
-    }, {
-        id: 78,
-        titulo: 'Tokyo Ghoul volume 2',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Ken Kaneki aceita sua nova identidade e começa a aprender os costumes da sociedade ghoul. Com a ajuda de Yoshimura e Renji Yomo, ele ganha sua primeira máscara para proteger sua identidade. ',
-        preco: 27.00,
-        capa: '/img/TokyoG_vol2.jpg'
-    }, {
-        id: 79,
-        titulo: 'Tokyo Ghoul volume 7',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Tortura de Kaneki por Yamori (Jason) na base da Árvore de Aogiri. Enquanto a Anteiku e o CCG invadem o local, Kaneki atinge seu limite psicológico, aceita seu lado ghoul e desenvolve seu icônico cabelo branco ',
-        preco: 47.90,
-        capa: '/img/TokyoG_vol7.jpg'
-    }, {
-        id: 80,
-        titulo: 'Tokyo Ghoul volume 13',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'invasão da CCG ao café Anteiku. A agência descobre que o temido ghoul "Coruja de Um Olho" está escondido lá. Yoshimura tenta distrair os investigadores para salvar seus funcionários e amigos',
-        preco: 23.70,
-        capa: '/img/TokyoG_vol13.jpg'
-    }, {
-        id: 81,
-        titulo: 'Tokyo Ghoul volume 14',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'narra o clímax da Operação de Supressão da Anteiku, focando no cerco à cafeteria, no confronto devastador entre Kaneki e o investigador Arima, e no trágico destino de Hide',
-        preco: 42.90,
-        capa: '/img/TokyoG_vol14.jpg'
-    }, {
-        id: 82,
-        titulo: 'Vagabond volume 1',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Acompanha a juventude de Shinmen Takezo e seu amigo Matahachi. Buscando fama e glória, eles lutam na Batalha de Sekigahara, mas após a derrota, lutam para sobreviver. O volume explora a impulsividade e a busca de Takezo para se tornar o espadachim mais forte',
-        preco: 43.30,
-        capa: '/img/Vagabond_vol1.jpg'
-    }, {
-        id: 83,
-        titulo: 'Vagabond volume 7',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca no crescimento de Miyamoto Musashi e na preparação psicológica para a revanche contra Inshun no Templo Hozoin. O volume destaca a transformação interna do protagonista, que passa a enfrentar seu medo da morte e a buscar o verdadeiro significado do "Caminho da Espada"',
-        preco: 54.90,
-        capa: '/img/Vagabond_vol7.jpg'
-    }, {
-        id: 84,
-         titulo: 'Vagabond volume 28',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            ' foca na recuperação física e mental de Musashi. Após sobreviver à sua épica e sangrenta batalha contra os setenta homens do clã Yoshioka, ele acorda gravemente ferido, lidando com o peso e as consequências de sua vida como guerreiro',
-        preco: 32.90,
-        capa: '/img/vagabond_vol28.jpg'
-    },
-    {
-        id: 85,
-         titulo: 'Vagabond volume 16',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca inteiramente na juventude de Sasaki Kojiro. Ele retrata seu treinamento não convencional com Ittosai, as crescentes demonstrações de seu instinto selvagem e os desafios iniciais que começam a moldar sua lenda como espadachim',
-          preco: 47.90,
-            capa: '/img/Vagabond_vol16.jpg'
-    },
-    {
-        id: 86,
-        titulo: 'Vagabond volume 25',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca no aguardado e tenso duelo entre Miyamoto Musashi e Yoshioka Denshichiro, o líder da Escola Yoshioka. Após um ano de trégua, Musashi retorna fortalecido para enfrentar Denshichiro, culminando em uma batalha que muda o destino de ambos',
-        preco: 59.07,
-        capa: '/img/Vagabond_vol25.jpg'
-    },
-    {
-        id: 87,
-        titulo: 'VInland volume 1',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'Introduz o protagonista Thorfinn, um jovem guerreiro consumido pela sede de vingança contra o mercenário Askeladd, assassino de seu pai.',
-        preco: 39.90,
-        capa: '/img/Vinland_vol1.jpg'
-    },
-    {
-        id: 88,
-        titulo: 'VInland volume 28',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'foca nas tensões crescentes entre os colonos nórdicos e os povos nativos em Vinland, abordando a difícil busca de Thorfinn por uma convivência pacífica',
-        preco: 29.90,
-        capa: '/img/Vinland_vol28.jpg'
-    }, {
-        id: 89,
-        titulo: 'VInland volume 29',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'Ele encerra a jornada de Thorfinn lidando com as trágicas consequências da guerra contra os povos nativos de Vinland e consolidando sua busca inabalável pela paz',
-        preco: 46.90,
-        capa: '/img/Vinland_vol29.jpg'
-    }, {
-        id: 90,
-        titulo: 'Neon Genesis Evangelion volume 1',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'Introduz o adolescente Shinji Ikari, convocado a Tóquio-3 por seu pai distante, Gendo. Shinji descobre que deve pilotar um mecha gigante chamado Evangelion para salvar a humanidade de "Anjos" monstruosos que ameaçam a Terra após um cataclismo global.',
-        preco: 66.00,
-        capa: '/img/Evangelion_vol1.jpeg'
-    }, {
-        id: 91,
-        titulo: 'Neon Genesis Evangelion volume 2',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'O protagonista começa a frequentar a escola, lida com o ressentimento de Toji Suzuhara (cuja irmã ficou ferida na primeira batalha), é forçado a pilotar novamente contra um Anjo e decide seu futuro como piloto após morar temporariamente com seus tios.',
-        preco: 79.90,
-        capa: '/img/Evangelion_vol2.jpeg'
-    }, {
-        id: 92,
-         titulo: 'Neon Genesis Evangelion volume 3',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'Ele foca no desenvolvimento do relacionamento de Shinji com seus colegas, explora a dinâmica misteriosa entre seu pai (Gendo) e Rei Ayanami, e culmina na icônica e perigosa batalha contra o Anjo Ramiel',
-        preco: 56.80,
-        capa: '/img/Evangelion_vol3.jpeg'
-    }, {
-        id: 93,
-        titulo: 'Death Note volume 1',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Light Yagami, um estudante genial e entediado que encontra um caderno sobrenatural, o Death Note. Ao descobrir que o objeto mata qualquer pessoa cujo nome seja escrito nele, Light assume a identidade de "Kira" para eliminar criminosos e criar um mundo utópico, atraindo a implacável oposição do genial detetive L',
-        preco: 64.82,
-        capa: '/img/Death_vol1.jpeg'
-    },
-{
-        id: 94,
-        titulo: 'Death Note volume 5',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Intensifica o jogo de gato e rato entre Light Yagami e o detetive L. Após o alerta de que o assassino está no Japão, o volume destaca a eliminação dos agentes do FBI, a colocação de câmeras de vigilância nas casas dos suspeitos e o chocante surgimento de um "Falso Kira".',
-        preco: 27.90,
-        capa: '/img/Death_vol5.jpeg'
-    },
-{
-        id: 95,
-        titulo: 'Death Note volume 6',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Foca na estratégia de Light para provar sua inocência. Ele e Misa, ambos sob a custódia de L, são submetidos a confinamento e vigilância extrema. Para livrar-se das suspeitas, Light abre mão da posse do caderno, perdendo assim todas as memórias relacionadas ao Death Note e aos assassinatos.',
-        preco: 27.90,
-        capa: '/img/Death_vol6.jpeg'
-    },
-{
-        id: 96,
-        titulo: 'Bunny Girl Senpai volume 1',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Acompanha Sakuta Azusagawa enquanto ele tenta salvar sua veterana, a atriz Mai Sakurajima, de uma misteriosa "Síndrome da Adolescência" que a está tornando invisível para o resto do mundo',
-        preco: 70.87,
-        capa: '/img/BunnyG_vol1.jpg'
-    },
-{
-        id: 97,
-        titulo: 'Bunny Girl Senpai volume 14',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Sakuta vai a um festival de música em Yokohama com sua colega de faculdade, Ikumi Akagi. No local, ele é assolado por um novo mistério: começa a ver alucinações de versões mais jovens da sua namorada, Mai Sakurajima',
-        preco: 59.90,
-        capa: '/img/BunnyG_vol14.jpeg'
-    },
-    {
-        id: 98,
-        titulo: 'Bunny Girl Senpai volume 15',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Sakuta resolve o mistério de Miori (a verdadeira identidade de Touko Kirishima) e a natureza de sua própria Síndrome da Adolescência. Ele e Mai formalizam o relacionamento, avançando para o futuro após encerrarem seus dilemas.',
-        preco: 49.90,
-        capa: '/img/BunnyG_vol15.jpeg'
-    },
-{
-        id: 99,
-        titulo: 'ChainSaw Men Volume 1 ',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Introduz Denji, um jovem miserável e cheio de dívidas. Após ser traído e morto pela yakuza, ele se funde ao seu cão-demônio Pochita, tornando-se o "Homem-Motosserra". Ele é recrutado pela caçadora Makima para a agência de segurança pública, onde passa a enfrentar demônios ao lado de Aki e Power',
-        preco: 31.13,
-        capa: '/img/ChainS_vol1.jpg'
-    },
-{
-        id: 100,
-        titulo: 'ChainSaw Men Volume 2',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Denji arrisca a vida em uma batalha mortal contra o Demônio Morcego para realizar seu maior objetivo humano: apanhar nos seios de Power. O volume também foca no início do confronto com o aterrorizante Demônio das Armas de Fogo',
-        preco: 38.35,
-        capa: '/img/ChainS_vol2.jpg'
-    },
-    {
-        id: 101,
-        titulo: 'ChainSaw Men Volume 6',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Foca no romance entre Denji e uma garota chamada Reze. A história aborda o desejo de Denji por uma vida normal e amor verdadeiro, mas se transforma em uma batalha sangrenta e explosiva quando a verdadeira natureza de Reze é revelada',
-        preco: 41.90,
-        capa: '/img/ChainS_vol6.jpg'
-    },
-    {
-        id: 102,
-        titulo: 'ChainSaw Men Volume 12',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Focando em Asa Mitaka, uma estudante solitária. Após morrer, ela é salva pelo Demônio da Guerra e fundida a ele. Ela é forçada a caçar Chainsaw Man enquanto Denji tenta lidar com sua fama e sua identidade secret',
-        preco: 41.90,
-        capa: '/img/ChainS_vol12.jpg'
-    },
-{
-        id: 103,
-        titulo: 'ChainSaw Men Volume 21',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Traz Denji preso em uma situação desesperadora para escapar do Demônio do Envelhecimento. Ele começa a devorar tudo ao seu redor. Após ficar de estômago cheio, Denji vomita uma figura misteriosa, iniciando um acordo infernal.',
-        preco: 41.90,
-        capa: '/img/ChainS_vol21.jpg'
-    },
-{
-        id: 104,
-        titulo: 'Tonikawa Volume 1',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'Acompanha o protagonista Nasa Yuzaki, que é salvo de um atropelamento por uma garota misteriosa chamada Tsukasa. Ele se declara para ela e os dois se casam de imediato. Após reencontrá-la anos depois, eles começam a viver juntos, lidando com o dia a dia e o início de seu relacionamento',
-        preco: 64.90,
-        capa: '/img/Tonikawa_vol1.jpg'
-    },
-{
-        id: 105,
-        titulo: 'Tonikawa Volume 16',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'Ele revela o passado sombrio e milenar da Tsukasa, detalhando como ela escapou da morte e lutou pela liberdade ao longo dos séculos, antes de retornar à vida cotidiana e fofa de recém-casada com o Nasa',
-        preco: 50.78,
-        capa: '/img/Tonikawa_vol16.jpg'
-    },
-{
-        id: 106,
-        titulo: 'Tonikawa Volume 31',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'O enredo destaca a personagem Mishio declarando seus sentimentos por Kaguya, enquanto a amiga Jessie tenta a todo custo impedir que o relacionamento delas aconteça',
-        preco: 41.90,
-        capa: '/img/Tonikawa_vol31.jpg'
-    },
-{
-        id: 107,
-        titulo: 'Boku No Hero volume 1',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Introduz Izuku Midoriya, um garoto sem poderes em um mundo onde 80% da população os possui. Após ser salvo por All Might e demonstrar coragem heroica, Deku recebe o lendário poder One For All para realizar seu sonho de ingressar na U.A',
-        preco: 25.00,
-        capa: '/img/BokuNH_vol1.jpg'
-    },
-{
-        id: 108,
-        titulo: 'Boku No Hero volume 25',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'foca no passado sombrio de Tomura Shigaraki, revelando sua origem, enquanto os heróis se preparam para uma grande guerra. O volume também destaca o início dos novos estágios e as missões de espionagem de Hawks junto à Frente de Libertação',
-        preco: 56.17,
-        capa: '/img/BokuNH_vol25.jpg'
-    },
-{
-        id: 109,
-        titulo: 'Boku No Hero volume 33',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Foca no retorno de Deku à U.A. Ele detalha o resgate emocional de Midoriya por seus amigos, a reconciliação dos alunos e os preparativos para o cerco final contra o All For One e Shigaraki',
-        preco: 22.57,
-        capa: '/img/BokuNH_vol33.jpg'
-    },
-{
-        id: 110,
-        titulo: 'Boku No Hero volume 41',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Foca no clímax da batalha final entre Izuku Midoriya (Deku) e Tomura Shigaraki. Após o vilão roubar o seu "Sentido de Perigo" e ameaçar destruir o Japão, Midoriya precisa usar sua criatividade com as individualidades restantes e desferir um golpe certeiro para salvar o mundo',
-        preco: 29.57,
-        capa: '/img/BokuNH_vol41.jpg'
-    },
-  {
-        id: 111,
-        titulo: 'Berserk volume 1',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo:
-            'O Volume 1 de Berserk inicia o arco do Espadachim Negro. Ele apresenta Guts, um guerreiro implacável marcado com o "Estigma do Sacrifício", que atrai demônios. Acompanhado pelo elfo Puck',
-        preco: 39.9,
-        capa: '/img/berserk_vol1.jpeg'
-    },
-    {
-        id: 112,
-        titulo: 'Berserk volume 12',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Guts retorna após um ano e resgata Griffith da prisão.Fraco, Griffith ativa o Behelit e invoca a Mão de Deus. Cercado por Apóstolos e com seu sonho destruído, ele é forçado a sacrificar o Bando do Falcão.',
-        preco: 49.90,
-        capa: '/img/Berserk_vol12.jpeg',
-    },
-    {
-        id: 3,
-        titulo: 'Berserk volume 13',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Retrata o clímax brutal do Arco da Era de Ouro. Ele cobre o "Eclipse", onde o Behelit Carmesim é ativado por um Griffith egoísta e desolado, condenando todo o Bando do Falcão a ser sacrificado para que ele renasça como Femto',
-        preco: 60,
-        capa: '/img/Berserk_vol13.jpeg',
-    },
-    {
-        id: 4,
-        titulo: 'Berserk volume 14',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'Ele mostra Guts lidando com os traumas do Eclipse, enquanto busca vingança e tenta proteger Casca, cuja mente foi devastada pelo horror que presenciou',
-        preco: 28.9,
-        capa: '/img/Berserk_vol14.jpg'
-    },
-    {
-        id: 5,
-        titulo: 'Berserk volume 26',
-        catagoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'foca na luta desesperada de Guts e seus novos companheiros para salvar Casca e Farnese das garras dos trolls. Após serem arrastadas para a dimensão demoníaca de Qliphot',
-        preco: 35,
-        capa: '/img/Berserk_vol26.jpg'
-    },
-    {
-        id: 6,
-        titulo: 'Berserk volume 42',
-        categoria: 'Seinen',
-        autor: 'Kentaro Miura',
-        resenha:
-            'Berserk é uma obra de fantasia sombria que segue a jornada de Guts, um guerreiro amaldiçoado e ex-mercenário. Buscando vingança contra seu antigo líder e amigo',
-        resumo: 'O mangá foca na trágica queda da Ilha dos Elfos (Dwarf Island), onde a paz de Guts e Casca é abruptamente destruída por Griffith, que captura Casca e deixa um rastro de devastação',
-        preco: 36,
-        capa: '/img/Berserk_vol42.jpg'
-    },
-    {
-        id: 7,
-        titulo: 'Bleach volume 1',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo: 'introduz Ichigo Kurosaki, um estudante capaz de ver fantasmas. Sua vida muda ao conhecer a Ceifeira de Almas (Shinigami) Rukia Kuchiki. Quando um monstro devorador de almas (Hollow) ataca sua família, Ichigo absorve os poderes de Rukia para salvá-los, tornando-se um Shinigami Substituto.',
-        preco: 56.90,
-        capa: '/img/Bleach_vol1.jpg'
-    },
-    {
-        id: 8,
-        titulo: 'Bleach volume 10',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'o grupo de resgate (Ichigo, Chad, Orihime e Ishida) se alia aos irmãos Kuukaku e Ganju Shiba para invadir a Seireitei (a base dos Shinigamis na Soul Society) e salvar Rukia.',
-        preco: 24,
-        capa: '/img/Bleach_10.jpg'
-    },
-    {
-        id: 9,
-        titulo: 'Bleach volume 4',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'narra a invasão de Ichigo Kurosaki e seus aliados ao mundo espiritual para salvar Rukia Kuchiki, que foi condenada à morte por transferir seus poderes a um humano',
-        preco: 64.90,
-        capa: '/img/Bleach_vol4.jpg'
-    },
-    {
-        id: 10,
-        titulo: 'Bleach volume 12',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'Foca no início da invasão de Hueco Mundo. Ichigo, Uryu e Chad chegam ao território dos Hollows para resgatar Orihime Inoue, mas se separam logo após cruzar a barreira',
-        preco: 69.90,
-        capa: '/img/Bleach_vol12.jpg'
-    },
-    {
-        id: 11,
-        titulo: 'Bleach volume 49',
-        categoria: 'Shounen',
-        autor: 'Tite Kubo',
-        resenha:
-            'Bleach acompanha Ichigo Kurosaki, um estudante com a habilidade de ver fantasmas. Sua vida muda quando ele e suas irmãs são atacados por um Hollow (espírito corrompido). Para salvá-los, a ceifeira de almas Rukia Kuchiki transfere seus poderes para Ichigo',
-        resumo:
-            'O arco "O Agente Perdido". Dezessete meses após a derrota de Aizen, um Ichigo impotente conhece Kugo Ginjo e o grupo Xcution. Para proteger sua família, Ichigo começa a treinar para despertar o "Fullbring", um poder místico derivado de objetos.',
-        preco: 38,
-        capa: '/img/Bleach_vol49.jpg'
-    },
-    {
-        id: 12,
-        titulo: 'Blue Box volume 1',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'Taiki Inomata, um tímido jogador de badminton apaixonado por Chinatsu Kano, uma veterana e estrela do basquete. A vida deles muda drasticamente quando Chinatsu precisa morar temporariamente na casa de Taiki',
-        preco: 14.90,
-        capa: '/img/BlueB_vol1.jpg'
-    },
-    {
-        id: 13,
-        titulo: 'Blue Box volume 2',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'Foca na evolução esportiva e no amadurecimento dos sentimentos entre Taiki e Chinatsu. Enquanto tentam manter o foco nos treinos',
-        preco: 29.16,
-        capa: '/img/BlueB_vol2.jpg'
-    },
-    {
-        id: 14,
-        titulo: 'Blue Box volume 19',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'foca na tensão do festival cultural e na fase de qualificatórias. Ayame finalmente reconhece seus sentimentos por Kyo, mas seu coração fica partido ao vê-lo com Saki, enquanto Taiki e Chinatsu tentam lidar com seus sentimentos e suas carreiras esportivas',
-        preco: 35.90,
-        capa: '/img/BlueB_vol19.jpg'
-    },
-    {
-        id: 15,
-        titulo: 'Blue Box volume 20',
-        categoria: 'Shoujo',
-        autor: 'Kouji Miura',
-        resenha:
-            'É uma comédia romântica esportiva que acompanha Taiki Inomata, um jogador de badminton apaixonado por Chinatsu Kano, estrela do time de basquete. A vida dos dois muda drasticamente quando Chinatsu, devido a uma mudança dos pais, passa a morar inesperadamente na casa de Taiki.',
-        resumo:
-            'foca nos dilemas pessoais e esportivos dos protagonistas. A visita do pai de Chinatsu gera conflitos, pois ela revela que está namorando Taiki. Paralelamente, o mangá acompanha as finais das eliminatórias para a Copa de Inverno, onde Chinatsu enfrenta Yumeka e sua grande',
-        preco: 49.90,
-        capa: '/img/BlueB_vol20.jpg'
-    },
-    {
-        id: 16,
-        titulo: 'Diario de uma Apotecaria volume 1',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'A vida de Maomao muda drasticamente quando é sequestrada e levada para trabalhar no Palácio Interno chinês',
-        preco: 38.16,
-        capa: '/img/Diario_vol1.jpg'
-    },
-    {
-        id: 17,
-        titulo: 'Diario de uma Apotecaria volume 4',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'A história encerra o ciclo de mistérios e envenenamentos antes da viagem da protagonista para a capital ocidental,',
-        preco: 39.16,
-        capa: '/img/Diario_vol4.jpg'
-    },
-    {
-        id: 18,
-        titulo: 'Diario de uma Apotecaria volume 6',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'foca na revelação das origens familiares de Maomao e em uma série de conspirações políticas e assassinatos que se conectam ao seu passado',
-        preco: 29.90,
-        capa: '/img/Diario_vol6.jpg'
-    },
-    {
-        id: 19,
-        titulo: 'Diario de uma Apotecaria volume 12',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            'foca na revelação das origens familiares de Maomao e em uma série de conspirações políticas e assassinatos que se conectam ao seu passado acompanha Maomao participando de uma caçada noturna a convite de Renshi.',
-        preco: 39.90,
-        capa: '/img/Diario_vol12.jpg'
-    },
-    {
-        id: 20,
-        titulo: 'Diario de uma Apotecaria volume 14',
-        categoria: 'Shoujo',
-        autor: 'Natsu Hyuuga',
-        resenha:
-            'A trama acompanha Maomao, uma jovem apotecária sequestrada e vendida para trabalhar como serva no palácio do imperador, onde usa seu vasto conhecimento científico para desvendar mistérios e casos de envenenamento',
-        resumo:
-            ' retorno de Maomao à capital, onde atua no tribunal externo. A trama gira em torno da política na Corte, conflitos de facções e mistérios familiares. ',
-        preco: 63,
-        capa: '/img/Diario_vol14.jpg'
-    },
-    {
-        id: 21,
-        titulo: 'Dragon Ball clasico volume 1',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'acompanha a jornada de Son Goku, um menino ingênuo com cauda de macaco. Ao lado de Bulma, ele parte em busca das sete Esferas do Dragão',
-        resumo:
-            'introduz Son Goku, um menino ingênuo com cauda de macaco e força sobre-humana. Ele conhece a jovem cientista Bulma, que está atrás das sete Esferas do Dragão.',
-        preco: 37.90,
-        capa: '/img/DragonB_vol1.jpg'
-    },
-    {
-        id: 22,
-        titulo: 'Dragon Ball super volume 20',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poder',
-        resumo:
-            ' Ele acompanha o clímax da batalha contra o vilão Gas, o despertar das verdadeiras formas de Goku e Vegeta, e uma virada surpreendente com o retorno de Freeza',
-        preco: 52.83,
-        capa: '/img/DragonB_vol20.jpg'
-    },
-    {
-        id: 23,
-        titulo: 'Dragon Ball super volume 24',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poder',
-        resumo:
-            'O grande destaque é o embate épico entre Gohan Beast e Goku Instinto Superior, além de trazer homenagens póstumas ao autor Akira Toriyama',
-        preco: 52.83,
-        capa: '/img/DragonB_vol24.jpg'
-    },
-    {
-        id: 24,
-        titulo: 'Dragon Ball Z volume 22',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poderEle começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        resumo:
-            'Após o Boo Gordo se dividir, a versão maligna consome a bondosa, transformando-se no Super Boo. Com os humanos restantes em perigo, Goten e Trunks treinam na Sala do Espírito e do Tempo para enfrentá-lo',
-        preco: 58.26,
-        capa: '/img/DragonB_vol22.jpg'
-    },
-    {
-        id: 25,
-        titulo: 'Dragon Ball Z volume 33',
-        categoria: 'Shounen',
-        autor: 'Akira Toriama',
-        resenha:
-            'A história acompanha Goku e seus amigos após a derrota de Majin Boo, elevando o universo a um patamar divino. Os guerreiros enfrentam deuses, participam de torneios entre multiversos e desbloqueiam novos níveis de poderEle começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        resumo:
-            'Ele começa com Goku chegando ao planeta e enfrentando as Forças Especiais Ginyu, enquanto Gohan, Kuririn e Vegeta lutam contra o terrível Freeza em suas transformações iniciais',
-        preco: 89.90,
-        capa: '/img/DragonB_vol33.jpg'
-    },
-    {
-        id: 26,
-        titulo: 'My Dress-up Darling volume 1',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'Wakana Gojo tem seu destino muda quando a extrovertida Marin Kitagawa descobre sua habilidade na costura. Ela pede sua ajuda para criar a fantasia de cosplay de sua personagem favorita de videogame, iniciando uma linda parceria ',
-        preco: 45,
-        capa: '/img/DresUp_vol1.jpg'
-    },
-    {
-        id: 27,
-        titulo: 'My Dress-up Darling volume 2',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'O foco da história se aprofunda na colaboração entre Wakana Gojo, um artesão de bonecas, e Marin Kitagawa, sua colega popular e cosplayer ',
-        preco: 45,
-        capa: '/img/DresUp_2.jpg'
-    },
-    {
-        id: 28,
-        titulo: 'My Dress-up Darling volume 10',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'foca na preparação para um ensaio fotográfico em grupo com o tema do jogo de terror "Coffin". Após os cosplayers veteranos cancelarem por conflitos de agenda, Marin resolve a situação convidando novos amigos para o projeto',
-        preco: 50.49,
-        capa: '/img/DresUp_vol10.jpg'
-    },
-    {
-        id: 29,
-        titulo: 'My Dress-up Darling volume 13',
-        categoria: 'Shoujo',
-        autor: 'Shinichi Fukuda',
-        resenha:
-            ' Acompanha Wakana Gojo, um estudante tímido que sonha em ser artesão de bonecas tradicionais japonesas Hina. Sua vida muda ao conhecer Marin Kitagawa, uma colega de classe popular e extrovertida que o introduz ao mundo do cosplay',
-        resumo:
-            'Wakana Gojo finaliza o elogiado cosplay de "Haniel" (Missão Divina). Marin brilha na Comiket de inverno, atraindo uma multidão com maquiagem e figurino impecáveis. Contudo, a imersão assustadora da personagem gera reações inesperadas e confusas em Gojo',
-        preco: 54.90,
-        capa: '/img/DresUp_vol13.jpg'
-    },
-    {
-        id: 30,
-        titulo: 'Fire Force Volume 1',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Shinra Kusakabe e a Oitava Brigada. Eles formam um esquadrão de bombeiros especiais que combate a combustão humana espontânea — um fenômeno onde pessoas se transformam em monstros de fogo destrutivos chamados de "Infernais',
-        preco: 59.90,
-        capa: '/img/FireF_vol1.jpg'
-    },
-    {
-        id: 31,
-        titulo: 'Fire Force Volume 24',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Ele foca em treinamentos intensos e estratégias, com destaque para a conclusão da Espada Sagrada de Arthur e o treinamento de Shinra com Benimaru para dominar o poderoso Adolla Link',
-        preco: 40.28,
-        capa: '/img/FireF_vol24.jpg'
-    },
-    {
-        id: 32,
-        titulo: 'Fire Force Volume 26',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Foca quase inteiramente no conflito caótico em Asakusa e na erupção do Doppelganger de Shinmon Hibachi. O antigo líder dos bombeiros retorna como um poderoso Flamejante Demônio para testar o seu discípulo, Benimaru, gerando um combate entre mestre e aprendiz',
-        preco: 40.28,
-        capa: '/img/FireF_vol26.jpg'
-    },
-    {
-        id: 33,
-        titulo: 'Fire Force Volume 31',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Foca na épica e absurda batalha entre Arthur (o Cavaleiro do Rei) e Dragon, que leva o combate até o espaço sideral. Durante a luta, Arthur recebe um novo poder após se lembrar do tesouro confiado a ele por Vulcan',
-        preco: 59.90,
-        capa: '/img/FireF_vol31.jpg'
-    },
-    {
-        id: 34,
-        titulo: 'Fire Force Volume 33',
-        categoria: 'Shounen',
-        autor: 'Atsushi Okubo',
-        resenha:
-            'Onde humanos entram em combustão espontânea e viram "Infernais". A trama acompanha Shinra Kusakabe, um bombeiro pirocinético que busca vingança pelo incêndio que matou sua família e tenta impedir um culto apocalíptico de queimar o mundo.',
-        resumo:
-            'Ele gira em torno da revelação de Haumea como a verdadeira vontade de Deus, forçando o mundo ao desespero, enquanto Shinra é empurrado ao limite após a aparente morte de Arthur',
-        preco: 39.90,
-        capa: '/img/FireF_vol33.jpg'
-    },
-    {
-        id: 35,
-        titulo: 'Gachiakuta volume 1',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Apresenta Rudo, um jovem que vive na base de uma cidade flutuante cujos habitantes ricos descartam tudo no "Poço" (um abismo abaixo). Injustamente acusado de assassinato, ele é jogado no abismo, onde encontra monstros de lixo e os "Limpadores", ganhando o poder de dar vida a objetos',
-        preco: 43.90,
-        capa: '/img/Gachiakuta_vol1.jpg'
-    },
-    {
-        id: 36,
-        titulo: 'Gachiakuta volume 3',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Rudo chegando ao quartel-general dos Zeladores (ou Limpadores) para descobrir como voltar ao "Paraíso". Como o líder está ausente, Rudo decide ajudar em uma missão, mas enfrenta dificuldades com seu poder e logo se torna o alvo de um grupo perigoso chamado Saqueadores',
-        preco: 52.82,
-        capa: '/img/Gachiakuta_vol3.jpg'
-    },
-    {
-        id: 37,
-        titulo: 'Gachiakuta volume 6',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Foca no confronto contra a enigmática Amo na Zona Proibida Desértica. Ela usa os poderes de seu Utensílio Personalíssimo para dominar os Zeladores um a um. O jogo vira graças a um ataque de Tamsy combinado com o feitiço de proteção de Remlin',
-        preco: 39.90,
-        capa: '/img/Gachiakuta_vol6.jpg'
-    },
-    {
-        id: 38,
-        titulo: 'Gachiakuta volume 7',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'Foca no conflito direto entre os Zeladores e a facção criminosa dos Arruaceiros. A narrativa é marcada pelo sequestro de Rudo, pela revelação de segredos sombrios e por uma aliança inusitada que promete sacudir o universo da obra',
-        preco: 54.68,
-        capa: '/img/gachiakuta_vol7.jpg'
-    },
-    {
-        id: 39,
-        titulo: 'Gachiakuta volume 15',
-        categoria: 'Shounen',
-        autor: 'Kei Urana',
-        resenha:
-            'Acompanha Rudo, um jovem marginalizado em uma cidade flutuante, que é acusado injustamente de assassinato. Condenado ao exílio, ele é jogado no "Abismo" — um deserto de lixo habitado por monstros. Para sobreviver e buscar vingança, ele domina um poder especial e se junta aos Zeladores, combatendo feras mutantes',
-        resumo:
-            'A história foca na preparação de Rudo para atravessar a fronteira em direção ao Paraíso, lidando com a busca pelo criador das gargantilhas e seus deveres como Zelador',
-        preco: 46.90,
-        capa: '/img/gachiakuta_vol15.jpg'
-    },
-    {
-        id: 40,
-        titulo: 'Horimiya volume 1',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'Izumi Miyamura, um garoto introvertido e melancólico. Suas vidas mudam quando eles se encontram fora do colégio e revelam suas verdadeiras personalidades: Hori é uma dona de casa responsável, e Miyamura esconde tatuagens e piercings',
-        preco: 44.90,
-        capa: '/img/Horimiya_vol1.jpg'
-    },
-    {
-        id: 42,
-        titulo: 'Horimiya volume 2',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'foca na consolidação do relacionamento entre Hori e Miyamura, na mudança de visual radical de Miyamura e nos desdobramentos com outros colegas de classe, como Tooru e Yuki',
-        preco: 35.30,
-        capa: '/img/Horimiya_vol2.jpg'
-    },
-    {
-        id: 43,
-        titulo: 'Horimiya volume 16',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'Ele foca na conclusão do ensino médio, na formatura e no amadurecimento dos personagens, trazendo um vislumbre do futuro do casal principal e de seus amigos',
-        preco: 44.90,
-        capa: '/img/Horimiya_vol16.jpg'
-    },
-    {
-        id: 44,
-        titulo: 'Horimiya volume 17',
-        categoria: 'Shoujo',
-        autor: 'Hiroki Adachi',
-        resenha:
-            'Acompanha Kyouko Hori, uma estudante popular e energética, e Izumi Miyamura, um colega de classe quieto e melancólico. Ambos escondem quem realmente são: Hori cuida da casa e do irmão caçula, enquanto Miyamura esconde tatuagens e piercings. Quando descobrem os segredos um do outro, um romance inesperado nasce',
-        resumo:
-            'É um volume extra focado em histórias curtas inéditas e na rotina descontraída dos personagens. Ele traz momentos de comédia e nostalgia, servindo como uma celebração e um epílogo para a amada',
-        preco: 41.90,
-        capa: '/img/Horimiya_vol17.jpg'
-    },
-    {
-        id: 45,
-        titulo: 'Hunter x Hunter volume 1',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Acompanha Gon Freecss, um garoto de 12 anos que parte da Ilha da Baleia para se tornar um Hunter e encontrar seu pai. Pelo caminho, ele faz amizade com Kurapika, Leorio e Killua, e juntos eles iniciam a primeira e mortal fase do Exame Hunters',
-        preco: 27.90,
-        capa: '/img/Hxh_vol1.jpg'
-    },
-    {
-        id: 46,
-        titulo: 'Hunter x Hunter volume 2',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Abrange a reta final da Primeira Fase do Exame Hunter e inicia a épica jornada da Torre de Avaliação (Terceira Fase). Ele foca nos testes de sobrevivência e apresenta o misterioso Killua Zoldyck',
-        preco: 29.90,
-        capa: '/img/Hxh_vol2.jpg'
-    },
-    {
-        id: 47,
-        titulo: 'Hunter x Hunter volume 4',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Foca na tensa prova de caça na Ilha Zevil. Gon persegue Hisoka para recuperar seu crachá, enquanto Kurapika e Leorio enfrentam o mesmo mágico em uma batalha de vida ou morte. O volume conclui com o início da misteriosa e mortal Prova Final.',
-        preco: 29.90,
-        capa: '/img/Hxh_vol4.jpg'
-    },
-    {
-        id: 48,
-        titulo: 'Hunter x Hunter volume 7',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'E marca o clímax do arco da Arena Celestial. O foco principal é a aguardada luta entre Gon e Hisoka, além do desenvolvimento definitivo das técnicas de Nen dos protagonistas.',
-        preco: 27.90,
-        capa: '/img/Hxh_vol7.jpg'
-    },
-    {
-        id: 48,
-        titulo: 'Hunter x Hunter volume 34',
-        categoria: 'Shounen',
-        autor: 'Yoshihiro Togashi',
-        resenha:
-            'acompanha Gon Freecss, um garoto de 12 anos que descobre que seu pai, Ging, está vivo e é um Hunter (caçador) lendário. Para reencontrá-lo, Gon decide fazer o rigoroso Exame Hunter. Nessa jornada, ele cria fortes laços com Killua, Kurapika e Leorio, enfrentando grandes desafios e perigos',
-        resumo:
-            'Foca no clímax da luta mortal entre Hisoka e Chrollo na Arena Celestial e inicia a perigosa viagem para o Continente Sombrio, quando Kurapika embarca em um navio repleto de príncipes em meio a assassinatos misteriosos',
-        preco: 35.67,
-        capa: '/img/Hxh_vol34.jpg'
-    },
-    {
-        id: 49,
-        titulo: 'Jujutsu Kaisen volume 1',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'introduz Yuji Itadori, um jovem com força física sobre-humana. Após seus amigos do Clube de Ocultismo abrirem um selo contendo o dedo de Ryomen Sukuna (o Rei das Maldições), monstros atacam a escola. Para salvar os colegas, Yuji engole o dedo e torna-se hospedeiro de Sukuna',
-        preco: 42,
-        capa: '/img/jujutsu_vol1.jpg'
-    },
-    {
-        id: 50,
-        titulo: 'Jujutsu Kaisen volume 11',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'Cobre o início frenético do Incidente de Shibuya. O volume é marcado pelo cerco das maldições a Satoru Gojo na estação de metrô e culmina no chocante confinamento do feiticeiro mais forte do mundo',
-        preco: 33.63,
-        capa: '/img/jujutsu_vol11.jpg'
-    },
-    {
-        id: 51,
-        titulo: 'Jujutsu Kaisen volume 22',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'A narrativa destaca a nova evolução de Maki Zen in e se encerra com revelações bombásticas sobre o Anjo e os planos de Sukuna para o receptáculo de Megumi Fushiguro',
-        preco: 34.01,
-        capa: '/img/jujutsu_vol22.jpg'
-    },
-    {
-        id: 52,
-        titulo: 'Jujutsu Kaisen volume 26',
-        categoria: 'Shounen',
-        autor: 'Gege Akutami',
-        resenha:
-            'Acompanha Yuji Itadori, um estudante com força física sobre-humana que engole o dedo de Ryomen Sukuna—o Rei das Maldições. Para salvar seus amigos, ele se torna hospedeiro desse ser maligno. Ele ingressa no Colégio Técnico de Feitiçaria de Tóquio para encontrar e consumir todos os dedos de Sukuna, garantindo sua própria destruição',
-        resumo:
-            'cobre o clímax da batalha em Shinjuku entre Satoru Gojo e Ryomen Sukuna. O volume foca na expansão de domínios, na invocação de Mahoraga e culmina no trágico destino do feiticeiro mais forte e em suas memórias finais',
-        preco: 50.12,
-        capa: '/img/jujutsu_vol26.jpg'
-    },
-    {
-        id: 53,
-        titulo: 'Monster volume 1',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Apresenta o Dr. Kenzo Tenma, um neurocirurgião brilhante na Alemanha. Ao desobedecer ordens superiores para salvar uma criança baleada em vez do prefeito, ele desencadeia uma série de assassinatos e descobre que o garoto salvo se tornou um sociopata',
-        preco: 76.95,
-        capa: '/img/Monster_vol1.jpg'
-    },
-    {
-        id: 54,
-        titulo: 'Monster volume 2',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Dr. Kenzo Tenma torna-se o principal suspeito da polícia após cair em uma armadilha de Johan e é caçado pelo inspetor Lunge. Tentando provar sua inocência e parar o assassino, Tenma segue as pistas de Johan até Berlim, enquanto Nina se infiltra em uma facção neonazista',
-        preco: 114.14,
-        capa: '/img/Monster_vol2.jpg'
-    },
-    {
-        id: 55,
-        titulo: 'Monster volume 3',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Investigação do Dr. Tenma em busca das origens de Johan. O neurocirurgião vai a Berlim e descobre um passado sombrio ligado a experimentos secretos da Alemanha Oriental, trazendo à tona verdades assustadoras sobre o infame orfanato onde Johan esteve',
-        preco: 76.90,
-        capa: '/img/Monster_vol3.jpg'
-    },
-    {
-        id: 56,
-        titulo: 'Monster volume 4',
-        categoria: 'Seinen',
-        autor: 'Naoki Urasawa',
-        resenha:
-            'A história acompanha o neurocirurgião Dr. Kenzo Tenma. Após desobedecer ordens médicas e salvar a vida de um garoto em vez do prefeito, a vida de Tenma desmorona quando o menino cresce e revela ser um serial killer frio e manipulador',
-        resumo:
-            'Foca nas investigações do detetive Richard e no cerco a Johan Liebert. Johan infiltra-se na alta cúpula da Baviera manipulando o magnata Schuwald, enquanto o Dr. Tenma tenta aproximar-se do vilão munido de um rifle durante uma conferência universitária',
-        preco: 81.30,
-        capa: '/img/Monster_vol4.jpg'
-    },
-    {
-        id: 57,
-        titulo: 'Nana volume 1',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'Funciona como um prólogo focado em apresentar o contraste entre as duas protagonistas de mesmo nome: Nana Komatsu (uma jovem ingênua e carente que se muda para Tóquio para viver com o namorado) e Nana Osaki (uma vocalista de punk rock decidida a fazer sucesso',
-        preco: 29.27,
-        capa: '/img/Nana_vol1.jpg'
-    },
-    {
-        id: 58,
-        titulo: 'Nana volume 4',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'Nana "Hachi" Komatsu sofre um baque ao flagrar o namorado Shoji a traindo com Sachiko. Enquanto lida com o término devastador, ela se aproxima de Nana Osaki e da banda Blast, além de tentar ingressar no mundo da banda Trapnest',
-        preco: 33.90,
-        capa: '/img/Nana_vol4.jpg'
-    },
-    {
-        id: 59,
-        titulo: 'Nana volume 7',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'A banda Blast chama a atenção de uma grande gravadora e enfrenta um dilema sobre seguir carreira comercial ou independente',
-        preco: 42.92,
-        capa: '/img/Nana_vol7.jpg'
-    },
-    {
-        id: 60,
-        titulo: 'Nana volume 12',
-        categoria: 'Shoujo',
-        autor: 'Ai Yazawa',
-        resenha:
-            'narra a história de duas jovens de 20 anos com o mesmo nome que se conhecem em um trem rumo a Tóquio. Apesar de dividirem o mesmo nome e a mesma idade, elas possuem personalidades e objetivos de vida completamente opostos, formando um laço de amizade profundo enquanto enfrentam os desafios da vida adulta',
-        resumo:
-            'O casamento de Hachi e Takumi é adiado para dar lugar ao anúncio do noivado público de Nana Osaki e Ren. Isso deixa Hachi isolada, enquanto Nobu tenta seguir em frente com Yuri',
-        preco: 31.34,
-        capa: '/img/Nana_vol12.jpg'
-    },
-    {
-        id: 61,
-        titulo: 'Naruto volume volumo 8',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Foca na conclusão da segunda fase do Exame Chunin na Floresta da Morte e no início da fase preliminar',
-        preco: 43.90,
-        capa: '/img/Naruto_vol8.jpg'
-    },
-    {
-        id: 62,
-        titulo: 'Naruto volume volumo 54',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Destaca o momento em que Naruto domina de vez o chakra da Nove-Caudas, o confronto crucial contra Kisame para impedir o vazamento de informações e os preparativos finais das Vilas Ocultas para a iminente Quarta Guerra Ninja',
-        preco: 27.90,
-        capa: '/img/Naruto_vol54.jpg'
-    },
-    {
-        id: 63,
-        titulo: 'Naruto volume volumo 56',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Cobre o início da Quarta Guerra Ninja, focando nos confrontos desesperados da Aliança Shinobi contra os guerreiros lendários ressuscitados pelo Edo Tensei de Kabuto, além de introduzir a épica batalha da Equipe Asuma contra seus antigos companheiros',
-        preco: 56.40,
-        capa: '/img/Naruto_vol56.jpg'
-    },
-    {
-        id: 64,
-        titulo: 'Naruto volume volumo 67',
-        categoria: 'Shounen',
-        autor: 'Masashi Kishimoto',
-        resenha:
-            'É a história de Naruto Uzumaki, um órfão rejeitado na Vila da Folha por abrigar a Raposa de Nove Caudas (Kurama). Ele supera o preconceito tornando-se um ninja poderoso para realizar seu sonho de ser Hokage, líder de sua aldeia. A trama foca em seus laços, especialmente com seu rival Sasuke, e suas batalhas épicas',
-        resumo:
-            'Obito absorve o Dez-Caudas, tornando-se seu jinchuriki perfeito. Com um poder avassalador que ameaça o mundo, Naruto e Sasuke unem forças com os Hokages revividos e utilizam o chakra do Nove Caudas com o Estilo Liberação de Vento para criar uma brecha na defesa de Obito',
-        preco: 27.90,
-        capa: '/img/Naruto_vol67.jpg'
-    },
-    {
-        id: 65,
-        titulo: 'One Piece volume 112',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Monkey D. Luffy, um garoto que comeu a Fruta do Diabo Gomu Gomu no Mi e ganhou corpo de borracha. Ele parte em uma jornada para encontrar o tesouro One Piece e se tornar o Rei dos Piratas',
-        preco: 39.81,
-        capa: '/img/OneP_vol1.jpg'
-    },
-    {
-        id: 66,
-        titulo: 'One Piece volume 57',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Início à épica Guerra de Marineford. A frota do Barba Branca chega para salvar Ace, gerando um confronto colossal contra os Almirantes da Marinha e os Shichibukai. O destaque é a chegada dramática de Luffy e dos fugitivos de Impel Down direto do céu',
-        preco: 27.90,
-        capa: '/img/OneP_vol57.jpg'
-    },
-    {
-        id: 67,
-        titulo: 'One Piece volume 88',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'O foco principal é a fuga desesperada dos Chapéus de Palha e a intensa luta de Luffy no Mundo dos Espelhos',
-        preco: 60.00,
-        capa: '/img/OneP_vol88.jpg'
-    },
-    {
-        id: 68,
-        titulo: 'One Piece volume 105',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'Mostrando as consequências da derrota de Kaido e Big Mom, a definição dos novos Yonkou e o início da aventura do bando em Egghead',
-        preco: 35.58,
-        capa: '/img/OneP_vol105.jpg'
-    },
-    {
-        id: 69,
-        titulo: 'One Piece volume 108',
-        categoria: 'Shounen',
-        autor: 'Oda Eiichiro',
-        resenha:
-            'Segue a jornada de Monkey D. Luffy, um jovem que ganha poderes elásticos ao comer uma Fruta do Diabo. Com sua tripulação, os Piratas do Chapéu de Palha, ele explora oceanos perigosos em busca do lendário tesouro "One Piece", deixado pelo Rei dos Piratas, para alcançar o mesmo ',
-        resumo:
-            'A trama principal narra a desesperada tentativa de fuga da tripulação de Luffy, enquanto a misteriosa "Ilha do Futuro" é sitiada por uma frota colossal da Marinha liderada pelo Almirante Kizaru e por um dos Gorosei (Cinco Anciãos)',
-        preco: 19.96,
-        capa: '/img/OneP_vol108.jpg'
-    },
-    {
-        id: 70,
-        titulo: 'Sakura Card Captor volume 1',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Estudante de 10 anos Sakura Kinomoto abre um livro misterioso na biblioteca de seu pai e liberta as Cartas Clow mágicas. O guardião do livro, Kero, transforma Sakura em uma Card Captor, encarregando-a de capturar todas as cartas.',
-        preco: 32.00,
-        capa: '/img/Sakura_vol1.jpg'
-    },
-    {
-        id: 71,
-        titulo: 'Sakura Card Captor volume 2',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Traz a heroína lidando com novos desafios mágicos e enfrentando seus próprios medos. Sakura captura cartas como A Ilusão, que cria aparições fantasmas.',
-        preco: 34.90,
-        capa: '/img/Sakura_vol2.jpg'
-    },
-    {
-        id: 72,
-        titulo: 'Sakura Card Captor volume 14',
-        categoria: 'Shoujo',
-        autor: 'Nanase Ohkawa',
-        resenha:
-            'Sakura Kinomoto é uma garota de 10 anos que liberta acidentalmente um baralho de cartas mágicas de um livro antigo. Nomeada "Card Captor" pelo guardião Kero, ela deve capturar todas as cartas antes que seus poderes causem desastres em sua cidade, contando com a ajuda de sua amiga Tomoyo e do rival-aliado Shaoran',
-        resumo:
-            'Peça escolar "Alice no País do Relógio" dá lugar a um evento mágico: Sakura desaparece do palco e vai parar em um mundo desconhecido e misterioso.',
-        preco: 14.90,
-        capa: '/img/Sakura_vol14.jpg'
-    },
-    {
-        id: 73,
-        titulo: 'Soul Eater volume 1',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Introduz a Shibusen, uma escola especializada em treinar humanos que podem se transformar em armas e seus parceiros (artesãos). A missão dos alunos é consumir 99 almas corrompidas e 1 alma de bruxa para transformar a arma em uma poderosa Death Scythe',
-        preco: 80.01,
-        capa: '/img/SoulE_vol1.jpg'
-    },
-    {
-        id: 74,
-        titulo: 'Soul Eater volume 7',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Marca o início da corrida pela Ferramenta Demoníaca BREW. Maka, Black☆Star e Kid enfrentam dificuldades para sincronizar seus comprimentos de onda enquanto lutam contra o servo imortal Mosquito pelo controle do poderoso artefato',
-        preco: 65.25,
-        capa: '/img/SoulE_vol7.jpg'
-    }, {
-        id: 74,
-        titulo: 'Soul Eater volume 12',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Foca na busca por Death the Kid, que ficou preso no misterioso Livro de Eibon. Para resgatá-lo, a AMAAN faz uma aliança com bruxas. Maka, Soul e seus amigos entram no livro, onde enfrentam tentações mortais ligadas aos sete pecados capitais antes de salvarem Kid',
-        preco: 59.75,
-        capa: '/img/SoulE_vol12.jpg'
-    }, {
-        id: 75,
-        titulo: 'Soul Eater volume 15',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Marca o clímax da invasão ao Castelo Baba Yaga. O foco principal está no intenso confronto psicológico e físico de Maka, Soul e Medusa contra Arachne, além do início da perigosa investida de Death the Kid e das Death Scythes contra o Kishin',
-        preco: 80.90,
-        capa: '/img/SoulE_vol15.jpg'
-    }, {
-        id: 76,
-        titulo: 'Soul Eater volume 19',
-        categoria: 'Shounen',
-        autor: 'Atsushi Ohkubo',
-        resenha:
-            'Acompanha estudantes da Shibusen (Academia de Artesãos de Armas e Ceifadores), que treinam para transformar humanos-arma em Death Scythes. O objetivo principal é coletar almas corrompidas e bruxas para proteger o mundo de Kishins (deuses demoníacos)',
-        resumo:
-            'Os principais conflitos incluem o resgate de Death the Kid, tomado pela loucura, e o confronto de Maka Albarn contra uma antiga ameaça',
-        preco: 37.35,
-        capa: '/img/SoulE_vol19.jpg'
-    }, {
-        id: 77,
-        titulo: 'Tokyo Ghoulvolume 1',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Tokyo Ghoul acompanha a trágica transformação do estudante universitário Ken Kaneki em um híbrido de humano e ghoul após um encontro fatal. Ele passa a lutar para conciliar sua nova natureza carnívoraintroduz o estudante Ken Kaneki, cuja vida muda após um encontro com Rize, uma ghoul que tenta devorá-lo. Após um acidente, ele recebe órgãos dela em um transplante, tornando-se o primeiro híbrido meio humano e meio ghoul. Ele passa a lutar com sua nova identidade e a necessidade de carne humana ',
-        preco: 71.45,
-        capa: '/img/TokyoG_vol1.jpg'
-    }, {
-        id: 78,
-        titulo: 'Tokyo Ghoul volume 2',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Ken Kaneki aceita sua nova identidade e começa a aprender os costumes da sociedade ghoul. Com a ajuda de Yoshimura e Renji Yomo, ele ganha sua primeira máscara para proteger sua identidade. ',
-        preco: 27.00,
-        capa: '/img/TokyoG_vol2.jpg'
-    }, {
-        id: 79,
-        titulo: 'Tokyo Ghoul volume 7',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'Tortura de Kaneki por Yamori (Jason) na base da Árvore de Aogiri. Enquanto a Anteiku e o CCG invadem o local, Kaneki atinge seu limite psicológico, aceita seu lado ghoul e desenvolve seu icônico cabelo branco ',
-        preco: 47.90,
-        capa: '/img/TokyoG_vol7.jpg'
-    }, {
-        id: 80,
-        titulo: 'Tokyo Ghoul volume 13',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'invasão da CCG ao café Anteiku. A agência descobre que o temido ghoul "Coruja de Um Olho" está escondido lá. Yoshimura tenta distrair os investigadores para salvar seus funcionários e amigos',
-        preco: 23.70,
-        capa: '/img/TokyoG_vol13.jpg'
-    }, {
-        id: 81,
-        titulo: 'Tokyo Ghoul volume 14',
-        categoria: 'Seinen',
-        autor: 'Sui Ishida',
-        resenha:
-            'Tokyo Ghoul acompanha Ken Kaneki, um estudante que se transforma em meio-ghoul após um acidente com uma criatura devoradora de carne humana. Lutando para conciliar sua humanidade com sua nova biologia, ele enfrenta o preconceito da sociedade e a violenta guerra entre ghouls e investigadores do CCG',
-        resumo:
-            'narra o clímax da Operação de Supressão da Anteiku, focando no cerco à cafeteria, no confronto devastador entre Kaneki e o investigador Arima, e no trágico destino de Hide',
-        preco: 42.90,
-        capa: '/img/TokyoG_vol14.jpg'
-    }, {
-        id: 82,
-        titulo: 'Vagabond volume 1',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Acompanha a juventude de Shinmen Takezo e seu amigo Matahachi. Buscando fama e glória, eles lutam na Batalha de Sekigahara, mas após a derrota, lutam para sobreviver. O volume explora a impulsividade e a busca de Takezo para se tornar o espadachim mais forte',
-        preco: 43.30,
-        capa: '/img/Vagabond_vol1.jpg'
-    }, {
-        id: 83,
-        titulo: 'Vagabond volume 7',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca no crescimento de Miyamoto Musashi e na preparação psicológica para a revanche contra Inshun no Templo Hozoin. O volume destaca a transformação interna do protagonista, que passa a enfrentar seu medo da morte e a buscar o verdadeiro significado do "Caminho da Espada"',
-        preco: 54.90,
-        capa: '/img/Vagabond_vol7.jpg'
-    }, {
-        id: 84,
-         titulo: 'Vagabond volume 28',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            ' foca na recuperação física e mental de Musashi. Após sobreviver à sua épica e sangrenta batalha contra os setenta homens do clã Yoshioka, ele acorda gravemente ferido, lidando com o peso e as consequências de sua vida como guerreiro',
-        preco: 32.90,
-        capa: '/img/vagabond_vol28.jpg'
-    },
-    {
-        id: 85,
-         titulo: 'Vagabond volume 16',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca inteiramente na juventude de Sasaki Kojiro. Ele retrata seu treinamento não convencional com Ittosai, as crescentes demonstrações de seu instinto selvagem e os desafios iniciais que começam a moldar sua lenda como espadachim',
-          preco: 47.90,
-            capa: '/img/Vagabond_vol16.jpg'
-    },
-    {
-        id: 86,
-        titulo: 'Vagabond volume 25',
-        categoria: 'Seinen',
-        autor: 'Takehiko Inoue',
-        resenha:
-            'A obra é uma releitura ficcional da vida de Miyamoto Musashi, o lendário espadachim japonês. A história acompanha sua evolução de um jovem impulsivo e violento para um mestre iluminado, focando no autoconhecimento e na filosofia',
-        resumo:
-            'Foca no aguardado e tenso duelo entre Miyamoto Musashi e Yoshioka Denshichiro, o líder da Escola Yoshioka. Após um ano de trégua, Musashi retorna fortalecido para enfrentar Denshichiro, culminando em uma batalha que muda o destino de ambos',
-        preco: 59.07,
-        capa: '/img/Vagabond_vol25.jpg'
-    },
-    {
-        id: 87,
-        titulo: 'VInland volume 1',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'Introduz o protagonista Thorfinn, um jovem guerreiro consumido pela sede de vingança contra o mercenário Askeladd, assassino de seu pai.',
-        preco: 39.90,
-        capa: '/img/Vinland_vol1.jpg'
-    },
-    {
-        id: 88,
-        titulo: 'VInland volume 28',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'foca nas tensões crescentes entre os colonos nórdicos e os povos nativos em Vinland, abordando a difícil busca de Thorfinn por uma convivência pacífica',
-        preco: 29.90,
-        capa: '/img/Vinland_vol28.jpg'
-    }, {
-        id: 89,
-        titulo: 'VInland volume 29',
-        categoria: 'Seinen',
-        autor: 'Makoto Yukimura',
-        resenha:
-            'Acompanha a jornada de Thorfinn, da infância consumida pelo ódio e pela vingança após a morte de seu pai, até sua transformação em um pacifista arrependido',
-        resumo:
-            'Ele encerra a jornada de Thorfinn lidando com as trágicas consequências da guerra contra os povos nativos de Vinland e consolidando sua busca inabalável pela paz',
-        preco: 46.90,
-        capa: '/img/Vinland_vol29.jpg'
-    }, {
-        id: 90,
-        titulo: 'Neon Genesis Evangelion volume 1',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'Introduz o adolescente Shinji Ikari, convocado a Tóquio-3 por seu pai distante, Gendo. Shinji descobre que deve pilotar um mecha gigante chamado Evangelion para salvar a humanidade de "Anjos" monstruosos que ameaçam a Terra após um cataclismo global.',
-        preco: 66.00,
-        capa: '/img/Evangelion_vol1.jpeg'
-    }, {
-        id: 91,
-        titulo: 'Neon Genesis Evangelion volume 2',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'O protagonista começa a frequentar a escola, lida com o ressentimento de Toji Suzuhara (cuja irmã ficou ferida na primeira batalha), é forçado a pilotar novamente contra um Anjo e decide seu futuro como piloto após morar temporariamente com seus tios.',
-        preco: 79.90,
-        capa: '/img/Evangelion_vol2.jpeg'
-    }, {
-        id: 92,
-         titulo: 'Neon Genesis Evangelion volume 3',
-        categoria: 'Seinen',
-        autor: 'Hideaki Anno',
-        resenha:
-            'É uma obra que se passa em um mundo pós-apocalíptico onde a organização paramilitar NERV recruta adolescentes para pilotar mechas gigantes (os EVAs) e lutar contra criaturas alienígenas chamadas Anjos',
-        resumo:
-            'Ele foca no desenvolvimento do relacionamento de Shinji com seus colegas, explora a dinâmica misteriosa entre seu pai (Gendo) e Rei Ayanami, e culmina na icônica e perigosa batalha contra o Anjo Ramiel',
-        preco: 56.80,
-        capa: '/img/Evangelion_vol3.jpeg'
-    }, {
-        id: 93,
-        titulo: 'Death Note volume 1',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Light Yagami, um estudante genial e entediado que encontra um caderno sobrenatural, o Death Note. Ao descobrir que o objeto mata qualquer pessoa cujo nome seja escrito nele, Light assume a identidade de "Kira" para eliminar criminosos e criar um mundo utópico, atraindo a implacável oposição do genial detetive L',
-        preco: 64.82,
-        capa: '/img/Death_vol1.jpeg'
-    },
-{
-        id: 94,
-        titulo: 'Death Note volume 5',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Intensifica o jogo de gato e rato entre Light Yagami e o detetive L. Após o alerta de que o assassino está no Japão, o volume destaca a eliminação dos agentes do FBI, a colocação de câmeras de vigilância nas casas dos suspeitos e o chocante surgimento de um "Falso Kira".',
-        preco: 27.90,
-        capa: '/img/Death_vol5.jpeg'
-    },
-{
-        id: 95,
-        titulo: 'Death Note volume 6',
-        categoria: 'Shounen',
-        autor: 'Tsugumi Ohba',
-        resenha:
-            'Narra a história de Light Yagami, um estudante genial que encontra um caderno sobrenatural capaz de matar pessoas. Ele decide eliminar criminosos sob o pseudônimo "Kira". Isso desencadeia um épico jogo de gato e rato com "L", o maior detetive do mundo, que tenta capturá-lo',
-        resumo:
-            'Foca na estratégia de Light para provar sua inocência. Ele e Misa, ambos sob a custódia de L, são submetidos a confinamento e vigilância extrema. Para livrar-se das suspeitas, Light abre mão da posse do caderno, perdendo assim todas as memórias relacionadas ao Death Note e aos assassinatos.',
-        preco: 27.90,
-        capa: '/img/Death_vol6.jpeg'
-    },
-{
-        id: 96,
-        titulo: 'Bunny Girl Senpai volume 1',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Acompanha Sakuta Azusagawa enquanto ele tenta salvar sua veterana, a atriz Mai Sakurajima, de uma misteriosa "Síndrome da Adolescência" que a está tornando invisível para o resto do mundo',
-        preco: 70.87,
-        capa: '/img/BunnyG_vol1.jpg'
-    },
-{
-        id: 97,
-        titulo: 'Bunny Girl Senpai volume 14',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Sakuta vai a um festival de música em Yokohama com sua colega de faculdade, Ikumi Akagi. No local, ele é assolado por um novo mistério: começa a ver alucinações de versões mais jovens da sua namorada, Mai Sakurajima',
-        preco: 59.90,
-        capa: '/img/BunnyG_vol14.jpeg'
-    },
-    {
-        id: 98,
-        titulo: 'Bunny Girl Senpai volume 15',
-        categoria: 'Seinen',
-        autor: 'Hajime Kamoshida',
-        resenha:
-            'A trama acompanha Sakuta Azusagawa, que tenta ajudar várias garotas (incluindo sua namorada, Mai) a superarem a "Síndrome da Adolescência", uma condição bizarra e psicológica causada pelas inseguranças e traumas da juventude',
-        resumo:
-            'Sakuta resolve o mistério de Miori (a verdadeira identidade de Touko Kirishima) e a natureza de sua própria Síndrome da Adolescência. Ele e Mai formalizam o relacionamento, avançando para o futuro após encerrarem seus dilemas.',
-        preco: 49.90,
-        capa: '/img/BunnyG_vol15.jpeg'
-    },
-{
-        id: 99,
-        titulo: 'ChainSaw Men Volume 1 ',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Introduz Denji, um jovem miserável e cheio de dívidas. Após ser traído e morto pela yakuza, ele se funde ao seu cão-demônio Pochita, tornando-se o "Homem-Motosserra". Ele é recrutado pela caçadora Makima para a agência de segurança pública, onde passa a enfrentar demônios ao lado de Aki e Power',
-        preco: 31.13,
-        capa: '/img/ChainS_vol1.jpg'
-    },
-{
-        id: 100,
-        titulo: 'ChainSaw Men Volume 2',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Denji arrisca a vida em uma batalha mortal contra o Demônio Morcego para realizar seu maior objetivo humano: apanhar nos seios de Power. O volume também foca no início do confronto com o aterrorizante Demônio das Armas de Fogo',
-        preco: 38.35,
-        capa: '/img/ChainS_vol2.jpg'
-    },
-    {
-        id: 101,
-        titulo: 'ChainSaw Men Volume 6',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Foca no romance entre Denji e uma garota chamada Reze. A história aborda o desejo de Denji por uma vida normal e amor verdadeiro, mas se transforma em uma batalha sangrenta e explosiva quando a verdadeira natureza de Reze é revelada',
-        preco: 41.90,
-        capa: '/img/ChainS_vol6.jpg'
-    },
-    {
-        id: 102,
-        titulo: 'ChainSaw Men Volume 12',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Focando em Asa Mitaka, uma estudante solitária. Após morrer, ela é salva pelo Demônio da Guerra e fundida a ele. Ela é forçada a caçar Chainsaw Man enquanto Denji tenta lidar com sua fama e sua identidade secret',
-        preco: 41.90,
-        capa: '/img/ChainS_vol12.jpg'
-    },
-{
-        id: 103,
-        titulo: 'ChainSaw Men Volume 21',
-        categoria: 'Shounen',
-        autor: 'Tatsuki Fuijimoto',
-        resenha:
-            'É uma obra que acompanha Denji, um jovem pobre que faz um pacto com Pochita, um demônio-cachorro com uma motosserra no focinho. Após ser traído e morto, Denji ressuscita fundido ao demônio, ganhando a habilidade de transformar partes do corpo em motosserras e passando a caçar demônios para o governo',
-        resumo:
-            'Traz Denji preso em uma situação desesperadora para escapar do Demônio do Envelhecimento. Ele começa a devorar tudo ao seu redor. Após ficar de estômago cheio, Denji vomita uma figura misteriosa, iniciando um acordo infernal.',
-        preco: 41.90,
-        capa: '/img/ChainS_vol21.jpg'
-    },
-{
-        id: 104,
-        titulo: 'Tonikawa Volume 1',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'Acompanha o protagonista Nasa Yuzaki, que é salvo de um atropelamento por uma garota misteriosa chamada Tsukasa. Ele se declara para ela e os dois se casam de imediato. Após reencontrá-la anos depois, eles começam a viver juntos, lidando com o dia a dia e o início de seu relacionamento',
-        preco: 64.90,
-        capa: '/img/Tonikawa_vol1.jpg'
-    },
-{
-        id: 105,
-        titulo: 'Tonikawa Volume 16',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'Ele revela o passado sombrio e milenar da Tsukasa, detalhando como ela escapou da morte e lutou pela liberdade ao longo dos séculos, antes de retornar à vida cotidiana e fofa de recém-casada com o Nasa',
-        preco: 50.78,
-        capa: '/img/Tonikawa_vol16.jpg'
-    },
-{
-        id: 106,
-        titulo: 'Tonikawa Volume 31',
-        categoria: 'Shoujo',
-        autor: 'Kenjiro Hata',
-        resenha:
-            'Acompanha Nasa Yuzaki, um jovem salvo de um acidente por uma garota misteriosa chamada Tsukasa. Ele se apaixona à primeira vista e a convida para sair. Tsukasa aceita, com a condição de que eles se casem primeiro. A história foca na adorável e divertida vida de recém-casados dos dois',
-        resumo:
-            'O enredo destaca a personagem Mishio declarando seus sentimentos por Kaguya, enquanto a amiga Jessie tenta a todo custo impedir que o relacionamento delas aconteça',
-        preco: 41.90,
-        capa: '/img/Tonikawa_vol31.jpg'
-    },
-{
-        id: 107,
-        titulo: 'Boku No Hero volume 1',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Introduz Izuku Midoriya, um garoto sem poderes em um mundo onde 80% da população os possui. Após ser salvo por All Might e demonstrar coragem heroica, Deku recebe o lendário poder One For All para realizar seu sonho de ingressar na U.A',
-        preco: 25.00,
-        capa: '/img/BokuNH_vol1.jpg'
-    },
-{
-        id: 108,
-        titulo: 'Boku No Hero volume 25',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'foca no passado sombrio de Tomura Shigaraki, revelando sua origem, enquanto os heróis se preparam para uma grande guerra. O volume também destaca o início dos novos estágios e as missões de espionagem de Hawks junto à Frente de Libertação',
-        preco: 56.17,
-        capa: '/img/BokuNH_vol25.jpg'
-    },
-{
-        id: 109,
-        titulo: 'Boku No Hero volume 33',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Foca no retorno de Deku à U.A. Ele detalha o resgate emocional de Midoriya por seus amigos, a reconciliação dos alunos e os preparativos para o cerco final contra o All For One e Shigaraki',
-        preco: 22.57,
-        capa: '/img/BokuNH_vol33.jpg'
-    },
-{
-        id: 110,
-        titulo: 'Boku No Hero volume 41',
-        categoria: 'Shounen',
-        autor: 'Kōhei Horikoshi',
-        resenha:
-            'Acompanha Izuku Midoriya (Deku), um garoto nascido sem poderes em um mundo onde 80% da população possui habilidades especiais. Após herdar o poder do maior herói, All Might, Deku entra na prestigiada Academia U.A. para dominar seu dom e enfrentar a crescente ameaça de supervilões',
-        resumo:
-            'Foca no clímax da batalha final entre Izuku Midoriya (Deku) e Tomura Shigaraki. Após o vilão roubar o seu "Sentido de Perigo" e ameaçar destruir o Japão, Midoriya precisa usar sua criatividade com as individualidades restantes e desferir um golpe certeiro para salvar o mundo',
-        preco: 29.57,
-        capa: '/img/BokuNH_vol41.jpg'
+        titulo: 'Rede de Computadores',
+        link: 'https://www.seduc.ce.gov.br/wp-content/uploads/sites/37/2012/06/redes_de_computadores.pdf',
+        categoria: 'Redes',
+        autor: 'Secretaria da Educação do Estado do Ceará',
+        descricao:
+            'Esta apostila apresenta os fundamentos das redes de computadores, abordando conceitos como arquitetura de redes, modelos de comunicação, protocolos, dispositivos de interconexão, meios de transmissão e endereçamento. Com linguagem acessível e exemplos práticos, o material oferece uma base sólida para estudantes que desejam compreender o funcionamento e a administração de redes de computadores.',
+        capa: '/images/livro_info_45.png'
     },
 
-]    
-
-
-
-
+   
+]
 export default livrosInfo
