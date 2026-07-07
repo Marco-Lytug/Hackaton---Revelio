@@ -1,5 +1,5 @@
 <script setup>
-
+//Os Buttons tem que substituir pelos ButtonChield que tem que serem criados!
 </script>
 
 <template>
@@ -23,13 +23,14 @@
       <h2>Help!</h2>
     <div class="all">
       <div>
-        <p>Na Help!, ajudaremos você a estudar, aqui temos video aulas e dicas de estudo, aproveite! </p>
+        <p>Na Help!, ajudaremos você a estudar, aqui temos video aulas e dicas de estudo, aproveite!</p>
       </div>
       <div class="img">
-        <img src="/images/GarotoLendo.png" alt="">
+        <img src="/images/help.png" alt="">
       </div>
     </div>
-        <button>NOSSA BIBLIOTECA</button>
+
+        <button>AQUI!</button>
   </section>
 </template>
 
@@ -146,6 +147,7 @@ h1 span {
   font-size: 5rem;
   padding: 4vw 0 0 4vw;
   font-family: "Josefin Sans", sans-serif;
+  text-align: center;
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
@@ -160,6 +162,19 @@ h1 span {
   animation: spawn;
   animation-timeline: view();
     animation-range: entry 0% 50%;
+
+}
+.help button{
+  background-color: #135F7D;
+  color: white;
+  border: 6px solid  #F4E6CC;
+  border-radius: 5vw;
+  padding: 2vw 5vw 2vw 5vw;
+  font-size: 2.5rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 10vw  3vw;
+  cursor: pointer;
+  transition: 0.5s;
 
 }
 button{
