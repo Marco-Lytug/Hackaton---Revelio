@@ -1,10 +1,29 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { onMounted, onUnmounted, ref } from 'vue'
 
+const isVisible = ref(false)
+
+const checkScroll = () => {
+  const scrollPosition = window.scrollY + window.innerHeight
+  const documentHeight = document.documentElement.scrollHeight
+  isVisible.value = scrollPosition >= documentHeight - 20
+}
+
+onMounted(() => {
+  checkScroll()
+  window.addEventListener('scroll', checkScroll, { passive: true })
+  window.addEventListener('resize', checkScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkScroll)
+  window.removeEventListener('resize', checkScroll)
+})
 </script>
 
 <template>
-  <footer>
+  <footer :class="{ hidden: !isVisible }">
     <nav>
       <ul>
         <div class="all">
@@ -37,8 +56,15 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 
-div.img{
+.img{
+  position: relative;
 }
+
+div img{
+  position: absolute;
+  top: -95%;
+}
+
 
 .all{
   display: flex;
@@ -46,6 +72,7 @@ div.img{
 .left{
   display: grid;
     margin: 0 0 0 40vw;
+    text-align: right;
 
 }
 .right{
@@ -69,12 +96,14 @@ footer {
   padding: 2vw;
   display: flex;
   background-color: #F4E6CC;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 nav {
   display: flex;
   width: 100%;
-  padding: 2vw;
   border-bottom: 1px solid #BCB2A0;
 
 }
@@ -84,7 +113,7 @@ footer.transparent {
 }
 
 footer.hidden {
-  transform: translateY(-100%);
+  transform: translateY(100%);
   opacity: 0;
   pointer-events: none;
 }
@@ -92,10 +121,10 @@ footer.hidden {
 
 a{
   color: #BCB2A0;
-  padding: 20px;
+  padding: 10px;
   font-size: 1.5rem;
-  font-weight: 600;
   transition: 1s;
+
 
 }
 a:hover {
