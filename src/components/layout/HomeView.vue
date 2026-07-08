@@ -140,6 +140,7 @@ h1 span {
 }
 .help {
   background-color: white;
+
 }
 
 .help h2 {
@@ -151,7 +152,8 @@ h1 span {
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
-
+  border-bottom:1px solid #135F7D;
+  margin: 0 10vw 0 10vw;
 }
 
 .help p {
@@ -172,10 +174,22 @@ h1 span {
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 10vw  3vw;
+  margin: 0 0 35vw  3vw;
   cursor: pointer;
   transition: 0.5s;
 
+}
+.help button:hover{
+  background-color: #F4E6CC;
+  color: #135F7D;
+  border: 6px solid  #135F7D;
+  border-radius: 5vw;
+  padding: 2vw 5vw 2vw 5vw;
+  font-size: 2.5rem;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 35vw 6vw;
+  cursor: pointer;
+  transition: 0.3s;
 }
 button{
   background-color: #135F7D;
@@ -198,10 +212,11 @@ button:hover{
   padding: 2vw;
   font-size: 2rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 15vw 6vw;
+  margin: 0 0 10vw 6vw;
   cursor: pointer;
   transition: 0.3s;
 }
+
 div {
   display: flex;
   justify-content: space-between;
