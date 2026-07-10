@@ -80,24 +80,26 @@ img {
 
 ul {
   display: flex;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
   gap: 75px;
 }
 
+li img {
+  display: block;
+}
+
 header {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 100;
-  padding: 16px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   background-color: black;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
-
   /*backdrop-filter: blur(10px);*/
 }
 
@@ -127,8 +129,8 @@ a {
   transition: 1s;
   font-family: "Julius Sans One", sans-serif;
 
-}
 
+}
 
 
 a:hover {
@@ -144,16 +146,28 @@ a:hover {
 
 .mais {
   display: none;
-  position: absolute;
+  position:absolute;
   top: calc(100% + 8px);
   left: 0;
   background-color: rgba(0, 0, 0, 0.95);
-  padding: 20px 0;
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   z-index: 20;
   min-width: 220px;
   line-height: 1.5vw;
+  animation: pop 0.3s ease-in-out;
+  margin: 2vw 0;
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
 .nav-item:hover .mais,
@@ -161,9 +175,7 @@ a:hover {
   display: block;
 }
 
-.mais li {
-  margin: 0;
-}
+
 
 .mais a {
   display: block;
@@ -171,18 +183,27 @@ a:hover {
   border-radius: 8px;
 }
 
-.mais a:hover {
-  background-color: rgba(19, 95, 125, 0.15);
+.mais .azul:hover {
+  background-color: rgb(0, 183, 255);
   transition: 0.5s;
+  border-radius: 8px;
   border: none;
 }
 .mais .verde:hover {
   background-color: green;
   transition: 0.5s;
+  border-radius: 8px;
+  border: none;
+
+
 }
 .mais .vermelho:hover {
   background-color: red;
   transition: 0.5s;
+  border-radius: 8px;
+  border: none;
+
+
 }
 
 .livros {
