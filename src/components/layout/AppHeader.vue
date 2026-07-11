@@ -33,12 +33,32 @@ onUnmounted(() => {
   <header :class="{ hidden: isHidden, transparent: isTop }">
     <nav>
       <ul>
-
-        <RouterLink to="/">Principal</RouterLink>
-        <RouterLink to="/livros">Livros</RouterLink>
-        <img src="/public/images/Revelio.png" alt="">
-        <RouterLink to="/atividades">Atividades</RouterLink>
-        <RouterLink to="/extras">Extras</RouterLink>
+        <li>
+          <RouterLink to="/">Principal</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink to="/livros">Livros</RouterLink>
+          <ul class="mais">
+            <li class="verde">
+              <RouterLink to="/agro">Livros - Agro</RouterLink>
+            </li>
+            <li class="azul">
+              <RouterLink to="/info">Livros - Info</RouterLink>
+            </li>
+            <li class="vermelho">
+              <RouterLink to="/quimi">Livros - Quimi</RouterLink>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <img src="/public/images/Revelio.png" alt="">
+        </li>
+        <li>
+          <RouterLink to="/atividades">Atividades</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/extras">Extras</RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
@@ -50,6 +70,7 @@ onUnmounted(() => {
 p {
   font-size: 5rem;
 }
+
 img {
   width: 100px;
   height: auto;
@@ -59,24 +80,26 @@ img {
 
 ul {
   display: flex;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
   gap: 75px;
 }
 
+li img {
+  display: block;
+}
+
 header {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 100;
-  padding: 16px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   background-color: black;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
-
   /*backdrop-filter: blur(10px);*/
 }
 
@@ -98,16 +121,16 @@ header.hidden {
   padding: 20px 40px 20px 40px;
 }
 
-a{
+a {
   color: white;
   padding: 20px;
   font-size: 1.4rem;
   font-weight: 300;
   transition: 1s;
-    font-family: "Julius Sans One", sans-serif;
+  font-family: "Julius Sans One", sans-serif;
+
 
 }
-
 
 
 a:hover {
@@ -115,17 +138,81 @@ a:hover {
   border: 1px solid #135F7D;
   padding: 20px 40px 20px 40px;
   border-radius: 10vw;
+}
 
+.nav-item {
+  position: relative;
+}
+
+.mais {
+  display: none;
+  position:absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  min-width: 220px;
+  line-height: 1.5vw;
+  animation: pop 0.3s ease-in-out;
+  margin: 2vw 0;
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.nav-item:hover .mais,
+.nav-item:focus-within .mais {
+  display: block;
+}
+
+
+
+.mais a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.mais .azul:hover {
+  background-color: rgb(0, 183, 255);
+  transition: 0.5s;
+  border-radius: 8px;
+  border: none;
+}
+.mais .verde:hover {
+  background-color: green;
+  transition: 0.5s;
+  border-radius: 8px;
+  border: none;
 
 
 }
+.mais .vermelho:hover {
+  background-color: red;
+  transition: 0.5s;
+  border-radius: 8px;
+  border: none;
+
+
+}
+
+.livros {
+  display: none;
+}
+
 .julius-sans-one-regular {
   font-family: "Julius Sans One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-
-
-
-
 </style>
