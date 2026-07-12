@@ -28,7 +28,7 @@ onUnmounted(() => {
       <ul>
         <div class="all">
           <div class="img">
-            <img src="/public/images/RevelioFooter.png" alt="">
+            <img src="/images/RevelioFooter.png" alt="">
           </div>
           <div class="left">
             <RouterLink to="/">Principal</RouterLink>

@@ -32,7 +32,7 @@ onUnmounted(() => {
 <template>
   <header :class="{ hidden: isHidden, transparent: isTop }">
     <nav>
-      <ul>
+      <ul class="principal">
         <li>
           <RouterLink to="/">Principal</RouterLink>
         </li>
@@ -51,7 +51,7 @@ onUnmounted(() => {
           </ul>
         </li>
         <li>
-          <img src="/public/images/Revelio.png" alt="">
+          <img src="/images/Revelio.png" alt="">
         </li>
         <li>
           <RouterLink to="/atividades">Atividades</RouterLink>
@@ -78,7 +78,7 @@ img {
 
 }
 
-ul {
+.principal {
   display: flex;
   align-items: center;
   list-style: none;
@@ -139,24 +139,38 @@ a:hover {
   padding: 20px 40px 20px 40px;
   border-radius: 10vw;
 }
-
 .nav-item {
   position: relative;
 }
+.nav-item::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 15px;
+}
+
+.mais li {
+  list-style: none;
+}
 
 .mais {
+   display: none;
+  flex-direction: column;
   display: none;
-  position:absolute;
-  top: calc(100% + 8px);
+  position: absolute;
+  top: calc(100% + 15px);
   left: 0;
+   list-style-type: none;
   background-color: rgba(0, 0, 0, 0.95);
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   z-index: 20;
   min-width: 220px;
-  line-height: 1.5vw;
-  animation: pop 0.3s ease-in-out;
-  margin: 2vw 0;
+  margin: 2px;
+  padding: 10px 0;
+  list-style: none;
 }
 @keyframes pop {
   from {
@@ -170,12 +184,9 @@ a:hover {
 
 }
 
-.nav-item:hover .mais,
-.nav-item:focus-within .mais {
+.nav-item:hover .mais{
   display: block;
 }
-
-
 
 .mais a {
   display: block;
