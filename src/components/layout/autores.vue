@@ -1,50 +1,53 @@
 <script setup>
 import { ref } from 'vue';
-defineProps(['capa', 'titulo', 'descricao','autor', 'id', 'link', 'categoria']);
-import ButtonChild from '../ButtonChild.vue';
+defineProps(['foto', 'nome','biografia', 'id', 'principaisObras','autores']);
+import ButtonChild from './ButtonChild.vue';
 defineEmits(['fechar'])
 const mostrarDetalhes = ref(false)
-
 </script>
 
-
 <template>
-    <div class="livro-card">
+    <div class="autor-card">
 
-      <div class="livro-int">
-         <img :src="capa" alt="Capa do livro" class="capa-livro" />
-      
-           <ButtonChild class="button-" @clique="mostrarDetalhes = true">
+      <div class="info-autor">
+        <div class="esquerda-card">
+        <p id="nome">
+            {{ nome }}
+        </p>
+            <ButtonChild class="button-" @clique="mostrarDetalhes = true">
               Ver mais
     </ButtonChild>
     </div>
 
+         <img :src="foto" alt="" class="foto-autor" />
+      </div>
+       
+    </div>
+
     <div class="modal-overlay" v-if="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
-       <div class="capa-autor">
-
-         <img :src="capa" alt="Capa do livro" class="capa-livro">
-       <p>
-        {{ autor }}
+       <div class="autor-modal">
+          <div class="foto-nome">
+         <img :src="foto" alt="Capa do livro" class="capa-livro">
+       <p id="ui">
+        {{ nome }}
        </p>
-       <p>
-        Categoria: {{ categoria }}
-       </p>
+       
        </div>
 
-       <div class="descricao">
-        <h3>
-            {{ titulo }}
-        </h3>
-        <p class="pi">
-       {{ descricao }} 
+      
+       <div class="biografia">
+        <p>
+            {{ biografia }}
         </p>
-              <p>
-      <i class="fa-solid fa-circle-question"></i>
- </p>
-       <div>
-         <a :href="link" target="_blank" rel="noopener noreferrer">Acessar material</a>
-         
+
+        <p id="pi">
+      Principais Obras:  {{ principaisObras }}
+        </p>
+
+       </div>
+
+       <div> 
         <ButtonChild class="button-" @clique="mostrarDetalhes = false">
         Fechar
       </ButtonChild>
@@ -54,34 +57,32 @@ const mostrarDetalhes = ref(false)
             </div>
         </div>
        
-    
 
-    </div>
+    
 </template>
 
-
 <style scoped>
-a{
-  color: #135F7D;
-   border-radius: 18px;
-   font-family: "Josefin Sans", sans-serif;
-   font-size: 1.4rem;
-   padding: 5px;
-   cursor: pointer;
-  z-index: 1;
-  margin: 1vw;
-  border: 1px solid #135F7D ;
-  display: flex;
-  width: 50%;
- justify-content: center;
- margin-left: 5.2vw;
-  
+
+#pi{
+    color: #135F7D;
+    font-weight: 600;
 }
-a:hover{
-  background-color: #187fa8;
-  transition: 0.8s;
-  color: white;
-  border: none;
+#ui{
+    font-size: 1.8rem;
+    color: black;
+}
+#nome{
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 10px;
+   
+}
+.info-autor{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 button {
   width: 100%;
@@ -104,28 +105,30 @@ button:hover {
   transform: scale(1,1);
   background-color: #1486b3;
 }
-.livro-card {
+.autor-card {
   border: 2px solid rgba(123, 81, 201, 0.2);
   padding: 1rem;
   border-radius: 20px;
-  background: white;
+  background: #F4E6CC;
   box-shadow: 0 10px 30px rgba(95, 61, 196, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 75%;
-    justify-self: center;
-     box-sizing: border-box;
-}
-
-.livro-card:hover { 
-  box-shadow: 0 14px 40px rgba(95, 61, 196, 0.18);
-  
-}
-.capa-livro {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.autor-card img {
+   width: 120px;
+   height: 120px;
+   object-fit: cover;
+   border-radius: 50%;
+}
+.autor-card:hover { 
+  box-shadow: 0 14px 40px rgba(95, 61, 196, 0.18);
+  transform: scale(1,1);
+  
 }
 .modal-overlay {
   position: fixed;
@@ -157,12 +160,7 @@ button:hover {
   color: #333;
   margin: 0.75rem 0;
   line-height: 1.6;
-   font-size: 1.2rem;
-}
-.modal h3{
-   font-family: "Josefin Sans", sans-serif;
-   color: black;
-   font-size: 1.6rem;
+   font-size: 1.4rem;
 }
 .modal img {
   width: 100%;

@@ -1,11 +1,24 @@
 <script setup>
+import Carroussel from '@/components/layout/Carroussel.vue';
+import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
 import { livrosInfo1Ano, livrosInfo2Ano, livrosInfo3Ano } from '@/Data/livrosInfo.js'
+import autoresInfo from '@/Data/autores';
+import autores from '@/components/layout/autores.vue';
+
 const TodosOsLivros = [
-  ...livrosInfo1Ano,
-  ...livrosInfo2Ano,
-  ...livrosInfo3Ano
-]
+ ...livrosInfo1Ano,
+ ...livrosInfo2Ano,
+ ...livrosInfo3Ano
+];
+
+const CarouselSlides = autoresInfo;
+
+const slidesAutores = [];
+
+for (let i = 0; i < CarouselSlides.length; i += 3) {
+  slidesAutores.push(CarouselSlides.slice(i, i + 3));
+}
 </script>
 <template>
     <section class="banner">
@@ -31,12 +44,54 @@ const TodosOsLivros = [
         </div>
       
     </section>
+
+    <section class="autores">
+      <h2>
+        Autores
+      </h2>
+      <p>
+        Conheça os nossos principais autores
+      </p>
+
+      
+      <div class="autores-carrossel">
+        <Carroussel class="carousel" v-slot="{currentSlide}">
+          <Slide class="autores-lista" v-for="(grupo, index) in slidesAutores" :key="index">
+           <div  v-show="currentSlide === index + 1" class="autores-lista"> 
+  <autores
+      v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
+    :biografia="autor.biografia"
+    :principaisObras="autor.principaisObras"
+  />
+     </div>
+  </Slide>
+        </Carroussel>
+      </div>
+    </section>
     
   
 </template>
 
 <style scoped>
+.autores-lista {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
 
+.autores{
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 3vw;
+  color: #135F7D;
+  
+}
+.autores p{
+  color: rgb(70, 70, 70);
+  text-align: center;
+}
 .banner {
   position: relative;
   background: url(/images/banner_info.jpg) center/cover no-repeat;
@@ -78,9 +133,11 @@ a{
 
 }
 a:hover{
-  background-color: #187fa8;
+  background-color: #1a92c2;
   transition: 0.8s;
-  color: rgb(230, 230, 230);
+ color: white;
 }
+
+
 
 </style>
