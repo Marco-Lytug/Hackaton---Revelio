@@ -3,12 +3,19 @@
 import {ref} from 'vue'
 import LivroCard from './LivroCard.vue';
 import { computed } from 'vue'
-const props = defineProps(['livros'])
+const props = defineProps(['livros','lista'])
 const filtro = ref('');
+const categorias = ref('')
+const emit = defineEmits(['favoritar'])
+
+function LivroFavoritado(livro) {
+  emit('favoritar', livro)
+}
  // else if (categoria.value.trim().length > 0){
         // return produtosExibidos.value.filter(item => 
     //  item.categoria.toLowerCase().includes(categorias.value.toLowerCase())
   //  )
+ 
 const LivrosFiltrados = computed(() => { 
   if (filtro.value.trim().length > 0) {
   return  props.livros.filter(item => 
@@ -29,19 +36,23 @@ const LivrosExibidos = computed(() => {
   return []
 })
 
-const FiltroAutorTitulo = computed(() => { 
+const FiltroAutorTitulo = computed(() => {
   if (filtro.value.trim().length > 0) {
-
-    return LivrosExibidos.value.filter(item => 
+    return LivrosExibidos.value.filter(item =>
       item.autor.toLowerCase().includes(filtro.value.toLowerCase()) ||
       item.titulo.toLowerCase().includes(filtro.value.toLowerCase())
     )
   }
+
+  else if (categorias.value.trim().length > 0) {
+    return props.livros.filter(item =>
+      item.categoria.toLowerCase().includes(categorias.value.toLowerCase())
+    )
+  }
+
   else {
     return []
   }
-  
-    
 })
 
 
@@ -54,14 +65,36 @@ function LivroNaoEncontrado (){
 </script>
 
 <template>
-  
+  <section class="pesquisa">
 <div class="barras">
 
  <div class="barra-pesquisa">
      
       <input class="input" type="text" placeholder="Pesquisar por título ou por autor" v-model="filtro" />
+
+   <div class="select">
+       <select name="categoria" id="" v-model="categorias">
+         <option disabled value ="">Selecione por categoria</option>
+          <option value="">Nenhum</option>
+        <option value="Algoritmos">Algoritmos</option>
+         <option value="Back-End">Back-End</option>
+      <option value="Banco de Dados">Banco de Dados</option>
+      <option value="CSS">CSS</option>
+      <option value="Design">Design</option>
+      <option value="Django">Django</option>
+      <option value="Front-End">Front-End</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Lógica de Programação">Lógica de Programação</option>
+      <option value="Programação">Programação</option>
+        <option value="Projeto de Software">Projeto de Software</option>
+      <option value="Python">Python</option>
+      <option value="Redes">Redes</option>
+       <option value="Scrum">Scrum</option>
+      
+      </select>
+    </div>
+
        </div>
-    
 
     <div>
     <p class="mensagem">
@@ -69,26 +102,69 @@ function LivroNaoEncontrado (){
     </p>
     </div>
 
+   
+
 </div>
    
 
- <div class="livro-lista" >
+ <div class="livro-lista" :class="lista">
           <LivroCard v-for="livros in FiltroAutorTitulo" :key="livros.id"
         class="Livro-card" :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao">
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        @favoritar="LivroFavoritado" :livro="livros"
+         >
 </LivroCard>
 </div>
-  
+  </section>
+
+   
 </template>
 
 <style scoped>
+.pesquisa{
+  padding: 2.7vw 0 0 0;
+}
+.barra-pesquisa{
+  display: flex;
+  gap: 4vw;
+  
+}
+select {
+  padding: 0.8vw;
+  border-radius: 16px;
+  background: white;
+  color: #135F7D;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Josefin Sans", sans-serif;
+  outline: none;
+  position: relative;
+  top: 12%;
+   box-shadow: 0 20px 30px rgba(37, 37, 37, 0.2);
+}
+select:hover {
+    transform: scale(1,1);
+  box-shadow: 0 20px 20px 0 rgba(20, 20, 20, 0.3);
+   outline: none;
+  
+}
+
+.espero{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    align-items:stretch;
+    
+}
 .livro-lista {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px ;
   justify-content: center;
   align-items: center;
+  
  
 }
 .barras{
@@ -112,7 +188,7 @@ function LivroNaoEncontrado (){
   padding: 1.4vw;
   border: none;
   outline: none;
-   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 20px 30px rgba(37, 37, 37, 0.2);
   max-width: 700px;
   display: block;
   width: 100%;
@@ -121,15 +197,14 @@ function LivroNaoEncontrado (){
   font-family: "Josefin Sans", sans-serif;
   color: #135F7D;
 }
-.input  input,::placeholder{
+.input::placeholder{
   font-size: 1.7rem;
   font-family: "Josefin Sans", sans-serif;
 }
 .input:hover{
- 
-  transform: scale(1.001,1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-
+  transition: 0.3s all ease;
+  transform: scale(1,1);
 }
 .mensagem {
   color: black;

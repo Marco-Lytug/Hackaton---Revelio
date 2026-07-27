@@ -83,6 +83,17 @@ export const autoresInfo = [
         'Software das missões Apollo',
         'Conceito de Engenharia de Software'
     ]
+},
+  {
+    id: 9 ,
+    nome: 'Wallace Fragoso',
+    foto: '/images/wallace.png',
+    biografia: 'Wallace Fragoso é um desenvolvedor de software, professor e escritor brasileiro, conhecido por produzir conteúdos voltados ao ensino de programação e desenvolvimento web. Atua na formação de novos desenvolvedores por meio de livros, cursos e materiais didáticos, abordando conceitos de forma prática e acessível, especialmente nas áreas de JavaScript e desenvolvimento Front-End.',
+    principaisObras: [
+       'JavaScript Moderno',
+       'Lógica de Programação na Prática'
+
+    ]
 }
 ]
 

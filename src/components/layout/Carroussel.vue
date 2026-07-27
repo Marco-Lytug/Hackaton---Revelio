@@ -3,47 +3,45 @@ import {ref, onMounted} from "vue"
 import ButtonChild from "./ButtonChild.vue";
 
   const currentSlide = ref (1);
-  const getSlideCount = ref (0)
+  const props = defineProps({
+  totalSlides: Number
+})
 
-  const nextSlide = () =>{
-    if (currentSlide.value === getSlideCount.value){
-        currentSlide.value = 1;
-        return;
+ const nextSlide = () => {
+    if(currentSlide.value === props.totalSlides){
+        currentSlide.value = 1
+    }else{
+        currentSlide.value++
     }
-    currentSlide.value += 1;
-  };
-
-  const prevSlide = () => {
-    if (currentSlide.value === 1){
-        currentSlide.value = getSlideCount.value;
-        return;
-    }
-    currentSlide.value -= 1;
 }
 
-  onMounted(() => {
-    getSlideCount.value = document.querySelectorAll('.slide').length;
-  })
+const prevSlide = () => {
+    if(currentSlide.value === 1){
+        currentSlide.value = props.totalSlides
+    }else{
+        currentSlide.value--
+    }
+}
 
 
 
 </script>
 
-<template>
-<div class="carousel">
+<template> 
+<div class="carousel" >
     <slot :currentSlide="currentSlide" />
 
-
 <div class="navigate">
+
     <div>
-    <ButtonChild  @clique="prevSlide" class="toggle-page left">
-          ←
+    <ButtonChild @clique="prevSlide" class="toggle-page left">
+           ❮
     </ButtonChild>
     </div>
 
     <div>
        <ButtonChild @clique="nextSlide" class="toggle-page right">
-    →
+     ❯
 </ButtonChild>
     </div>
 
@@ -58,31 +56,47 @@ import ButtonChild from "./ButtonChild.vue";
 }
  button {
     width: auto ;
-    padding: 0 ;
-    color: #135F7D ;
+    padding: 15px ;
+    color: white ;
+    background-color: #135F7D;
     font-size: 40px ;
+    border-radius: 30px;
+    border: none;
+    transition: all 0.3s ease;
+}
+button:hover{
+  color: #135F7D;
+  background-color: white;
+  border: none;
+  box-shadow: 0 8px 10px rgba(95, 61, 196, 0.25);
+  transform: scale(1,1);
 }
 .carousel {
     position: relative;
     width: 100%;
+   overflow: hidden;
 }
 .navigate{
    position: absolute;
     top: 50%;
-    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    
 }
 .toggle-page{
   display: flex;
   flex: 1;
   cursor: pointer;
-
+  
 }
 .right{
     justify-content: flex-end;
-
+    
+}
+.left{
+    justify-content: flex-start;
 }
 
 </style>
