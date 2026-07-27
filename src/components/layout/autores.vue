@@ -23,8 +23,8 @@ const mostrarDetalhes = ref(false)
       </div>
        
     </div>
-
-    <div class="modal-overlay" v-if="mostrarDetalhes" @click="mostrarDetalhes = false" >
+    <Transition name="modal">
+    <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
        <div class="autor-modal">
           <div class="foto-nome">
@@ -56,13 +56,47 @@ const mostrarDetalhes = ref(false)
                 </div>
             </div>
         </div>
+        </Transition>
        
 
     
 </template>
 
 <style scoped>
+.modal-enter-from{
+  opacity: 0;
+  transform: scale(0.8);
+}
+.modal-enter-active {
+  transition: opacity 0.3s ease;
+  
+}
+.modal-enter-active .modal {
+  transition: transform 0.3s ease;
+}
+.modal-enter-to .modal {
+  transform: scale(1);
+}
 
+.modal-leave-from{
+  transform: scale(1);
+}
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+.modal-leave-active .modal {
+  transition: transform 0.3s ease;
+   transition: all .4s ease;
+}
+.modal-leave-to .modal {
+  opacity: 0;
+}
+.esquerda-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:100%;
+}
 #pi{
     color: #135F7D;
     font-weight: 600;
@@ -73,7 +107,7 @@ const mostrarDetalhes = ref(false)
 }
 #nome{
     color: black;
-    font-size: 1.5rem;
+     min-height:90px;
     text-align: center;
     margin: 10px;
    
@@ -93,9 +127,8 @@ button {
   color: white;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   transition: all 0.3s ease;
-  margin-top: 0.6rem;
   margin-top: auto;
   font-family: "Josefin Sans", sans-serif;
 }
@@ -106,30 +139,30 @@ button:hover {
   background-color: #1486b3;
 }
 .autor-card {
-  border: 2px solid rgba(123, 81, 201, 0.2);
+  border: 1.5px solid rgba(223, 223, 223, 0.253);
   padding: 1rem;
   border-radius: 20px;
   background: #F4E6CC;
-  box-shadow: 0 10px 30px rgba(95, 61, 196, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 10px 30px rgba(97, 97, 97, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-}
-.autor-card img {
-   width: 120px;
-   height: 120px;
-   object-fit: cover;
-   border-radius: 50%;
+    width: 520px;
+    height: 360px;
+    flex-shrink:0;
 }
 .autor-card:hover { 
-  box-shadow: 0 14px 40px rgba(95, 61, 196, 0.18);
+  box-shadow: 0 14px 30px rgba(46, 46, 46, 0.18);
   transform: scale(1,1);
-  
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.foto-autor{
+    width:280px;
+    height:280px;
+    object-fit:cover;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;

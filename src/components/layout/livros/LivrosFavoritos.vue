@@ -1,22 +1,25 @@
 <script setup>
 import { ref} from 'vue';
-const props= defineProps(['capa', 'titulo', 'descricao','autor', 'id', 'link', 'categoria','livro', 'classe']);
+import livrosInfo from '@/Data/livrosInfo.js';
 import ButtonChild from '../ButtonChild.vue';
 const mostrarDetalhes = ref(false)
 //<i class="fa-regular fa-heart"></i>
-const emit = defineEmits(['favoritar']);
-function LivroFavoritado() {
-  emit('favoritar', props.livro)
+const emit = defineEmits(['remover']);
+const props = defineProps({
+    livros: Object
+})
+function removerLivro() {
+  emit('remover', props.livros.id)
 }
 </script>
 
 
 <template>
-
+   
     <div class="livro-card" :class="classe">
 
       <div class="livro-int">
-         <img :src="capa" alt="Capa do livro" class="capa-livro" />
+         <img :src="livros.capa" alt="Capa do livro" class="capa-livro" />
       
            <ButtonChild class="button-" @clique="mostrarDetalhes = true">
               Ver mais
@@ -28,21 +31,21 @@ function LivroFavoritado() {
       <div  class="modal"  @click.stop>
        <div class="capa-autor">
 
-         <img :src="capa" alt="Capa do livro" class="capa-livro">
+         <img :src="livros.capa" alt="Capa do livro" class="capa-livro-modal">
        <p>
-        {{ autor }}
+        {{ livros.autor }}
        </p>
        <p>
-        Categoria: {{ categoria }}
+        Categoria: {{ livros.categoria }}
        </p>
        </div>
 
        <div class="descricao">
         <h3>
-            {{ titulo }}
+            {{ livros.titulo }}
         </h3>
         <p class="pi">
-       {{ descricao }} 
+       {{livros.descricao }} 
         </p>
           
         
@@ -52,19 +55,10 @@ function LivroFavoritado() {
        <div>
         <div class="coisa">
          <div>
-         <a :href="link" target="_blank" rel="noopener noreferrer">Acessar material</a>
+         <a :href="livros.link" target="_blank" rel="noopener noreferrer">Acessar material</a>
          </div>
 
-        
-         <div class="tooltip">
-         <ButtonChild id="coracao" @clique="LivroFavoritado"> 
-          <i class="fa-regular fa-heart"></i>
-         </ButtonChild>
-          <span class="tooltip-texto">Adicionar aos favoritos</span>
-         </div>
-           
     </div>
-      
          
         <ButtonChild class="button-" @clique="mostrarDetalhes = false">
         Fechar
@@ -75,15 +69,72 @@ function LivroFavoritado() {
             </div>
         </div>
       </Transition>
-    
-
     </div>
+      
+    <ButtonChild id="oq" @clique="removerLivro">
+         Remover Livro
+    </ButtonChild>
 </template>
+
+
 
 
 <style scoped>
 
+ #oq{
+  display: flex;
+  justify-content: center;
+   width: 100%;
+    max-width: 360px;
+    padding: 0.5vw;
+    border-radius: 15px;
+    margin: 1.7vw;
+}
 
+.carrinho-flutuante {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #8a00db;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.carrinho-flutuante:hover {
+  transform: scale(1.08);
+  background: #6d00ad;
+}
+
+.icone-carrinho {
+  font-size: 1.8rem;
+}
+
+.notificacao {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ff00aa;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
 .tooltip {
   position: relative;
   display: inline-block;
@@ -199,26 +250,25 @@ button:hover {
   background-color: #1486b3;
 }
 .livro-card {
-  border: 2px solid rgba(165, 165, 165, 0.2);
+  border: 2px solid rgba(148, 148, 148, 0.2);
   padding: 1rem;
   border-radius: 20px;
   background: white;
-  box-shadow: 0 10px 30px rgba(112, 112, 112, 0.1);
+  box-shadow: 0 10px 30px rgba(134, 134, 134, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 70%;
+  width: 300px;
+  height: auto;
   justify-self: center;
-  box-sizing: border-box;
-
-  
-       
+  box-sizing: border-box;   
+ 
 }
 
 .livro-card:hover { 
-  box-shadow: 0 14px 40px rgba(47, 47, 48, 0.18);
+  box-shadow: 0 14px 40px rgba(46, 46, 46, 0.18);
   
 }
 .carrossel{
-   border: 2px solid rgba(95, 94, 95, 0.2);
+   border: 2px solid rgba(123, 81, 201, 0.2);
   padding: 1vw;
   border-radius: 20px;
   background: white;
@@ -235,11 +285,15 @@ button:hover {
 }
 .capa-livro {
   width: 100%;
+  max-width: 300px;
   height: 100%;
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
+
 .modal-overlay {
   position: fixed;
   top: 0;
