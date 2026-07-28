@@ -122,6 +122,7 @@ function LivroNaoEncontrado (){
 </template>
 
 <style scoped>
+
 .pesquisa{
   padding: 2.7vw 0 0 0;
 }
@@ -212,6 +213,44 @@ select:hover {
   margin: 0.75rem 0;
   font-size: 1.8rem;
 }
-
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+ .barra-pesquisa{
+  padding: 30px;
+  display: block;
+  
+ }
+ .barra-pesquisa div{
+  padding: 15px;
+ }
+ .barras{
+  padding-top: 30px;
+ }  
+ .pesquisa input,.pesquisa select {
+    width: 100%;
+  }
+ .input{
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 13px;
+   box-shadow: 0 20px 30px rgba(37, 37, 37, 0.2);
+ }
+ .input::placeholder{
+  font-size: 1rem;
+ }
+ select{
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 10px;
+  position: relative;
+ }
+ 
+ .mensagem{
+  font-size: 1.2rem;
+ }
+ .livro-lista{
+   grid-template-columns: 1fr;
+ }
+}
 
 </style>

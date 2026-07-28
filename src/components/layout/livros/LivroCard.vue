@@ -27,7 +27,7 @@ function LivroFavoritado() {
     <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
        <div class="capa-autor">
-
+           
          <img :src="capa" alt="Capa do livro" class="capa-livro">
        <p>
         {{ autor }}
@@ -208,8 +208,6 @@ button:hover {
   width: 70%;
   justify-self: center;
   box-sizing: border-box;
-
-  
        
 }
 
@@ -285,5 +283,96 @@ button:hover {
   margin: 1rem 0;
 }
 
+
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+  .capa-livro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  
+}
+.livro-card {
+  border: 2px solid rgba(165, 165, 165, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(112, 112, 112, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 60%;
+  justify-self: center;
+  box-sizing: border-box;
+       
+}
+button {
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 5px;
+}
+ .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 320px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal p {
+  color: #333;
+  margin: 0.75rem 0;
+  line-height: 1.6;
+   font-size: 1rem;
+}
+#icone{
+  font-size: 1.1rem;
+}
+.modal h3{
+   font-family: "Josefin Sans", sans-serif;
+   color: black;
+   font-size: 1.4rem;
+}
+.modal img {
+  width: 100%;
+  max-width: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem 0;
+ 
+}
+a{
+   border-radius: 12px;
+   font-size: 1rem;
+   padding: 5px;
+}
+  #coracao{
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0 0 20px 0;
+}
+
+
+
+ }
 
 </style>

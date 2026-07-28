@@ -338,6 +338,105 @@ button:hover {
   border-radius: 16px;
   margin: 1rem 0;
 }
+/*********************/
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+   #oq{
+  display: flex;
+  justify-content: center;
+   width: 100%;
+    max-width: 360px;
+    padding: 7px;
+    border-radius: 10px;
+    margin: 1.7vw;
+     margin-bottom: 10px;
+}
+    .livro-card {
+  border: 2px solid rgba(148, 148, 148, 0.2);
+  padding: 0.6rem;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(134, 134, 134, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 140px;
+  height: auto;
+   margin-bottom: 10px;
+}
+button {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 7px;
+  background-color: #135F7D ;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  margin-top: 0.6rem;
+  font-family: "Josefin Sans", sans-serif;
+} 
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  overflow: hidden;
+}
 
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal p {
+  color: #333;
+  margin: 0.75rem 0;
+  line-height: 1.6;
+   font-size: 1rem;
+}
+.modal h3{
+   font-family: "Josefin Sans", sans-serif;
+   color: black;
+   font-size: 1.4rem;
+}
+
+.coisa{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: 1rem;
+}
+a{
+  color: #135F7D;
+   border-radius: 10px;
+   font-family: "Josefin Sans", sans-serif;
+   font-size: 1rem;
+   padding: 8px;
+  margin: 0;
+  display: block;
+  width: 100%;
+ justify-content: center;
+  
+ 
+}
+#icone{
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+}
+  }
 
 </style>

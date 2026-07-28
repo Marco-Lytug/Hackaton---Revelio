@@ -98,5 +98,16 @@ button:hover{
 .left{
     justify-content: flex-start;
 }
+/*********************/
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+  button {
+    padding: 4px ;
+    font-size: 30px ;
+    border-radius: 20px;
+}
 
+  
+   
+}
 </style>

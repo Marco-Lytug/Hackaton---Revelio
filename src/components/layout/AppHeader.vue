@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ref, onMounted, onUnmounted } from 'vue'
-
+import ButtonChild from './ButtonChild.vue'
 const isHidden = ref(false)
 const isTop = ref(true)
 const lastScrollY = ref(0)
@@ -27,46 +27,102 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+const abrirMenu = ref(false)
+const abrirLivros = ref(false)
 </script>
 
 <template>
-  <header :class="{ hidden: isHidden, transparent: isTop }">
-    <nav>
-      <ul class="principal">
-        <li>
-          <RouterLink to="/">Principal</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/livros">Livros</RouterLink>
-          <ul class="mais">
-            <li class="verde">
-              <RouterLink to="/agro">Livros - Agro</RouterLink>
-            </li>
-            <li class="azul">
-              <RouterLink to="/info">Livros - Info</RouterLink>
-            </li>
-            <li class="vermelho">
-              <RouterLink to="/quimi">Livros - Quimi</RouterLink>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <img src="/images/Revelio.png" alt="">
-        </li>
-        <li>
-          <RouterLink to="/atividades">Atividades</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/extras">Extras</RouterLink>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <div>
-  </div>
+ <header :class="{ hidden: isHidden, transparent: isTop }">
+
+  <nav class="desktop-nav">
+    <ul class="principal">
+      <li><RouterLink to="/">Principal</RouterLink></li>
+
+      <li class="nav-item">
+        <RouterLink to="/livros">Livros</RouterLink>
+
+        <ul class="mais">
+          <li class="verde">
+            <RouterLink to="/agro">Livros - Agro</RouterLink>
+          </li>
+          <li class="azul">
+            <RouterLink to="/info">Livros - Info</RouterLink>
+          </li>
+          <li class="vermelho">
+            <RouterLink to="/quimi">Livros - Quimi</RouterLink>
+          </li>
+        </ul>
+      </li>
+
+      <li><img src="/images/Revelio.png"></li>
+
+      <li>
+        <RouterLink to="/atividades">Atividades</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/extras">Extras</RouterLink>
+      </li>
+    </ul>
+  </nav>
+
+
+  <nav class="mobile-nav">
+    <ButtonChild class="hamburguer"  @clique="abrirMenu = !abrirMenu"
+    >
+      ☰
+    </ButtonChild>
+
+    <Transition name="modal-tudo">
+      <div v-if="abrirMenu"   class="modal-nav"  @click="abrirMenu = false"
+      >
+        <ul class="menu-mobile" @click.stop>
+
+          <li>
+            <RouterLink to="/">Principal</RouterLink>
+          </li>
+
+          <li>
+            <a @click.prevent="abrirLivros = !abrirLivros">
+              Livros
+            </a>
+
+            <ul v-show="abrirLivros">
+              <li>
+                <RouterLink to="/agro">Agro</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/info">Info</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/quimi">Química</RouterLink>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <RouterLink to="/atividades">Atividades</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/extras">Extras</RouterLink>
+          </li>
+
+        </ul>
+      </div>
+    </Transition>
+  </nav>
+
+</header>
 </template>
 
 <style scoped>
+.desktop-nav {
+    display: block;
+}
+
+.mobile-nav {
+    display: none;
+}
 p {
   font-size: 5rem;
 }
@@ -172,6 +228,11 @@ a:hover {
   padding: 10px 0;
   list-style: none;
 }
+
+.nav-item:hover .mais,
+.mais.ativo {
+  display: block;
+}
 @keyframes pop {
   from {
     opacity: 0;
@@ -225,5 +286,96 @@ a:hover {
   font-family: "Julius Sans One", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+.hamburguer {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 732px){
+   .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+  .modal-tudo-enter-from{
+    opacity: 0;
+    transform: translateX(-40%);
+  }
+  .modal-tudo-enter-active{
+      transition: transform 0.6s ease, opacity 0.4s ease;
+  }
+  .modal-tudo-enter-to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .modal-tudo-leave-from{
+     transform: translateX(0);
+    opacity: 1;
+  }
+  .modal-tudo-leave-active{
+     transition: transform 0.6s ease, opacity 0.4s ease;
+  }
+  .modal-tudo-leave-to{
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+
+  header{
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.788);
+  }
+  .hamburguer.ativo{
+    display: none;
+  }
+  .hamburguer {
+    display: block;
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    margin: 8px;
+    font-size: 2rem;
+  }
+   .principal {
+   display: none;
+  }
+  .modal-nav{
+     position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
+    display: flex;
+  justify-content: flex-start; 
+  align-items: stretch;
+  z-index: 1000;
+  
+  }
+  .menu-mobile{
+  position: relative;
+  width: 100%;
+  max-width: 140px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.788);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   padding: 30px;
+  }
+  .menu-mobile li a{
+    font-size: 1.1rem;
+  }
+  .menu-mobile li{
+    list-style: none;
+  }
 }
 </style>
