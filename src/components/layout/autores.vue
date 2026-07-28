@@ -204,4 +204,63 @@ button:hover {
 }
 
 
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+  .autor-card {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(97, 97, 97, 0.1);
+    width: 290px;
+    height: 250px;
+    flex-shrink:0;
+}
+.foto-autor{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+}
+button {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1.3rem;
+ 
+}
+
+#pi{
+    color: #135F7D;
+    font-weight: 600;
+    font-size: 1rem;
+}
+#ui{
+    font-size: 1.6rem;
+    color: black;
+}
+#nome{
+    color: black;
+     font-size: 1.8rem;
+    text-align: center;
+    margin: 10px;
+   
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 330px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal p {
+   font-size: 1.2rem;
+}
+
+  
+}
+
 </style>

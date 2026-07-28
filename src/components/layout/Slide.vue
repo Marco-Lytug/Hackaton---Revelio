@@ -9,6 +9,7 @@
 </template>
 
 <style scoped>
+
 .slide {
   animation: passar 0.5s ease;
 }
@@ -16,7 +17,7 @@
 @keyframes passar {
   from {
     opacity: 0;
-    transform: translateX(10%);
+    transform: translateX(5%);
   }
   to {
     opacity: 1;

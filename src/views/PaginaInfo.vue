@@ -1,5 +1,5 @@
 <script setup>
-import { ref,computed, reactive} from 'vue';
+import { ref,computed, onMounted, onBeforeUnmount } from 'vue';
 import Carroussel from '@/components/layout/Carroussel.vue';
 import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
@@ -13,9 +13,9 @@ defineEmits(['fechar'])
 
 const listaSalva = localStorage.getItem('livro')
 //COLOCAR LINK NOS LIVROS DE REFERENCIAS
-//AJEITAR O HEADER NO RESPONSIVO
+// AJEITAR TAMANHO DOS CARDS
 //COLOCAR ACTIVE NOS HOVER
-//FAZER ANMIACAO NO CARROSSEL
+
 const listaFav = ref(
   listaSalva ? JSON.parse(listaSalva) : []
 )
@@ -72,37 +72,87 @@ const terceiro =[
   ...livrosInfo3Ano
 ]
 
-const CarouselSlides = autoresInfo;
-const slidesAutores = [];
-const slidesLivros = [];
-const slides2ano =[];
-const slides3Ano = [];
+const CarouselSlides = [
+  ...autoresInfo
+]
+
+
 const destaque3Ano  = livrosInfo3Ano.filter(livro =>
     [44,36,37,39,43,34,].includes(livro.id)
 )
-for (let i = 0; i < destaque3Ano.length; i += 3) {
-    slides3Ano.push(destaque3Ano.slice(i, i + 3))
-}
 const livrosDestaque = livrosInfo1Ano.filter(livro =>
     [1,4,7,10,13,2,6,14].includes(livro.id)
 )
 const destaque2Ano  = livrosInfo2Ano.filter(livro =>
     [22,29,21,32,20,31,].includes(livro.id)
 )
-for (let i = 0; i < destaque2Ano.length; i += 3) {
-    slides2ano.push(destaque2Ano.slice(i, i + 3))
-}
-for (let i = 0; i < livrosDestaque.length; i += 4) {
-    slidesLivros.push(livrosDestaque.slice(i, i + 4))
-}
-for (let i = 0; i < CarouselSlides.length; i += 3) {
-  slidesAutores.push(CarouselSlides.slice(i, i + 3));
+const larguraTela = ref(window.innerWidth)
+
+function atualizarLargura() {
+  larguraTela.value = window.innerWidth
 }
 
+onMounted(() => {
+  window.addEventListener('resize', atualizarLargura)
+})
 
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', atualizarLargura)
+})
+const livrosPorSlide = computed(() => {
+  return larguraTela.value <= 732 ? 1 : 3
+})
+const livrosPorSlide1 = computed(() => {
+  return larguraTela.value <= 732 ? 1 : 4
+})
+const slides3Ano = computed(() => {
+  const grupos = []
+
+  for (let i = 0; i < destaque3Ano.length; i += livrosPorSlide.value) {
+    grupos.push(
+      destaque3Ano.slice(i, i + livrosPorSlide.value)
+    )
+  }
+
+  return grupos
+})
+const slides2Ano = computed(() => {
+  const grupos = []
+
+  for (let i = 0; i < destaque2Ano.length; i += livrosPorSlide.value) {
+    grupos.push(
+      destaque2Ano.slice(i, i + livrosPorSlide.value)
+    )
+  }
+
+  return grupos
+})
+const slidesLivros  = computed(() => {
+  const grupos = []
+
+  for (let i = 0; i < livrosDestaque.length; i += livrosPorSlide1.value) {
+    grupos.push(
+      livrosDestaque.slice(i, i + livrosPorSlide1.value)
+    )
+  }
+
+  return grupos
+})
+const slidesAutores = computed(() => {
+  const grupos = []
+
+  for (let i = 0; i < CarouselSlides.length; i += livrosPorSlide.value) {
+    grupos.push(
+      CarouselSlides.slice(i, i + livrosPorSlide.value)
+    )
+  }
+
+  return grupos
+})
 </script>
 <template>
     <section class="banner">
+    
         <div>
         <h1>
             Livros destinados ao <br> curso de <br> informática
@@ -136,7 +186,7 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
       <p>
         Conheça os nossos principais autores
       </p>
-
+    
       
       <div class="autores-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesAutores.length"
@@ -179,14 +229,19 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
           Com videoaulas e materiais de estudo
         </p>
         <div  class="link-image">
-          
-       <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
-              Ver mais
-    </ButtonChild>
+      
       
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
+           <div>
+
+           </div>
+           <div class="vermais">
+       <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
+              Ver mais
+    </ButtonChild>
+           </div>
 
               </div>
         </div>
@@ -279,7 +334,7 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
 </LivroCard>
         </div>
           <div class="ffe">
-        <ButtonChild id="fechar" @clique="mostrarLivros = false">
+        <ButtonChild id="fef" @clique="mostrarLivros = false">
         Fechar
       </ButtonChild>
       </div> 
@@ -303,10 +358,10 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2ano.length"
+        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"
   v-slot="{ currentSlide }">
         
-          <Slide class="livros-lista"   v-for="(grupo,index) in slides2ano"
+          <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
   :key="index"
   v-show="currentSlide === index + 1">
            <div class="livros-lista"> 
@@ -343,7 +398,7 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
 </LivroCard>
         </div>
           <div class="ffe">
-        <ButtonChild id="fechar" @clique="mostrarLivros2 = false">
+        <ButtonChild id="fef" @clique="mostrarLivros2 = false">
         Fechar
       </ButtonChild>
       </div> 
@@ -408,7 +463,7 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
 </LivroCard>
         </div>
           <div class="ffe">
-        <ButtonChild id="fechar" @clique="mostrarLivros3 = false">
+        <ButtonChild id="fef" @clique="mostrarLivros3 = false">
         Fechar
       </ButtonChild>
       </div> 
@@ -465,6 +520,7 @@ for (let i = 0; i < CarouselSlides.length; i += 3) {
 </template>
 
 <style scoped>
+
 
 .carrinho-flutuante{
   animation: botao 0.3s ease  ;
@@ -696,8 +752,12 @@ button #fechar, #limpar{
  padding: 0.8vw;
  font-size: 2rem;
   margin: 2rem 0;
-}
 
+}
+.ffe{
+  display: flex;
+  justify-content: center;
+}
 #visu{
   margin: 2.7vw;
   font-size: 2.2rem;
@@ -740,14 +800,10 @@ button #fechar, #limpar{
     background: #135F7D;
     border-radius: 20px;  
 }
-
-
-
 .livros{
   display: flex;
   
 }
-
 .card-esquerda p{
   font-size: 2.8rem;
   color: #135F7D;
@@ -869,7 +925,7 @@ button:hover {
 .card-direita p {
   text-align: center;
   color: #135F7D;
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-family: "Josefin Sans", sans-serif;
   padding: 0.9vw;
   margin: 0.9vw;
@@ -884,6 +940,8 @@ button:hover {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  max-width: 340px;
+  
 }
 .link-image{
   display: flex;
@@ -941,7 +999,7 @@ button:hover {
      display:flex;
     justify-content:center;
     align-items:stretch;
-    gap: 90px;
+    gap: 30px;
     padding: 0.7vw;
 }
 .autores{
@@ -1019,6 +1077,324 @@ a:hover{
     opacity: 0;
     scale: 1.02;
   }
+}
+
+/*********************/
+/*PARTE DO CSS RESPONSIVO*/
+@media (max-width: 732px) {
+  #fef{
+    font-size: 1rem;
+    padding: 8px;
+    max-width: 200px;
+  }
+  .todos-livros{
+     grid-template-columns: 1fr;
+     padding: 20px;
+  }
+  .banner {
+ 
+  min-height: 100vh;
+  width: 100%;
+   
+}
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.banner h1{
+  font-size: 2.4rem;
+
+}
+.banner a{
+  color: white;
+   background-color: #135F7D;
+   border-radius: 10px;
+   font-family: "Josefin Sans", sans-serif;
+   font-size: 1.3rem;
+   padding: 10px;
+   cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-left: 5vw;
+
+}
+.titulo{
+  margin: 8px;
+  margin-bottom: 40px;
+}
+.titulo p{
+  font-size: 1.4rem;
+}
+.titulo h3{
+  font-size: 2rem;
+  color: #135F7D;
+  margin: 3vw;
+}
+.titulo h3::after{
+    display: flex;
+    width: 200px;
+    height: 2px; 
+}
+.autores-lista {  
+    max-width:1050px;
+    margin:auto;
+     display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap: 90px;
+    padding: 0.7vw;
+}
+.autores h2{
+  font-size: 2.6rem;
+}
+.autores p{
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+#router{
+  font-size:1rem;
+  padding: 8px;
+  margin: 0;
+  border-radius: 10px;
+}
+button {
+   font-size: 1rem;
+   border-radius: 10px;
+   border: 1px solid #135F7D;
+   padding: 8px;  
+}
+
+#vermais{
+  font-size:1rem;
+  border-radius: 10px;
+ width: 100%; 
+ max-width: 180px;
+  padding: 7px;
+}
+.vermais{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.referencias{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+.card-direita{
+  border-radius: 17px;
+  width: 100%;
+  height: 30%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.card-esquerda{
+  border-radius: 17px;
+  height: auto;
+  position: relative;
+   width: 100%;
+}
+.card-esquerda img{
+  border-radius: 12px;
+  position: absolute;
+  transform: translate(-20%, -50%);
+  align-items: center;
+   transition: transform 0.2s ease;
+   width: 47%;
+}
+.card-direita p {
+  font-size: 2rem;
+  margin: 10px;
+  padding: 10px;
+}
+.card-direita img{
+  width: 100%;
+  max-width: 190px;
+  margin: 0;
+  height: auto;
+  
+}
+.card-esquerda p{
+  font-size: 2.2rem;
+   margin: 10px;
+   padding: 20px;
+}
+.imagem-direita{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.link-image{
+  display: block;
+}
+.modal {
+  padding: 1.5rem;
+  border-radius: 17px;
+  width: 100%;
+  max-width: 300px;
+  max-height: 85vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal p {
+  margin: 0.75rem 0;
+   font-size: 1rem;
+   padding: 1vw;
+}
+.modal h3{
+  font-size: 2rem;
+  color: #135F7D;
+  padding: 1vw;
+}
+ #visu {
+  padding: 10px;
+  font-size: 1rem;
+} 
+
+
+.carrinho-vazio {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+.carrinho-vazio p {
+  color: #135F7D;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+   font-family: "Josefin Sans", sans-serif;
+}
+button #fechar, #limpar{
+  justify-content: center;
+  width: 100%;
+}
+#limpar{
+  justify-content: center;
+  margin: 1vw ;
+  
+}
+#fechar{
+   display: flex;
+  justify-content: center;
+  margin: 1vw ;
+
+}
+.bot{
+  display: flex;
+}
+.favo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
+    display: flex;
+  justify-content: flex-end; 
+  align-items: stretch;
+  z-index: 1000;
+}
+.favo-modal {
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  background: white;
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vw;
+  
+}
+.icone-modal{
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.carrinho-flutuante {
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #135F7D;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.2s ease, background 0.2s ease;
+  border: none;
+}
+.icone-carrinho {
+  font-size: 1.6rem;
+}
+
+.notificacao {
+  position: absolute;
+  top: -15%;
+  right: -17%;
+  min-width: 20px;
+  height: 25px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ff00aa;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+.carrinho-vazio {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0;
+ 
+}
+.carrinho-vazio p {
+  color: #135F7D;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+ #fechar button, #limpar button{
+  justify-content: center;
+  width: 100%;
+ font-size: 0.8rem;
+ border-radius: 10px;
+}
+#limpar{
+  justify-content: center;
+  margin: 0 ;
+  margin-bottom: 10px;
+}
+#fechar button{
+   display: flex;
+  justify-content: center;
+  margin: 0 ;
+   font-size: 0.8rem;
+ border-radius: 10px;
+}
+.bot{
+  display: block;
+}
+
 }
 
 

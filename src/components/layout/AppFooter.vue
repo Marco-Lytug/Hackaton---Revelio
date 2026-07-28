@@ -41,10 +41,12 @@ onUnmounted(() => {
             <RouterLink to="/">Livros de Quimica</RouterLink>
             <RouterLink to="/">Livros de Agro</RouterLink>
             <RouterLink to="/">Contate-nos</RouterLink>
-
-          </div>
+             
+          </div> 
           <div>
-
+            <p>
+              Plataforma de apoio ao estudo com curadoria de materiais e quizzes interativos para fixação de conteúdo. 
+            </p>
           </div>
         </div>
       </ul>
