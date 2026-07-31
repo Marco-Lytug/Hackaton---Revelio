@@ -35,11 +35,10 @@ const router = createRouter({
       component: PaginaAtividades
     },
     {
-      path: '/quiz',
+      path: '/quiz/:categoria/:numero',
       name: 'quiz',
       component: QuizView
     }
-
   ]
 })
 
