@@ -21,6 +21,10 @@ function aoFinalizarQuiz(resultado) {
   console.log('Pontuação:', resultado.pontuacao, '/', resultado.total)
   console.log('Histórico de respostas:', resultado.historico)
 }
+
+console.log(categoria.value)
+console.log(numero.value)
+console.log(perguntas.value)
 </script>
 
 <template>
