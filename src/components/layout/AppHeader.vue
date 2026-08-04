@@ -87,7 +87,7 @@ const abrirLivros = ref(false)
               Livros
             </a>
 
-            <ul v-show="abrirLivros">
+            <ul class="abriu" v-show="abrirLivros">
               <li>
                 <RouterLink to="/agro">Agro</RouterLink>
               </li>
@@ -296,6 +296,21 @@ a:hover {
   cursor: pointer;
 }
 @media (max-width: 732px){
+ ul .abriu{
+    animation: abrir 0.3s ease ;
+    display: block;
+    justify-content: center;
+  }
+  @keyframes abrir{
+    from {
+      opacity: 0;
+      transform: translateY(20%);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
    .desktop-nav {
         display: none;
     }
@@ -331,9 +346,7 @@ a:hover {
     padding: 40px;
     background: rgba(0, 0, 0, 0.788);
   }
-  .hamburguer.ativo{
-    display: none;
-  }
+ 
   .hamburguer {
     display: block;
     position:absolute;
@@ -341,8 +354,9 @@ a:hover {
     top:50%;
     transform:translateY(-50%);
     margin: 8px;
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
+
    .principal {
    display: none;
   }
@@ -373,9 +387,14 @@ a:hover {
   }
   .menu-mobile li a{
     font-size: 1.1rem;
+
   }
+  
   .menu-mobile li{
     list-style: none;
+    line-height: 50px;
+    margin-bottom: 20px;
   }
+
 }
 </style>
