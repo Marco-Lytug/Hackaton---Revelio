@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { buscarPerguntas, categoriasInfo } from '@/Data/quizzes'
-import Quiz from '@/components/Quiz.vue'
+import Quiz from '@/components/AppQuiz.vue'
 
 const route = useRoute()
 
