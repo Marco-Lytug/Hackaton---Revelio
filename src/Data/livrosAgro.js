@@ -86,7 +86,7 @@ export const livrosAgro1Ano =[
 
    export const livrosAgro2Ano = [
     {
-        id: 1,
+        id: 10,
         titulo: 'Entomologia',
         link: 'https://educapes.capes.gov.br/bitstream/capes/698947/1/Entomologia.pdf',
         categoria: 'Entomologia',
@@ -95,7 +95,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_10.png'
     },
     {
-        id: 2,
+        id: 11,
         titulo: 'Aquicultura e Segurança Alimentar',
         link: 'https://downloads.editoracientifica.com.br/books/978-65-5360-936-5.pdf',
         categoria: 'Zootecnia',
@@ -104,7 +104,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_11.png'
     },
     {
-        id: 3,
+        id: 12,
         titulo: 'Técnico em aquicultura',
         link: 'https://redeetec.mec.gov.br/images/stories/pdf/eixo_rec_naturais/aquicultura/181012_nov_op_aquic.pdf',
         categoria: 'Zootecnia',
@@ -113,7 +113,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_12.png'
     },
     {
-        id: 4,
+        id: 13,
         titulo: 'Insetos - Fundamentos da Entomologia',
         link: 'https://www.kufunda.net/publicdocs/Insetos%20-%20Fundamentos%20da%20Entomologia%20-%20Gullan%20-%205%C2%AA%20edic%CC%A7a%CC%83o.pdf',
         categoria: 'Entomologia',
@@ -122,7 +122,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_13.png'
     },
     {
-        id: 5,
+        id: 14,
         titulo: 'Mecanização AGRÍCOLA 1º Volume',
         link: 'https://www.bibliotecaagptea.org.br/agricultura/mecanizacao/livros/MECANIZACAO%20AGRICOLA%201%20VOLUME%20%20MOTORES%20E%20TRACTORES.pdf',
         categoria: 'Mecanização',
@@ -131,7 +131,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_14.png'
     },
     {
-        id: 6,
+        id: 15,
         titulo: 'MECANIZACAO AGRICOLA E TEC',
         link: 'https://www.bibliotecaagptea.org.br/agricultura/mecanizacao/livros/APOSTILA%20MECANIZACAO%20AGRICOLA%20E%20TEC.pdf',
         categoria: 'Mecanização',
@@ -140,7 +140,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_15.png'
     },
     {
-        id: 7,
+        id: 16,
         titulo: 'Aplicacao de agrotóxicos',
         link: 'https://www.sistemafaep.org.br/wp-content/uploads/2023/03/PR.0361-Aplicacao-de-agrotoxicos-1.pdf',
         categoria: 'Mecanização',
@@ -149,7 +149,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_16.png'
     },
     {
-        id: 8,
+        id: 17,
         titulo: 'Fundamentos da Topografia',
         link: 'https://www.kufunda.net/publicdocs/2-Fundamentos%20de%20Topografia.pdf',
         categoria: 'Topografia',
@@ -158,7 +158,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_17.png'
     },
     {
-        id: 9,
+        id: 18,
         titulo: 'ZOOTECNIA GERAL',
         link: 'https://www.bibliotecaagptea.org.br/zootecnia/zootecnia_geral/livros/APOSTILA%20DE%20ZOOTECNIA%20GERAL.pdf',
         categoria: 'Zootecnia',
@@ -167,7 +167,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_18.png'
     },
     {
-        id: 10,
+        id: 19,
         titulo: 'Zootecnia Sistema de produção animal e forragicultura',
         link: 'https://educapes.capes.gov.br/bitstream/capes/701881/1/Zootecnia%20Sistema%20de%20produção%20animal%20e%20forragicultura%202.pdf ',
         categoria: 'Zootecnia',
@@ -176,7 +176,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_19.png'
     },
     {
-        id: 11,
+        id: 20,
         titulo: 'Suinocultura',
         link: 'https://portaldoautor.kelps.com.br/wp-content/uploads/2023/01/Suinocultura_compressed-1.pdf',
         categoria: 'Zootecnia',
@@ -184,7 +184,7 @@ export const livrosAgro1Ano =[
         descricao: 'A Suinocultura (Kelps Editora) é uma obra acadêmica voltada ao estudo da criação de suínos, abordando todo o processo produtivo, desde a gestação até o manejo e o processamento da carne. O livro reúne conteúdos sobre reprodução, alimentação, instalações, bem-estar animal, sanidade e técnicas de manejo utilizadas na produção suinícola.',
         capa: '/images/livro_agro_20.png'
     }, {
-        id: 12,
+        id: 21,
         titulo: 'Manual de Entomologia Geral ',
         link: 'https://ocondedemontecristo.wordpress.com/wp-content/uploads/2013/07/apostila-entomologia-geral-ufra.pdf',
         categoria: 'Entomologia',
@@ -194,7 +194,7 @@ export const livrosAgro1Ano =[
     },
 
     {
-        id: 13,
+        id: 22,
         titulo: 'Elementos da Zootecnia',
         link: 'https://livros.poisson.com.br/zootecnia/volume1/Zootecnia_vol1.pdff',
         categoria: 'Zootecnia',
@@ -203,7 +203,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_22.png'
     },
     {
-        id: 14,
+        id: 23,
         titulo: 'Espécies nativas para piscicultura no Brasil',
         link: 'https://api.pageplace.de/preview/DT0400.9786557160008_A39783776/preview-9786557160008_A39783776.pdf',
         categoria: 'Zootecnia',
@@ -218,7 +218,7 @@ export const livrosAgro1Ano =[
 
     
     {
-        id: 1,
+        id: 24,
         titulo: 'Paisagismo no planejamento arquitetônico',
         link: '',
         categoria: 'Paisagismo',
@@ -227,7 +227,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_24.png'
     },
     {
-        id: 2,
+        id: 25,
         titulo: 'ABC do paisagismo',
         link: 'https://www2.ufjf.br/frederico_braida/wp-content/uploads/sites/455/2019/03/E-book-ABC-do-Paisagismo.pdf',
         categoria: 'Paisagismo',
@@ -236,7 +236,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_25.png'
     },
     {
-        id: 3,
+        id: 26,
         titulo: 'PRODUCAO E GESTAO AGROINDUSTRIAL',
         link: 'https://www.bibliotecaagptea.org.br/administracao/agroindustria/livros/PRODUCAO%20E%20GESTAO%20AGROINDUSTRIAL.pdf',
         categoria: 'Agroindústria',
@@ -245,7 +245,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_26.png'
     },
     {
-        id: 4,
+        id: 27,
         titulo: 'Tecnologia de Frutas e Hortaliças',
         link: 'https://proedu.rnp.br/bitstream/handle/123456789/1480/Tec_Frut_Horta_Book_Ag.pdf?sequence=1&isAllowed=y',
         categoria: 'Agroindústria',
@@ -254,7 +254,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_27.png'
     },
     {
-        id: 5,
+        id: 28,
         titulo: 'Ciência e Tecnologia de Alimentos',
         link: 'https://downloads.editoracientifica.com.br/books/978-65-89826-94-1.pdf',
         categoria: 'Agroindústria',
@@ -263,7 +263,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_28.png'
     },
     {
-        id: 6,
+        id: 29,
         titulo: 'A relação da planta com a água',
         link: 'https://www.bibliotecaagptea.org.br/agricultura/irrigacao/livros/A%20RELACAO%20DA%20PLANTA%20COM%20A%20AGUA.pdf',
         categoria: 'Irrigação e Drenagem',
@@ -272,7 +272,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_29.png'
     },
     {
-        id: 7,
+        id: 30,
         titulo: 'BARRAGINHAS :ÁGUA DE CHUVA PARA TODOS',
         link: 'https://www.bibliotecaagptea.org.br/agricultura/irrigacao/livros/BARRAGINHAS%20AGUA%20DE%20CHUVA%20PARA%20TODOS.pdf',
         categoria: 'Irrigação e Drenagem',
@@ -281,7 +281,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_30.png'
     },
     {
-        id: 8,
+        id: 31,
         titulo: 'Criação de Equinos',
         link: 'https://www.bibliotecaagptea.org.br/zootecnia/equinocultura/livros/CRIACAO%20DE%20EQUINOS.pdf',
         categoria: 'Zootecnia',
@@ -290,7 +290,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_31.png'
     },
     {
-        id: 9,
+        id: 32,
         titulo: 'Equideocultura: manejo e alimentação',
         link: 'https://www.cnabrasil.org.br/assets/arquivos/185-EQUIDEOS.pdf',
         categoria: 'Zootecnia',
@@ -299,7 +299,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_32.png'
     },
     {
-        id: 10,
+        id: 33,
         titulo: 'Bovinocultura: Manejo e Alimentação de Bovinos de Corte em Confinamento',
         link: 'https://www.cnabrasil.org.br/assets/arquivos/232-BOVINOCULTURA.pdf',
         categoria: 'Zootecnia',
@@ -308,7 +308,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_33.png'
     },
     {
-        id: 11,
+        id: 34,
         titulo: 'Citricultura',
         link: 'https://www.idrparana.pr.gov.br/system/files/publico/pesquisa/publicacoes/it/001/it01-citricultura-livro.pdf',
         categoria: 'Citricultura',
@@ -317,7 +317,7 @@ export const livrosAgro1Ano =[
         capa: '/images/livro_agro_34.png'
     },
     {
-        id: 12,
+        id: 35,
         titulo: 'Manual de silvicultura',
         link: 'https://www.bibliotecaagptea.org.br/agricultura/silvicultura/livros/MANUAL%20DE%20SILVICULTURA%20CULTIVO%20E%20MANEJO%20DE%20FLORESTAS%20PLANTADAS.pdf',
         categoria: 'Silvicultura',
@@ -328,7 +328,7 @@ export const livrosAgro1Ano =[
 
 
          {
-        id: 13,
+        id: 36,
         titulo: 'Curso Municipal de recursos paisagísticos',
         link: 'https://drive.prefeitura.sp.gov.br/cidade/secretarias/upload/meio_ambiente/arquivos/apostila_13dez_ej.pdf',
         categoria: 'Paisagismo',
@@ -338,7 +338,7 @@ export const livrosAgro1Ano =[
     }
         ,
        {
-        id: 14,
+        id: 37,
         titulo: 'Irrigação por Aspersão em Hortaliças',
         link: 'https://ainfo.cnptia.embrapa.br/digital/bitstream/doc/1069565/1/Irrigacao-por-aspersao-em-hortalicas-ed-04-2017-web.pdf',
         categoria: 'Irrigação e Drenagem',
