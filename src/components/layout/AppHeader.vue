@@ -184,7 +184,7 @@ a {
   font-weight: 300;
   transition: 1s;
   font-family: "Julius Sans One", sans-serif;
-
+  
 
 }
 
@@ -346,7 +346,7 @@ a:hover {
     padding: 40px;
     background: rgba(0, 0, 0, 0.788);
   }
- 
+
   .hamburguer {
     display: block;
     position:absolute;
@@ -368,10 +368,10 @@ a:hover {
     height: 100%;
     box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
     display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: stretch;
   z-index: 1000;
-  
+
   }
   .menu-mobile{
   position: relative;
@@ -389,7 +389,7 @@ a:hover {
     font-size: 1.1rem;
 
   }
-  
+
   .menu-mobile li{
     list-style: none;
     line-height: 50px;

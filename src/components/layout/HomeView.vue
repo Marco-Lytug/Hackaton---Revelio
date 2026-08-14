@@ -1,5 +1,7 @@
 <script setup>
-//Os Buttons tem que substituir pelos ButtonChield que tem que serem criados!
+import { RouterLink } from 'vue-router'
+import ButtonChild from './ButtonChild.vue';
+
 </script>
 
 <template>
@@ -17,10 +19,18 @@
         <img src="/images/GarotoLendo.png" alt="">
       </div>
     </div>
-        <button>NOSSA BIBLIOTECA</button>
+    <ButtonChild @clique="abrir">NOSSA BIBLIOTECA</ButtonChild>
+    <div class="modal">
+      <div class="cursos">
+        <RouterLink to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
+        <RouterLink to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
+        <RouterLink to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
+
+      </div>
+    </div>
   </section>
   <section class="help">
-      <h2>Help!</h2>
+    <h2>Help!</h2>
     <div class="all">
       <div>
         <p>Na Help!, ajudaremos você a estudar, aqui temos video aulas e dicas de estudo, aproveite!</p>
@@ -29,8 +39,8 @@
         <img src="/images/help.png" alt="">
       </div>
     </div>
+    <button>AQUI!</button>
 
-        <button>AQUI!</button>
   </section>
 </template>
 
@@ -43,6 +53,17 @@
   width: 100vw;
   display: flex;
   align-items: center;
+}
+
+div.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .banner::before {
@@ -74,26 +95,28 @@
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
-    animation-range: entry 0% 50%;
+  animation-range: entry 0% 50%;
 
 }
-button{
+
+button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 10vw  3vw;
+  margin: 0 0 10vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-button:hover{
+
+button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
@@ -102,6 +125,7 @@ button:hover{
   cursor: pointer;
   transition: 0.3s;
 }
+
 div {
   display: flex;
   justify-content: space-between;
@@ -116,7 +140,7 @@ div {
 .img {
   width: 80vh;
   position: relative;
-  margin: 0 ;
+  margin: 0;
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
@@ -138,6 +162,7 @@ h1 span {
   z-index: 1;
   font-size: 4rem;
 }
+
 .help {
   background-color: white;
 
@@ -152,7 +177,7 @@ h1 span {
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
-  border-bottom:1px solid #135F7D;
+  border-bottom: 1px solid #135F7D;
   margin: 0 10vw 0 10vw;
 }
 
@@ -163,26 +188,28 @@ h1 span {
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
-    animation-range: entry 0% 50%;
+  animation-range: entry 0% 50%;
 
 }
-.help button{
+
+.help button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 35vw  3vw;
+  margin: 0 0 35vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-.help button:hover{
+
+.help button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
@@ -191,23 +218,25 @@ h1 span {
   cursor: pointer;
   transition: 0.3s;
 }
-button{
+
+button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 10vw  3vw;
+  margin: 0 0 10vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-button:hover{
+
+button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;

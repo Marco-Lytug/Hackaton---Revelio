@@ -10,10 +10,11 @@ import AppFooter from './components/layout/AppFooter.vue'
     <AppHeader />
     <main>
       <RouterView />
-      
+
     </main>
-   
+
   </div>
+  <AppFooter />
 </template>
 
 <style scoped>
