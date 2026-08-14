@@ -20,6 +20,11 @@ const listaFav = ref(
   listaSalva ? JSON.parse(listaSalva) : []
 )
 function LivroFavoritado (livro) {
+   const indice = listaFav.value.findIndex(item => item.id === livro.id)
+  if (indice !== -1) {
+   mostrarAlerta.value  = true
+    return
+  }
   listaFav.value.push(livro)
    localStorage.setItem(
     'livro',
@@ -56,6 +61,7 @@ const mostrarDetalhes = ref(false)
 const mostrarLivros = ref(false)
 const mostrarLivros2 = ref(false)
 const mostrarLivros3 = ref(false)
+const mostrarAlerta = ref(false)
 
 const TodosOsLivros = [
  ...livrosInfo1Ano,
@@ -149,6 +155,7 @@ const slidesAutores = computed(() => {
 
   return grupos
 })
+
 </script>
 <template>
     <section class="banner">
@@ -195,7 +202,7 @@ const slidesAutores = computed(() => {
            <div class="autores-lista"> 
   <autores
       v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
-    :biografia="autor.biografia" :principaisObras="autor.principaisObras"
+    :biografia="autor.biografia" :principaisObras="autor.principaisObras"   
    
   />
      </div>
@@ -455,7 +462,7 @@ const slidesAutores = computed(() => {
         <div  class="modal-livros" v-show="mostrarLivros3"  @click.stop>
           <div class="todos-livros">
 
-                    <LivroCard v-for="livros in terceiro" :key="livros.id"
+                    <LivroCard v-for="livros in terceiro" :key="livros.id" 
          :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
         :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
@@ -475,7 +482,7 @@ const slidesAutores = computed(() => {
 
     <section class="flutuante">
         
-         <ButtonChild @clique="mostrarFavoritos = true " v-if="listaFav.length > 0" class="carrinho-flutuante" 
+         <ButtonChild   @clique="mostrarFavoritos = true" v-if="listaFav.length > 0" class="carrinho-flutuante" 
   >
     <span class="icone-carrinho"><i class="fa-regular fa-heart"></i></span>
     <span class="notificacao">{{ quantidadeTotal }}</span>
@@ -499,7 +506,7 @@ const slidesAutores = computed(() => {
 
           <div class="bot">
                      <div id="limpar">
-        <ButtonChild @clique="limparLista">
+        <ButtonChild @clique="limparLista" :class="{ ativo: listaFav.length === 0 }">
             Limpar lista de Livros
         </ButtonChild>
               </div>
@@ -514,13 +521,29 @@ const slidesAutores = computed(() => {
            
     </div>
     </Transition>
+      <div v-if="mostrarAlerta" class="alerta-favorito" >
+    <p > Este livro já está nos favoritos!</p>
+
+    <ButtonChild @clique="mostrarAlerta = false">
+      Fechar
+    </ButtonChild>
+  </div>
 
     </section>
   
 </template>
 
 <style scoped>
-
+.alerta-favorito {
+  position: fixed;
+  top: 70%;
+  right: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
 
 .carrinho-flutuante{
   animation: botao 0.3s ease  ;
@@ -577,6 +600,9 @@ button #fechar, #limpar{
   justify-content: center;
   margin: 1vw ;
   
+}
+#limpar .ativo{
+  display: none;
 }
 #fechar{
    display: flex;
@@ -805,10 +831,10 @@ button #fechar, #limpar{
   
 }
 .card-esquerda p{
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   color: #135F7D;
    font-family: "Josefin Sans", sans-serif;
-   margin: 1vw;
+   margin: 0.6px;
    padding: 1.5vw;
 }
 .card-esquerda{
@@ -817,7 +843,7 @@ button #fechar, #limpar{
   height: auto;
   position: relative;
    width: 30%;
-  min-height: 480px;
+  min-height: 620px;
 }
 .card-esquerda img{
   border-radius: 12px;
@@ -825,7 +851,7 @@ button #fechar, #limpar{
   transform: translate(-50%, -50%);
   align-items: center;
    transition: transform 0.2s ease;
-   width: 30%;
+   width: 32%;
 }
 .card-esquerda img:hover{
    transform: translate(-50%, -50%) scale(1.1);
