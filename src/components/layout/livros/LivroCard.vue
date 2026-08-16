@@ -57,7 +57,7 @@ function LivroFavoritado() {
 
         
          <div class="tooltip">
-         <ButtonChild id="coracao" @clique="LivroFavoritado"> 
+         <ButtonChild id="coracao" @clique="LivroFavoritado" > 
           <i class="fa-regular fa-heart"></i>
          </ButtonChild>
           <span class="tooltip-texto">Adicionar aos favoritos</span>
@@ -82,7 +82,6 @@ function LivroFavoritado() {
 
 
 <style scoped>
-
 
 .tooltip {
   position: relative;
@@ -151,6 +150,7 @@ function LivroFavoritado() {
      cursor: pointer;
     margin-top: 1vw;
 }
+
 #coracao:hover{
   background-color: white;
   color: #135F7D;
@@ -286,6 +286,9 @@ button:hover {
 
 /*PARTE DO CSS RESPONSIVO*/
 @media (max-width: 732px) {
+  .tooltip-texto {
+   font-size: 1rem;
+}
   .capa-livro {
   width: 100%;
   height: 100%;
@@ -332,7 +335,7 @@ button {
   padding: 2rem;
   border-radius: 20px;
   width: 100%;
-  max-width: 320px;
+  max-width: 280px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);

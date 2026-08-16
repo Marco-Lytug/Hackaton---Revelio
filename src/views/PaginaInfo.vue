@@ -56,6 +56,7 @@ function limparLista() {
   )
 }
 
+
 const mostrarFavoritos = ref(false)
 const mostrarDetalhes = ref(false)
 const mostrarLivros = ref(false)
@@ -196,13 +197,13 @@ const slidesAutores = computed(() => {
     
       
       <div class="autores-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesAutores.length"
+        <Carroussel class="carousel"  :totalSlides="slidesAutores.length" tipo="autores"
   v-slot="{ currentSlide }"> 
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
            <div class="autores-lista"> 
   <autores
       v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
-    :biografia="autor.biografia" :principaisObras="autor.principaisObras"   
+    :biografia="autor.biografia" :principaisObras="autor.principaisObras"    
    
   />
      </div>
@@ -303,7 +304,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"
+        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -365,7 +366,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"
+        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"  tipo="livros"
   v-slot="{ currentSlide }">
         
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -377,7 +378,7 @@ const slidesAutores = computed(() => {
       v-for="livro in grupo" :key="livro.id"    :livro="livro" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado" "
+         :classe="'carrossel'"   @favoritar="LivroFavoritado" "  
         >
       </LivroCard>
   
@@ -429,7 +430,7 @@ const slidesAutores = computed(() => {
         <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"
+        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"  tipo="livros"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
@@ -440,7 +441,7 @@ const slidesAutores = computed(() => {
       v-for="livro in grupo" :key="livro.id" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado"   :livro="livro"
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"   :livro="livro" 
         >
       </LivroCard>
   
@@ -521,28 +522,78 @@ const slidesAutores = computed(() => {
            
     </div>
     </Transition>
-      <div v-if="mostrarAlerta" class="alerta-favorito" >
-    <p > Este livro já está nos favoritos!</p>
 
-    <ButtonChild @clique="mostrarAlerta = false">
+     <Transition name="alerta">
+      <div v-if="mostrarAlerta" class="alerta-favorito" >
+    <p > Você já favoritou esse livro!</p>
+    
+    <ButtonChild id="alerta" @clique="mostrarAlerta = false">
       Fechar
     </ButtonChild>
+    
+        
   </div>
+  </Transition>
+  
 
     </section>
   
 </template>
 
 <style scoped>
+
 .alerta-favorito {
   position: fixed;
-  top: 70%;
-  right: 30px;
+  top: 75%;
+  right: 10%;
   background: white;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   width: 100%;
+  max-width: 500px;
+  z-index: 9999;
+ 
+}
+.alerta-favorito p{
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: #135F7D;
+  font-weight: 600;
+  text-align: center;
+}
+#alerta{
+ display: flex;
+  justify-content: center;
+ width: 100%;
+ padding: 6px;
+ border-radius: 10px;
+ background-color: #135F7D;
+ color: white;
+}
+#alerta:hover{
+ color: #135F7D;
+ background-color: white;
+}
+.alerta-enter-active,
+.alerta-leave-active {
+  transition: all 0.4s ease;
+}
+.alerta-enter-from {
+  opacity: 0;
+  transform: translateX(20%);
+}
+.alerta-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+.alerta-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+.alerta-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 
 .carrinho-flutuante{
@@ -754,7 +805,11 @@ button #fechar, #limpar{
  padding-bottom: 300px;
 }
 .autores-carrossel{
-  margin: 2vw;
+width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 60px; /* Garante espaço para os botões ficarem nas laterais sem sair do site */
+  box-sizing: border-box;
 }
 .todos-livros{
    display:grid;
@@ -1108,6 +1163,37 @@ a:hover{
 /*********************/
 /*PARTE DO CSS RESPONSIVO*/
 @media (max-width: 732px) {
+  .alerta-favorito {
+  position: fixed;
+  top: 10%;
+  right: 1%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 200px;
+  z-index: 9999;
+ 
+}
+.alerta-favorito p{
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: #135F7D;
+  font-weight: 600;
+  text-align: center;
+}
+#alerta{
+ display: flex;
+  justify-content: center;
+ width: 100%;
+ padding: 3px;
+ border-radius: 6px;
+ background-color: #135F7D;
+ color: white;
+ font-size: 0.8rem;
+}
+
   #fef{
     font-size: 1rem;
     padding: 8px;
@@ -1164,13 +1250,15 @@ a:hover{
     height: 2px; 
 }
 .autores-lista {  
-    max-width:1050px;
-    margin:auto;
-     display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap: 90px;
-    padding: 0.7vw;
+     width: 100%;
+  max-width: 1050px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 0.7vw;
+  box-sizing: border-box;
 }
 .autores h2{
   font-size: 2.6rem;

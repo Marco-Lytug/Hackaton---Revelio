@@ -209,20 +209,20 @@ button:hover {
   .autor-card {
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(97, 97, 97, 0.1);
-    width: 290px;
+    width: 280px;
     height: 250px;
     flex-shrink:0;
 }
 .foto-autor{
-    width:180px;
-    height:180px;
+    width: 100px;
+    height: 130px;
     object-fit:cover;
 }
 button {
   width: 100%;
-  padding: 5px;
+  padding: 4px;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 1.3rem;
  
