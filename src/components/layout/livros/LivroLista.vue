@@ -12,13 +12,13 @@ function LivroFavoritado(livro) {
   emit('favoritar', livro)
 }
  // else if (categoria.value.trim().length > 0){
-        // return produtosExibidos.value.filter(item => 
+        // return produtosExibidos.value.filter(item =>
     //  item.categoria.toLowerCase().includes(categorias.value.toLowerCase())
   //  )
- 
-const LivrosFiltrados = computed(() => { 
+
+const LivrosFiltrados = computed(() => {
   if (filtro.value.trim().length > 0) {
-  return  props.livros.filter(item => 
+  return  props.livros.filter(item =>
     item.autor.toLowerCase().includes(filtro.value.toLowerCase()) ||
       item.titulo.toLowerCase().includes(filtro.value.toLowerCase())
     )
@@ -69,28 +69,52 @@ function LivroNaoEncontrado (){
 <div class="barras">
 
  <div class="barra-pesquisa">
-     
+
       <input class="input" type="text" placeholder="Pesquisar por título ou por autor" v-model="filtro" />
 
    <div class="select">
        <select name="categoria" id="" v-model="categorias">
-         <option disabled value ="">Selecione por categoria</option>
-          <option value="">Nenhum</option>
-        <option value="Algoritmos">Algoritmos</option>
-         <option value="Back-End">Back-End</option>
+      <option disabled value ="">Selecione por categoria</option>
+      <option value="">Nenhum</option>
+      <option value="Algoritmos">Algoritmos</option>
       <option value="Banco de Dados">Banco de Dados</option>
+      <option value="Back-End">Back-End</option>
       <option value="CSS">CSS</option>
       <option value="Design">Design</option>
       <option value="Django">Django</option>
       <option value="Front-End">Front-End</option>
       <option value="JavaScript">JavaScript</option>
       <option value="Lógica de Programação">Lógica de Programação</option>
+      <option value="Projeto de Software">Projeto de Software</option>
       <option value="Programação">Programação</option>
-        <option value="Projeto de Software">Projeto de Software</option>
       <option value="Python">Python</option>
       <option value="Redes">Redes</option>
-       <option value="Scrum">Scrum</option>
-      
+      <option value="Adubação e Calagem">Adubação e Calagem</option>
+      <option value="Apicultura">Apicultura</option>
+      <option value="Citricultura">Citricultura</option>
+      <option value="Desenho Técnico">Desenho Técnico</option>
+      <option value="Entomologia">Entomologia</option>
+      <option value="Irrigação e Drenagem">Irrigação e Drenagem</option>
+      <option value="Mecanização">Mecanização</option>
+      <option value="Olericultura">Olericultura</option>
+      <option value="Paisagismo">Paisagismo</option>
+      <option value="Silvicultura">Silvicultura</option>
+      <option value="Topografia">Topografia</option>
+      <option value="Zootecnia">Zootecnia</option>
+      <option value="Agroindústria">Agroindústria</option>
+      <option value="Scrum">Scrum</option>
+      <option disabled value="">Selecione por categoria</option>
+      <option value="">Nenhum</option>
+      <option value="Química Geral">Química Geral</option>
+      <option value="Quimica Inorganica">Quimica Inorganica</option>
+      <option value="Quimica Organica">Quimica Organica</option>
+      <option value="Fisico-Quimica">Fisico-Quimica</option>
+      <option value="Quimica Analitica">Quimica Analitica</option>
+      <option value="Biotecnologia">Biotecnologia</option>
+      <option value="Tratamento de Águas e Efluentes">Tratamento de Águas e Efluentes</option>
+      <option value="Quimica Tecnologica">Quimica Tecnologica</option>
+      <option value="Operações Unitárias">Operações Unitárias</option>
+
       </select>
     </div>
 
@@ -102,23 +126,23 @@ function LivroNaoEncontrado (){
     </p>
     </div>
 
-   
+
 
 </div>
-   
+
 
  <div class="livro-lista" :class="lista">
           <LivroCard v-for="livros in FiltroAutorTitulo" :key="livros.id"
         class="Livro-card" :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
         @favoritar="LivroFavoritado" :livro="livros"
          >
 </LivroCard>
 </div>
   </section>
 
-   
+
 </template>
 
 <style scoped>
@@ -129,7 +153,7 @@ function LivroNaoEncontrado (){
 .barra-pesquisa{
   display: flex;
   gap: 4vw;
-  
+
 }
 select {
   padding: 0.8vw;
@@ -149,7 +173,7 @@ select:hover {
     transform: scale(1,1);
   box-shadow: 0 20px 20px 0 rgba(20, 20, 20, 0.3);
    outline: none;
-  
+
 }
 
 .espero{
@@ -157,7 +181,7 @@ select:hover {
     justify-content:center;
     gap:30px;
     align-items:stretch;
-    
+
 }
 .livro-lista {
   display: grid;
@@ -165,11 +189,11 @@ select:hover {
   gap: 20px ;
   justify-content: center;
   align-items: center;
-  
- 
+
+
 }
 .barras{
-  
+
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -182,7 +206,7 @@ select:hover {
   display: flex;
   justify-content: center;
  width: 100%;
-  
+
 }
 .input {
   border-radius: 20px;
@@ -218,14 +242,14 @@ select:hover {
  .barra-pesquisa{
   padding: 30px;
   display: block;
-  
+
  }
  .barra-pesquisa div{
   padding: 15px;
  }
  .barras{
   padding-top: 30px;
- }  
+ }
  .pesquisa input,.pesquisa select {
     width: 100%;
   }
@@ -244,7 +268,7 @@ select:hover {
   padding: 10px;
   position: relative;
  }
- 
+
  .mensagem{
   font-size: 1.2rem;
  }
