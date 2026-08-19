@@ -8,7 +8,7 @@ import ButtonChild from "./ButtonChild.vue";
   totalSlides: Number,
    tipo: {
     type: String,
-   
+
   }
 })
 
@@ -32,7 +32,7 @@ const prevSlide = () => {
 
 </script>
 
-<template> 
+<template>
   <div :class="['carousel', props.tipo]">
     <slot :currentSlide="currentSlide" />
 
@@ -74,12 +74,12 @@ button:hover{
   background-color: white;
   border: none;
   box-shadow: 0 8px 10px rgba(95, 61, 196, 0.25);
- 
+
 }
 .carousel {
     position: relative;
     width: 100%;
-  
+
 }
 
 .navigate {
@@ -87,8 +87,8 @@ button:hover{
   top: 50%;
   left: 0;
   width: 100%;
-  height: 0; 
-  pointer-events: none; 
+  height: 0;
+  pointer-events: none;
   z-index: 10;
 }
 
@@ -102,24 +102,24 @@ button:hover{
 }
 
 .toggle-page.left {
-  left: -50px; 
+  left: -50px;
 }
 
 .toggle-page.right {
-  right: -50px; 
+  right: -50px;
 }
 
 .carousel.autores .toggle-page.left {
-  left: -360px; 
+  left: -360px;
 }
 .carousel.autores .toggle-page.right {
-  right: -360px; 
+  right: -360px;
 }
 .carousel.livros .toggle-page.left {
-  left: 100px; 
+  left: 100px;
 }
 .carousel.livros .toggle-page.right {
-  right: 100px; 
+  right: 100px;
 }
 
 .navigate button {
@@ -166,6 +166,6 @@ button:hover{
 .carousel.livros .navigate{
     top: 50%;
 }
- 
+
 }
 </style>

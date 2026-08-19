@@ -42,7 +42,7 @@ function removerLivro(id) {
       JSON.stringify(listaFav.value)
     )
   }
-  
+
 }
 
 const quantidadeTotal = computed(() => {
@@ -160,7 +160,7 @@ const slidesAutores = computed(() => {
 </script>
 <template>
     <section class="banner">
-    
+
         <div>
         <h1>
             Livros destinados ao <br> curso de <br> informática
@@ -171,20 +171,20 @@ const slidesAutores = computed(() => {
         </div>
 
         </div>
-    
+
     </section>
 
-  
+
 
     <section class="pesquisa">
-      
+
         <div>
-           <LivroLista :livros="TodosOsLivros" 
+           <LivroLista :livros="TodosOsLivros"
              @favoritar="LivroFavoritado"
            />
-           
+
         </div>
-      
+
     </section>
 
     <section class="autores">
@@ -194,17 +194,17 @@ const slidesAutores = computed(() => {
       <p>
         Conheça os nossos principais autores
       </p>
-    
-      
+
+
       <div class="autores-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesAutores.length" tipo="autores"
-  v-slot="{ currentSlide }"> 
+  v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
-           <div class="autores-lista"> 
+           <div class="autores-lista">
   <autores
       v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
-    :biografia="autor.biografia" :principaisObras="autor.principaisObras"    
-   
+    :biografia="autor.biografia" :principaisObras="autor.principaisObras"
+
   />
      </div>
   </Slide>
@@ -216,10 +216,10 @@ const slidesAutores = computed(() => {
       <div class="card-esquerda">
          <p>
           As melhores referências
-          
+
         </p>
         <div class="livros">
-          <div class="um">   
+          <div class="um">
          <img src="/images/livro_info_2.png" alt="">
           </div>
           <div class="dois">
@@ -229,7 +229,7 @@ const slidesAutores = computed(() => {
             <img src="/images/livro_info_31.png" alt="">
           </div>
         </div>
-       
+
       </div>
 
       <div class="card-direita">
@@ -237,8 +237,8 @@ const slidesAutores = computed(() => {
           Com videoaulas e materiais de estudo
         </p>
         <div  class="link-image">
-      
-      
+
+
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
@@ -253,7 +253,7 @@ const slidesAutores = computed(() => {
 
               </div>
         </div>
-        
+
        <Transition name="modal">
        <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
@@ -265,17 +265,17 @@ const slidesAutores = computed(() => {
          <p>
      Explore atividades e quizzes sobre os principais assuntos dos cursos técnicos. Teste seus conhecimentos, revise conteúdos importantes e acompanhe seu aprendizado de forma prática, dinâmica e interativa. Encontre exercícios preparados para ajudar na fixação dos conteúdos, reforçar seus estudos e tornar o processo de aprendizagem mais simples, organizado e eficiente.
          </p>
-       
+
        </div>
 
-       <div class="botoes"> 
+       <div class="botoes">
 
         <div>
      <RouterLink id="router" to="/atividades">
   Acessar página
 </RouterLink>
      </div>
-      
+
         <div>
         <ButtonChild class="button-" @clique="mostrarDetalhes = false">
         Fechar
@@ -287,7 +287,7 @@ const slidesAutores = computed(() => {
             </div>
         </div>
         </Transition>
-       
+
     </section>
 
     <section class="titulo" id="livros">
@@ -309,16 +309,16 @@ const slidesAutores = computed(() => {
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
   v-show="currentSlide === index + 1">
-           <div class="livros-lista"> 
-          
+           <div class="livros-lista">
+
   <LivroCard
       v-for="livro in grupo" :key="livro.id"   :livro="livro" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado"  
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"
         >
       </LivroCard>
-  
+
      </div>
   </Slide>
         </Carroussel>
@@ -337,7 +337,7 @@ const slidesAutores = computed(() => {
                     <LivroCard v-for="livros in primeiro" :key="livros.id"
          :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
         :classe="'carrossel'"   @favoritar="LivroFavoritado"   :livro="livros"  >
 </LivroCard>
         </div>
@@ -345,11 +345,11 @@ const slidesAutores = computed(() => {
         <ButtonChild id="fef" @clique="mostrarLivros = false">
         Fechar
       </ButtonChild>
-      </div> 
+      </div>
 
         </div>
         </Transition>
-             
+
     </section>
 
    <section class="titulo">
@@ -368,20 +368,20 @@ const slidesAutores = computed(() => {
                <div class="livros-carrossel">
         <Carroussel class="carousel"  :totalSlides="slides2Ano.length"  tipo="livros"
   v-slot="{ currentSlide }">
-        
+
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
   :key="index"
   v-show="currentSlide === index + 1">
-           <div class="livros-lista"> 
-          
+           <div class="livros-lista">
+
   <LivroCard
       v-for="livro in grupo" :key="livro.id"    :livro="livro" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado" "  
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"
         >
       </LivroCard>
-  
+
      </div>
   </Slide>
         </Carroussel>
@@ -393,7 +393,7 @@ const slidesAutores = computed(() => {
               Visualizar mais Livros
     </ButtonChild>
         </div>
-      
+
         <Transition name="modal">
         <div  class="modal-livros" v-show="mostrarLivros2"  @click.stop>
           <div class="todos-livros">
@@ -401,7 +401,7 @@ const slidesAutores = computed(() => {
                     <LivroCard v-for="livros in segundo" :key="livros.id"
            :livro="livros" :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
         :classe="'carrossel'"   @favoritar="LivroFavoritado"  >
 </LivroCard>
         </div>
@@ -409,7 +409,7 @@ const slidesAutores = computed(() => {
         <ButtonChild id="fef" @clique="mostrarLivros2 = false">
         Fechar
       </ButtonChild>
-      </div> 
+      </div>
 
         </div>
         </Transition>
@@ -435,23 +435,23 @@ const slidesAutores = computed(() => {
           <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
   v-show="currentSlide === index + 1">
-           <div class="livros-lista"> 
-          
+           <div class="livros-lista">
+
   <LivroCard
       v-for="livro in grupo" :key="livro.id" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado"   :livro="livro" 
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"   :livro="livro"
         >
       </LivroCard>
-  
+
      </div>
   </Slide>
         </Carroussel>
       </div>
         </div>
 
-        
+
 
          <div  class="visu">
          <ButtonChild id="visu" @clique="mostrarLivros3 = true">
@@ -463,10 +463,10 @@ const slidesAutores = computed(() => {
         <div  class="modal-livros" v-show="mostrarLivros3"  @click.stop>
           <div class="todos-livros">
 
-                    <LivroCard v-for="livros in terceiro" :key="livros.id" 
+                    <LivroCard v-for="livros in terceiro" :key="livros.id"
          :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
         :classe="'carrossel'"    @favoritar="LivroFavoritado"   :livro="livros" >
 </LivroCard>
         </div>
@@ -474,7 +474,7 @@ const slidesAutores = computed(() => {
         <ButtonChild id="fef" @clique="mostrarLivros3 = false">
         Fechar
       </ButtonChild>
-      </div> 
+      </div>
 
         </div>
         </Transition>
@@ -482,27 +482,27 @@ const slidesAutores = computed(() => {
     </section>
 
     <section class="flutuante">
-        
-         <ButtonChild   @clique="mostrarFavoritos = true" v-if="listaFav.length > 0" class="carrinho-flutuante" 
+
+         <ButtonChild   @clique="mostrarFavoritos = true" v-if="listaFav.length > 0" class="carrinho-flutuante"
   >
     <span class="icone-carrinho"><i class="fa-regular fa-heart"></i></span>
     <span class="notificacao">{{ quantidadeTotal }}</span>
-    
+
   </ButtonChild>
-      
+
         <Transition name="modal-fav">
         <div class="favo"  v-show="mostrarFavoritos" @click="mostrarFavoritos = false">
             <div class="favo-modal" @click.stop>
         <LivrosFavoritos class="icone-modal" v-for="livros in listaFav" :key="livros.id"
         :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
-        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao" 
+        :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
         @remover="removerLivro" :livros="livros "
          >
         </LivrosFavoritos>
             <div v-if="listaFav.length === 0" class="carrinho-vazio">
       <p>Ops! Parece que sua lista de favoritos está vazia</p>
-      
+
     </div>
 
           <div class="bot">
@@ -511,33 +511,33 @@ const slidesAutores = computed(() => {
             Limpar lista de Livros
         </ButtonChild>
               </div>
-              
+
     <div id="fechar">
         <ButtonChild @clique="mostrarFavoritos= false">
             Fechar
-        </ButtonChild> 
+        </ButtonChild>
        </div>
             </div>
                </div>
-           
+
     </div>
     </Transition>
 
      <Transition name="alerta">
       <div v-if="mostrarAlerta" class="alerta-favorito" >
     <p > Você já favoritou esse livro!</p>
-    
+
     <ButtonChild id="alerta" @clique="mostrarAlerta = false">
       Fechar
     </ButtonChild>
-    
-        
+
+
   </div>
   </Transition>
-  
+
 
     </section>
-  
+
 </template>
 
 <style scoped>
@@ -553,7 +553,7 @@ const slidesAutores = computed(() => {
   width: 100%;
   max-width: 500px;
   z-index: 9999;
- 
+
 }
 .alerta-favorito p{
   font-family: "Josefin Sans", sans-serif;
@@ -650,7 +650,7 @@ button #fechar, #limpar{
 #limpar{
   justify-content: center;
   margin: 1vw ;
-  
+
 }
 #limpar .ativo{
   display: none;
@@ -672,7 +672,7 @@ button #fechar, #limpar{
     height: 100%;
     box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
     display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: stretch;
   z-index: 1000;
 }
@@ -687,12 +687,12 @@ button #fechar, #limpar{
   flex-direction: column;
   align-items: center;
   padding: 2vw;
-  
+
 }
 .icone-modal{
   display: flex;
   justify-content: center;
- 
+
 }
 
 .carrinho-flutuante {
@@ -749,7 +749,7 @@ button #fechar, #limpar{
 }
 .modal-enter-active {
   transition: opacity 0.3s ease;
-  
+
 }
 .modal-enter-active .todos-livros {
   transition: transform 0.3s ease;
@@ -777,7 +777,7 @@ button #fechar, #limpar{
 }
 .modal-enter-active {
   transition: opacity 0.3s ease;
-  
+
 }
 .modal-enter-active .modal {
   transition: transform 0.3s ease;
@@ -842,7 +842,7 @@ width: 100%;
 #visu{
   margin: 2.7vw;
   font-size: 2.2rem;
- 
+
 }
 .livros-lista{
     display:flex;
@@ -864,13 +864,13 @@ width: 100%;
 .titulo p{
   margin: 3vw;
   font-size: 2.3rem;
-   font-family: "Josefin Sans", sans-serif; 
+   font-family: "Josefin Sans", sans-serif;
    color: #555555;
 }
 .titulo h3{
   font-size: 3.5rem;
   color: #135F7D;
-   font-family: "Josefin Sans", sans-serif; 
+   font-family: "Josefin Sans", sans-serif;
   margin: 3vw;
 }
 .titulo h3::after{
@@ -879,11 +879,11 @@ width: 100%;
     width: 700px;
     height: 3px;
     background: #135F7D;
-    border-radius: 20px;  
+    border-radius: 20px;
 }
 .livros{
   display: flex;
-  
+
 }
 .card-esquerda p{
   font-size: 3.1rem;
@@ -915,13 +915,13 @@ width: 100%;
   top: 54%;
   left: 22%;
   transform: translate(-50%, -50%);
- 
+
 }
 .dois img{
    top: 60%;
   left: 35%;
   transform: translate(-50%, -50%);
- 
+
 }
 .tres img{
    top: 70%;
@@ -944,9 +944,9 @@ width: 100%;
 #vermais:hover{
    box-shadow: 0 8px 10px rgba(95, 61, 196, 0.25);
   background-color: #1486b3;
-    padding: 15px;  
-    
-   
+    padding: 15px;
+
+
 }
 button {
   background-color: white;
@@ -957,7 +957,7 @@ button {
    border-radius: 20px;
    border: 1px solid #135F7D;
    padding: 15px;
-   
+
 }
 button:hover {
   transition: 0.5s all ease;
@@ -1015,19 +1015,19 @@ button:hover {
   width: 100%;
   margin: 0;
   height: auto;
- 
+
 }
 .imagem-direita{
   display: flex;
   justify-content: flex-end;
   width: 100%;
   max-width: 340px;
-  
+
 }
 .link-image{
   display: flex;
   align-items: flex-end;
-  
+
 }
 
 
@@ -1063,7 +1063,7 @@ button:hover {
   line-height: 1.6;
    font-size: 1.4rem;
    padding: 1vw;
-   
+
 }
 .modal h3{
   font-size: 2.3rem;
@@ -1074,7 +1074,7 @@ button:hover {
 }
 
 
-.autores-lista {  
+.autores-lista {
     max-width:1050px;
     margin:auto;
      display:flex;
@@ -1089,7 +1089,7 @@ button:hover {
   font-family: "Josefin Sans", sans-serif;
   padding: 3vw;
   color: #135F7D;
-  
+
 }
 .autores p{
   color: rgb(70, 70, 70);
@@ -1105,7 +1105,7 @@ button:hover {
   width: 100vw;
   align-items: center;
   display: flex;
-  
+
 }
 .banner::before {
   content: '';
@@ -1121,7 +1121,7 @@ h1 {
   font-family: "Josefin Sans", sans-serif;
   margin-left: 3vw;
   position: relative;
-  
+
 }
  .banner a{
   color: white;
@@ -1174,7 +1174,7 @@ a:hover{
   width: 100%;
   max-width: 200px;
   z-index: 9999;
- 
+
 }
 .alerta-favorito p{
   font-family: "Josefin Sans", sans-serif;
@@ -1204,10 +1204,10 @@ a:hover{
      padding: 20px;
   }
   .banner {
- 
+
   min-height: 100vh;
   width: 100%;
-   
+
 }
 .banner::before {
   content: '';
@@ -1247,9 +1247,9 @@ a:hover{
 .titulo h3::after{
     display: flex;
     width: 200px;
-    height: 2px; 
+    height: 2px;
 }
-.autores-lista {  
+.autores-lista {
      width: 100%;
   max-width: 1050px;
   margin: auto;
@@ -1282,13 +1282,13 @@ button {
    font-size: 1rem;
    border-radius: 10px;
    border: 1px solid #135F7D;
-   padding: 8px;  
+   padding: 8px;
 }
 
 #vermais{
   font-size:1rem;
   border-radius: 10px;
- width: 100%; 
+ width: 100%;
  max-width: 180px;
   padding: 7px;
 }
@@ -1334,7 +1334,7 @@ button {
   max-width: 190px;
   margin: 0;
   height: auto;
-  
+
 }
 .card-esquerda p{
   font-size: 2.2rem;
@@ -1372,7 +1372,7 @@ button {
  #visu {
   padding: 10px;
   font-size: 1rem;
-} 
+}
 
 
 .carrinho-vazio {
@@ -1395,7 +1395,7 @@ button #fechar, #limpar{
 #limpar{
   justify-content: center;
   margin: 1vw ;
-  
+
 }
 #fechar{
    display: flex;
@@ -1414,7 +1414,7 @@ button #fechar, #limpar{
     height: 100%;
     box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
     display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: stretch;
   z-index: 1000;
 }
@@ -1429,12 +1429,12 @@ button #fechar, #limpar{
   flex-direction: column;
   align-items: center;
   padding: 2vw;
-  
+
 }
 .icone-modal{
   display: flex;
   justify-content: center;
- 
+
 }
 
 .carrinho-flutuante {
@@ -1480,7 +1480,7 @@ button #fechar, #limpar{
   text-align: center;
   margin-top: 1rem;
   padding: 0;
- 
+
 }
 .carrinho-vazio p {
   color: #135F7D;

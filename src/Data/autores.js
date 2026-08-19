@@ -101,7 +101,7 @@ export const autoresAgro = [
     {
         id: 1,
         nome: 'José Augusto de Lira Filho',
-        foto: '/images/jose_lira_filho-removebg-preview',
+        foto: 'public/images/jose_lira_filho-removebg-preview.png',
         biografia: 'José Augusto de Lira Filho é autor e pesquisador na área de paisagismo. Seus trabalhos abordam os princípios da composição paisagística, estética, organização dos espaços verdes e planejamento de jardins.',
         principaisObras: [
             'Paisagismo: Elementos de Composição e Estética'
@@ -111,7 +111,7 @@ export const autoresAgro = [
     {
         id: 2,
         nome: 'Bradley G. Klein',
-        foto: '/images/BradleyG_klein-removebg-preview',
+        foto: '/images/Brandley.G_klein-removebg-preview.png',
         biografia: 'Bradley G. Klein é pesquisador e autor na área de fisiologia veterinária. Seus trabalhos são utilizados como referência no estudo do funcionamento dos sistemas do organismo animal.',
         principaisObras: [
             'Cunningham: Tratado de Fisiologia Veterinária'
@@ -121,7 +121,7 @@ export const autoresAgro = [
     {
         id: 3,
         nome: 'Bernardo Baldisserotto',
-        foto: '/images/Bernardo-baldisserotto-removebg-preview',
+        foto: '/images/Bernardo-Baldisserotto-removebg-preview.png',
         biografia: 'Bernardo Baldisserotto é pesquisador da área de aquicultura, com destaque para estudos relacionados à criação de peixes nativos brasileiros, reprodução, nutrição, crescimento e qualidade da água.',
         principaisObras: [
             'Espécies Nativas para Piscicultura no Brasil'
@@ -130,7 +130,7 @@ export const autoresAgro = [
     {
         id: 4,
         nome: 'P. S. Cranston',
-        foto: '/images/Peter-Cranston-removebg-preview',
+        foto: '/images/Peter-Cranston-removebg-preview.png',
         biografia: 'P. S. Cranston é pesquisador da área de entomologia e coautor de uma das principais obras utilizadas no estudo da biologia e diversidade dos insetos.',
         principaisObras: [
             'Insetos: Fundamentos da Entomologia'
@@ -140,7 +140,7 @@ export const autoresAgro = [
     {
         id: 5,
         nome: 'Carlos Augusto da Costa Niemeyer',
-        foto: '/images/carlos-augusto-removebg-preview',
+        foto: '/images/carlos_augusto-removebg-preview.png',
         biografia: 'Carlos Augusto da Costa Niemeyer é autor de trabalhos relacionados ao paisagismo e ao planejamento arquitetônico. Seus estudos destacam a integração entre arquitetura, paisagismo e espaços livres.',
         principaisObras: [
             'Paisagismo no Planejamento Arquitetônico'
@@ -150,7 +150,7 @@ export const autoresAgro = [
     {
         id: 6,
         nome: 'Waldir Aparecido Marouelli',
-        foto: '/images/Waldir_Maroulli',
+        foto: '/images/Waldir_Marouelli.png',
         biografia: 'Waldir Aparecido Marouelli é pesquisador na área de irrigação agrícola. Seus trabalhos abordam o uso eficiente da água e o manejo de sistemas de irrigação na produção de hortaliças.',
         principaisObras: [
             'Irrigação por Aspersão em Hortaliças'
@@ -159,7 +159,7 @@ export const autoresAgro = [
     {
         id: 7,
         nome: 'Clécio Danilo Dias da Silva',
-        foto: '/images/Clecio-Silva-5-removebg-preview',
+        foto: '/images/Clecio-Silva-5-removebg-preview.png',
         biografia: 'Clécio Danilo Dias da Silva é pesquisador e organizador de trabalhos acadêmicos relacionados às Ciências Biológicas e ao estudo da diversidade e evolução dos insetos.',
         principaisObras: [
             'Entomologia: Diversidade e Evolução dos Insetos'
@@ -172,7 +172,7 @@ export const autoresQuimi = [
     {
         id: 1,
         nome: 'Linus Pauling',
-        foto: '/images/Linus_Pauling-removebg-preview',
+        foto: '/images/Linus_Pauling-removebg-preview.png',
         biografia: 'Linus Pauling foi um dos mais importantes cientistas do século XX e uma referência mundial na área da Química. Seus estudos contribuíram para a compreensão das ligações químicas, estrutura molecular e propriedades das substâncias. Sua obra Química Geral é considerada um clássico para o estudo dos fundamentos da Química.',
         principaisObras: [
             'Química Geral'
@@ -183,7 +183,7 @@ export const autoresQuimi = [
     {
         id: 2,
         nome: 'Douglas A. Skoog',
-        foto: '/images/Douglas_A_Skoog-removebg-preview',
+        foto: '/images/Douglas_A._Skoog-removebg-preview.png',
         biografia: 'Douglas A. Skoog foi um dos principais nomes da Química Analítica moderna. Seus trabalhos contribuíram para o desenvolvimento e ensino de métodos de análise química, incluindo técnicas clássicas e instrumentais. Suas obras são amplamente utilizadas em cursos de Química e áreas relacionadas.',
         principaisObras: [
             'Fundamentos de Química Analítica'
@@ -193,7 +193,7 @@ export const autoresQuimi = [
     {
         id: 3,
         nome: 'Arthur I. Vogel',
-        foto: '/images/Arthur_I._Vogel_1_1_-removebg-preview',
+        foto: '/images/Arthur_I._Vogel__1___1_-removebg-preview.png',
         biografia: 'Arthur Israel Vogel foi um importante químico e autor de obras clássicas de Química Analítica. Seus livros são conhecidos pela abordagem experimental e pela apresentação detalhada de métodos para identificação e análise de substâncias químicas.',
         principaisObras: [
             'Química Analítica Qualitativa'
@@ -203,7 +203,7 @@ export const autoresQuimi = [
     {
         id: 4,
         nome: 'Mauricio Gomes Constantino',
-        foto: '/images/Mauricio_Gomes_Constantino-removebg-preview',
+        foto: '/images/Mauricio_Gomes_Constantino-removebg-preview.png',
         biografia: 'Mauricio Gomes Constantino é professor e pesquisador brasileiro na área de Química Orgânica. Sua obra apresenta os fundamentos da Química Orgânica de maneira aprofundada, abordando estrutura, propriedades, estereoquímica, funções orgânicas e mecanismos de reação.',
         principaisObras: [
             'Meu Livro QO: Volume 1'
@@ -212,7 +212,7 @@ export const autoresQuimi = [
     {
         id: 5,
         nome: 'Marcela Boroski',
-        foto: '/images/Marcela_Boroski-removebg-preview',
+        foto: '/images/Marcela_Boroski-removebg-preview.png',
         biografia: 'Marcela Boroski é autora de material didático voltado à Química Analítica Experimental. Sua obra reúne fundamentos teóricos e práticas laboratoriais relacionadas ao preparo de soluções, técnicas analíticas, segurança e tratamento de dados experimentais.',
         principaisObras: [
             'Química Analítica no Laboratório'
@@ -222,7 +222,7 @@ export const autoresQuimi = [
     {
         id: 6,
         nome: 'José Eduardo W. de A. Cavalcanti',
-        foto: '/images/José_Eduardo_W._de_A._Cavalcanti-removebg-preview',
+        foto: '/images/José_Eduardo_W._de_A._Cavalcanti-removebg-preview.png',
         biografia: 'José Eduardo W. de A. Cavalcanti é autor de uma importante obra voltada ao tratamento de efluentes industriais. Seu trabalho aborda processos e operações aplicadas ao tratamento de resíduos líquidos, seleção de tecnologias, reaproveitamento de recursos e questões ambientais.',
         principaisObras: [
             'Manual de Tratamento de Efluentes Industriais'
@@ -232,7 +232,7 @@ export const autoresQuimi = [
     {
         id: 7,
         nome: 'Adriano de Souza Schorr',
-        foto: '/images/Adriano_de_Souza_Schorr-removebg-preview',
+        foto: '/images/Adriano_de_Souza_Schorr-removebg-preview.png',
         biografia: 'Adriano de Souza Schorr é autor de material relacionado ao tratamento de águas e efluentes. Sua obra apresenta conceitos de saneamento ambiental, qualidade da água, características dos poluentes e processos utilizados no tratamento de águas e resíduos.',
         principaisObras: [
             'Tratamento de Águas e Efluentes'
@@ -243,7 +243,7 @@ export const autoresQuimi = [
     {
         id: 8,
         nome: 'Gabriela Silveira da Rosa',
-        foto: '/images/Gabriela_Silvaira_da_Rosa-removebg-preview',
+        foto: '/images/Gabriela_Silveira_da_Rosa-removebg-preview.png',
         biografia: 'Gabriela Silveira da Rosa é autora de material didático relacionado às operações unitárias aplicadas aos processos industriais. A obra apresenta processos como peneiramento, moagem, sedimentação, centrifugação, filtração e fluidização.',
         principaisObras: [
             'Apostila de Operações Unitárias'
@@ -253,5 +253,5 @@ export const autoresQuimi = [
 ];
 
 
-export default {autoresInfo, autoresAgro, autoresQuimi};
+export default {autoresInfo,autoresAgro,autoresQuimi};
 

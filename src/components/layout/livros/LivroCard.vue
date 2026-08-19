@@ -17,17 +17,17 @@ function LivroFavoritado() {
 
       <div class="livro-int">
          <img :src="capa" alt="Capa do livro" class="capa-livro" />
-      
+
            <ButtonChild class="button-" @clique="mostrarDetalhes = true">
               Ver mais
     </ButtonChild>
     </div>
-    
+
     <Transition name="modal">
     <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
        <div class="capa-autor">
-           
+
          <img :src="capa" alt="Capa do livro" class="capa-livro">
        <p>
         {{ autor }}
@@ -42,12 +42,12 @@ function LivroFavoritado() {
             {{ titulo }}
         </h3>
         <p class="pi">
-       {{ descricao }} 
+       {{ descricao }}
         </p>
-          
-        
+
+
               <p id="icone">
-      <i class="fa-solid fa-circle-question"></i> Os materiais são links externos fornecidos apenas para fins educacionais. 
+      <i class="fa-solid fa-circle-question"></i> Os materiais são links externos fornecidos apenas para fins educacionais.
  </p>
        <div>
         <div class="coisa">
@@ -55,17 +55,17 @@ function LivroFavoritado() {
          <a :href="link" target="_blank" rel="noopener noreferrer">Acessar material</a>
          </div>
 
-        
+
          <div class="tooltip">
-         <ButtonChild id="coracao" @clique="LivroFavoritado" > 
+         <ButtonChild id="coracao" @clique="LivroFavoritado" >
           <i class="fa-regular fa-heart"></i>
          </ButtonChild>
           <span class="tooltip-texto">Adicionar aos favoritos</span>
          </div>
-           
+
     </div>
-      
-         
+
+
         <ButtonChild class="button-" @clique="mostrarDetalhes = false">
         Fechar
       </ButtonChild>
@@ -75,7 +75,7 @@ function LivroFavoritado() {
             </div>
         </div>
       </Transition>
-    
+
 
     </div>
 </template>
@@ -98,7 +98,7 @@ function LivroFavoritado() {
   border-radius: 10px;
   opacity: 0;
   transition: opacity 0.2s ease;
-   transition-delay: 0.1s; 
+   transition-delay: 0.1s;
    font-family: "Josefin Sans", sans-serif;
    font-size: 1.2rem;
 }
@@ -106,7 +106,7 @@ function LivroFavoritado() {
 .tooltip:hover .tooltip-texto {
   opacity: 1;
   visibility: visible;
-   transition-delay: 0.3s; 
+   transition-delay: 0.3s;
 }
 .modal-enter-from{
   opacity: 0;
@@ -114,7 +114,7 @@ function LivroFavoritado() {
 }
 .modal-enter-active {
   transition: opacity 0.3s ease;
-  
+
 }
 .modal-enter-active .modal {
   transition: transform 0.3s ease;
@@ -169,8 +169,8 @@ a{
   display: flex;
   width: 100%;
  justify-content: center;
-  
- 
+
+
 }
 a:hover{
   background-color: #187fa8;
@@ -208,12 +208,12 @@ button:hover {
   width: 70%;
   justify-self: center;
   box-sizing: border-box;
-       
+
 }
 
-.livro-card:hover { 
+.livro-card:hover {
   box-shadow: 0 14px 40px rgba(47, 47, 48, 0.18);
-  
+
 }
 .carrossel{
    border: 2px solid rgba(95, 94, 95, 0.2);
@@ -224,12 +224,12 @@ button:hover {
     justify-self: center;
      box-sizing: border-box;
      margin: 0.8vw;
-     
+
 }
 .carrossel:hover{
     box-shadow: 0 10px 30px #2c3133;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
- 
+
 }
 .capa-livro {
   width: 100%;
@@ -295,7 +295,7 @@ button:hover {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
-  
+
 }
 .livro-card {
   border: 2px solid rgba(165, 165, 165, 0.2);
@@ -307,7 +307,7 @@ button:hover {
   width: 60%;
   justify-self: center;
   box-sizing: border-box;
-       
+
 }
 button {
   width: 100%;
@@ -361,7 +361,7 @@ button {
   object-fit: cover;
   border-radius: 10px;
   margin: 1rem 0;
- 
+
 }
 a{
    border-radius: 12px;
