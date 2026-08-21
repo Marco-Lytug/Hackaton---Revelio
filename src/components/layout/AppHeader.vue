@@ -209,6 +209,7 @@ a:hover {
 
 .mais li {
   list-style: none;
+  border: none;
 }
 
 .mais {
@@ -227,6 +228,8 @@ a:hover {
   margin: 2px;
   padding: 10px 0;
   list-style: none;
+  border: none;
+
 }
 
 .nav-item:hover .mais,

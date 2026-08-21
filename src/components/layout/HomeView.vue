@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import ButtonChild from './ButtonChild.vue';
+import { ref } from 'vue';
+const mostrarDetalhes = ref(false)
+
 
 </script>
 
@@ -19,8 +22,10 @@ import ButtonChild from './ButtonChild.vue';
         <img src="/images/GarotoLendo.png" alt="">
       </div>
     </div>
-    <ButtonChild @clique="abrir">NOSSA BIBLIOTECA</ButtonChild>
-    <div class="modal">
+  <ButtonChild @clique="mostrarDetalhes = true">
+              NOSSA BIBLIOTECA!
+    </ButtonChild>
+    <div class="modal" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div class="cursos">
         <RouterLink to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
         <RouterLink to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
