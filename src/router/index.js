@@ -38,6 +38,11 @@ const router = createRouter({
       path: '/quiz/:categoria/:numero',
       name: 'quiz',
       component: QuizView
+    },
+
+    {
+      path: '/sobre',
+      component: SobreNos
     }
   ]
 })
