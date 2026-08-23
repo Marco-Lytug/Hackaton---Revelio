@@ -16,7 +16,7 @@
       <div class="pessoas">
 
         <div class="pessoa">
-          <img src="/images/ana.png" alt="Ana Carolina">
+          <img src="" alt="Ana Carolina">
 
           <h3>
             ANA CAROLINA BELLO<br>
@@ -26,7 +26,7 @@
 
 
         <div class="pessoa">
-          <img src="/images/camila.png" alt="Camila Machado">
+          <img src="" alt="Camila Machado">
 
           <h3>
             CAMILA MACHADO<br>
@@ -36,7 +36,7 @@
 
 
         <div class="pessoa">
-          <img src="/images/victor.png" alt="Victor Feliciano">
+          <img src="" alt="Victor Feliciano">
 
           <h3>
             VICTOR FELICIANO
@@ -45,12 +45,7 @@
 
 
         <div class="pessoa">
-
-          <div class="sem-foto">
-            <p>
-              Foto não disponível
-            </p>
-          </div>
+          <img src="" alt="Marco Lytug">
 
           <h3>
             MARCO ANTHONYO<br>
@@ -71,7 +66,7 @@
 
         <div class="pessoa">
 
-          <img src="/images/davi.png" alt="Davi Mariano">
+          <img src="" alt="Davi Mariano">
 
           <h3>
             DAVI MARIANO
@@ -82,11 +77,7 @@
 
         <div class="pessoa">
 
-          <div class="sem-foto">
-            <p>
-              Foto não disponível
-            </p>
-          </div>
+          <img src="" alt="Renato">
 
           <h3>
             RENATO BATISTA PEREIRA
@@ -224,6 +215,7 @@
 
 <style scoped>
 
+
 .sobre {
   width: 100%;
   padding: 140px 8vw 100px;
@@ -233,12 +225,15 @@
   color: #141c21;
 
   font-family: Arial, sans-serif;
-}
 
+  text-align: center;
+}
 
 .titulo {
   max-width: 1100px;
   margin: 0 auto 100px;
+
+  text-align: center;
 }
 
 .titulo h1 {
@@ -252,11 +247,11 @@
 }
 
 
-/* EQUIPES */
-
 .equipe {
   max-width: 1100px;
   margin: 0 auto 120px;
+
+  text-align: center;
 }
 
 .equipe h2 {
@@ -266,8 +261,6 @@
   margin-bottom: 60px;
 }
 
-
-/* PESSOAS */
 
 .pessoas {
   display: grid;
@@ -292,23 +285,6 @@
 }
 
 
-/* FOTO QUE NÃO EXISTE */
-
-.sem-foto {
-  background-color: #e8e8e8;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-
-.sem-foto p {
-  font-size: 22px;
-  color: #777;
-}
-
-
 .pessoa h3 {
   margin-top: 20px;
 
@@ -322,8 +298,6 @@
 }
 
 
-/* SOBRE A REVELIO */
-
 .sobre-revelio {
   max-width: 1200px;
 
@@ -336,6 +310,8 @@
   border: 5px solid #135F7D;
 
   border-radius: 50px;
+
+  text-align: center;
 }
 
 
@@ -358,8 +334,6 @@
   margin-bottom: 60px;
 }
 
-
-/* OBJETIVO */
 
 .objetivo {
 
@@ -394,9 +368,6 @@
   line-height: 1.7;
 
 }
-
-
-/* CARDS */
 
 .cards {
 
@@ -442,8 +413,6 @@
 }
 
 
-/* DESENVOLVIMENTO */
-
 .desenvolvimento {
 
   margin-bottom: 60px;
@@ -469,8 +438,6 @@
 }
 
 
-/* FINAL */
-
 .final {
 
   background-color: #135F7D;
@@ -495,7 +462,15 @@
   margin: 0;
 
 }
-
+.sobre p,
+.sobre h1,
+.sobre h2,
+.sobre h3 {
+  text-align: center;
+}
+.sobre * {
+  text-align: center;
+}
 
 @media (max-width: 800px) {
 
