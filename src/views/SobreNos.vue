@@ -215,12 +215,28 @@
 
 <style scoped>
 
+.sobre {
+  width: 100vw;
+  min-height: 100vh;
+
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  padding: 100px 5%;
+  box-sizing: border-box;
+
+  text-align: center;
+}
 
 .sobre {
   width: 100%;
-  padding: 140px 8vw 100px;
+  min-height: 100vh;
 
-  background-color: #ffffff;
+  padding: 100px 20px;
+
+  box-sizing: border-box;
+
+  background-color: white;
 
   color: #141c21;
 
@@ -229,55 +245,76 @@
   text-align: center;
 }
 
+
 .titulo {
+  width: 100%;
   max-width: 1100px;
+
   margin: 0 auto 100px;
 
   text-align: center;
 }
 
 .titulo h1 {
+  margin: 0 0 20px;
+
   font-size: 60px;
   font-weight: normal;
-  margin-bottom: 20px;
 }
 
 .titulo p {
+  margin: 0;
+
   font-size: 28px;
 }
 
 
 .equipe {
+  width: 100%;
   max-width: 1100px;
+
   margin: 0 auto 120px;
 
   text-align: center;
 }
 
 .equipe h2 {
+  margin: 0 0 60px;
+
   font-size: 42px;
   font-weight: normal;
-
-  margin-bottom: 60px;
 }
 
 
+/* PESSOAS */
+
 .pessoas {
-  display: grid;
+  width: 100%;
 
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 
-  gap: 80px 60px;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 80px;
 }
 
 .pessoa {
+  width: 450px;
+
   text-align: center;
 }
 
-.pessoa img,
-.sem-foto {
-  width: 100%;
+.pessoa img {
+  display: block;
+
+  width: 450px;
   height: 450px;
+
+  margin: 0 auto;
 
   object-fit: cover;
 
@@ -285,8 +322,9 @@
 }
 
 
+
 .pessoa h3 {
-  margin-top: 20px;
+  margin: 20px 0 0;
 
   font-family: Georgia, serif;
 
@@ -295,15 +333,21 @@
   font-weight: normal;
 
   line-height: 1.2;
+
+  text-align: center;
 }
 
 
+
 .sobre-revelio {
+  width: 100%;
   max-width: 1200px;
 
   margin: 0 auto;
 
   padding: 70px;
+
+  box-sizing: border-box;
 
   background-color: #F4E6CC;
 
@@ -316,26 +360,40 @@
 
 
 .sobre-revelio > h2 {
+  margin: 0 0 30px;
+
   font-size: 45px;
 
   font-weight: normal;
 
-  margin-bottom: 30px;
+  text-align: center;
 }
 
 
+
 .descricao {
+  max-width: 1000px;
+
+  margin: 0 auto 60px;
+
   font-size: 23px;
 
   line-height: 1.7;
 
   color: #444;
 
-  margin-bottom: 60px;
+  text-align: center;
 }
 
 
 .objetivo {
+  width: 100%;
+
+  margin: 0 auto 60px;
+
+  padding: 35px;
+
+  box-sizing: border-box;
 
   background-color: white;
 
@@ -343,102 +401,108 @@
 
   border-radius: 30px;
 
-  padding: 35px;
-
-  margin-bottom: 60px;
-
+  text-align: center;
 }
 
 
 .objetivo h3 {
+  margin-top: 0;
 
   color: #135F7D;
 
   font-size: 28px;
-
-  margin-top: 0;
-
 }
 
 
 .objetivo p {
-
   font-size: 21px;
 
   line-height: 1.7;
-
 }
 
+
+
 .cards {
+  width: 100%;
 
-  display: grid;
+  display: flex;
 
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+
+  align-items: stretch;
 
   gap: 30px;
 
   margin-bottom: 80px;
-
 }
 
 
 .card {
+  flex: 1;
+
+  min-height: 320px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
 
   border: 2px solid #135F7D;
 
   border-radius: 30px;
 
-  padding: 30px;
-
-  min-height: 320px;
-
+  text-align: center;
 }
 
 
 .card h3 {
-
   color: #135F7D;
 
   font-size: 25px;
-
 }
 
 
 .card p {
-
   font-size: 19px;
 
   line-height: 1.7;
-
 }
 
-
 .desenvolvimento {
+  width: 100%;
 
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
 
+  text-align: center;
 }
 
 
 .desenvolvimento h2 {
+  margin-bottom: 25px;
 
   font-size: 35px;
 
   font-weight: normal;
-
 }
 
 
 .desenvolvimento p {
+  max-width: 1000px;
+
+  margin: 0 auto;
 
   font-size: 21px;
 
   line-height: 1.7;
-
 }
 
-
 .final {
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding: 35px;
+
+  box-sizing: border-box;
 
   background-color: #135F7D;
 
@@ -446,36 +510,23 @@
 
   border-radius: 30px;
 
-  padding: 35px;
-
+  text-align: center;
 }
 
 
 .final p {
+  margin: 0;
 
   font-size: 24px;
 
   line-height: 1.6;
-
-  text-align: center;
-
-  margin: 0;
-
 }
-.sobre p,
-.sobre h1,
-.sobre h2,
-.sobre h3 {
-  text-align: center;
-}
-.sobre * {
-  text-align: center;
-}
+
 
 @media (max-width: 800px) {
 
   .sobre {
-    padding: 120px 25px 70px;
+    padding: 70px 20px;
   }
 
 
@@ -495,8 +546,17 @@
 
 
   .pessoas {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
+
+
+  .pessoa {
+    width: 100%;
+    max-width: 450px;
+  }
+
+
+  .pessoa img,
 
 
   .sobre-revelio {
@@ -510,7 +570,12 @@
 
 
   .cards {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+
+  .card {
+    width: 100%;
   }
 
 }
