@@ -40,7 +40,7 @@ const abrirLivros = ref(false)
       <li><RouterLink to="/">Principal</RouterLink></li>
 
       <li class="nav-item">
-        <RouterLink to="/livros">Livros</RouterLink>
+        <RouterLink class="livro" to="#">Livros</RouterLink>
 
         <ul class="mais">
           <li class="verde">
@@ -177,6 +177,7 @@ header.hidden {
   padding: 20px 40px 20px 40px;
 }
 
+
 a {
   color: white;
   padding: 20px;
@@ -184,7 +185,7 @@ a {
   font-weight: 300;
   transition: 1s;
   font-family: "Julius Sans One", sans-serif;
-  
+
 
 }
 

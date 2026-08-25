@@ -27,10 +27,9 @@ const mostrarDetalhes = ref(false)
     </ButtonChild>
     <div class="modal" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div class="cursos">
-        <RouterLink to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
-        <RouterLink to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
-        <RouterLink to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
-
+        <RouterLink class="info" to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
+        <RouterLink class="agro" to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
+        <RouterLink class="quimi" to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
       </div>
     </div>
   </section>
@@ -61,14 +60,75 @@ const mostrarDetalhes = ref(false)
 }
 
 div.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+div.modal .cursos {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .info :hover {
+  background: #135F7D;
+  padding: 2rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .agro :hover {
+  background: green;
+  padding: 2rem;
+  border-radius: 20vw;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .quimi :hover {
+  background: red;
+  padding: 2rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+div.cursos img{
+  width: 30vh;
+  height: 30vh;
+  object-fit: contain;
+  transition: 0.5s;
+}
+div.cursos img:hover{
+  transition: 0.5s;
+  width: 35vh;
+  height: 35vh;
+  object-fit: contain;
 }
 
 .banner::before {
