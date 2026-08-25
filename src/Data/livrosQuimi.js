@@ -116,7 +116,7 @@ export const livros1AnoQuimi = [
 
   ]
 
- export const livros2AnoQuimi = [ 
+ export const livros2AnoQuimi = [
 
     {
         id: 13,
@@ -218,7 +218,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_22.png'
     }
  ]
-   export const livros3AnoQuimi = [ 
+   export const livros3AnoQuimi = [
 
     {
         id: 23,
@@ -330,7 +330,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_33.png'
     }
 ]
-   
+
 
 
 

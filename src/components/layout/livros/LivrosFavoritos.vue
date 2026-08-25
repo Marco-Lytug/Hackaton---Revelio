@@ -1,6 +1,5 @@
 <script setup>
 import { ref} from 'vue';
-import livrosInfo from '@/Data/livrosInfo.js';
 import ButtonChild from '../ButtonChild.vue';
 const mostrarDetalhes = ref(false)
 //<i class="fa-regular fa-heart"></i>
@@ -15,17 +14,17 @@ function removerLivro() {
 
 
 <template>
-   
+
     <div class="livro-card" :class="classe">
 
       <div class="livro-int">
          <img :src="livros.capa" alt="Capa do livro" class="capa-livro" />
-      
+
            <ButtonChild class="button-" @clique="mostrarDetalhes = true">
               Ver mais
     </ButtonChild>
     </div>
-    
+
     <Transition name="modal">
     <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
       <div  class="modal"  @click.stop>
@@ -45,12 +44,12 @@ function removerLivro() {
             {{ livros.titulo }}
         </h3>
         <p class="pi">
-       {{livros.descricao }} 
+       {{livros.descricao }}
         </p>
-          
-        
+
+
               <p id="icone">
-      <i class="fa-solid fa-circle-question"></i> Os materiais são links externos fornecidos apenas para fins educacionais. 
+      <i class="fa-solid fa-circle-question"></i> Os materiais são links externos fornecidos apenas para fins educacionais.
  </p>
        <div>
         <div class="coisa">
@@ -59,7 +58,7 @@ function removerLivro() {
          </div>
 
     </div>
-         
+
         <ButtonChild class="button-" @clique="mostrarDetalhes = false">
         Fechar
       </ButtonChild>
@@ -70,7 +69,7 @@ function removerLivro() {
         </div>
       </Transition>
     </div>
-      
+
     <ButtonChild id="oq" @clique="removerLivro">
          Remover Livro
     </ButtonChild>
@@ -150,7 +149,7 @@ function removerLivro() {
   border-radius: 10px;
   opacity: 0;
   transition: opacity 0.2s ease;
-   transition-delay: 0.1s; 
+   transition-delay: 0.1s;
    font-family: "Josefin Sans", sans-serif;
    font-size: 1.2rem;
 }
@@ -158,7 +157,7 @@ function removerLivro() {
 .tooltip:hover .tooltip-texto {
   opacity: 1;
   visibility: visible;
-   transition-delay: 0.3s; 
+   transition-delay: 0.3s;
 }
 .modal-enter-from{
   opacity: 0;
@@ -166,7 +165,7 @@ function removerLivro() {
 }
 .modal-enter-active {
   transition: opacity 0.3s ease;
-  
+
 }
 .modal-enter-active .modal {
   transition: transform 0.3s ease;
@@ -202,6 +201,10 @@ function removerLivro() {
      cursor: pointer;
     margin-top: 1vw;
 }
+.agro{
+  background-color: green;
+  color: green;
+}
 #coracao:hover{
   background-color: white;
   color: #135F7D;
@@ -220,8 +223,8 @@ a{
   display: flex;
   width: 100%;
  justify-content: center;
-  
- 
+
+
 }
 a:hover{
   background-color: #187fa8;
@@ -259,13 +262,13 @@ button:hover {
   width: 300px;
   height: auto;
   justify-self: center;
-  box-sizing: border-box;   
- 
+  box-sizing: border-box;
+
 }
 
-.livro-card:hover { 
+.livro-card:hover {
   box-shadow: 0 14px 40px rgba(46, 46, 46, 0.18);
-  
+
 }
 .carrossel{
    border: 2px solid rgba(123, 81, 201, 0.2);
@@ -276,12 +279,12 @@ button:hover {
     justify-self: center;
      box-sizing: border-box;
      margin: 0.8vw;
-     
+
 }
 .carrossel:hover{
     box-shadow: 0 10px 30px #2c3133;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
- 
+
 }
 .capa-livro {
   width: 100%;
@@ -375,7 +378,7 @@ button {
   transition: all 0.3s ease;
   margin-top: 0.6rem;
   font-family: "Josefin Sans", sans-serif;
-} 
+}
   .modal-overlay {
   position: fixed;
   top: 0;
@@ -430,8 +433,8 @@ a{
   display: block;
   width: 100%;
  justify-content: center;
-  
- 
+
+
 }
 #icone{
   font-family: "Josefin Sans", sans-serif;
