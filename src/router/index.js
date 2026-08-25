@@ -6,6 +6,7 @@ import PaginaQuimi from '@/views/PaginaQuimi.vue'
 import PaginaInfo from '@/views/PaginaInfo.vue'
 import PaginaAtividades from '@/views/PaginaAtividades.vue'
 import QuizView from '@/views/QuizView.vue'
+import PagCursos from '@/views/PagCursos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,10 @@ const router = createRouter({
       path: '/quiz/:categoria/:numero',
       name: 'quiz',
       component: QuizView
+    },
+    {
+      path: '/cursos',
+      component: PagCursos
     }
   ]
 })
