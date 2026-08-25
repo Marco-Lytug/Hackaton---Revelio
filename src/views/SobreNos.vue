@@ -224,12 +224,13 @@
 
   padding: 100px 5%;
   box-sizing: border-box;
+  flex: content;
+  justify-content: center;
+  align-items: center;
 
-  text-align: center;
 }
 
 .sobre {
-  width: 100%;
   min-height: 100vh;
 
   padding: 100px 20px;
