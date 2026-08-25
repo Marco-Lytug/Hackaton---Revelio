@@ -1,5 +1,10 @@
 <script setup>
-//Os Buttons tem que substituir pelos ButtonChield que tem que serem criados!
+import { RouterLink } from 'vue-router'
+import ButtonChild from './ButtonChild.vue';
+import { ref } from 'vue';
+const mostrarDetalhes = ref(false)
+
+
 </script>
 
 <template>
@@ -17,10 +22,19 @@
         <img src="/images/GarotoLendo.png" alt="">
       </div>
     </div>
-        <button>NOSSA BIBLIOTECA</button>
+  <ButtonChild @clique="mostrarDetalhes = true">
+              NOSSA BIBLIOTECA!
+    </ButtonChild>
+    <div class="modal" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
+      <div class="cursos">
+        <RouterLink class="info" to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
+        <RouterLink class="agro" to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
+        <RouterLink class="quimi" to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
+      </div>
+    </div>
   </section>
   <section class="help">
-      <h2>Help!</h2>
+    <h2>Help!</h2>
     <div class="all">
       <div>
         <p>Na Help!, ajudaremos você a estudar, aqui temos video aulas e dicas de estudo, aproveite!</p>
@@ -29,8 +43,8 @@
         <img src="/images/help.png" alt="">
       </div>
     </div>
+    <button>AQUI!</button>
 
-        <button>AQUI!</button>
   </section>
 </template>
 
@@ -43,6 +57,78 @@
   width: 100vw;
   display: flex;
   align-items: center;
+}
+
+div.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+div.modal .cursos {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .info :hover {
+  background: #135F7D;
+  padding: 2rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .agro :hover {
+  background: green;
+  padding: 2rem;
+  border-radius: 20vw;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+div.modal .cursos .quimi :hover {
+  background: red;
+  padding: 2rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+div.cursos img{
+  width: 30vh;
+  height: 30vh;
+  object-fit: contain;
+  transition: 0.5s;
+}
+div.cursos img:hover{
+  transition: 0.5s;
+  width: 35vh;
+  height: 35vh;
+  object-fit: contain;
 }
 
 .banner::before {
@@ -74,26 +160,28 @@
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
-    animation-range: entry 0% 50%;
+  animation-range: entry 0% 50%;
 
 }
-button{
+
+button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 10vw  3vw;
+  margin: 0 0 10vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-button:hover{
+
+button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
@@ -102,6 +190,7 @@ button:hover{
   cursor: pointer;
   transition: 0.3s;
 }
+
 div {
   display: flex;
   justify-content: space-between;
@@ -116,7 +205,7 @@ div {
 .img {
   width: 80vh;
   position: relative;
-  margin: 0 ;
+  margin: 0;
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
@@ -138,6 +227,7 @@ h1 span {
   z-index: 1;
   font-size: 4rem;
 }
+
 .help {
   background-color: white;
 
@@ -152,7 +242,7 @@ h1 span {
   animation: spawn;
   animation-timeline: view();
   animation-range: entry 0% 50%;
-  border-bottom:1px solid #135F7D;
+  border-bottom: 1px solid #135F7D;
   margin: 0 10vw 0 10vw;
 }
 
@@ -163,26 +253,28 @@ h1 span {
   font-family: "Josefin Sans", sans-serif;
   animation: spawn;
   animation-timeline: view();
-    animation-range: entry 0% 50%;
+  animation-range: entry 0% 50%;
 
 }
-.help button{
+
+.help button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 35vw  3vw;
+  margin: 0 0 35vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-.help button:hover{
+
+.help button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
@@ -191,23 +283,25 @@ h1 span {
   cursor: pointer;
   transition: 0.3s;
 }
-button{
+
+button {
   background-color: #135F7D;
   color: white;
-  border: 6px solid  #F4E6CC;
+  border: 6px solid #F4E6CC;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 10vw  3vw;
+  margin: 0 0 10vw 3vw;
   cursor: pointer;
   transition: 0.5s;
 
 }
-button:hover{
+
+button:hover {
   background-color: #F4E6CC;
   color: #135F7D;
-  border: 6px solid  #135F7D;
+  border: 6px solid #135F7D;
   border-radius: 5vw;
   padding: 2vw;
   font-size: 2rem;

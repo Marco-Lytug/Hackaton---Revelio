@@ -483,7 +483,7 @@ const slidesAutores = computed(() => {
 
     <section class="flutuante">
 
-         <ButtonChild   @clique="mostrarFavoritos = true" v-if="listaFav.length > 0" class="carrinho-flutuante"
+         <ButtonChild @clique="mostrarFavoritos = true " v-if="listaFav.length > 0" class="carrinho-flutuante"
   >
     <span class="icone-carrinho"><i class="fa-regular fa-heart"></i></span>
     <span class="notificacao">{{ quantidadeTotal }}</span>
@@ -559,7 +559,7 @@ const slidesAutores = computed(() => {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
   color: #135F7D;
-  font-weight: 600;
+  font-weight: 600;PaginaInfo
   text-align: center;
 }
 #alerta{
@@ -1250,15 +1250,13 @@ a:hover{
     height: 2px;
 }
 .autores-lista {
-     width: 100%;
-  max-width: 1050px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 30px;
-  padding: 0.7vw;
-  box-sizing: border-box;
+    max-width:1050px;
+    margin:auto;
+     display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap: 90px;
+    padding: 0.7vw;
 }
 .autores h2{
   font-size: 2.6rem;
