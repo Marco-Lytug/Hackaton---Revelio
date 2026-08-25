@@ -3,9 +3,15 @@
 import {ref} from 'vue'
 import LivroCard from './LivroCard.vue';
 import { computed } from 'vue'
-const props = defineProps(['livros','lista'])
+const props = defineProps(['livros','lista', 'categorias'])
 const filtro = ref('');
-const categorias = ref('')
+const categoriaInfo = ref('')
+const categoriaAgro = ref('')
+const categoriaQuimi = ref('')
+ const todasCategorias =
+    categoriaInfo.value ||
+    categoriaAgro.value ||
+    categoriaQuimi.value
 const emit = defineEmits(['favoritar'])
 
 function LivroFavoritado(livro) {
@@ -44,9 +50,9 @@ const FiltroAutorTitulo = computed(() => {
     )
   }
 
-  else if (categorias.value.trim().length > 0) {
+  else if (todasCategorias.trim().length > 0) {
     return props.livros.filter(item =>
-      item.categoria.toLowerCase().includes(categorias.value.toLowerCase())
+      item.todasCateorias.toLowerCase().includes(todasCategorias.toLowerCase())
     )
   }
 
@@ -73,7 +79,7 @@ function LivroNaoEncontrado (){
       <input class="input" type="text" placeholder="Pesquisar por título ou por autor" v-model="filtro" />
 
    <div class="select">
-       <select name="categoria" id="" v-model="categorias">
+       <select name="categoria" id=""   v-if="props.categorias === 'info'" v-model="categoriaInfo">
       <option disabled value ="">Selecione por categoria</option>
       <option value="">Nenhum</option>
       <option value="Algoritmos">Algoritmos</option>
@@ -89,6 +95,16 @@ function LivroNaoEncontrado (){
       <option value="Programação">Programação</option>
       <option value="Python">Python</option>
       <option value="Redes">Redes</option>
+      <option value="Scrum">Scrum</option>
+    
+
+      </select>
+    </div>
+       
+      <div class="select">
+       <select name="categoria" id=""   v-if="props.categorias === 'agro'" v-model="categoriaAgro">
+      <option disabled value ="">Selecione por categoria</option>
+      <option value="">Nenhum</option>
       <option value="Adubação e Calagem">Adubação e Calagem</option>
       <option value="Apicultura">Apicultura</option>
       <option value="Citricultura">Citricultura</option>
@@ -102,8 +118,12 @@ function LivroNaoEncontrado (){
       <option value="Topografia">Topografia</option>
       <option value="Zootecnia">Zootecnia</option>
       <option value="Agroindústria">Agroindústria</option>
-      <option value="Scrum">Scrum</option>
-      <option disabled value="">Selecione por categoria</option>
+       </select>
+      </div>
+
+           <div class="select">
+       <select name="categoria" id=""   v-if="props.categorias === 'quimi'" v-model="categoriaQuimi">
+      <option disabled value ="">Selecione por categoria</option>
       <option value="">Nenhum</option>
       <option value="Química Geral">Química Geral</option>
       <option value="Quimica Inorganica">Quimica Inorganica</option>
@@ -114,9 +134,8 @@ function LivroNaoEncontrado (){
       <option value="Tratamento de Águas e Efluentes">Tratamento de Águas e Efluentes</option>
       <option value="Quimica Tecnologica">Quimica Tecnologica</option>
       <option value="Operações Unitárias">Operações Unitárias</option>
-
-      </select>
-    </div>
+        </select>
+        </div>
 
        </div>
 

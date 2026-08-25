@@ -101,7 +101,7 @@ export const autoresAgro = [
     {
         id: 1,
         nome: 'José Augusto de Lira Filho',
-        foto: 'public/images/jose_lira_filho-removebg-preview.png',
+        foto: '/images/jose_lira_filho-removebg-preview.png',
         biografia: 'José Augusto de Lira Filho é autor e pesquisador na área de paisagismo. Seus trabalhos abordam os princípios da composição paisagística, estética, organização dos espaços verdes e planejamento de jardins.',
         principaisObras: [
             'Paisagismo: Elementos de Composição e Estética'

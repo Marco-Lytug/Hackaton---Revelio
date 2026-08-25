@@ -14,12 +14,17 @@ defineEmits(['fechar'])
 const listaSalva = localStorage.getItem('livro')
 //COLOCAR LINK NOS LIVROS DE REFERENCIAS
 // AJEITAR TAMANHO DOS CARDS
-//COLOCAR ACTIVE NOS HOVER
+//COLOCAR ACTIVE NOS HOVER FF0D62
 
 const listaFav = ref(
   listaSalva ? JSON.parse(listaSalva) : []
 )
 function LivroFavoritado (livro) {
+   const indice = listaFav.value.findIndex(item => item.id === livro.id)
+  if (indice !== -1) {
+   mostrarAlerta.value  = true
+    return
+  }
   listaFav.value.push(livro)
    localStorage.setItem(
     'livro',
@@ -56,6 +61,7 @@ const mostrarDetalhes = ref(false)
 const mostrarLivros = ref(false)
 const mostrarLivros2 = ref(false)
 const mostrarLivros3 = ref(false)
+const mostrarAlerta = ref(false)
 
 const TodosOsLivros = [
  ...livros1AnoQuimi,
@@ -172,6 +178,7 @@ const slidesAutores = computed(() => {
         <div>
            <LivroLista :livros="TodosOsLivros"
              @favoritar="LivroFavoritado"
+              :categorias="'quimi'"
            />
 
         </div>
@@ -188,7 +195,7 @@ const slidesAutores = computed(() => {
 
 
       <div class="autores-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesAutores.length"
+        <Carroussel class="carousel"  :totalSlides="slidesAutores.length"  tipo="autores"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
            <div class="autores-lista">
@@ -295,7 +302,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"
+        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -357,7 +364,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"
+        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="livros"
   v-slot="{ currentSlide }">
 
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -421,7 +428,7 @@ const slidesAutores = computed(() => {
       <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"
+        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="livros"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -495,7 +502,7 @@ const slidesAutores = computed(() => {
 
           <div class="bot">
                      <div id="limpar">
-        <ButtonChild @clique="limparLista">
+        <ButtonChild @clique="limparLista" :class="{ ativo: listaFav.length === 0 }">
             Limpar lista de Livros
         </ButtonChild>
               </div>
@@ -511,15 +518,97 @@ const slidesAutores = computed(() => {
     </div>
     </Transition>
 
+     <Transition name="alerta">
+      <div v-if="mostrarAlerta" class="alerta-favorito" >
+    <p > Você já favoritou esse livro!</p>
+
+    <ButtonChild id="alerta" @clique="mostrarAlerta = false">
+      Fechar
+    </ButtonChild>
+
+
+  </div>
+  </Transition>
+
     </section>
 
 </template>
 
 <style scoped>
+.alerta-favorito {
+  position: fixed;
+  top: 75%;
+  right: 10%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  z-index: 9999;
 
+}
+
+#alerta{
+ display: flex;
+  justify-content: center;
+ width: 100%;
+ padding: 6px;
+ border-radius: 10px;
+ background-color: #c20044;
+ color: white;
+}
+#alerta:hover{
+ color: #c20044;
+ background-color: white;
+}
+.alerta-enter-active,
+.alerta-leave-active {
+  transition: all 0.4s ease;
+}
+.alerta-enter-from {
+  opacity: 0;
+  transform: translateX(20%);
+}
+.alerta-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+.alerta-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+.alerta-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.alerta-favorito {
+  position: fixed;
+  top: 75%;
+  right: 10%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  z-index: 9999;
+
+}
+.alerta-favorito p{
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: #c20044;
+  font-weight: 600;
+  text-align: center;
+}
+#limpar .ativo{
+  display: none;
+}
 .carrinho-flutuante{
   animation: botao 0.3s ease;
 }
+
 
 @keyframes botao{
   from{
@@ -561,7 +650,7 @@ const slidesAutores = computed(() => {
 }
 
 .carrinho-vazio p {
-  color: #4b0101;
+  color: #c20044;
   font-size: 3rem;
   margin-bottom: 1.5rem;
   font-family: "Josefin Sans", sans-serif;
@@ -625,7 +714,7 @@ button #fechar, #limpar{
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #4b0101;
+  background: #c20044;
   color: white;
   display: flex;
   align-items: center;
@@ -639,7 +728,7 @@ button #fechar, #limpar{
 
 .carrinho-flutuante:hover {
   transform: scale(1.08);
-  background: #b10303;
+  background: #f70358;
   border: none;
 }
 
@@ -655,7 +744,7 @@ button #fechar, #limpar{
   height: 45px;
   padding: 0 6px;
   border-radius: 999px;
-  background: #9c0d0d;
+  background: #135F7D;
   color: white;
   font-size: 1.5rem;
   font-weight: 700;
@@ -724,62 +813,62 @@ button #fechar, #limpar{
   border: none;
  }
  .favo :deep(button){
-  background-color: #4b0101;
+  background-color: #c20044;
   color: #fff;
  }
  .favo :deep(button:hover){
-  background-color: #b10303 ;
-  padding:  0.9rem 1.1rem;
-  font-size: 1.6rem;
+  background-color: #e90354;
+ 
  }
  .livros-lista :deep(button){
-  background-color: #4b0101;
+  background-color: #c20044;
  }
  .livros-lista :deep(button:hover){
-  background-color: #b10303 ;
-  padding:  0.9rem 1.1rem;
-  font-size: 1.6rem;
+  background-color: #f70258;
  }
  .livros-lista :deep(a){
-  color: #690b0b;
-  border: 1px solid #4b0101 ;
+  color: #c20044;
+  border: 1px solid #c20044;
  }
   .livros-lista :deep(a:hover){
-  background-color: #4b0101;
+  background-color: #c20044;
   transition: 0.8s;
   color: white;
   border: none;
  }
   .livros-lista :deep(#coracao:hover){
    background-color: white;
-  color: #b10303;
-  border: 1px solid #b10303;
+  color: #c20044;
+  border: 1px solid #c20044;
   transform: scale(1.1);
  }
+
  .livros-lista :deep(.tooltip-texto){
-  background-color: #4b0101;
+  background-color: #FF0D62;
  }
   .autores-carrossel :deep(button){
-  background-color: rgb(99, 3, 3);
+  background-color: #f30d5d;
  }
 
  .autores-carrossel :deep(button:hover){
-  background-color: #b10303;
+  background-color: #c9084c;
   color: #fff;
  }
  .pesquisa :deep(.barra-pesquisa){
-  background-color: #690b0b;
+  background-color: #c20044;
 
  }
 .pesquisa :deep(select){
-  color: #b10303;
+  color: #FF0D62;
+ border: none;
  }
  .pesquisa :deep(input){
-  color: #4b0101;
+  color: #f10d5d;
  }
  .pesquisa :deep(input::placeholder){
-  color: #b10303;
+  color: rgb(66, 66, 66)
  }
+ 
 
 .livros3ano,
 .modal-livros {
@@ -797,7 +886,7 @@ button #fechar, #limpar{
   gap: 10px;
   padding: 0.7vw;
   grid-template-columns: repeat(4, 1fr);
-  background-color: #4b0101;
+  background-color: #c20044;
 }
 
 .visu {
@@ -842,7 +931,7 @@ button #fechar, #limpar{
 }
 
 .secao{
-  background-color: #690b0b;
+  background-color: #c20044;
 }
 
 .titulo p{
@@ -854,7 +943,7 @@ button #fechar, #limpar{
 
 .titulo h3{
   font-size: 3.5rem;
-  color: #b10303;
+  color: #c20044;
   font-family: "Josefin Sans", sans-serif;
   margin: 3vw;
 }
@@ -864,7 +953,7 @@ button #fechar, #limpar{
   display: flex;
   width: 700px;
   height: 3px;
-  background: #b10303;
+  background: #c20044;
   border-radius: 20px;
 }
 
@@ -873,29 +962,28 @@ button #fechar, #limpar{
 }
 
 .card-esquerda p{
-  font-size: 2.8rem;
-  color: #b10303;
+  font-size: 2.9rem;
+  color: #c20044;
   font-family: "Josefin Sans", sans-serif;
   margin: 1vw;
   padding: 1.5vw;
 }
 
 .card-esquerda{
-  background-color: #E8F5E9;
+  background-color: #E8F5E9 ;
   border-radius: 2vw;
   height: auto;
   position: relative;
-  width: 30%;
-  min-height: 480px;
+   width: 30%;
+  min-height: 620px;
 }
-
 .card-esquerda img{
   border-radius: 12px;
   position: absolute;
   transform: translate(-50%, -50%);
   align-items: center;
-  transition: transform 0.2s ease;
-  width: 30%;
+   transition: transform 0.2s ease;
+   width: 30%;
 }
 
 .card-esquerda img:hover{
@@ -921,7 +1009,7 @@ button #fechar, #limpar{
 }
 
 #vermais{
-  background-color: #690b0b;
+  background-color: #c20044;
   font-size: 1.4rem;
   padding: 15px;
   margin: 2vw;
@@ -935,30 +1023,29 @@ button #fechar, #limpar{
 
 #vermais:hover{
   box-shadow: 0 8px 10px rgba(46, 125, 50, 0.25);
-  background-color: #b10303;
+  background-color: #ff025a;
   padding: 15px;
 }
 
 button {
   background-color: white;
-  color: #4b0101;
-  border: none;
+  color: #c20044;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.6rem;
   border-radius: 20px;
-  border: 1px solid #4b0101;
+  border: 1px solid #c20044;
   padding: 15px;
 }
 
 button:hover {
   transition: 0.5s all ease;
-  background-color: #b10303;
+  background-color: #c20044;
   color: white;
   cursor: pointer;
 }
 
 #router{
-  background-color: #4b0101;
+  background-color: #c20044;
   font-size: 1.6rem;
   padding: 15px;
   margin: 0;
@@ -970,8 +1057,8 @@ button:hover {
 #router:hover{
   background-color: white;
   transition: 0.5s all ease;
-  color: #b10303;
-  border: 1px solid #b10303;
+  color: #c20044;
+  border: 1px solid #c20044;
   cursor: pointer;
 }
 
@@ -1002,7 +1089,7 @@ button:hover {
 
 .card-direita p {
   text-align: center;
-  color: #4b0101;
+  color: #c20044;
   font-size: 3rem;
   font-family: "Josefin Sans", sans-serif;
   padding: 0.9vw;
@@ -1064,7 +1151,7 @@ button:hover {
 
 .modal h3{
   font-size: 2.3rem;
-  color: #4b0101;
+  color: #c20044;
   padding: 1vw;
   font-weight: 500;
   font-family: "Josefin Sans", sans-serif;
@@ -1085,7 +1172,7 @@ button:hover {
   font-size: 2.8rem;
   font-family: "Josefin Sans", sans-serif;
   padding: 3vw;
-  color: #4b0101;
+  color: #FF0D62;
 }
 
 .autores p{
@@ -1095,7 +1182,7 @@ button:hover {
 
 .banner {
   position: relative;
-  background: url(https://i.pinimg.com/1200x/34/b5/89/34b58945e8767212592c14eb782c69af.jpg) center/cover no-repeat;
+  background: url(/images/img_capa_quimi.png) center/cover no-repeat;
   animation: fadeIn 2s ease forwards;
   height: 100vh;
   width: 100vw;
@@ -1122,7 +1209,7 @@ h1 {
 
 .banner a{
   color: white;
-  background-color: #b10303;
+  background-color: #FF0D62;
   border-radius: 20px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.6rem;
@@ -1134,7 +1221,7 @@ h1 {
 }
 
 a:hover{
-  background-color: #4b0101;
+  background-color: #ff0d62a2;
   transition: 0.8s;
   color: white;
 }

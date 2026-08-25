@@ -180,6 +180,7 @@ const slidesAutores = computed(() => {
 
         <div>
            <LivroLista :livros="TodosOsLivros"
+            :categorias="'info'"
              @favoritar="LivroFavoritado"
            />
 
@@ -808,7 +809,7 @@ button #fechar, #limpar{
 width: 100%;
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 0 60px; /* Garante espaço para os botões ficarem nas laterais sem sair do site */
+  padding: 0 60px; 
   box-sizing: border-box;
 }
 .todos-livros{
