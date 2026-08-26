@@ -56,10 +56,14 @@ const abrirLivros = ref(false)
       </li>
 
       <li><img src="/images/Revelio.png"></li>
-
-      <li>
-        <RouterLink to="/atividades">Atividades</RouterLink>
-      </li>
+        <li class="nav-item">
+          <RouterLink to="/atividades">Atividades</RouterLink>
+          <ul class="mais">
+            <li>
+              <RouterLink to="/cursos">Cursos</RouterLink>
+            </li>
+          </ul>
+        </li>
       <li>
         <RouterLink to="/extras">Extras</RouterLink>
       </li>
@@ -156,7 +160,6 @@ header {
   justify-content: center;
   background-color: black;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
-  /*backdrop-filter: blur(10px);*/
 }
 
 header.transparent {

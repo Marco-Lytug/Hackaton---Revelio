@@ -3,11 +3,13 @@ import { RouterLink } from 'vue-router'
 import ButtonChild from './ButtonChild.vue';
 import { ref } from 'vue';
 const mostrarDetalhes = ref(false)
+import AppHeader from '../../components/layout/AppHeader.vue'
 
 
 </script>
 
 <template>
+  <header><AppHeader></AppHeader></header>
   <section class="banner">
     <h1>Ache o fim de suas <br> preocupações aqui, na <span>Revelio</span>! </h1>
   </section>

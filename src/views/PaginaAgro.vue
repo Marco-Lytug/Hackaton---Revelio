@@ -9,6 +9,8 @@ import autores from '@/components/layout/autores.vue';
 import ButtonChild from '@/components/layout/ButtonChild.vue';
 import LivroCard from '@/components/layout/livros/LivroCard.vue';
 import LivrosFavoritos from '@/components/layout/livros/LivrosFavoritos.vue';
+import AppHeader from '../components/layout/AppHeader.vue'
+
 defineEmits(['fechar'])
 
 const listaSalva = localStorage.getItem('livro')
@@ -151,6 +153,7 @@ const slidesAutores = computed(() => {
 })
 </script>
 <template>
+  <header><AppHeader /></header>
     <section class="banner">
 
         <div>
