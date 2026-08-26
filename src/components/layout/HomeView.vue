@@ -43,7 +43,7 @@ const mostrarDetalhes = ref(false)
         <img src="/images/help.png" alt="">
       </div>
     </div>
-    <button>AQUI!</button>
+    <RouterLink to="atividade">AQUI!</RouterLink>
 
   </section>
 </template>
@@ -230,7 +230,7 @@ h1 span {
 
 .help {
   background-color: white;
-
+  margin: 0 0 20vw 0;
 }
 
 .help h2 {
@@ -257,7 +257,7 @@ h1 span {
 
 }
 
-.help button {
+.help a {
   background-color: #135F7D;
   color: white;
   border: 6px solid #F4E6CC;
@@ -265,13 +265,14 @@ h1 span {
   padding: 2vw 5vw 2vw 5vw;
   font-size: 2.5rem;
   font-family: "Josefin Sans", sans-serif;
-  margin: 0 0 35vw 3vw;
+  margin: 0 0 10vw 3vw;
   cursor: pointer;
   transition: 0.5s;
+  top: 100%;
 
 }
 
-.help button:hover {
+.help a:hover {
   background-color: #F4E6CC;
   color: #135F7D;
   border: 6px solid #135F7D;

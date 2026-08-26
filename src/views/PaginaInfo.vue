@@ -559,7 +559,7 @@ const slidesAutores = computed(() => {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
   color: #135F7D;
-  font-weight: 600;PaginaInfo
+  font-weight: 600;
   text-align: center;
 }
 #alerta{

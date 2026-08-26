@@ -41,7 +41,7 @@ onUnmounted(() => {
             <RouterLink to="/info">Livros de Info</RouterLink>
             <RouterLink to="/quimi">Livros de Quimica</RouterLink>
             <RouterLink to="/agro">Livros de Agro</RouterLink>
-            <RouterLink to="/">Contate-nos</RouterLink>
+            <RouterLink to="/cursos">Cursos</RouterLink>
 
           </div>
           <div class="texto">
@@ -116,17 +116,6 @@ nav {
   border-bottom: 1px solid #BCB2A0;
 
 }
-
-footer.transparent {
-  background-color: transparent;
-}
-
-footer.hidden {
-  transform: translateY(100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
 
 a{
   color: #BCB2A0;

@@ -39,7 +39,12 @@ const router = createRouter({
       name: 'quiz',
       component: QuizView
     }
-  ]
+
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0, left: 0 }
+    
+  }
 })
 
 export default router
