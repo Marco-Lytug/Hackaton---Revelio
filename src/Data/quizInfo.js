@@ -463,6 +463,5 @@ export const quizzesInfo = [
   }
 ];
 
-export {quizzesInfo};
 
 export default {quizzesInfo};

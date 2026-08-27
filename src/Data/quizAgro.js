@@ -463,6 +463,5 @@ export const quizzesAgro = [
   }
 ];
 
-export {quizzesAgro};
 
 export default {quizzesAgro};

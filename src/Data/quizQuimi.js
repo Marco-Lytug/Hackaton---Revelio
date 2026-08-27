@@ -463,6 +463,6 @@ export const quizzesQuimi = [
   }
 ];
 
-export {quizzesQuimi};
+
 
 export default {quizzesQuimi};
