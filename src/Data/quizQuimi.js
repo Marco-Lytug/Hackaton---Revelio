@@ -55,7 +55,6 @@ export const quizzesQuimi = [
           }
         ]
       },
-
       // -----QUIZ 2-----
       {
         id: "1-quiz-2",
