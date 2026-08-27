@@ -9,7 +9,7 @@ export const quizzesQuimi = [
       // -----QUIZ 1-----
       {
         id: "1-quiz-1",
-        titulo: "",
+        titulo: "vygy",
         perguntas: [
           {
             id: 1,
@@ -461,7 +461,3 @@ export const quizzesQuimi = [
     ]
   }
 ];
-
-export {quizzesQuimi};
-
-export default {quizzesQuimi};

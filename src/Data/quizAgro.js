@@ -9,7 +9,7 @@ export const quizzesAgro = [
       // -----QUIZ 1-----
       {
         id: "1-quiz-1",
-        titulo: "",
+        titulo: "hguyguy",
         perguntas: [
           {
             id: 1,
@@ -463,6 +463,5 @@ export const quizzesAgro = [
   }
 ];
 
-export {quizzesAgro};
 
 export default {quizzesAgro};
