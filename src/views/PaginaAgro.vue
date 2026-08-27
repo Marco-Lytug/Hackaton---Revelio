@@ -84,13 +84,13 @@ const CarouselSlides = [
 
 
 const destaque3Ano  = livrosAgro3Ano.filter(livro =>
-    [44,36,37,39,43,34,].includes(livro.id)
+    [35,36,37,33,32,34,].includes(livro.id)
 )
 const livrosDestaque = livrosAgro1Ano.filter(livro =>
     [1,4,7,10,13,2,6,14].includes(livro.id)
 )
 const destaque2Ano  = livrosAgro2Ano.filter(livro =>
-    [22,29,21,32,20,31,].includes(livro.id)
+    [15,16,17,18,20,19,].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -180,6 +180,7 @@ const slidesAutores = computed(() => {
            <LivroLista :livros="TodosOsLivros"
              @favoritar="LivroFavoritado"
               :categorias="'agro'"
+              tipo="agro"
            />
 
         </div>
@@ -197,6 +198,7 @@ const slidesAutores = computed(() => {
 
       <div class="autores-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesAutores.length"   tipo="autores"
+         :class="'carousel'"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
            <div class="autores-lista">
@@ -303,7 +305,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"    tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"    tipo="agro"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -365,7 +367,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="agro"
   v-slot="{ currentSlide }">
 
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -429,7 +431,7 @@ const slidesAutores = computed(() => {
         <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="agro"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
@@ -540,17 +542,31 @@ const slidesAutores = computed(() => {
 </template>
 
 <style scoped>
+.alerta-favorito {
+  position: fixed;
+  top: 75%;
+  right: 10%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  z-index: 9999;
+
+}
+
 #alerta{
  display: flex;
   justify-content: center;
  width: 100%;
  padding: 6px;
  border-radius: 10px;
- background-color: #135F7D;
+ background-color: #2E7D32;
  color: white;
 }
 #alerta:hover{
- color: #135F7D;
+ color: #2E7D32;
  background-color: white;
 }
 .alerta-enter-active,
@@ -589,7 +605,7 @@ const slidesAutores = computed(() => {
 .alerta-favorito p{
   font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
-  color: #135F7D;
+  color: #2E7D32;
   font-weight: 600;
   text-align: center;
 }
@@ -798,8 +814,10 @@ button #fechar, #limpar{
   padding-bottom: 300px;
 }
 
-.autores-carrossel{
-  margin: 2vw;
+.autores-carrossel {
+    width: 650px;
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
 }
 
 .todos-livros{
@@ -885,34 +903,32 @@ button #fechar, #limpar{
 }
 
 .card-esquerda p{
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   color: #2E7D32;
-  font-family: "Josefin Sans", sans-serif;
-  margin: 1vw;
-  padding: 1.5vw;
+   font-family: "Josefin Sans", sans-serif;
+   margin: 0.6px;
+   padding: 1.5vw;
 }
-
 .card-esquerda{
-  background-color: #E8F5E9;
+  background-color: #E8F5E9 ;
   border-radius: 2vw;
   height: auto;
   position: relative;
-  width: 30%;
-  min-height: 480px;
+   width: 30%;
+  min-height: 620px;
 }
-
 .card-esquerda img{
   border-radius: 12px;
   position: absolute;
   transform: translate(-50%, -50%);
   align-items: center;
-  transition: transform 0.2s ease;
-  width: 30%;
+   transition: transform 0.2s ease;
+   width: 32%;
 }
 
 .card-esquerda img:hover{
   transform: translate(-50%, -50%) scale(1.1);
-}
+} 
 
 .um img{
   top: 54%;
@@ -949,8 +965,7 @@ div.favo :deep(a){
  }
  .livros-lista :deep(button:hover){
   background-color: #113513 ;
-  padding:  0.9rem 1.1rem;
-  font-size: 1.6rem;
+  
  }
  .livros-lista :deep(a){
   color: #2E7D32;
@@ -971,14 +986,38 @@ div.favo :deep(a){
  .livros-lista :deep(.tooltip-texto){
   background-color: #143f16;
  }
+  .todos-livros :deep(#coracao:hover){
+   background-color: white;
+  color: #113513;
+  border: 1px solid #113513;
+  transform: scale(1.1);
+ }
+ .todos-livros :deep(.tooltip-texto){
+  background-color: #143f16;
+ }
+  .todos-livros :deep(button){
+  background-color: #2E7D32;
+ }
+ .todos-livros :deep(button:hover){
+  background-color: #3ba540;
+ }
+  .todos-livros :deep(a){
+  color: #2E7D32;
+  border: 1px solid #2E7D32;
+ }
+  .todos-livros:deep(a:hover){
+  background-color: #113513;
+  transition: 0.8s;
+  color: white;
+  border: none;
+ }
   .autores-carrossel :deep(button){
   background-color: #2E7D32 ;
   }
 
  .autores-carrossel :deep(button:hover){
   background-color: #113513 ;
-  padding:  0.9rem 1.1rem;
-  font-size: 1.8rem;
+  
  }
  .pesquisa :deep(.barra-pesquisa){
   background-color: #143f16;

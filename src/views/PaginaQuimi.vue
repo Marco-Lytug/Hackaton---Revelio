@@ -1,5 +1,5 @@
 <script setup>
-import { ref,computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref,computed, onMounted, onBeforeUnmount,  } from 'vue';
 import Carroussel from '@/components/layout/Carroussel.vue';
 import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
@@ -84,13 +84,13 @@ const CarouselSlides = [
 
 
 const destaque3Ano  = livros3AnoQuimi.filter(livro =>
-    [44,36,37,39,43,34,].includes(livro.id)
+    [28,29,26,32,33,27,].includes(livro.id)
 )
 const livrosDestaque = livros1AnoQuimi.filter(livro =>
-    [1,4,7,10,13,2,6,14].includes(livro.id)
+    [11,5,1,10,8,9,6,13].includes(livro.id)
 )
 const destaque2Ano  = livros2AnoQuimi.filter(livro =>
-    [22,29,21,32,20,31,].includes(livro.id)
+    [13,14,21,15,20,22,].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -179,6 +179,7 @@ const slidesAutores = computed(() => {
            <LivroLista :livros="TodosOsLivros"
              @favoritar="LivroFavoritado"
               :categorias="'quimi'"
+              tipo="quimica"
            />
 
         </div>
@@ -196,13 +197,14 @@ const slidesAutores = computed(() => {
 
       <div class="autores-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesAutores.length"  tipo="autores"
+         :class="'carousel'"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
            <div class="autores-lista">
   <autores
       v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
     :biografia="autor.biografia" :principaisObras="autor.principaisObras"
-
+    
   />
      </div>
   </Slide>
@@ -302,7 +304,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="quimica" 
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -313,7 +315,7 @@ const slidesAutores = computed(() => {
       v-for="livro in grupo" :key="livro.id"   :livro="livro" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado"
+         :classe="'carrossel'"   @favoritar="LivroFavoritado" 
         >
       </LivroCard>
 
@@ -364,7 +366,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="quimica"
   v-slot="{ currentSlide }">
 
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -428,9 +430,9 @@ const slidesAutores = computed(() => {
       <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="livros"
+        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="quimica"
   v-slot="{ currentSlide }">
-          <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
+          <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
   v-show="currentSlide === index + 1">
            <div class="livros-lista">
@@ -449,7 +451,7 @@ const slidesAutores = computed(() => {
       </div>
         </div>
          <div  class="visu">
-         <ButtonChild id="visu" @clique="mostrarLivros3 = true">
+         <ButtonChild id="visu" @clique="mostrarLivros3 = true"  >
               Visualizar mais Livros
     </ButtonChild>
         </div>
@@ -846,6 +848,32 @@ button #fechar, #limpar{
  .livros-lista :deep(.tooltip-texto){
   background-color: #FF0D62;
  }
+ .todos-livros:deep(#coracao:hover){
+   background-color: white;
+  color: #c20044;
+  border: 1px solid #c20044;
+  transform: scale(1.1);
+ }
+
+ .todos-livros :deep(.tooltip-texto){
+  background-color: #FF0D62;
+ }
+ .todos-livros :deep(button){
+  background-color: #c20044;
+ }
+ .todos-livros :deep(button:hover){
+  background-color: #FF0D62;
+ }
+  .todos-livros :deep(a){
+  color: #c20044;
+  border: 1px solid #c20044;
+ }
+  .todos-livros:deep(a:hover){
+  background-color: #c20044;
+  transition: 0.8s;
+  color: white;
+  border: none;
+ }
   .autores-carrossel :deep(button){
   background-color: #f30d5d;
  }
@@ -875,8 +903,10 @@ button #fechar, #limpar{
   padding-bottom: 300px;
 }
 
-.autores-carrossel{
-  margin: 2vw;
+.autores-carrossel {
+    width: 650px;
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
 }
 
 .todos-livros{
@@ -1278,7 +1308,6 @@ a:hover{
 
   .banner a{
     color: white;
-    background-color: #b10303;
     border-radius: 10px;
     font-family: "Josefin Sans", sans-serif;
     font-size: 1.3rem;
@@ -1300,7 +1329,6 @@ a:hover{
 
   .titulo h3{
     font-size: 2rem;
-    color: #9c0d0d;
     margin: 3vw;
   }
 
@@ -1339,7 +1367,6 @@ a:hover{
   button {
     font-size: 1rem;
     border-radius: 10px;
-    border: 1px solid #4b0101;
     padding: 8px;
   }
 
@@ -1436,7 +1463,6 @@ a:hover{
 
   .modal h3{
     font-size: 2rem;
-    color: #b10303;
     padding: 1vw;
   }
 
@@ -1452,7 +1478,6 @@ a:hover{
   }
 
   .carrinho-vazio p {
-    color: #4b0101;
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
@@ -1511,8 +1536,6 @@ a:hover{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #9c0d0d;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1533,10 +1556,8 @@ a:hover{
     right: -17%;
     min-width: 20px;
     height: 25px;
-    padding: 0 6px;
+    padding: 8px;
     border-radius: 999px;
-    background: #4b0101;
-    color: white;
     font-size: 1.4rem;
     font-weight: 700;
     display: flex;

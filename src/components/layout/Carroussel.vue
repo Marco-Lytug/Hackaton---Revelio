@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted} from "vue"
+import {ref, onMounted, watch} from "vue"
 import ButtonChild from "./ButtonChild.vue";
 
   const currentSlide = ref (1);
@@ -10,6 +10,9 @@ import ButtonChild from "./ButtonChild.vue";
     type: String,
 
   }
+})
+watch(() => props.totalSlides, () => {
+    currentSlide.value = 1
 })
 
  const nextSlide = () => {
@@ -49,6 +52,45 @@ const prevSlide = () => {
 </template>
 
 <style scoped>
+.carousel.quimica button {
+ background-color: #c20044;
+}
+.carousel.quimica button:hover{
+  color: #c20044;
+  background-color: white;
+  border: none;
+  box-shadow: 0 8px 10px rgba(95, 61, 196, 0.25);
+
+}
+
+
+.carousel.agro button {
+ background-color: #143f16;
+}
+.carousel.agro button:hover{
+  color: #143f16;
+  background-color: white;
+  border: none;
+}
+/*lista llvros*/
+.carousel.agro .toggle-page.left {
+  left: 100px;
+}
+.carousel.agro .toggle-page.right {
+  right: 100px;
+}
+.carousel.quimica .toggle-page.left {
+  left: 100px;
+}
+.carousel.quimica .toggle-page.right {
+  right: 100px;
+}
+.carousel.livros .toggle-page.left {
+  left: 100px;
+}
+.carousel.livros .toggle-page.right {
+  right: 100px;
+}
 .carousel.livros button {
  margin: 60px;
 }
@@ -79,48 +121,40 @@ button:hover{
 .carousel {
     position: relative;
     width: 100%;
-
 }
 
 .navigate {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 0;
-  pointer-events: none;
-  z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .toggle-page {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: auto;
-  cursor: pointer;
-
+    position: absolute;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 .toggle-page.left {
-  left: -50px;
+    left: -60px;
 }
 
 .toggle-page.right {
-  right: -50px;
+    right: -60px;
 }
 
 .carousel.autores .toggle-page.left {
-  left: -360px;
+    left: -570px;
 }
+
 .carousel.autores .toggle-page.right {
-  right: -360px;
+    right: -570px;
 }
-.carousel.livros .toggle-page.left {
-  left: 100px;
-}
-.carousel.livros .toggle-page.right {
-  right: 100px;
-}
+
 
 .navigate button {
   pointer-events: auto;
@@ -129,23 +163,17 @@ button:hover{
   cursor: pointer;
 }
 
-.navigate > div {
-  display: flex;
-}
 
-.navigate > div:last-child {
-  margin-left: auto;
-}
 /*********************/
 /*PARTE DO CSS RESPONSIVO*/
 @media (max-width: 732px) {
     .toggle-page.left,
   .carousel.autores .toggle-page.left {
-    left: -50px;
+    left: -40px;
   }
   .toggle-page.right,
   .carousel.autores .toggle-page.right {
-    right: -50px;
+    right: -40px;
   }
    .toggle-page.left,
   .carousel.livros .toggle-page.left {
@@ -165,6 +193,19 @@ button:hover{
 }
 .carousel.livros .navigate{
     top: 50%;
+}
+
+.carousel.agro .toggle-page.left {
+  left: 40px;
+}
+.carousel.agro .toggle-page.right {
+  right: 40px;
+}
+.carousel.quimica .toggle-page.left {
+  left: 40px;
+}
+.carousel.quimica .toggle-page.right {
+  right: 40px;
 }
 
 }

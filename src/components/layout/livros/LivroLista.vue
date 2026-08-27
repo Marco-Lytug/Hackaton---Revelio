@@ -3,15 +3,17 @@
 import {ref} from 'vue'
 import LivroCard from './LivroCard.vue';
 import { computed } from 'vue'
-const props = defineProps(['livros','lista', 'categorias'])
+const props = defineProps(['livros','lista', 'categorias','tipo'])
 const filtro = ref('');
 const categoriaInfo = ref('')
 const categoriaAgro = ref('')
 const categoriaQuimi = ref('')
- const todasCategorias =
-    categoriaInfo.value ||
-    categoriaAgro.value ||
-    categoriaQuimi.value
+
+const todasCategorias = computed(() => 
+  categoriaInfo.value ||
+  categoriaAgro.value ||
+  categoriaQuimi.value
+)
 const emit = defineEmits(['favoritar'])
 
 function LivroFavoritado(livro) {
@@ -50,9 +52,9 @@ const FiltroAutorTitulo = computed(() => {
     )
   }
 
-  else if (todasCategorias.trim().length > 0) {
+  else if (todasCategorias.value.trim().length > 0) {
     return props.livros.filter(item =>
-      item.todasCateorias.toLowerCase().includes(todasCategorias.toLowerCase())
+      item.categoria.toLowerCase().includes(todasCategorias.value.toLowerCase())
     )
   }
 
@@ -74,12 +76,12 @@ function LivroNaoEncontrado (){
   <section class="pesquisa">
 <div class="barras">
 
- <div class="barra-pesquisa">
+ <div class="barra-pesquisa"   >
 
       <input class="input" type="text" placeholder="Pesquisar por título ou por autor" v-model="filtro" />
 
-   <div class="select">
-       <select name="categoria" id=""   v-if="props.categorias === 'info'" v-model="categoriaInfo">
+   <div class="select"  :class="{ ativo: props.categorias === 'info' }"  v-if="props.categorias === 'info'">
+       <select name="categoria" id=""   v-model="categoriaInfo">
       <option disabled value ="">Selecione por categoria</option>
       <option value="">Nenhum</option>
       <option value="Algoritmos">Algoritmos</option>
@@ -101,8 +103,8 @@ function LivroNaoEncontrado (){
       </select>
     </div>
        
-      <div class="select">
-       <select name="categoria" id=""   v-if="props.categorias === 'agro'" v-model="categoriaAgro">
+      <div class="select"  :class="{ ativo: props.categorias === 'agro' }" v-if="props.categorias === 'agro'">
+       <select name="categoria" id=""  v-model="categoriaAgro">
       <option disabled value ="">Selecione por categoria</option>
       <option value="">Nenhum</option>
       <option value="Adubação e Calagem">Adubação e Calagem</option>
@@ -121,8 +123,8 @@ function LivroNaoEncontrado (){
        </select>
       </div>
 
-           <div class="select">
-       <select name="categoria" id=""   v-if="props.categorias === 'quimi'" v-model="categoriaQuimi">
+           <div class="select"  :class="{ ativo: props.categorias === 'quimi' }" v-if="props.categorias === 'quimi'" >
+       <select name="categoria" id=""   v-model="categoriaQuimi">
       <option disabled value ="">Selecione por categoria</option>
       <option value="">Nenhum</option>
       <option value="Química Geral">Química Geral</option>
@@ -155,7 +157,7 @@ function LivroNaoEncontrado (){
         class="Livro-card" :id="livros.id"
         :titulo="livros.titulo"  :categoria="livros.categoria"
         :capa="livros.capa" :link="livros.link" :autor="livros.autor" :descricao="livros.descricao"
-        @favoritar="LivroFavoritado" :livro="livros"
+        @favoritar="LivroFavoritado" :livro="livros" :tipo="props.tipo"
          >
 </LivroCard>
 </div>
@@ -165,7 +167,9 @@ function LivroNaoEncontrado (){
 </template>
 
 <style scoped>
-
+.select:not(.ativo) {
+  display: none;
+}
 .pesquisa{
   padding: 2.7vw 0 0 0;
 }

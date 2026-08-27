@@ -199,6 +199,7 @@ const slidesAutores = computed(() => {
 
       <div class="autores-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesAutores.length" tipo="autores"
+        :class="'carousel'"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
            <div class="autores-lista">
@@ -306,6 +307,7 @@ const slidesAutores = computed(() => {
         <div class="secao">
                <div class="livros-carrossel">
         <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
+       
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -805,12 +807,10 @@ button #fechar, #limpar{
 .modal-livros {
  padding-bottom: 300px;
 }
-.autores-carrossel{
-width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 60px; 
-  box-sizing: border-box;
+.autores-carrossel {
+    width: 650px;
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
 }
 .todos-livros{
    display:grid;
