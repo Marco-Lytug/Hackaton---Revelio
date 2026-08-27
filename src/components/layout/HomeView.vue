@@ -1,11 +1,39 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import ButtonChild from './ButtonChild.vue';
-import { ref } from 'vue';
-const mostrarDetalhes = ref(false)
+import LivroCard from './livros/LivroCard.vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import ButtonChild from './ButtonChild.vue'
 import AppHeader from '../../components/layout/AppHeader.vue'
 
+const mostrarDetalhes = ref(false)
 
+onMounted(() => {
+  const sliders = document.querySelectorAll('.slider')
+
+  sliders.forEach((slider) => {
+    const radios = slider.querySelectorAll('input[type="radio"]')
+
+    if (!radios.length) return
+
+    let counter = 0
+    radios[0].checked = true
+
+    const intervalId = setInterval(() => {
+      counter = (counter + 1) % radios.length
+      radios[counter].checked = true
+    }, 4000)
+
+    slider.__revelioSliderInterval = intervalId
+  })
+})
+
+onBeforeUnmount(() => {
+  document.querySelectorAll('.slider').forEach((slider) => {
+    if (slider.__revelioSliderInterval) {
+      clearInterval(slider.__revelioSliderInterval)
+    }
+  })
+})
 </script>
 
 <template>
@@ -34,6 +62,114 @@ import AppHeader from '../../components/layout/AppHeader.vue'
         <RouterLink class="quimi" to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
       </div>
     </div>
+  </section>
+  <section class="slidesLivros">
+      <div class="slider">
+
+                <div class="slides-info">
+                    <input type="radio" name="info-radio-btn" id="info-radio1">
+                    <input type="radio" name="info-radio-btn" id="info-radio2">
+                    <input type="radio" name="info-radio-btn" id="info-radio3">
+                    <input type="radio" name="info-radio-btn" id="info-radio4">
+
+                    <LivroCard v-for="livros in primeiro" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
+            :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
+            :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+          </LivroCard>
+
+                    <div class="nav-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4 "></div>
+                    </div>
+
+                </div>
+
+                <div class="manual-nav">
+                    <label for="info-radio1" class="manual-btn"></label>
+                    <label for="info-radio2" class="manual-btn"></label>
+                    <label for="info-radio3" class="manual-btn"></label>
+                    <label for="info-radio4" class="manual-btn"></label>
+                </div>
+
+            </div>
+              <div class="slider">
+
+                <div class="slides-agro">
+                    <input type="radio" name="agro-radio-btn" id="agro-radio1">
+                    <input type="radio" name="agro-radio-btn" id="agro-radio2">
+                    <input type="radio" name="agro-radio-btn" id="agro-radio3">
+                    <input type="radio" name="agro-radio-btn" id="agro-radio4">
+
+                    <div class="slide first">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="nav-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4 "></div>
+                    </div>
+
+                </div>
+
+                <div class="manual-nav">
+                    <label for="agro-radio1" class="manual-btn"></label>
+                    <label for="agro-radio2" class="manual-btn"></label>
+                    <label for="agro-radio3" class="manual-btn"></label>
+                    <label for="agro-radio4" class="manual-btn"></label>
+                </div>
+
+            </div>
+              <div class="slider">
+
+                <div class="slides-quimi">
+                    <input type="radio" name="quimi-radio-btn" id="quimi-radio1">
+                    <input type="radio" name="quimi-radio-btn" id="quimi-radio2">
+                    <input type="radio" name="quimi-radio-btn" id="quimi-radio3">
+                    <input type="radio" name="quimi-radio-btn" id="quimi-radio4">
+
+                    <div class="slide first">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="nav-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4 "></div>
+                    </div>
+
+                </div>
+
+                <div class="manual-nav">
+                    <label for="quimi-radio1" class="manual-btn"></label>
+                    <label for="quimi-radio2" class="manual-btn"></label>
+                    <label for="quimi-radio3" class="manual-btn"></label>
+                    <label for="quimi-radio4" class="manual-btn"></label>
+                </div>
+
+            </div>
   </section>
   <section class="help">
     <h2>Help!</h2>
