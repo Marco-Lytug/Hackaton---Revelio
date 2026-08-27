@@ -25,6 +25,7 @@ import { RouterLink } from 'vue-router'
     font-size: 1.4rem;
     font-weight: 550;
 }
+
 .principal {
   width: 100vw;
   min-height: 100vh;
