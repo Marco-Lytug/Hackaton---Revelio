@@ -5,6 +5,7 @@ import { buscarPerguntas, buscarTituloQuiz } from '@/Data/quizzes'
 import Quiz from '@/components/AppQuiz.vue'
 
 const route = useRoute()
+const curso = computed(() => route.params.curso)
 const ano = computed(() => route.params.ano)
 const idQuiz = computed(() => route.params.id)
 
@@ -12,7 +13,7 @@ const perguntas = computed(() =>
   buscarPerguntas(ano.value, idQuiz.value)
 )
 const tituloQuiz = computed(() =>
-  buscarTituloQuiz(ano.value, idQuiz.value)
+  buscarTituloQuiz(curso.value, ano.value, idQuiz.value)
 )
 
 function aoFinalizarQuiz(resultado) {

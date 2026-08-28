@@ -36,7 +36,7 @@ const router = createRouter({
       component: PaginaAtividades
     },
     {
-      path: '/quiz/:ano/:id',
+      path: '/quiz/:curso/:ano/:id',
       name: 'quiz',
       component: QuizView
     },

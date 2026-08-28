@@ -59,7 +59,16 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
         <div v-for="quiz in categoria.quizzes" :key="quiz.id" class="card-quiz">
           <h5>{{ quiz.titulo }}</h5>
           <p>{{ quiz.descricao }}</p>
-          <RouterLink :to="`/quiz/${categoria.ano}/${quiz.id}`" class="btn-acessar">
+          <RouterLink
+          :to="{
+            name: 'quiz',
+            params: {
+              curso: 'informatica',
+              ano: categoria.ano,
+              id: quiz.id
+            }
+          }"
+          class="btn-acessar">
             Fazer Quiz
           </RouterLink>
         </div>
@@ -79,16 +88,39 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   </section>
 
   <section class="secao-quizzes">
+  <div
+    v-for="categoria in quizzesAgropecuaria"
+    :key="categoria.ano"
+    class="bloco-categoria"
+  >
+    <h4>{{ categoria.nome }}</h4>
+
     <div class="grid-cards">
-      <div v-for="quiz in quizzesAgropecuaria" :key="quiz.id" class="card-quiz">
+      <div
+        v-for="quiz in categoria.quizzes"
+        :key="quiz.id"
+        class="card-quiz"
+      >
         <h5>{{ quiz.titulo }}</h5>
         <p>{{ quiz.descricao }}</p>
-        <RouterLink :to="`/quiz/agro/${quiz.id}`" class="btn-acessar">
+
+        <RouterLink
+          :to="{
+            name: 'quiz',
+            params: {
+              curso: 'agropecuaria',
+              ano: categoria.ano,
+              id: quiz.id
+            }
+          }"
+          class="btn-acessar"
+        >
           Fazer Quiz
         </RouterLink>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="titulo" id="quizzes">
     <div>
@@ -102,16 +134,40 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   </section>
 
   <section class="secao-quizzes">
+  <div
+    v-for="categoria in quizzesQuimica"
+    :key="categoria.ano"
+    class="bloco-categoria"
+  >
+    <h4>{{ categoria.nome }}</h4>
+
     <div class="grid-cards">
-      <div v-for="quiz in quizzesQuimica" :key="quiz.id" class="card-quiz">
+      <div
+        v-for="quiz in categoria.quizzes"
+        :key="quiz.id"
+        class="card-quiz"
+      >
         <h5>{{ quiz.titulo }}</h5>
         <p>{{ quiz.descricao }}</p>
-        <RouterLink :to="`/quiz/quimi/${quiz.id}`" class="btn-acessar">
+
+        <RouterLink
+          :to="{
+            name: 'quiz',
+            params: {
+              curso: 'quimica',
+              ano: categoria.ano,
+              id: quiz.id
+            }
+          }"
+          class="btn-acessar"
+        >
           Fazer Quiz
         </RouterLink>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 </template>
 
 <style scoped>

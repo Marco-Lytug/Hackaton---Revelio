@@ -120,7 +120,7 @@ function classeOpcao(indexOpcao) {
 
         <ul class="opcoes-lista">
           <li
-            v-for="(opcao, index) in perguntaAtual.opcoes"
+          v-for="(opcao, index) in perguntaAtual.alternativas"
             :key="index"
             :class="classeOpcao(index)"
             @click="selecionarOpcao(index)"
