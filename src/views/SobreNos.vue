@@ -16,7 +16,7 @@
       <div class="pessoas">
 
         <div class="pessoa">
-          <img src="" alt="Ana Carolina">
+          <img src="/images/carol.png" alt="Ana Carolina">
 
           <h3>
             ANA CAROLINA BELLO<br>
@@ -26,7 +26,7 @@
 
 
         <div class="pessoa">
-          <img src="" alt="Camila Machado">
+          <img src="/images/camila.jpeg" alt="Camila Machado">
 
           <h3>
             CAMILA MACHADO<br>
@@ -36,7 +36,7 @@
 
 
         <div class="pessoa">
-          <img src="" alt="Victor Feliciano">
+          <img src="/images/victor.jpg" alt="Victor Feliciano">
 
           <h3>
             VICTOR FELICIANO
@@ -45,7 +45,7 @@
 
 
         <div class="pessoa">
-          <img src="" alt="Marco Lytug">
+          <img src="/images/marco.jpg" alt="Marco Lytug">
 
           <h3>
             MARCO ANTHONYO<br>
@@ -66,7 +66,7 @@
 
         <div class="pessoa">
 
-          <img src="" alt="Davi Mariano">
+          <img class="foto-davi" src="/images/davi.jpeg" alt="Davi Mariano">
 
           <h3>
             DAVI MARIANO
@@ -102,8 +102,6 @@
 
       </p>
 
-
-      <!-- OBJETIVO -->
 
       <div class="objetivo">
 
@@ -270,10 +268,20 @@
 
 
 .equipe {
-  width: 100%;
-  max-width: 1100px;
+  width: 100;
+  max-width: 1200px;
 
   margin: 0 auto 120px;
+
+  padding: 70px;
+
+  box-sizing: border-box;
+
+  background-color: #F4E6CC;
+
+  border: 5px solid #135F7D;
+
+  border-radius: 50px;
 
   text-align: center;
 }
@@ -284,9 +292,6 @@
   font-size: 42px;
   font-weight: normal;
 }
-
-
-/* PESSOAS */
 
 .pessoas {
   width: 100%;
@@ -337,7 +342,9 @@
   text-align: center;
 }
 
-
+.foto-davi {
+  object-position: center 0%;
+}
 
 .sobre-revelio {
   width: 100%;

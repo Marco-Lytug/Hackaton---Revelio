@@ -1,15 +1,15 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import AppFooter from './components/layout/AppFooter.vue'
 
 </script>
 
 <template>
-  <div class="app">
+  <div>
     <main>
       <RouterView />
+
     </main>
-    <AppFooter />
+
   </div>
 </template>
 

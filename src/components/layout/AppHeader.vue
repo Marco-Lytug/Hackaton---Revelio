@@ -66,6 +66,12 @@ const abrirLivros = ref(false)
         </li>
       <li>
         <RouterLink to="/extras">Extras</RouterLink>
+
+        <ul class="mais">
+          <li>
+            <RouterLink to="/sobre">Sobre nós</RouterLink>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
