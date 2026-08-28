@@ -88,8 +88,7 @@ const progresso = computed(() => {
         ></video>
 
       </div>
-
-
+ 
       <div class="video">
         <h3></h3>
         <video
