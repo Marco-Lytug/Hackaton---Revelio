@@ -1,15 +1,31 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import ButtonChild from './ButtonChild.vue';
-import { ref } from 'vue';
-const mostrarDetalhes = ref(false)
+import LivroCard from './livros/LivroCard.vue'
+import {  ref } from 'vue'
+import ButtonChild from './ButtonChild.vue'
 import AppHeader from '../../components/layout/AppHeader.vue'
+import { livrosInfo1Ano} from '@/Data/livrosInfo.js'
+import { livrosAgro1Ano } from '@/Data/livrosAgro.js'
+import { livros1AnoQuimi } from '@/Data/livrosQuimi.js'
 
 
+const mostrarDetalhes = ref(false);
+
+const livrosDestaque = livrosInfo1Ano.filter(livro =>
+  [1, 4, 7, 10, ].includes(livro.id)
+)
+const livrosDestaque2 = livrosAgro1Ano.filter(livro =>
+  [1, 2, 3, 4, ].includes(livro.id)
+)
+const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
+  [1, 2, 3, 4, ].includes(livro.id)
+)
 </script>
 
 <template>
-  <header><AppHeader></AppHeader></header>
+  <header>
+    <AppHeader></AppHeader>
+  </header>
   <section class="banner">
     <h1>Ache o fim de suas <br> preocupações aqui, na <span>Revelio</span>! </h1>
   </section>
@@ -18,22 +34,76 @@ import AppHeader from '../../components/layout/AppHeader.vue'
     <div class="all">
       <div>
         <p>Com a Revelio, podemos te ajudar a <br> melhorar o seu desempenho, com <br> livros e dicas de estudos,
-          atividades e <br> videoaulas! </p>
+          atividades e <br> videoaulas! Acesse nossa página de livros no botão abaixo, e veja também nossas <RouterLink to="atividades">atividades</RouterLink> ! </p>
       </div>
       <div class="img">
         <img src="/images/GarotoLendo.png" alt="">
       </div>
     </div>
-  <ButtonChild @clique="mostrarDetalhes = true">
-              NOSSA BIBLIOTECA!
+    <ButtonChild @clique="mostrarDetalhes = true">
+      NOSSA BIBLIOTECA!
     </ButtonChild>
-    <div class="modal" v-show="mostrarDetalhes" @click="mostrarDetalhes = false" >
+    <div class="modal" v-show="mostrarDetalhes" @click="mostrarDetalhes = false">
       <div class="cursos">
         <RouterLink class="info" to="/info"><img src="/images/iconinfo.png" alt=""></RouterLink>
         <RouterLink class="agro" to="/agro"><img src="/images/iconagro.png" alt=""></RouterLink>
         <RouterLink class="quimi" to="/quimi"><img src="/images/iconquimi.png" alt=""></RouterLink>
       </div>
     </div>
+  </section>
+  <section class="titulo" id="livros">
+    <div>
+      <h3>
+        Livros de informática
+      </h3>
+    </div>
+  </section>
+  <section class="slidesLivros">
+
+      <div class="imagens">
+        <LivroCard v-for="livros in livrosDestaque" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
+        :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
+        :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+      </LivroCard>
+    </div>
+
+
+  </section>
+   <section class="titulo" id="livros">
+    <div>
+      <h3>
+        Livros de Agropecuária
+      </h3>
+    </div>
+  </section>
+  <section class="slidesLivros">
+
+      <div class="imagens">
+        <LivroCard v-for="livros in livrosDestaque2" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
+        :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
+        :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+      </LivroCard>
+    </div>
+
+
+  </section>
+   <section class="titulo" id="livros">
+    <div>
+      <h3>
+        Livros de Química
+      </h3>
+    </div>
+  </section>
+  <section class="slidesLivros">
+
+      <div class="imagens">
+        <LivroCard v-for="livros in livrosDestaque3" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
+        :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
+        :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+      </LivroCard>
+    </div>
+
+
   </section>
   <section class="help">
     <h2>Help!</h2>
@@ -46,14 +116,63 @@ import AppHeader from '../../components/layout/AppHeader.vue'
       </div>
     </div>
     <RouterLink to="atividade">AQUI!</RouterLink>
-
   </section>
 </template>
 
 <style scoped>
+.slidesLivros{
+  width: 98%;
+  padding-bottom: 15vw;
+  overflow: hidden;
+}
+
+.slidesLivros .imagens {
+  display: flex;
+  animation: scrollLeftToRight 20s none infinite;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.titulo p {
+  margin: 3vw;
+  font-size: 2.3rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: #555555;
+}
+
+.titulo h3 {
+  font-size: 3.5rem;
+  color: #135F7D;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 3vw;
+}
+
+.titulo h3::after {
+  content: "";
+  display: flex;
+  width: 700px;
+  height: 3px;
+  background: #135F7D;
+  border-radius: 20px;
+}
+
+.livros {
+  display: flex;
+
+}
+.sliders{
+  display: flex;
+  justify-content: space-around;
+}
 .banner {
   position: relative;
-  background: url(/public/images/Banner_HomeView.png) center/cover no-repeat;
+  background: url(/images/Banner_HomeView.png) center/cover no-repeat;
   animation: fadeIn 2s ease forwards;
   height: 100vh;
   width: 100vw;
@@ -86,6 +205,7 @@ div.modal .cursos {
   max-width: 90%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
+
 div.modal .cursos .info :hover {
   background: #135F7D;
   padding: 2rem;
@@ -97,6 +217,7 @@ div.modal .cursos .info :hover {
   max-width: 90%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
+
 div.modal .cursos .agro :hover {
   background: green;
   padding: 2rem;
@@ -108,6 +229,7 @@ div.modal .cursos .agro :hover {
   max-width: 90%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
+
 div.modal .cursos .quimi :hover {
   background: red;
   padding: 2rem;
@@ -120,13 +242,14 @@ div.modal .cursos .quimi :hover {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-div.cursos img{
+div.cursos img {
   width: 30vh;
   height: 30vh;
   object-fit: contain;
   transition: 0.5s;
 }
-div.cursos img:hover{
+
+div.cursos img:hover {
   transition: 0.5s;
   width: 35vh;
   height: 35vh;
