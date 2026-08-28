@@ -9,6 +9,8 @@
 
 #app {
   font-weight: normal;
+  width: 100%;
+  min-height: 100vh;
 
 }
 
@@ -30,8 +32,5 @@ a {
     place-items: center;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+
 }

@@ -2,8 +2,10 @@
 import { RouterLink } from 'vue-router'
 import { ref, computed } from 'vue'
 
+const CHAVE_STORAGE = 'videosAssistidos_programacao'
+
 const videosAssistidos = ref(
-  JSON.parse(localStorage.getItem('videosAssistidos')) || []
+  JSON.parse(localStorage.getItem(CHAVE_STORAGE)) || []
 )
 
 const marcarComoAssistido = (numero) => {
@@ -11,7 +13,7 @@ const marcarComoAssistido = (numero) => {
     videosAssistidos.value.push(numero)
 
     localStorage.setItem(
-      'videosAssistidos',
+      CHAVE_STORAGE,
       JSON.stringify(videosAssistidos.value)
     )
   }
@@ -53,7 +55,6 @@ const progresso = computed(() => {
     </div>
 
 
-    <!-- VÍDEOS -->
     <div class="video-container">
 
       <div class="video">
@@ -131,12 +132,20 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-left: 30vw;
+  background: #135F7D;
+  background: linear-gradient(152deg, rgba(19, 95, 125, 1) 0%, rgba(130, 185, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
+  padding: 2vw 4vw 2vw 4vw;
+  border-radius: 15px;
+  border: 2px solid #000000;
+  box-shadow: 5px 10px 18px rgba(8, 8, 8, 0.425);
 }
 
 .progresso-container {
   width: min(100%, 1000px);
   margin: 0 auto 3rem;
+  border: 2px rgb(185, 185, 185) solid;
+  padding: 0.5vw 2vw 0.5vw 2vw;
+  border-radius: 15px;
 }
 
 .progresso-info {
@@ -188,6 +197,9 @@ a {
 
 .video h3 {
   margin-top: 10px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #313131;
 }
 
 @media (max-width: 700px) {
