@@ -85,13 +85,13 @@ const CarouselSlides = [
 
 
 const destaque3Ano  = livrosInfo3Ano.filter(livro =>
-    [44,36,37,39,43,34,].includes(livro.id)
+    ["info-44","info-36","info-37","info-39","info-43","info-34",].includes(livro.id)
 )
 const livrosDestaque = livrosInfo1Ano.filter(livro =>
-    [1,4,7,10,13,2,6,14].includes(livro.id)
+    ["info-1","info-4","info-7","info-10","info-13","info-2","info-6","info-14"].includes(livro.id)
 )
 const destaque2Ano  = livrosInfo2Ano.filter(livro =>
-    [22,29,21,32,20,31,].includes(livro.id)
+    ["info-22","info-29","info-21","info-32","info-20","info-31",].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -244,9 +244,7 @@ const slidesAutores = computed(() => {
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
-           <div>
-
-           </div>
+           
            <div class="vermais">
        <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
               Ver mais
@@ -1287,11 +1285,11 @@ button {
 }
 
 #vermais{
-  font-size:1rem;
+  font-size:1.4rem;
   border-radius: 10px;
  width: 100%;
- max-width: 180px;
-  padding: 7px;
+ max-width: 200px;
+  padding: 8px 28px 8px 28px;
 }
 .vermais{
   display: flex;
@@ -1335,7 +1333,7 @@ button {
   max-width: 190px;
   margin: 0;
   height: auto;
-
+  
 }
 .card-esquerda p{
   font-size: 2.2rem;
@@ -1348,8 +1346,12 @@ button {
   align-items: center;
   width: 100%;
 }
-.link-image{
-  display: block;
+
+.link-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 .modal {
   padding: 1.5rem;

@@ -84,13 +84,13 @@ const CarouselSlides = [
 
 
 const destaque3Ano  = livros3AnoQuimi.filter(livro =>
-    [28,29,26,32,33,27,].includes(livro.id)
+    ["quimi-28","quimi-29","quimi-26","quimi-32","quimi-33","quimi-27",].includes(livro.id)
 )
 const livrosDestaque = livros1AnoQuimi.filter(livro =>
-    [11,5,1,10,8,9,6,13].includes(livro.id)
+    ["quimi-11","quimi-5","quimi-7","quimi-10","quimi-8","quimi-9","quimi-6","quimi-13"].includes(livro.id)
 )
 const destaque2Ano  = livros2AnoQuimi.filter(livro =>
-    [13,14,21,15,20,22,].includes(livro.id)
+    ["quimi-13","quimi-14","quimi-21","quimi-15","quimi-20","quimi-22",].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -242,9 +242,7 @@ const slidesAutores = computed(() => {
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
-           <div>
-
-           </div>
+           
            <div class="vermais">
        <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
               Ver mais
@@ -874,10 +872,16 @@ button #fechar, #limpar{
   color: white;
   border: none;
  }
-  .autores-carrossel :deep(button){
+  .autores-carrossel :deep(#oi){
+  background-color: #f30d5d;
+  border-radius: 18px;
+ }
+ .autores-carrossel :deep(button){
   background-color: #f30d5d;
  }
-
+.autores-carrossel :deep(#nome){
+  font-size: 2.7rem;
+}
  .autores-carrossel :deep(button:hover){
   background-color: #c9084c;
   color: #fff;
@@ -1278,7 +1282,7 @@ a:hover{
 
 
 @media (max-width: 732px) {
-
+ 
   #fef{
     font-size: 1rem;
     padding: 8px;
@@ -1398,7 +1402,7 @@ a:hover{
     margin-top: 50px;
     margin-bottom: 50px;
   }
-
+ 
   .card-esquerda{
     border-radius: 17px;
     height: auto;
@@ -1470,7 +1474,19 @@ a:hover{
     padding: 10px;
     font-size: 1rem;
   }
-
+    .link-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#vermais{
+  font-size:1.4rem;
+  border-radius: 10px;
+ width: 100%;
+ max-width: 200px;
+  padding: 8px 28px 8px 28px;
+}
   .carrinho-vazio {
     text-align: center;
     margin-top: 1rem;

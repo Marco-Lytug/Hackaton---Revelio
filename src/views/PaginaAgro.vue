@@ -84,13 +84,13 @@ const CarouselSlides = [
 
 
 const destaque3Ano  = livrosAgro3Ano.filter(livro =>
-    [35,36,37,33,32,34,].includes(livro.id)
+    ["agro-35","agro-36","agro-37","agro-33","agro-32","agro-34",].includes(livro.id)
 )
 const livrosDestaque = livrosAgro1Ano.filter(livro =>
-    [1,4,7,10,13,2,6,14].includes(livro.id)
+    ["agro-1","agro-4","agro-7","agro-10","agro-13","agro-2","agro-6","agro-14"].includes(livro.id)
 )
 const destaque2Ano  = livrosAgro2Ano.filter(livro =>
-    [15,16,17,18,20,19,].includes(livro.id)
+    ["agro-15","agro-16","agro-17","agro-18","agro-20","agro-19",].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -1535,7 +1535,19 @@ a:hover{
     display: flex;
     justify-content: center;
   }
-
+    .link-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#vermais{
+  font-size:1.4rem;
+  border-radius: 10px;
+ width: 100%;
+ max-width: 200px;
+  padding: 8px 28px 8px 28px;
+}
   .carrinho-flutuante {
     position: fixed;
     right: 20px;

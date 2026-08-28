@@ -14,7 +14,7 @@ const mostrarDetalhes = ref(false)
         <p id="nome">
             {{ nome }}
         </p>
-            <ButtonChild class="button-" @clique="mostrarDetalhes = true">
+            <ButtonChild id="oi" class="button-" @clique="mostrarDetalhes = true">
               Ver mais
     </ButtonChild>
     </div>
