@@ -59,7 +59,7 @@ const router = createRouter({
     {
           path: '/cursoQuimi',
       component: CursoQuimi
-
+    },
     {
       path: '/sobre',
       component: SobreNos

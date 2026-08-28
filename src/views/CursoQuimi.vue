@@ -83,7 +83,7 @@ const progresso = computed(() => {
         <h3></h3>
         <video
           controls
-          src="#"
+          src="/public/videos/quimi2.mp4"
           @ended="marcarComoAssistido(3)"
         ></video>
 
@@ -94,7 +94,7 @@ const progresso = computed(() => {
         <h3></h3>
         <video
           controls
-          src="#"
+          src="/public/videos/quimi2.mp4"
           @ended="marcarComoAssistido(4)"
         ></video>
 
