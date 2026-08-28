@@ -306,24 +306,25 @@ const slidesAutores = computed(() => {
     </div>
   </section>
 
-  <section class="livros1ano">
-    <div class="secao">
-      <div class="livros-carrossel">
-        <Carroussel class="carousel" :totalSlides="slidesLivros.length" tipo="livros" v-slot="{ currentSlide }">
-          <Slide class="livros-lista" v-for="(grupo, index) in slidesLivros" :key="index"
-            v-show="currentSlide === index + 1">
-            <div class="livros-lista">
+<section class="livros1ano">
+  <div class="secao">
+    <div class="livros-carrossel">
+      <Carroussel class="carousel" :totalSlides="slidesLivros.length" tipo="livros" v-slot="{ currentSlide }">
+        <Slide class="livros-lista" v-for="(grupo, index) in slidesLivros" :key="index"
+          v-show="currentSlide === index + 1">
+          <div class="livros-lista">
 
-              <LivroCard v-for="livro in grupo" :key="livro.id" :livro="livro" :id="livro.id" :titulo="livro.titulo"
-                :categoria="livro.categoria" :capa="livro.capa" :link="livro.link" :autor="livro.autor"
-                :descricao="livro.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado">
-              </LivroCard>
+            <LivroCard v-for="livro in grupo" :key="livro.id" :livro="livro" :id="livro.id" :titulo="livro.titulo"
+              :categoria="livro.categoria" :capa="livro.capa" :link="livro.link" :autor="livro.autor"
+              :descricao="livro.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado">
+            </LivroCard>
 
-            </div>
-        </div>
-        </Transition>
-
-    </section>
+          </div>
+        </Slide>
+      </Carroussel>
+    </div>
+  </div>
+</section>
 
     <section class="titulo" id="livros">
       <div >
@@ -357,7 +358,6 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-          </Slide>
         </Carroussel>
       </div>
     </div>
