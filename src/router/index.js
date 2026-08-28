@@ -10,6 +10,7 @@ import PagCursos from '@/views/PagCursos.vue'
 import CursoInfo from '@/views/CursoInfo.vue'
 import CursoAgro from '@/views/CursoAgro.vue'
 import CursoQuimi from '@/views/CursoQuimi.vue'
+import SobreNos from '@/views/SobreNos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,7 +40,7 @@ const router = createRouter({
       component: PaginaAtividades
     },
     {
-      path: '/quiz/:categoria/:numero',
+      path: '/quiz/:ano/:id',
       name: 'quiz',
       component: QuizView
     },
@@ -58,8 +59,17 @@ const router = createRouter({
     {
           path: '/cursoQuimi',
       component: CursoQuimi
+
+    {
+      path: '/sobre',
+      component: SobreNos
     }
-  ]
+
+  ],
+  scrollBehavior() {
+    return { top: 0, left: 0 }
+
+  }
 })
 
 export default router

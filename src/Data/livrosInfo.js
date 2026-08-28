@@ -1,5 +1,5 @@
 export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
-        id: 1,
+       id: "info-1",
         titulo: 'Introdução à programação com Python ',
         link: 'https://www.kufunda.net/publicdocs/Introdução%20à%20programação%20com%20Python%20algoritmos%20e%20lógica%20de%20programação%20para%20iniciantes%20(Nilo%20Ney%20Coutinho%20Menezes).pdf',
         categoria: 'Python',
@@ -8,7 +8,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_1.png'
     },
     {
-        id: 2,
+       id: "info-2",
         titulo: 'INTRODUÇÃO À PROGRAMAÇÃO E ESTRUTURAS DE DADOS FUNDAMENTAIS COM PYTHON PARA PROGRAMADORES C ',
         link: 'https://www.editorasynapse.org/wp-content/uploads/2023/04/Livro_Python_v1.pdf',
         categoria: 'Python',
@@ -20,7 +20,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_2.png',
     },
     {
-        id: 3,
+       id: "info-3",
         titulo: 'Lógica de Programação para Iniciantes ',
         link:'https://revistacontemporanea.com/wp-content/uploads/2025/03/DIAG-Contemporanea-LOGICA-DE-PROGRAMACAO-PARA-INICIANTES-1.pdf',
         categoria: 'Lógica de Programação',
@@ -30,7 +30,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_3.png',
     },
     {
-        id: 4,
+       id: "info-4",
         titulo: 'Lógica de programação',
         link: 'https://www.kufunda.net/publicdocs/Lógica%20de%20programação%20a%20construção%20de%20algoritmos%20e%20estruturas%20de%20dados%20(André%20Luiz%20Villar%20Forbellone%20etc.).pdf',
         categoria: 'Lógica de Programação',
@@ -40,7 +40,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_4.png'
     },
     {
-        id: 5,
+       id: "info-5",
         titulo: 'Guia Front-End',
         link: 'https://www.kufunda.net/publicdocs/Guia%20Front-End%20-%20O%20caminho%20das%20pedras%20para%20ser%20um%20dev%20Front-End%20(Casa%20do%20Codigo).pdf',
         categoria: 'Front-End',
@@ -51,7 +51,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_5.png'
     },
     {
-        id: 6,
+       id: "info-6",
         titulo: 'DESENVOLVIMENTO FRONT-END PARA WEB I',
         link: 'https://camda.com.br/assets/arquivos/informativos/Apostila%20-%20HTML%20e%20CSS.pdf',
         categoria: 'Front-End',
@@ -62,7 +62,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_6.png'
     },
     {
-        id: 7,
+       id: "info-7",
         titulo: 'Guia Prático: HTML e CSS',
         link: 'https://www.kufunda.net/publicdocs/Guia%20Prático%20HTML%20%20CSS%20Aprenda%20os%20conceitos%20básicos%20de%20como%20construir%20páginas%20web%20(Portuguese%20Edition)%20(Wallace%20Fragoso).pdf',
         categoria: 'CSS',
@@ -73,7 +73,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_7.png'
     },
     {
-        id: 8,
+       id: "info-8",
         titulo: 'Desenvolvimento Web com HTML, CSS e Javascript ',
         link:'https://profsalu.wordpress.com/wp-content/uploads/2014/11/k19-k02-desenvolvimento-web-com-html-css-e-javascript.pdf',
         categoria: 'Front-End',
@@ -85,7 +85,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_8.png'
     },
     {
-        id: 9,
+       id: "info-9",
         titulo: 'JavaScript: Básico ao Avançado',
         link: 'https://www.kufunda.net/publicdocs/Javascript%20Básico%20ao%20Avançado%20(Kelvin%20Baumhardt%20Biffi).pdf',
         categoria: 'Javascript',
@@ -95,7 +95,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_9.png'
     },
     {
-        id: 10,
+       id: "info-10",
         titulo: 'Javascript : O guia definitivo',
         link: 'https://projetosufam.com.br/biblioteca/admin/uploads/LivrodeJavascript.pdf',
         categoria: 'Javascript',
@@ -107,7 +107,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_10.png'
     },
     {
-        id: 11,
+       id: "info-11",
         titulo: ' HTML5 e CSS3 com farinha e pimenta ',
         link: 'https://www.kufunda.net/publicdocs/HTML5%20e%20CSS3%20com%20farinha%20e%20pimenta%20(Diego%20Eis,%20Elcio%20Ferreira)%20(z-lib.org).pdf',
         categoria: 'Front-End',
@@ -119,7 +119,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_11.png'
     },
     {
-        id: 12,
+       id: "info-12",
         titulo: 'Lógica de Programação Crie seus primeiros programas usando Javascript e HTML',
         link: 'https://www.kufunda.net/publicdocs/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o%20Crie%20seus%20primeiros%20programas%20usando%20Javascript%20e%20HTML.pdf',
 
@@ -131,7 +131,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_12.png'
     },
     {
-        id: 13,
+       id: "info-13",
         titulo: 'Algoritmos: Lógica para desenvolvimento de programação de computadores',
         link: 'https://www.kufunda.net/publicdocs/Algoritmos%20(JOSE%20AUGUSTO%20NAVARRO%20GARCIA%20MANZANO).pdf',
 
@@ -144,7 +144,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_13.png'
     },
     {
-        id: 14,
+       id: "info-14",
         titulo: 'Aprenda a Programar com Scratch',
         link: 'https://s3.novatec.com.br/capitulos/capitulo-9788575223123.pdf',
         categoria: 'Programação',
@@ -155,7 +155,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_14.png'
     },
     {
-        id: 15,
+       id: "info-15",
         titulo: 'Lógica de Programação e Algorítmos com JavaScript',
         link: 'https://www.kufunda.net/publicdocs/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o%20e%20Algor%C3%ADtmos%20com%20JavaScript%20(Ed%C3%A9cio%20Fernando%20Iepsen).pdf',
         categoria: 'JavaScript',
@@ -166,7 +166,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_15.png'
     },
     {
-        id: 16,
+       id: "info-16",
         titulo: 'CSS Eficiente Técnicas e ferramentas que fazem a diferença nos seus estilos',
          link: 'https://www.kufunda.net/publicdocs/CSS%20Eficiente%20T%C3%A9cnicas%20e%20ferramentas%20que%20fazem%20a%20diferen%C3%A7a%20nos%20seus%20estilos%20(T%C3%A1rcio%20Zemel).pdf',
         categoria: 'CSS',
@@ -179,7 +179,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
     
     {
-        id: 17,
+       id: "info-17",
         titulo: 'Introdução e boas práticas em UX Design ',
         link: 'https://www.kufunda.net/publicdocs/Introdu%C3%A7%C3%A3o%20e%20boas%20pr%C3%A1ticas%20em%20UX%20Design%20(Fabricio%20Teixeira).pdf',
         categoria: 'Design',
@@ -190,7 +190,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
    
     {
-        id: 18,
+       id: "info-18",
         titulo: 'HTML5 e CSS3: Domine a Web do Futuro',
         link: 'https://www.kufunda.net/publicdocs/HTML5%20e%20CSS3%20Domine%20a%20web%20do%20futuro%20(Lucas%20Mazza).pdf',
         categoria: 'CSS',
@@ -201,7 +201,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
    
    
     {
-        id: 19,
+       id: "info-19",
         titulo: 'Ebook Lógica de Programação para Iniciantes',
         link: 'https://dicasdeprogramacao.com.br/download/ebook-logica-de-programacao-para-iniciantes.pdf',
         categoria: 'Lógica de Programação',
@@ -215,7 +215,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
   export const livrosInfo2Ano = [ 
 
     {
-        id: 20,
+       id: "info-20",
         titulo: 'Introdução ao Banco de dados',
         link: 'https://www.kufunda.net/publicdocs/Livro%20de%20Sistemas%20de%20Banco%20de%20Dados%20-%204%C2%AA%20Edi%C3%A7%C3%A3o.pdf',
         categoria: 'Banco de Dados',
@@ -226,7 +226,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_20.png'
     },
     {
-        id: 21,
+       id: "info-21",
         titulo: 'Desenvolvimento Web com Python e Django',
         link: 'https://pythonacademy.com.br/assets/ebooks/desenvolvimento-web-com-python-e-django/EBOOK-PythonAcademy-Desenvolvimento-Web-com-Python-e-Django.pdf',
         categoria: 'Python',
@@ -236,7 +236,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_21.png'
     },
     {
-        id: 22,
+       id: "info-22",
         titulo: 'Fundamentos de Programação: Algoritmos, Estruturas de Dados e Objetos',
         link: 'https://www.kufunda.net/publicdocs/Fundamentos%20de%20Programação%20-%20Algoritmos,%20Estruturas%20de%20Dados%20e%20Objetos%20-%203a%20Ed%20(Luis%20Joyanes%20Aguilar)%20(z-lib.org).pdf',
         categoria: 'Programação',
@@ -246,7 +246,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_22.png'
     },
     {
-        id: 23,
+       id: "info-23",
         titulo: 'MySQL: Comece com o principal banco de dados open source do mercado',
         link: 'https://www.kufunda.net/publicdocs/MySQL%20Comece%20com%20o%20principal%20banco%20de%20dados%20open%20source%20do%20mercado%20(Vinícius%20Carvalho).pdf',
         categoria: 'Banco de Dados',
@@ -256,7 +256,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_23.png'
     },
     {
-        id: 24,
+       id: "info-24",
         titulo: 'Banco de Dados MySQL',
         link: 'https://www.marcosdemelo.com/aulas/files/LF/CURSOS/INFO/3%20info%20-%20Banco%20de%20Dados/livro-banco-de-dados-mysql.pdf',
         categoria: 'Banco de Dados',
@@ -266,7 +266,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_24.png'
     },
     {
-        id: 25,
+       id: "info-25",
         titulo: 'Scrum 360: Um Guia Completo e Prático de Agilidade',
         link: 'https://www.kufunda.net/publicdocs/Scrum%20360%20-%20Um%20Guia%20Completo%20e%20Prático%20de%20Agilidade%20(Jorge%20Audy).pdf',
         categoria: 'Projeto de Software',
@@ -277,7 +277,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
     {
-        id: 26,
+       id: "info-26",
         titulo: 'Aprendendo Django no Planeta Terra - vol. 1',
         link: 'https://chevitarese.wordpress.com/wp-content/uploads/2009/07/aprendendo-django-no-planeta-terra-volume1.pdf',
         categoria: 'Django',
@@ -288,7 +288,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
       {
-        id: 27,
+       id: "info-27",
         titulo: 'Guia do Scrum',
         link: 'https://scrumguides.org/docs/scrumguide/v1/Scrum-Guide-Portuguese-BR.pdf',
         categoria: 'Scrum',
@@ -299,7 +299,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
       {
-        id: 28,
+       id: "info-28",
         titulo: 'Introdução a Web Design',
         link: 'https://sisacad.educacao.pe.gov.br/bibliotecavirtual/bibliotecavirtual/texto/Caderno_INFO(Introducao_a_Web_Design_2017.1).pdf',
         categoria: 'Design',
@@ -310,7 +310,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
     {
-        id: 29,
+       id: "info-29",
         titulo: 'Desenvolvimento para Web',
         link: 'https://educapes.capes.gov.br/bitstream/capes/432205/2/Livro_Desenvolvimento%20para%20Web.pdf',
         categoria: 'Front-End',
@@ -321,7 +321,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
      {
-        id: 30,
+       id: "info-30",
         titulo: 'Apostila de Introdução ao Desenvolvimento Web',
         link: 'https://fit.faccat.br/~fpereira/pagina/autoria/ApostilaDesenvolvimentoWeb-Autoria1-Fevereiro2018.pdf',
         categoria: 'Front-End',
@@ -332,7 +332,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
       {
-        id: 31,
+       id: "info-31",
         titulo: 'Fundamentos do Desenvolvimento Web',
         link: 'https://redeetec.mec.gov.br/images/stories/pdf/eixo_infor_comun/tec_inf/081112_fund_desenv.pdf',
         categoria: 'Front-End',
@@ -343,7 +343,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
      {
-        id: 32,
+       id: "info-32",
         titulo: 'manual dos dados abertos:desenvolvedores',
         link: 'https://www.w3c.br/pub/Materiais/PublicacoesW3C/manual_dados_abertos_desenvolvedores_web.pdf',
         categoria: 'Front-End',
@@ -354,7 +354,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
     {
-        id: 33,
+       id: "info-33",
         titulo: 'UM ESTUDO SOBRE PADRÕES E TECNOLOGIAS PARA O DESENVOLVIMENTO WEB: BACK-END',
         link: 'https://pantheon.ufrj.br/bitstream/11422/18209/1/monopoli10018659.pdf',
         categoria: 'Back-End',
@@ -370,7 +370,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
 
     ///3° ANO
     {
-        id: 34,
+       id: "info-34",
        titulo: 'Projeto e Desenvolvimento em Dispositivos Móveis',
         link: 'https://www.seduc.ce.gov.br/wp-content/uploads/sites/37/2022/11/modulo3_alunos_projeto_desenvolvimento.pdf',
         categoria: 'Redes',
@@ -380,7 +380,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_34.png'
     },
     {
-        id: 35,
+       id: "info-35",
         titulo: 'Desenvolvimento web com PHP e MySQL',
         link: 'https://www.kufunda.net/publicdocs/Desenvolvimento%20web%20com%20PHP%20e%20MySQL%20(Evaldo%20Junior%20Bento).pdf',
         categoria: 'Programação',
@@ -390,7 +390,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_35.png'
     },
     {
-        id: 36,
+       id: "info-36",
         titulo: 'Aplicativos Web Pro Android: Desenvolvimento Pro Android Usando HTML5, CSS3 e JavaScript',
         link: 'https://www.hrenatoh.net/curso/textos/AplicativosWebProAndroid.pdf',
         categoria: 'Programação',
@@ -400,7 +400,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_36.png'
     },
     {
-        id: 37,
+       id: "info-37",
         titulo: 'Redes de Computadores',
         link: 'https://www.kufunda.net/publicdocs/Rede%20de%20Computadores-AMARAL,%20ALLAN%20FRANCISCO%20FORZZA.pdf',
         categoria: 'Redes',
@@ -411,7 +411,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
      {
-        id: 38,
+       id: "info-38",
         titulo: 'Redes de Computadores',
         link: 'https://sisacad.educacao.pe.gov.br/bibliotecavirtual/bibliotecavirtual/texto/CadernodeINFORedesdeComputadoresRDDI.pdf',
         categoria: 'Redes',
@@ -422,7 +422,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
      {
-        id: 39,
+       id: "info-39",
         titulo: ' Android: Programando Passo a Passo',
         link: 'https://www.leonardoleandrodev.com.br/downloads/apostila-android.pdf',
         categoria: 'Redes',
@@ -433,7 +433,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
     },
 
       {
-        id: 40,
+       id: "info-40",
         titulo: ' Desenvolvendo Aplicações Mobile com Android Studio.',
         link: 'https://lms.ev.org.br/mpls/Custom/Cds/COURSES/3283-APLIC_MOB/curso/pdfs/aplicacoes-mobile.pdf',
         categoria: 'Redes',
@@ -443,7 +443,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
          capa: '/images/livro_info_40.png'
     },
     {
-        id: 41,
+       id: "info-41",
         titulo: 'Desenvolvimento para Dispositivos Móveis usando Tecnologias Web com Ênfase em Jogos',
         link: 'https://books-sol.sbc.org.br/index.php/sbc/catalog/download/15/62/142?inline=1',
         categoria: 'Front-End',
@@ -453,7 +453,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_41.png' 
     },
     {
-        id: 42,
+       id: "info-42",
         titulo: 'Redes de Computadores II',
         link: 'https://proedu.rnp.br/bitstream/handle/123456789/1551/Redes_computadores_II_ISBN.pdf?sequence=1&isAllowed=y',
         categoria: 'Redes',
@@ -463,7 +463,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_42.png'
     },
     {
-        id: 43,
+       id: "info-43",
         titulo: 'DESENVOLVIMENTO WEB MODERNO E ÁGIL',
         link: 'https://altabooks.com.br/wp-content/uploads/2020/03/AMOSTRA_PythonDjango.pdf',
         categoria: 'Django',
@@ -473,7 +473,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_43.png'
     },
     {
-        id: 44,
+       id: "info-44",
         titulo: 'Django Girls Tutorial',
         link: 'https://we.riseup.net/assets/364554/djangogirls-tutorial-pt.pdf',
         categoria: 'Django',
@@ -483,7 +483,7 @@ export const livrosInfo1Ano =   [{ //INICIO DOS LIVROS DO 1° ANO DE INFO
         capa: '/images/livro_info_44.png'
     },
     {
-        id: 45,
+       id: "info-45",
         titulo: 'Rede de Computadores',
         link: 'https://www.seduc.ce.gov.br/wp-content/uploads/sites/37/2012/06/redes_de_computadores.pdf',
         categoria: 'Redes',

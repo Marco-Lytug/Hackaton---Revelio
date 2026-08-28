@@ -1,6 +1,6 @@
 export const livros1AnoQuimi = [
     {
-        id: 1,
+        id:"quimi-1",
         titulo: 'Química Geral',
         link: 'https://www.kufunda.net/publicdocs/Química%20geral%20by%20Linus%20Pauling%20(z-lib.org).pdf',
         categoria: 'Química Geral',
@@ -9,7 +9,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_1.png'
     },
     {
-        id: 2,
+        id:"quimi-2",
         titulo: 'Química Geral I',
         link: 'https://educapes.capes.gov.br/bitstream/capes/431843/2/Livro_Quimica%20Geral%20I.pdf',
         categoria: 'Química Geral',
@@ -18,7 +18,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_2.png'
     },
     {
-        id: 3,
+        id:"quimi-3",
         titulo: 'Química Geral',
         link: 'https://brogdomonzao.wordpress.com/wp-content/uploads/2011/10/quimicabrady-humiston_-_quc3admica_geral_vol-01_pt-01pt-br.pdf',
         categoria: 'Química Geral',
@@ -27,7 +27,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_3.png'
     },
     {
-        id: 4,
+        id:"quimi-4",
         titulo: 'Química Geral e Inorgânica',
         link: 'http://livresaber.sead.ufscar.br:8080/jspui/bitstream/123456789/2677/1/EA_Milare_QuimicaGeralInorganica.pdf',
         categoria: 'Química Geral / Química Inorgânica',
@@ -36,7 +36,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_4.png'
     },
     {
-        id: 5,
+        id:"quimi-5",
         titulo: 'Química Ambiental',
         link: 'https://www2.ufjf.br/quimicaead/files/2013/05/QUIMICA-AMBIENTAL-EADQUI045.pdf',
         categoria: 'Química Geral',
@@ -45,7 +45,7 @@ export const livros1AnoQuimi = [
         capa: '/images/livro_quimica_5.png'
     },
     {
-        id: 6,
+        id:"quimi-6",
         titulo: 'Introdução à Química Ambiental e Gerenciamento de Áreas Contaminadas',
         link: 'https://www.egape.pe.gov.br/images/media/1665419987_Apostila%20Introducao%20a%20Quimica%20Ambiental.pdf',
         categoria: 'Química Geral',
@@ -55,7 +55,7 @@ export const livros1AnoQuimi = [
     }
     ,
     {
-        id: 7,
+        id:"quimi-7",
         titulo: 'Fundamentos de Química Analítica',
         link: 'https://www.inesul.edu.br/site/documentos/QUIMICA_ANALITICA_SKOOG.pdf',
         categoria: 'Quimica Geral',
@@ -65,7 +65,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 8,
+        id:"quimi-8",
         titulo: 'Química Analítica Qualitativa',
         link: 'https://www.farmacia.ufmg.br/wp-content/uploads/2015/10/Vogel-Quimica-Analitica-Qualitativa1aEd-1981.pdf.pdf',
         categoria: 'Quimica Geral',
@@ -75,7 +75,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 9,
+        id:"quimi-9",
         titulo: 'Química Inorgânica Básica',
         link: 'https://storage.blucher.com.br/book/pdf_preview/PDF_quimicainorganicabasica.pdf',
         categoria: 'Quimica Inorganica',
@@ -85,7 +85,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 10,
+        id:"quimi-10",
         titulo: 'Química Inorgânica I',
         link: 'https://cesad.ufs.br/ORBI/public/uploadCatalago/09103804042014Quimica_Inorganica_I_Aula_1.pdf',
         categoria: 'Quimica Inorganica',
@@ -95,7 +95,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 11,
+        id:"quimi-11",
         titulo: 'Química Inorgânica Experimental I',
         link: 'https://www2.ufjf.br/quimicaead/files/2014/03/Química-Inorgânica-Experimental-I-EADQUI021.pdf',
         categoria: 'Quimica Inorganica',
@@ -105,7 +105,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 12,
+        id:"quimi-12",
         titulo: 'A Química Perto de Você: Experimentos de Química Orgânica',
         link: 'https://edit.sbq.org.br/anexos/AQuimicaPertodeVoce-ExperimentosdeQO.pdf',
         categoria: 'Quimica Organica',
@@ -119,7 +119,7 @@ export const livros1AnoQuimi = [
  export const livros2AnoQuimi = [
 
     {
-        id: 13,
+        id:"quimi-13",
         titulo: 'Físico-Química',
         link: 'https://livroaberto.ufpa.br/server/api/core/bitstreams/1699878d-f66c-4439-97bc-349fbf7e9234/content',
         categoria: 'Fisico-Quimica',
@@ -129,7 +129,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 14,
+        id:"quimi-14",
         titulo: 'Fundamentos de Físico-Química',
         link: 'https://cesad.ufs.br/ORBI/public/uploadCatalago/11494701032012Fundamentos_de_Fisico-Quimica_aula_1.pdf',
         categoria: 'Fisico-Quimica',
@@ -139,7 +139,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 15,
+        id:"quimi-15",
         titulo: 'Meu Livro QO : Volume 1',
         link: 'https://artemis.ffclrp.usp.br/Meu%20Livro%20QO/FinaisMai_2019/Volume1.pdf',
         categoria: 'Quimica Organica',
@@ -149,7 +149,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 16,
+        id:"quimi-16",
         titulo: 'Química Orgânica para o Ensino Médio',
         link: 'https://repositorio.ufms.br/bitstream/123456789/5002/1/Quimica%20Organica%20para%20o%20Ensino%20Medio.pdf',
         categoria: 'Quimica Organica',
@@ -159,7 +159,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 17,
+        id:"quimi-17",
         titulo: 'Química Orgânica Experimental: Manual de Aulas Experimentais Virtuais para o Ensino a Distância',
         link: 'https://www.pimentacultural.com/wp-content/uploads/2024/04/eBook_quimica-organica.pdf',
         categoria: 'Quimica Organica',
@@ -169,7 +169,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 18,
+        id:"quimi-18",
         titulo: 'Fundamentos de Química Orgânica',
         link: 'https://cm-kls-content.s3.amazonaws.com/201802/INTERATIVAS_2_0/FUNDAMENTOS_DE_QUIMICA_ORGANICA/U1/LIVRO_UNICO.pdf',
         categoria: 'Quimica Organica',
@@ -179,7 +179,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 19,
+        id:"quimi-19",
         titulo: 'Química Analítica no Laboratório',
         link: 'https://portal.unila.edu.br/editora/livros/e-books/quimicaanaliticanolaboratorio.pdf',
         categoria: 'Quimica Analitica',
@@ -189,7 +189,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 20,
+        id:"quimi-20",
         titulo: 'Princípios de Química Analítica: Abordagem Teórica Qualitativa e Quantitativa',
         link: 'https://storage.blucher.com.br/book/pdf_preview/9786555065626-amostra.pdf',
         categoria: 'Quimica Analitica',
@@ -199,7 +199,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 21,
+        id:"quimi-21",
         titulo: 'Química Analítica',
         link: 'https://cm-kls-content.s3.amazonaws.com/201801/INTERATIVAS_2_0/QUIMICA_ANALITICA/U1/LIVRO_UNICO.pdf',
         categoria: 'Quimica Analitica',
@@ -209,7 +209,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 22,
+        id:"quimi-22",
         titulo: 'Química Analítica Qualitativa',
         link: 'https://www.farmacia.ufmg.br/wp-content/uploads/2015/10/Vogel-Quimica-Analitica-Qualitativa1aEd-1981.pdf.pdf',
         categoria: 'Quimica Analitica',
@@ -221,7 +221,7 @@ export const livros1AnoQuimi = [
    export const livros3AnoQuimi = [
 
     {
-        id: 23,
+        id:"quimi-23",
         titulo: 'Biotecnologia: um panorama ao longo dos séculos',
         link: 'https://educapes.capes.gov.br/bitstream/capes/644360/2/Biotecnologia:%20um%20panorama%20ao%20longo%20dos%20s%C3%A9culos.pdf',
         categoria: 'Biotecnologia',
@@ -231,7 +231,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 24,
+        id:"quimi-24",
         titulo: 'Biotecnologia',
         link: 'https://www.livrariaepamig.com.br/wp-content/uploads/2023/02/Biotecnologia.pdf',
         categoria: 'Biotecnologia',
@@ -241,7 +241,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 25,
+        id:"quimi-25",
         titulo: 'Biotecnologia',
         link: 'https://pba.uem.br/arquivos/biotecnologia.pdf',
         categoria: 'Biotecnologia',
@@ -251,7 +251,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 26,
+        id:"quimi-26",
         titulo: 'Tratamento de Águas e Efluentes',
         link: 'https://api.pageplace.de/preview/DT0400.9786556751740_A44164060/preview-9786556751740_A44164060.pdf',
         categoria: 'Tratamento de Águas e Efluentes',
@@ -261,7 +261,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 27,
+        id:"quimi-27",
         titulo: 'Manual de Tratamento de Efluentes Industriais',
         link: 'https://sinproquim.org.br/wp-content/uploads/2025/09/Manual-de-tratamento-completo.pdf',
         categoria: 'Tratamento de Águas e Efluentes',
@@ -271,7 +271,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 28,
+        id:"quimi-28",
         titulo: 'Tratamento de Efluentes',
         link: 'https://proedu.rnp.br/bitstream/handle/123456789/371/11_Tratamento_de_Efluentes.pdf',
         categoria: 'Tratamento de Águas e Efluentes',
@@ -281,7 +281,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 29,
+        id:"quimi-29",
         titulo: 'Química Geral e Orgânica: uma abordagem para Química Tecnológica',
         link: 'https://www.kufunda.net/publicdocs/QT_ECT_M_LIVRO_Z_WEB.pdf',
         categoria: 'Quimica Tecnologica',
@@ -291,7 +291,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 30,
+        id:"quimi-30",
         titulo: 'Química Industrial em Ação',
         link: 'https://livros.poisson.com.br/individuais/Quimica_UEFB/volume1/Quimica_UEFB_Vol1.pdf',
         categoria: 'Quimica Tecnologica',
@@ -301,7 +301,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 31,
+        id:"quimi-31",
         titulo: 'Apostila de Operações Unitárias',
         link: 'https://sites.unipampa.edu.br/eqpoplaboratorio/files/2023/03/apostila-op-i.pdf',
         categoria: 'Operações Unitárias',
@@ -311,7 +311,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 32,
+        id:"quimi-32",
         titulo: 'Guia Virtual de Tecnologias Digitais para Professores de Química',
         link: 'https://educapes.capes.gov.br/bitstream/capes/972022/2/Guia%20virtual%20Qu%C3%ADmica.pdf',
         categoria: 'Quimica Tecnologica',
@@ -321,7 +321,7 @@ export const livros1AnoQuimi = [
     },
 
     {
-        id: 33,
+        id:"quimi-33",
         titulo: 'Química e Tecnologia: Avanços que Moldam o Mundo Contemporâneo – Volume 3',
         link: 'https://educapes.capes.gov.br/bitstream/capes/747364/1/quimica-e-tecnologia-avancos-que-moldam-o-mundo-contemporaneo-3.pdf',
         categoria: 'Quimica Tecnologica',

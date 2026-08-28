@@ -1,20 +1,18 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { buscarPerguntas, categoriasInfo } from '@/Data/quizzes'
+import { buscarPerguntas, buscarTituloQuiz } from '@/Data/quizzes'
 import Quiz from '@/components/AppQuiz.vue'
 
 const route = useRoute()
-
-const categoria = computed(() => route.params.categoria)
-const numero = computed(() => route.params.numero)
+const ano = computed(() => route.params.ano)
+const idQuiz = computed(() => route.params.id)
 
 const perguntas = computed(() =>
-  buscarPerguntas(categoria.value, numero.value)
+  buscarPerguntas(ano.value, idQuiz.value)
 )
-
-const tituloCategoria = computed(() =>
-  categoriasInfo[categoria.value]?.titulo ?? 'Quiz'
+const tituloQuiz = computed(() =>
+  buscarTituloQuiz(ano.value, idQuiz.value)
 )
 
 function aoFinalizarQuiz(resultado) {
@@ -22,14 +20,11 @@ function aoFinalizarQuiz(resultado) {
   console.log('Histórico de respostas:', resultado.historico)
 }
 
-console.log(categoria.value)
-console.log(numero.value)
-console.log(perguntas.value)
 </script>
 
 <template>
   <Quiz
-    :titulo="`${tituloCategoria} - Quiz ${numero}`"
+    :titulo="tituloQuiz"
     :perguntas="perguntas"
     @finalizar="aoFinalizarQuiz"
   />
