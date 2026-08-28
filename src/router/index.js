@@ -36,7 +36,7 @@ const router = createRouter({
       component: PaginaAtividades
     },
     {
-      path: '/quiz/:categoria/:numero',
+      path: '/quiz/:ano/:id',
       name: 'quiz',
       component: QuizView
     },
@@ -45,7 +45,12 @@ const router = createRouter({
       path: '/sobre',
       component: SobreNos
     }
-  ]
+
+  ],
+  scrollBehavior() {
+    return { top: 0, left: 0 }
+
+  }
 })
 
 export default router

@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { onMounted, onUnmounted, ref } from 'vue'
+
+/*import { onMounted, onUnmounted, ref } from 'vue'
 
 const isVisible = ref(false)
 
@@ -19,11 +20,11 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', checkScroll)
   window.removeEventListener('resize', checkScroll)
-})
+}):class="{ hidden: !isVisible }"*/
 </script>
 
 <template>
-  <footer :class="{ hidden: !isVisible }">
+  <footer >
     <nav>
       <ul>
         <div class="all">
@@ -38,26 +39,33 @@ onUnmounted(() => {
           </div>
           <div class="right">
             <RouterLink to="/info">Livros de Info</RouterLink>
-            <RouterLink to="/">Livros de Quimica</RouterLink>
-            <RouterLink to="/">Livros de Agro</RouterLink>
-            <RouterLink to="/">Contate-nos</RouterLink>
-             
-          </div> 
-          <div>
+            <RouterLink to="/quimi">Livros de Quimica</RouterLink>
+            <RouterLink to="/agro">Livros de Agro</RouterLink>
+            <RouterLink to="/cursos">Cursos</RouterLink>
+
+          </div>
+          <div class="texto">
             <p>
-              Plataforma de apoio ao estudo com curadoria de materiais e quizzes interativos para fixação de conteúdo. 
+              &copy; Revelio, 2026
             </p>
           </div>
         </div>
       </ul>
     </nav>
     <div class="copy">
+
     </div>
   </footer>
 </template>
 
 <style scoped>
 
+.texto{
+  position: absolute;
+  top: 80%;
+  color: #BCB2A0;
+  display: flex;
+}
 .img{
   position: relative;
 }
@@ -91,7 +99,6 @@ ul {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -109,17 +116,6 @@ nav {
   border-bottom: 1px solid #BCB2A0;
 
 }
-
-footer.transparent {
-  background-color: transparent;
-}
-
-footer.hidden {
-  transform: translateY(100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
 
 a{
   color: #BCB2A0;

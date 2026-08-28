@@ -40,7 +40,7 @@ const abrirLivros = ref(false)
       <li><RouterLink to="/">Principal</RouterLink></li>
 
       <li class="nav-item">
-        <RouterLink to="/livros">Livros</RouterLink>
+        <RouterLink class="livro" to="#">Livros</RouterLink>
 
         <ul class="mais">
           <li class="verde">
@@ -56,11 +56,15 @@ const abrirLivros = ref(false)
       </li>
 
       <li><img src="/images/Revelio.png"></li>
-
+        <li class="nav-item">
+          <RouterLink to="/atividades">Atividades</RouterLink>
+          <ul class="mais">
+            <li>
+              <RouterLink to="/cursos">Cursos</RouterLink>
+            </li>
+          </ul>
+        </li>
       <li>
-        <RouterLink to="/atividades">Atividades</RouterLink>
-      </li>
-      <li class="nav-item">
         <RouterLink to="/extras">Extras</RouterLink>
 
         <ul class="mais">
@@ -162,7 +166,6 @@ header {
   justify-content: center;
   background-color: black;
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
-  /*backdrop-filter: blur(10px);*/
 }
 
 header.transparent {
@@ -182,6 +185,7 @@ header.hidden {
   box-shadow: 2px solid black;
   padding: 20px 40px 20px 40px;
 }
+
 
 a {
   color: white;
@@ -215,6 +219,7 @@ a:hover {
 
 .mais li {
   list-style: none;
+  border: none;
 }
 
 .mais {
@@ -233,6 +238,8 @@ a:hover {
   margin: 2px;
   padding: 10px 0;
   list-style: none;
+  border: none;
+
 }
 
 .nav-item:hover .mais,
@@ -352,7 +359,7 @@ a:hover {
     padding: 40px;
     background: rgba(0, 0, 0, 0.788);
   }
- 
+
   .hamburguer {
     display: block;
     position:absolute;
@@ -374,10 +381,10 @@ a:hover {
     height: 100%;
     box-shadow: 0 0 20px rgba( 0, 0, 0, 0.1);
     display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: stretch;
   z-index: 1000;
-  
+
   }
   .menu-mobile{
   position: relative;
@@ -395,7 +402,7 @@ a:hover {
     font-size: 1.1rem;
 
   }
-  
+
   .menu-mobile li{
     list-style: none;
     line-height: 50px;

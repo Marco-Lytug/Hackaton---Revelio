@@ -1,6 +1,6 @@
 <script setup>
 import { ref} from 'vue';
-const props= defineProps(['capa', 'titulo', 'descricao','autor', 'id', 'link', 'categoria','livro', 'classe']);
+const props= defineProps(['capa', 'titulo', 'descricao','autor', 'id', 'link', 'categoria','livro', 'classe','tipo']);
 import ButtonChild from '../ButtonChild.vue';
 const mostrarDetalhes = ref(false)
 //<i class="fa-regular fa-heart"></i>
@@ -13,12 +13,12 @@ function LivroFavoritado() {
 
 <template>
 
-    <div class="livro-card" :class="classe">
+    <div class="livro-card" :class="[classe, props.tipo ]">
 
       <div class="livro-int">
          <img :src="capa" alt="Capa do livro" class="capa-livro" />
 
-           <ButtonChild class="button-" @clique="mostrarDetalhes = true">
+           <ButtonChild id="button-" class="button-" @clique="mostrarDetalhes = true">
               Ver mais
     </ButtonChild>
     </div>
@@ -82,6 +82,73 @@ function LivroFavoritado() {
 
 
 <style scoped>
+.livro-card.quimica #button- {
+  background-color: #c20044;
+}
+.livro-card.quimica #button-:hover {
+  background-color: #FF0D62;
+}
+.livro-card.quimica button{
+  background-color: #c20044;
+ }
+ .livro-card.quimica  button:hover{
+  background-color: #f70258;
+ }
+ .livro-card.quimica a{
+  color: #c20044;
+  border: 1px solid #c20044;
+ }
+  .livro-card.quimica a:hover{
+  background-color: #c20044;
+  transition: 0.8s;
+  color: white;
+  border: none;
+ }
+  .livro-card.quimica #coracao:hover{
+   background-color: white;
+  color: #c20044;
+  border: 1px solid #c20044;
+  transform: scale(1.1);
+ }
+ .livro-card.quimica .tooltip-texto{
+  background-color: #FF0D62;
+ }
+
+
+ .livro-card.agro #button- {
+  background-color: #113513;
+}
+.livro-card.agro #button-:hover {
+  background-color: #2E7D32;
+}
+.livro-card.agro button{
+  background-color: #113513;
+ }
+ .livro-card.agro  button:hover{
+  background-color: #2E7D32;
+ }
+ .livro-card.agro a{
+  color: #113513;
+  border: 1px solid #113513;
+ }
+  .livro-card.agro a:hover{
+  background-color: #2E7D32;
+  transition: 0.8s;
+  color: white;
+  border: none;
+ }
+  .livro-card.agro #coracao:hover{
+   background-color: white;
+  color: #2E7D32;
+  border: 1px solid #2E7D32;
+  transform: scale(1.1);
+ }
+ .livro-card.agro .tooltip-texto{
+  background-color: #113513;
+ }
+
+
+
 
 .tooltip {
   position: relative;
