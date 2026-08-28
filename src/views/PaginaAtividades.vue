@@ -29,7 +29,7 @@ function irPara(secao) {
 
 <template>
   <header>
-    
+    <AppHeader></AppHeader>
   </header>
 
   <section class="banner">
@@ -249,7 +249,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
 .banner {
   position: relative;
-  background: url(/images/stocksnap-man-2562325.jpg) center/cover no-repeat;
+  background: url(/images/stocksnap-man-2562325_1920.jpg) center/cover no-repeat;
   height: 100vh;
   width: 100vw;
   align-items: center;
@@ -479,6 +479,13 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.apresentacao h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-right: 60px;
 }
 
 .botao-aprender {
