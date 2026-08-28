@@ -464,7 +464,7 @@ div {
   }
 }
 
-.josefin-sans-uniquifier> {
+.josefin-sans-uniquifier {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
