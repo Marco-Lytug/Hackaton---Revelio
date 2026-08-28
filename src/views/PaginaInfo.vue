@@ -86,14 +86,14 @@ const CarouselSlides = [
 ]
 
 
-const destaque3Ano = livrosInfo3Ano.filter(livro =>
-  [44, 36, 37, 39, 43, 34,].includes(livro.id)
+const destaque3Ano  = livrosInfo3Ano.filter(livro =>
+    ["info-44","info-36","info-37","info-39","info-43","info-34",].includes(livro.id)
 )
 const livrosDestaque = livrosInfo1Ano.filter(livro =>
-  [1, 4, 7, 10, 13, 2, 6, 14].includes(livro.id)
+    ["info-1","info-4","info-7","info-10","info-13","info-2","info-6","info-14"].includes(livro.id)
 )
-const destaque2Ano = livrosInfo2Ano.filter(livro =>
-  [22, 29, 21, 32, 20, 31,].includes(livro.id)
+const destaque2Ano  = livrosInfo2Ano.filter(livro =>
+    ["info-22","info-29","info-21","info-32","info-20","info-31",].includes(livro.id)
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -181,14 +181,17 @@ const slidesAutores = computed(() => {
 
 
 
-  <section class="pesquisa">
+   <section class="pesquisa">
 
-    <div>
-      <LivroLista :livros="TodosOsLivros" @favoritar="LivroFavoritado" />
+        <div>
+           <LivroLista :livros="TodosOsLivros"
+            :categorias="'info'"
+             @favoritar="LivroFavoritado"
+           />
 
-    </div>
+        </div>
 
-  </section>
+    </section>
 
   <section class="autores">
     <h2>
@@ -200,7 +203,7 @@ const slidesAutores = computed(() => {
 
 
     <div class="autores-carrossel">
-      <Carroussel class="carousel" :totalSlides="slidesAutores.length" tipo="autores" v-slot="{ currentSlide }">
+      <Carroussel class="carousel" :totalSlides="slidesAutores.length" tipo="autores"  :class="'carousel'" v-slot="{ currentSlide }">
         <Slide class="autores-lista" v-for="(grupo, index) in slidesAutores" :key="index"
           v-show="currentSlide === index + 1">
           <div class="autores-lista">
@@ -232,27 +235,26 @@ const slidesAutores = computed(() => {
 
     </div>
 
-    <div class="card-direita">
-      <p>
-        Com videoaulas e materiais de estudo
-      </p>
-      <div class="link-image">
+     
+      <div class="card-direita">
+        <p>
+          Com videoaulas e materiais de estudo
+        </p>
+        <div  class="link-image">
 
 
-        <div class="imagem-direita">
-          <img src="/images/help.png" alt="">
+      <div class="imagem-direita">
+     <img src="/images/help.png" alt="">
         </div>
-        <div>
+           
+           <div class="vermais">
+       <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
+              Ver mais
+    </ButtonChild>
+           </div>
 
+              </div>
         </div>
-        <div class="vermais">
-          <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
-            Ver mais
-          </ButtonChild>
-        </div>
-
-      </div>
-    </div>
 
     <Transition name="modal">
       <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false">
@@ -318,6 +320,43 @@ const slidesAutores = computed(() => {
               </LivroCard>
 
             </div>
+        </div>
+        </Transition>
+
+    </section>
+
+    <section class="titulo" id="livros">
+      <div >
+        <h3>
+          1° Ano de informática
+        </h3>
+        <p>
+          Conteúdos referentes ao pirmeiro ano de informática
+        </p>
+      </div>
+    </section>
+
+    <section class="livros1ano">
+        <div class="secao">
+               <div class="livros-carrossel">
+        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
+       
+  v-slot="{ currentSlide }">
+          <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
+  :key="index"
+  v-show="currentSlide === index + 1">
+           <div class="livros-lista">
+
+  <LivroCard
+      v-for="livro in grupo" :key="livro.id"   :livro="livro" :id="livro.id"
+        :titulo="livro.titulo"  :categoria="livro.categoria"
+        :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"
+        >
+      </LivroCard>
+
+     </div>
+  </Slide>
           </Slide>
         </Carroussel>
       </div>
@@ -813,14 +852,10 @@ button #fechar,
 .modal-livros {
   padding-bottom: 300px;
 }
-
 .autores-carrossel {
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 60px;
-  /* Garante espaço para os botões ficarem nas laterais sem sair do site */
-  box-sizing: border-box;
+    width: 650px;
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
 }
 
 .todos-livros {
@@ -1333,6 +1368,98 @@ a:hover {
 
 
 
+#vermais{
+  font-size:1.4rem;
+  border-radius: 10px;
+ width: 100%;
+ max-width: 200px;
+  padding: 8px 28px 8px 28px;
+}
+.vermais{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.referencias{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+.card-direita{
+  border-radius: 17px;
+  width: 100%;
+  height: 30%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.card-esquerda{
+  border-radius: 17px;
+  height: auto;
+  position: relative;
+   width: 100%;
+}
+.card-esquerda img{
+  border-radius: 12px;
+  position: absolute;
+  transform: translate(-20%, -50%);
+  align-items: center;
+   transition: transform 0.2s ease;
+   width: 47%;
+}
+.card-direita p {
+  font-size: 2rem;
+  margin: 10px;
+  padding: 10px;
+}
+.card-direita img{
+  width: 100%;
+  max-width: 190px;
+  margin: 0;
+  height: auto;
+  
+}
+.card-esquerda p{
+  font-size: 2.2rem;
+   margin: 10px;
+   padding: 20px;
+}
+.imagem-direita{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.link-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.modal {
+  padding: 1.5rem;
+  border-radius: 17px;
+  width: 100%;
+  max-width: 300px;
+  max-height: 85vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal p {
+  margin: 0.75rem 0;
+   font-size: 1rem;
+   padding: 1vw;
+}
+.modal h3{
+  font-size: 2rem;
+  color: #135F7D;
+  padding: 1vw;
+}
+ #visu {
+  padding: 10px;
+  font-size: 1rem;
+}
 
 
   #router {
