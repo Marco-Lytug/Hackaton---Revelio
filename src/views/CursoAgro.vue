@@ -58,7 +58,7 @@ const progresso = computed(() => {
     <div class="video-container">
 
       <div class="video">
-        <h3>SQL com MySQL</h3>
+        <h3></h3>
         <video
           controls
           src="/public/videos/agro1.mp4"
@@ -69,7 +69,7 @@ const progresso = computed(() => {
 
 
       <div class="video">
-        <h3>HTML</h3>
+        <h3></h3>
         <video
           controls
           src="/public/videos/agro2.mp4"
@@ -80,7 +80,7 @@ const progresso = computed(() => {
 
 
       <div class="video">
-        <h3>Django</h3>
+        <h3></h3>
         <video
           controls
           src="/public/videos/agro3.mp4"
@@ -91,7 +91,7 @@ const progresso = computed(() => {
 
 
       <div class="video">
-        <h3>Vue 3</h3>
+        <h3></h3>
         <video
           controls
           src="/public/videos/agro4.mp4"
