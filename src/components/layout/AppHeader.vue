@@ -73,6 +73,9 @@ const abrirLivros = ref(false)
           </li>
         </ul>
       </li>
+      <li>
+  <RouterLink to="/login">Login</RouterLink>
+      </li>
     </ul>
   </nav>
 
@@ -116,6 +119,10 @@ const abrirLivros = ref(false)
           <li>
             <RouterLink to="/extras">Extras</RouterLink>
           </li>
+
+          <li>
+  <RouterLink to="/login">Login</RouterLink>
+</li>
 
         </ul>
       </div>

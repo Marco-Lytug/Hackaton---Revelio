@@ -11,6 +11,8 @@ import CursoInfo from '@/views/CursoInfo.vue'
 import CursoAgro from '@/views/CursoAgro.vue'
 import CursoQuimi from '@/views/CursoQuimi.vue'
 import SobreNos from '@/views/SobreNos.vue'
+import LoginUser from '@/views/LoginUser.vue'
+import CadastroUser from '@/views/CadastroUser.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,10 +61,18 @@ const router = createRouter({
     {
           path: '/cursoQuimi',
       component: CursoQuimi
-
+    },
     {
       path: '/sobre',
       component: SobreNos
+    },
+    {
+      path: '/Login',
+      component: LoginUser
+    },
+    {
+      path: '/Cadastro',
+      component: CadastroUser
     }
 
   ],
