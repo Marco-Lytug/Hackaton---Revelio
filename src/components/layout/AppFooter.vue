@@ -24,12 +24,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <footer >
+  <footer>
     <nav>
       <ul>
         <div class="all">
           <div class="img">
-            <img src="/images/RevelioFooter.png" alt="">
+            <img src="/images/RevelioFooter.png" alt="" />
           </div>
           <div class="left">
             <RouterLink to="/">Principal</RouterLink>
@@ -42,53 +42,44 @@ onUnmounted(() => {
             <RouterLink to="/quimi">Livros de Quimica</RouterLink>
             <RouterLink to="/agro">Livros de Agro</RouterLink>
             <RouterLink to="/cursos">Cursos</RouterLink>
-
           </div>
           <div class="texto">
-            <p>
-              &copy; Revelio, 2026
-            </p>
+            <p>&copy; Revelio, 2026</p>
           </div>
         </div>
       </ul>
     </nav>
-    <div class="copy">
-
-    </div>
+    <div class="copy"></div>
   </footer>
 </template>
 
 <style scoped>
-
-.texto{
+.texto {
   position: absolute;
   top: 80%;
-  color: #BCB2A0;
+  color: #bcb2a0;
   display: flex;
 }
-.img{
+.img {
   position: relative;
 }
 
-div img{
+div img {
   position: absolute;
   top: -95%;
 }
 
-
-.all{
+.all {
   display: flex;
 }
-.left{
+.left {
   display: grid;
-    margin: 0 0 0 40vw;
-    text-align: right;
-
+  margin: 0 0 0 40vw;
+  text-align: right;
 }
-.right{
+.right {
   display: grid;
 }
-
 
 ul {
   display: flex;
@@ -104,8 +95,10 @@ footer {
   width: 100%;
   padding: 2vw;
   display: flex;
-  background-color: #F4E6CC;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: #f4e6cc;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   transform: translateY(0);
   opacity: 1;
 }
@@ -113,21 +106,17 @@ footer {
 nav {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #BCB2A0;
-
+  border-bottom: 1px solid #bcb2a0;
 }
 
-a{
-  color: #BCB2A0;
+a {
+  color: #bcb2a0;
   padding: 10px;
   font-size: 1.5rem;
   transition: 1s;
-
-
 }
 a:hover {
   transition: 0.5s;
-    color: #726C60;
-  }
-
+  color: #726c60;
+}
 </style>

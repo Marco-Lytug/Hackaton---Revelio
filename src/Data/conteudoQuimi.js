@@ -7,5 +7,5 @@ export { conteudoQuimi1, ConteudoQuimi2, ConteudoQuimi3 }
 export default {
   conteudoQuimi1,
   ConteudoQuimi2,
-  ConteudoQuimi3
+  ConteudoQuimi3,
 }

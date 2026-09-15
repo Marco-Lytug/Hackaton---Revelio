@@ -4,9 +4,7 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <div class="flecha">
-    <RouterLink to="/">
-      <fa icon="arrow-left"/> Voltar
-    </RouterLink>
+    <RouterLink to="/"> <fa icon="arrow-left" /> Voltar </RouterLink>
   </div>
   <section class="principal">
     <ul>
@@ -19,11 +17,11 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 .flecha {
-    position: absolute;
-    top: 5rem;
-    left: 5rem;
-    font-size: 1.4rem;
-    font-weight: 550;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  font-size: 1.4rem;
+  font-weight: 550;
 }
 
 .principal {
@@ -46,8 +44,7 @@ li {
   padding: 2vw 3vw;
   transition: 0.8s;
 }
-li:hover{
-
+li:hover {
   border: 1px rgb(109, 108, 108) solid;
   border-radius: 15px;
   background-color: rgb(245, 248, 247);
@@ -60,15 +57,15 @@ a {
   text-align: center;
   white-space: nowrap;
 }
-.info:hover{
-border-color: #135F7D;
-background-color: #2484aa69;
+.info:hover {
+  border-color: #135f7d;
+  background-color: #2484aa69;
 }
-.agro:hover{
-  border-color: #2E7D32;
+.agro:hover {
+  border-color: #2e7d32;
   background-color: #2bd8336c;
 }
-.quimi:hover{
+.quimi:hover {
   border-color: red;
   background-color: rgba(235, 53, 53, 0.329);
 }

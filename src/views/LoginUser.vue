@@ -5,7 +5,7 @@ const router = useRouter()
 const categories = [
   { value: 'theme-info', label: 'Info', class: 'info' },
   { value: 'theme-agro', label: 'Agro', class: 'agro' },
-  { value: 'theme-quimica', label: 'Química', class: 'quimica' }
+  { value: 'theme-quimica', label: 'Química', class: 'quimica' },
 ]
 
 const activeTab = ref('login')
@@ -18,33 +18,29 @@ const showRegisterPassword = ref(false)
 
 const loginForm = reactive({
   email: '',
-  senha: ''
+  senha: '',
 })
 
 const registerForm = reactive({
   nome: '',
   email: '',
   senha: '',
-  confirmar: ''
+  confirmar: '',
 })
 
 const loginFeedback = ref(null)
 const registerFeedback = ref(null)
 
-const welcomeText = computed(() =>
-  isProfessor.value ? 'Área do professor' : 'Bem-vindo de volta'
-)
+const welcomeText = computed(() => (isProfessor.value ? 'Área do professor' : 'Bem-vindo de volta'))
 
 const titleText = computed(() =>
-  activeTab.value === 'login'
-    ? 'Acesse sua conta'
-    : 'Crie sua conta'
+  activeTab.value === 'login' ? 'Acesse sua conta' : 'Crie sua conta',
 )
 
 const descriptionText = computed(() =>
   activeTab.value === 'login'
     ? 'Entre para continuar sua jornada de aprendizagem.'
-    : 'Cadastre-se gratuitamente e comece a aprender.'
+    : 'Cadastre-se gratuitamente e comece a aprender.',
 )
 
 function switchTab(tab) {
@@ -62,25 +58,22 @@ function handleLogin() {
   if (!usuario) {
     loginFeedback.value = {
       type: 'error',
-      message: 'Nenhum usuário cadastrado.'
+      message: 'Nenhum usuário cadastrado.',
     }
     return
   }
 
-  if (
-    loginForm.email !== usuario.email ||
-    loginForm.senha !== usuario.senha
-  ) {
+  if (loginForm.email !== usuario.email || loginForm.senha !== usuario.senha) {
     loginFeedback.value = {
       type: 'error',
-      message: 'E-mail ou senha incorretos.'
+      message: 'E-mail ou senha incorretos.',
     }
     return
   }
 
   loginFeedback.value = {
     type: 'success',
-    message: `Bem-vindo, ${usuario.nome}!`
+    message: `Bem-vindo, ${usuario.nome}!`,
   }
 
   loginForm.senha = ''
@@ -96,7 +89,7 @@ function handleRegister() {
   if (!registerForm.nome || !registerForm.email) {
     registerFeedback.value = {
       type: 'error',
-      message: 'Preencha todos os campos.'
+      message: 'Preencha todos os campos.',
     }
     return
   }
@@ -104,7 +97,7 @@ function handleRegister() {
   if (registerForm.senha.length < 6) {
     registerFeedback.value = {
       type: 'error',
-      message: 'A senha deve ter pelo menos 6 caracteres.'
+      message: 'A senha deve ter pelo menos 6 caracteres.',
     }
     return
   }
@@ -112,7 +105,7 @@ function handleRegister() {
   if (registerForm.senha !== registerForm.confirmar) {
     registerFeedback.value = {
       type: 'error',
-      message: 'As senhas não coincidem.'
+      message: 'As senhas não coincidem.',
     }
     return
   }
@@ -121,14 +114,14 @@ function handleRegister() {
   const usuario = {
     nome: registerForm.nome,
     email: registerForm.email,
-    senha: registerForm.senha
+    senha: registerForm.senha,
   }
 
   localStorage.setItem('usuarioRevelio', JSON.stringify(usuario))
 
   registerFeedback.value = {
     type: 'success',
-    message: 'Cadastro realizado com sucesso!'
+    message: 'Cadastro realizado com sucesso!',
   }
 
   registerForm.nome = ''
@@ -140,42 +133,27 @@ function handleRegister() {
 function forgotPassword() {
   loginFeedback.value = {
     type: 'success',
-    message: 'Em breve você poderá recuperar sua senha por e-mail.'
+    message: 'Em breve você poderá recuperar sua senha por e-mail.',
   }
 }
 </script>
 
-
 <template>
-  <main
-    class="auth-page"
-    :class="[activeTheme, { 'is-professor': isProfessor }]"
-  >
-
+  <main class="auth-page" :class="[activeTheme, { 'is-professor': isProfessor }]">
     <!-- ESQUERDA -->
     <section class="brand-side">
-
       <div class="decor decor-1"></div>
       <div class="decor decor-2"></div>
       <div class="decor decor-3"></div>
 
       <div class="brand-content">
-
         <div class="logo-wrapper">
-          <img
-            src="/images/Revelio.png"
-            alt="Logo Revelio"
-            class="logo"
-          />
+          <img src="/images/Revelio.png" alt="Logo Revelio" class="logo" />
         </div>
 
-        <span class="brand-tag">
-          Plataforma educacional
-        </span>
+        <span class="brand-tag"> Plataforma educacional </span>
 
-        <h1 class="brand-title">
-          Revelio
-        </h1>
+        <h1 class="brand-title">Revelio</h1>
 
         <p class="brand-subtitle">
           Sua plataforma integrada de
@@ -183,7 +161,6 @@ function forgotPassword() {
         </p>
 
         <div class="brand-features">
-
           <div class="feature">
             <span class="feature-icon">✓</span>
             <div>
@@ -207,63 +184,45 @@ function forgotPassword() {
               <small>Ferramentas para acompanhamento</small>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-
     <!-- DIREITA -->
     <section class="form-side">
-
       <div class="form-wrapper">
-
         <div class="theme-controls">
-
-          <div
-            class="category-buttons"
-            :class="{ disabled: isProfessor }"
-          >
+          <div class="category-buttons" :class="{ disabled: isProfessor }">
             <button
               v-for="category in categories"
               :key="category.value"
               type="button"
               class="category-btn"
               :class="{
-                active:
-                  activeTheme === category.value &&
-                  !isProfessor
+                active: activeTheme === category.value && !isProfessor,
               }"
               :disabled="isProfessor"
               @click="activeTheme = category.value"
             >
-              <span
-                class="category-dot"
-                :class="category.class"
-              ></span>
+              <span class="category-dot" :class="category.class"></span>
 
               {{ category.label }}
             </button>
           </div>
 
           <label class="professor-toggle">
-            <input v-model="isProfessor" type="checkbox">
+            <input v-model="isProfessor" type="checkbox" />
 
             <span class="toggle">
               <span class="toggle-circle"></span>
             </span>
 
-            <span class="toggle-label">
-              Sou Professor
-            </span>
+            <span class="toggle-label"> Sou Professor </span>
           </label>
-
         </div>
-
 
         <!-- CABEÇALHO -->
         <header class="form-header">
-
           <span class="welcome-label">
             {{ welcomeText }}
           </span>
@@ -271,13 +230,10 @@ function forgotPassword() {
           <h2>{{ titleText }}</h2>
 
           <p>{{ descriptionText }}</p>
-
         </header>
-
 
         <!-- FORMULÁRIO -->
         <Transition name="form" mode="out-in">
-
           <!-- LOGIN -->
           <form
             v-if="activeTab === 'login'"
@@ -285,7 +241,6 @@ function forgotPassword() {
             class="auth-form"
             @submit.prevent="handleLogin"
           >
-
             <div class="field">
               <label for="login-email">E-mail</label>
 
@@ -303,17 +258,11 @@ function forgotPassword() {
               </div>
             </div>
 
-
             <div class="field">
-
               <div class="label-line">
                 <label for="login-senha">Senha</label>
 
-                <button
-                  type="button"
-                  class="forgot-btn"
-                  @click="forgotPassword"
-                >
+                <button type="button" class="forgot-btn" @click="forgotPassword">
                   Esqueceu a senha?
                 </button>
               </div>
@@ -338,20 +287,12 @@ function forgotPassword() {
                 >
                   {{ showLoginPassword ? 'Ocultar' : 'Mostrar' }}
                 </button>
-                <button class="back-home" @click="router.push('/')">
-  ← Voltar ao início
-</button>
+                <button class="back-home" @click="router.push('/')">← Voltar ao início</button>
               </div>
-
             </div>
 
-
             <Transition name="feedback">
-              <div
-                v-if="loginFeedback"
-                class="feedback"
-                :class="loginFeedback.type"
-              >
+              <div v-if="loginFeedback" class="feedback" :class="loginFeedback.type">
                 <span class="feedback-icon">
                   {{ loginFeedback.type === 'error' ? '!' : '✓' }}
                 </span>
@@ -360,12 +301,7 @@ function forgotPassword() {
               </div>
             </Transition>
 
-
-            <button
-              type="submit"
-              class="submit-btn"
-              :disabled="loading"
-            >
+            <button type="submit" class="submit-btn" :disabled="loading">
               <span v-if="loading" class="spinner"></span>
 
               {{ loading ? 'Entrando...' : 'Entrar na conta' }}
@@ -373,30 +309,17 @@ function forgotPassword() {
               <span v-if="!loading" class="arrow">→</span>
             </button>
 
-
             <p class="switch-line">
               Ainda não possui uma conta?
 
-              <button
-                type="button"
-                class="switch-link"
-                @click="switchTab('register')"
-              >
+              <button type="button" class="switch-link" @click="switchTab('register')">
                 Criar conta
               </button>
             </p>
-
           </form>
 
-
           <!-- CADASTRO -->
-          <form
-            v-else
-            key="register"
-            class="auth-form"
-            @submit.prevent="handleRegister"
-          >
-
+          <form v-else key="register" class="auth-form" @submit.prevent="handleRegister">
             <div class="field">
               <label for="cad-nome">Nome completo</label>
 
@@ -413,7 +336,6 @@ function forgotPassword() {
                 />
               </div>
             </div>
-
 
             <div class="field">
               <label for="cad-email">E-mail</label>
@@ -432,9 +354,7 @@ function forgotPassword() {
               </div>
             </div>
 
-
             <div class="field-row">
-
               <div class="field">
                 <label for="cad-senha">Senha</label>
 
@@ -460,28 +380,17 @@ function forgotPassword() {
                   required
                 />
               </div>
-
             </div>
 
-
             <label class="show-password">
-              <input
-                v-model="showRegisterPassword"
-                type="checkbox"
-              />
+              <input v-model="showRegisterPassword" type="checkbox" />
 
               Mostrar senha
             </label>
-            <button class="back-home" @click="router.push('/')">
-  ← Voltar ao início
-</button>
+            <button class="back-home" @click="router.push('/')">← Voltar ao início</button>
 
             <Transition name="feedback">
-              <div
-                v-if="registerFeedback"
-                class="feedback"
-                :class="registerFeedback.type"
-              >
+              <div v-if="registerFeedback" class="feedback" :class="registerFeedback.type">
                 <span class="feedback-icon">
                   {{ registerFeedback.type === 'error' ? '!' : '✓' }}
                 </span>
@@ -490,12 +399,7 @@ function forgotPassword() {
               </div>
             </Transition>
 
-
-            <button
-              type="submit"
-              class="submit-btn"
-              :disabled="loading"
-            >
+            <button type="submit" class="submit-btn" :disabled="loading">
               <span v-if="loading" class="spinner"></span>
 
               {{ loading ? 'Criando conta...' : 'Criar minha conta' }}
@@ -503,38 +407,21 @@ function forgotPassword() {
               <span v-if="!loading" class="arrow">→</span>
             </button>
 
-
             <p class="switch-line">
               Já possui uma conta?
 
-              <button
-                type="button"
-                class="switch-link"
-                @click="switchTab('login')"
-              >
-                Entrar
-              </button>
+              <button type="button" class="switch-link" @click="switchTab('login')">Entrar</button>
             </p>
-
-
           </form>
-
         </Transition>
 
-
-        <p class="security-note">
-          🔒 Seus dados são tratados com segurança.
-        </p>
-
+        <p class="security-note">🔒 Seus dados são tratados com segurança.</p>
       </div>
     </section>
-
   </main>
 </template>
 
-
 <style scoped>
-
 /* =========================
    VARIÁVEIS E BASE
 ========================= */
@@ -566,7 +453,7 @@ function forgotPassword() {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     sans-serif;
 }
 
@@ -575,7 +462,6 @@ function forgotPassword() {
 .auth-page *::after {
   box-sizing: border-box;
 }
-
 
 /* =========================
    TEMAS
@@ -606,7 +492,6 @@ function forgotPassword() {
   --bg-left: #050505;
 }
 
-
 /* =========================
    LADO ESQUERDO
 ========================= */
@@ -629,12 +514,7 @@ function forgotPassword() {
       color-mix(in srgb, var(--accent) 20%, transparent),
       transparent 40%
     ),
-    radial-gradient(
-      circle at 90% 90%,
-      rgba(255, 255, 255, 0.04),
-      transparent 35%
-    ),
-    var(--bg-left);
+    radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.04), transparent 35%), var(--bg-left);
 
   color: white;
   transition: background 0.3s ease;
@@ -647,7 +527,6 @@ function forgotPassword() {
   width: 100%;
   max-width: 460px;
 }
-
 
 /* =========================
    DECORAÇÕES
@@ -688,7 +567,6 @@ function forgotPassword() {
   background: rgba(255, 255, 255, 0.02);
 }
 
-
 /* =========================
    LOGO
 ========================= */
@@ -724,7 +602,6 @@ function forgotPassword() {
 
   object-fit: contain;
 }
-
 
 /* =========================
    TEXTOS DA MARCA
@@ -766,7 +643,6 @@ function forgotPassword() {
 .brand-subtitle strong {
   color: white;
 }
-
 
 /* =========================
    RECURSOS
@@ -821,7 +697,6 @@ function forgotPassword() {
   font-size: 0.75rem;
 }
 
-
 /* =========================
    LADO DIREITO
 ========================= */
@@ -843,7 +718,6 @@ function forgotPassword() {
   width: 100%;
   max-width: 440px;
 }
-
 
 /* =========================
    BOTÃO VOLTAR
@@ -878,7 +752,6 @@ function forgotPassword() {
   color: var(--accent-dark);
   transform: translateX(-3px);
 }
-
 
 /* =========================
    CONTROLES
@@ -969,7 +842,6 @@ function forgotPassword() {
   background: #800020;
 }
 
-
 /* =========================
    PROFESSOR
 ========================= */
@@ -1028,7 +900,6 @@ function forgotPassword() {
   font-weight: 700;
 }
 
-
 /* =========================
    CABEÇALHO
 ========================= */
@@ -1065,7 +936,6 @@ function forgotPassword() {
   line-height: 1.6;
 }
 
-
 /* =========================
    FORMULÁRIO
 ========================= */
@@ -1094,7 +964,6 @@ function forgotPassword() {
   align-items: center;
   justify-content: space-between;
 }
-
 
 /* =========================
    INPUTS
@@ -1147,10 +1016,8 @@ function forgotPassword() {
 
   border-color: var(--accent);
 
-  box-shadow:
-    0 0 0 4px var(--accent-soft);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
-
 
 /* CAMPOS DO CADASTRO */
 
@@ -1164,7 +1031,6 @@ function forgotPassword() {
 .field-row .field input {
   padding-left: 1rem;
 }
-
 
 /* =========================
    LINKS
@@ -1193,19 +1059,18 @@ function forgotPassword() {
   text-decoration: underline;
 }
 
-
 /* =========================
    MOSTRAR SENHA
 ========================= */
 .show-password {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 
   width: fit-content;
 
   color: var(--muted);
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 500;
 
   cursor: pointer;
@@ -1282,7 +1147,6 @@ function forgotPassword() {
   font-size: 0.7rem;
 }
 
-
 /* =========================
    BOTÃO PRINCIPAL
 ========================= */
@@ -1318,8 +1182,7 @@ function forgotPassword() {
 
   transform: translateY(-2px);
 
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .submit-btn:active:not(:disabled) {
@@ -1340,7 +1203,6 @@ function forgotPassword() {
 .submit-btn:hover:not(:disabled) .arrow {
   transform: translateX(4px);
 }
-
 
 /* =========================
    LOADING
@@ -1364,7 +1226,6 @@ function forgotPassword() {
   }
 }
 
-
 /* =========================
    RODAPÉ
 ========================= */
@@ -1386,7 +1247,6 @@ function forgotPassword() {
   text-align: center;
   font-size: 0.67rem;
 }
-
 
 /* =========================
    TRANSIÇÕES
@@ -1411,7 +1271,6 @@ function forgotPassword() {
   transform: translateY(-5px);
 }
 
-
 /* =========================
    FOCO
 ========================= */
@@ -1422,13 +1281,11 @@ input:focus-visible {
   outline-offset: 3px;
 }
 
-
 /* =========================
    RESPONSIVO
 ========================= */
 
 @media (max-width: 900px) {
-
   .auth-page {
     flex-direction: column;
   }
@@ -1463,9 +1320,7 @@ input:focus-visible {
   }
 }
 
-
 @media (max-width: 600px) {
-
   .brand-side {
     padding: 2.5rem 1.5rem;
   }
@@ -1501,9 +1356,7 @@ input:focus-visible {
   }
 }
 
-
 @media (max-width: 430px) {
-
   .brand-title {
     font-size: 2.8rem;
   }
@@ -1521,5 +1374,4 @@ input:focus-visible {
     padding: 2rem 1rem 3rem;
   }
 }
-
 </style>

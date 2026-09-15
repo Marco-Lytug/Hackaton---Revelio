@@ -20,66 +20,64 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: HomeView
+      component: HomeView,
     },
 
     {
       path: '/info',
-      component: PaginaInfo
+      component: PaginaInfo,
     },
 
     {
       path: '/agro',
-      component: PaginaAgro
+      component: PaginaAgro,
     },
 
     {
       path: '/quimi',
-      component: PaginaQuimi
+      component: PaginaQuimi,
     },
     {
       path: '/atividades',
-      component: PaginaAtividades
+      component: PaginaAtividades,
     },
     {
       path: '/quiz/:curso/:ano/:id',
       name: 'quiz',
-      component: QuizView
+      component: QuizView,
     },
     {
       path: '/cursos',
-      component: PagCursos
+      component: PagCursos,
     },
     {
-          path: '/cursoInfo',
-      component: CursoInfo
+      path: '/cursoInfo',
+      component: CursoInfo,
     },
     {
-          path: '/cursoAgro',
-      component: CursoAgro
+      path: '/cursoAgro',
+      component: CursoAgro,
     },
     {
-          path: '/cursoQuimi',
-      component: CursoQuimi
+      path: '/cursoQuimi',
+      component: CursoQuimi,
     },
     {
       path: '/sobre',
-      component: SobreNos
+      component: SobreNos,
     },
     {
       path: '/Login',
-      component: LoginUser
+      component: LoginUser,
     },
     {
       path: '/Cadastro',
-      component: CadastroUser
-    }
-
+      component: CadastroUser,
+    },
   ],
   scrollBehavior() {
     return { top: 0, left: 0 }
-
-  }
+  },
 })
 
 export default router

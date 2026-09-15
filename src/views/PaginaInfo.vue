@@ -1,14 +1,14 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import Carroussel from '@/components/layout/Carroussel.vue';
-import Slide from '@/components/layout/Slide.vue';
-import LivroLista from '@/components/layout/livros/LivroLista.vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import Carroussel from '@/components/layout/Carroussel.vue'
+import Slide from '@/components/layout/Slide.vue'
+import LivroLista from '@/components/layout/livros/LivroLista.vue'
 import { livrosInfo1Ano, livrosInfo2Ano, livrosInfo3Ano } from '@/Data/livrosInfo.js'
-import { autoresInfo } from '@/Data/autores';
-import autores from '@/components/layout/autores.vue';
-import ButtonChild from '@/components/layout/ButtonChild.vue';
-import LivroCard from '@/components/layout/livros/LivroCard.vue';
-import LivrosFavoritos from '@/components/layout/livros/LivrosFavoritos.vue';
+import { autoresInfo } from '@/Data/autores'
+import autores from '@/components/layout/autores.vue'
+import ButtonChild from '@/components/layout/ButtonChild.vue'
+import LivroCard from '@/components/layout/livros/LivroCard.vue'
+import LivrosFavoritos from '@/components/layout/livros/LivrosFavoritos.vue'
 import AppHeader from '../components/layout/AppHeader.vue'
 
 defineEmits(['fechar'])
@@ -18,33 +18,24 @@ const listaSalva = localStorage.getItem('livro')
 // AJEITAR TAMANHO DOS CARDS
 //COLOCAR ACTIVE NOS HOVER
 
-const listaFav = ref(
-  listaSalva ? JSON.parse(listaSalva) : []
-)
+const listaFav = ref(listaSalva ? JSON.parse(listaSalva) : [])
 function LivroFavoritado(livro) {
-  const indice = listaFav.value.findIndex(item => item.id === livro.id)
+  const indice = listaFav.value.findIndex((item) => item.id === livro.id)
   if (indice !== -1) {
     mostrarAlerta.value = true
     return
   }
   listaFav.value.push(livro)
-  localStorage.setItem(
-    'livro',
-    JSON.stringify(listaFav.value)
-  )
+  localStorage.setItem('livro', JSON.stringify(listaFav.value))
 }
 //setItem converter em string e getItem string em objeto
 
 function removerLivro(id) {
-  const indice = listaFav.value.findIndex(livros => livros.id === id)
+  const indice = listaFav.value.findIndex((livros) => livros.id === id)
   if (indice !== -1) {
     listaFav.value.splice(indice, 1)
-    localStorage.setItem(
-      'livro',
-      JSON.stringify(listaFav.value)
-    )
+    localStorage.setItem('livro', JSON.stringify(listaFav.value))
   }
-
 }
 
 const quantidadeTotal = computed(() => {
@@ -52,12 +43,8 @@ const quantidadeTotal = computed(() => {
 })
 function limparLista() {
   listaFav.value.splice(0, listaFav.value.length)
-  localStorage.setItem(
-    'livro',
-    JSON.stringify(listaFav.value)
-  )
+  localStorage.setItem('livro', JSON.stringify(listaFav.value))
 }
-
 
 const mostrarFavoritos = ref(false)
 const mostrarDetalhes = ref(false)
@@ -66,34 +53,23 @@ const mostrarLivros2 = ref(false)
 const mostrarLivros3 = ref(false)
 const mostrarAlerta = ref(false)
 
-const TodosOsLivros = [
-  ...livrosInfo1Ano,
-  ...livrosInfo2Ano,
-  ...livrosInfo3Ano
-];
-const primeiro = [
-  ...livrosInfo1Ano
-]
-const segundo = [
-  ...livrosInfo2Ano
-]
-const terceiro = [
-  ...livrosInfo3Ano
-]
+const TodosOsLivros = [...livrosInfo1Ano, ...livrosInfo2Ano, ...livrosInfo3Ano]
+const primeiro = [...livrosInfo1Ano]
+const segundo = [...livrosInfo2Ano]
+const terceiro = [...livrosInfo3Ano]
 
-const CarouselSlides = [
-  ...autoresInfo
-]
+const CarouselSlides = [...autoresInfo]
 
-
-const destaque3Ano  = livrosInfo3Ano.filter(livro =>
-    ["info-44","info-36","info-37","info-39","info-43","info-34",].includes(livro.id)
+const destaque3Ano = livrosInfo3Ano.filter((livro) =>
+  ['info-44', 'info-36', 'info-37', 'info-39', 'info-43', 'info-34'].includes(livro.id),
 )
-const livrosDestaque = livrosInfo1Ano.filter(livro =>
-    ["info-1","info-4","info-7","info-10","info-13","info-2","info-6","info-14"].includes(livro.id)
+const livrosDestaque = livrosInfo1Ano.filter((livro) =>
+  ['info-1', 'info-4', 'info-7', 'info-10', 'info-13', 'info-2', 'info-6', 'info-14'].includes(
+    livro.id,
+  ),
 )
-const destaque2Ano  = livrosInfo2Ano.filter(livro =>
-    ["info-22","info-29","info-21","info-32","info-20","info-31",].includes(livro.id)
+const destaque2Ano = livrosInfo2Ano.filter((livro) =>
+  ['info-22', 'info-29', 'info-21', 'info-32', 'info-20', 'info-31'].includes(livro.id),
 )
 const larguraTela = ref(window.innerWidth)
 
@@ -118,9 +94,7 @@ const slides3Ano = computed(() => {
   const grupos = []
 
   for (let i = 0; i < destaque3Ano.length; i += livrosPorSlide.value) {
-    grupos.push(
-      destaque3Ano.slice(i, i + livrosPorSlide.value)
-    )
+    grupos.push(destaque3Ano.slice(i, i + livrosPorSlide.value))
   }
 
   return grupos
@@ -129,9 +103,7 @@ const slides2Ano = computed(() => {
   const grupos = []
 
   for (let i = 0; i < destaque2Ano.length; i += livrosPorSlide.value) {
-    grupos.push(
-      destaque2Ano.slice(i, i + livrosPorSlide.value)
-    )
+    grupos.push(destaque2Ano.slice(i, i + livrosPorSlide.value))
   }
 
   return grupos
@@ -140,9 +112,7 @@ const slidesLivros = computed(() => {
   const grupos = []
 
   for (let i = 0; i < livrosDestaque.length; i += livrosPorSlide1.value) {
-    grupos.push(
-      livrosDestaque.slice(i, i + livrosPorSlide1.value)
-    )
+    grupos.push(livrosDestaque.slice(i, i + livrosPorSlide1.value))
   }
 
   return grupos
@@ -151,64 +121,64 @@ const slidesAutores = computed(() => {
   const grupos = []
 
   for (let i = 0; i < CarouselSlides.length; i += livrosPorSlide.value) {
-    grupos.push(
-      CarouselSlides.slice(i, i + livrosPorSlide.value)
-    )
+    grupos.push(CarouselSlides.slice(i, i + livrosPorSlide.value))
   }
 
   return grupos
 })
-
 </script>
 <template>
   <header>
     <AppHeader></AppHeader>
   </header>
   <section class="banner">
-
     <div>
       <h1>
-        Livros destinados ao <br> curso de <br> informática
+        Livros destinados ao <br />
+        curso de <br />
+        informática
       </h1>
 
       <div>
         <a class="botao" href="#livros">Ver livros</a>
       </div>
-
     </div>
-
   </section>
 
-
-
-   <section class="pesquisa">
-
-        <div>
-           <LivroLista :livros="TodosOsLivros"
-            :categorias="'info'"
-             @favoritar="LivroFavoritado"
-           />
-
-        </div>
-
-    </section>
+  <section class="pesquisa">
+    <div>
+      <LivroLista :livros="TodosOsLivros" :categorias="'info'" @favoritar="LivroFavoritado" />
+    </div>
+  </section>
 
   <section class="autores">
-    <h2>
-      Autores
-    </h2>
-    <p>
-      Conheça os nossos principais autores
-    </p>
-
+    <h2>Autores</h2>
+    <p>Conheça os nossos principais autores</p>
 
     <div class="autores-carrossel">
-      <Carroussel class="carousel" :totalSlides="slidesAutores.length" tipo="autores"  :class="'carousel'" v-slot="{ currentSlide }">
-        <Slide class="autores-lista" v-for="(grupo, index) in slidesAutores" :key="index"
-          v-show="currentSlide === index + 1">
+      <Carroussel
+        class="carousel"
+        :totalSlides="slidesAutores.length"
+        tipo="autores"
+        :class="'carousel'"
+        v-slot="{ currentSlide }"
+      >
+        <Slide
+          class="autores-lista"
+          v-for="(grupo, index) in slidesAutores"
+          :key="index"
+          v-show="currentSlide === index + 1"
+        >
           <div class="autores-lista">
-            <autores v-for="autor in grupo" :key="autor.id" :id="autor.id" :nome="autor.nome" :foto="autor.foto"
-              :biografia="autor.biografia" :principaisObras="autor.principaisObras" />
+            <autores
+              v-for="autor in grupo"
+              :key="autor.id"
+              :id="autor.id"
+              :nome="autor.nome"
+              :foto="autor.foto"
+              :biografia="autor.biografia"
+              :principaisObras="autor.principaisObras"
+            />
           </div>
         </Slide>
       </Carroussel>
@@ -217,68 +187,51 @@ const slidesAutores = computed(() => {
 
   <section class="referencias">
     <div class="card-esquerda">
-      <p>
-        As melhores referências
-
-      </p>
+      <p>As melhores referências</p>
       <div class="livros">
         <div class="um">
-          <img src="/images/livro_info_2.png" alt="">
+          <img src="/images/livro_info_2.png" alt="" />
         </div>
         <div class="dois">
-          <img src="/images/livro_info_9.png" alt="">
+          <img src="/images/livro_info_9.png" alt="" />
         </div>
         <div class="tres">
-          <img src="/images/livro_info_31.png" alt="">
+          <img src="/images/livro_info_31.png" alt="" />
         </div>
       </div>
-
     </div>
 
-     
-      <div class="card-direita">
-        <p>
-          Com videoaulas e materiais de estudo
-        </p>
-        <div  class="link-image">
-
-
-      <div class="imagem-direita">
-     <img src="/images/help.png" alt="">
+    <div class="card-direita">
+      <p>Com videoaulas e materiais de estudo</p>
+      <div class="link-image">
+        <div class="imagem-direita">
+          <img src="/images/help.png" alt="" />
         </div>
-           
-           <div class="vermais">
-       <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
-              Ver mais
-    </ButtonChild>
-           </div>
 
-              </div>
+        <div class="vermais">
+          <ButtonChild id="vermais" @clique="mostrarDetalhes = true"> Ver mais </ButtonChild>
         </div>
+      </div>
+    </div>
 
     <Transition name="modal">
       <div class="modal-overlay" v-show="mostrarDetalhes" @click="mostrarDetalhes = false">
         <div class="modal" @click.stop>
           <div class="">
             <div class="">
-              <h3>
-                Um pouco sobre a nossa página de quizzes:
-              </h3>
+              <h3>Um pouco sobre a nossa página de quizzes:</h3>
               <p>
-                Explore atividades e quizzes sobre os principais assuntos dos cursos técnicos. Teste seus conhecimentos,
-                revise conteúdos importantes e acompanhe seu aprendizado de forma prática, dinâmica e interativa.
-                Encontre exercícios preparados para ajudar na fixação dos conteúdos, reforçar seus estudos e tornar o
-                processo de aprendizagem mais simples, organizado e eficiente.
+                Explore atividades e quizzes sobre os principais assuntos dos cursos técnicos. Teste
+                seus conhecimentos, revise conteúdos importantes e acompanhe seu aprendizado de
+                forma prática, dinâmica e interativa. Encontre exercícios preparados para ajudar na
+                fixação dos conteúdos, reforçar seus estudos e tornar o processo de aprendizagem
+                mais simples, organizado e eficiente.
               </p>
-
             </div>
 
             <div class="botoes">
-
               <div>
-                <RouterLink id="router" to="/atividades">
-                  Acessar página
-                </RouterLink>
+                <RouterLink id="router" to="/atividades"> Acessar página </RouterLink>
               </div>
 
               <div>
@@ -287,131 +240,168 @@ const slidesAutores = computed(() => {
                 </ButtonChild>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </Transition>
-
   </section>
 
   <section class="titulo" id="livros">
     <div>
-      <h3>
-        1° Ano de informática
-      </h3>
-      <p>
-        Conteúdos referentes ao pirmeiro ano de informática
-      </p>
+      <h3>1° Ano de informática</h3>
+      <p>Conteúdos referentes ao pirmeiro ano de informática</p>
     </div>
   </section>
 
-<section class="livros1ano">
-  <div class="secao">
-    <div class="livros-carrossel">
-      <Carroussel class="carousel" :totalSlides="slidesLivros.length" tipo="livros" v-slot="{ currentSlide }">
-        <Slide class="livros-lista" v-for="(grupo, index) in slidesLivros" :key="index"
-          v-show="currentSlide === index + 1">
-          <div class="livros-lista">
-
-            <LivroCard v-for="livro in grupo" :key="livro.id" :livro="livro" :id="livro.id" :titulo="livro.titulo"
-              :categoria="livro.categoria" :capa="livro.capa" :link="livro.link" :autor="livro.autor"
-              :descricao="livro.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado">
-            </LivroCard>
-
-          </div>
-        </Slide>
-      </Carroussel>
-    </div>
-  </div>
-</section>
-
-    <section class="titulo" id="livros">
-      <div >
-        <h3>
-          1° Ano de informática
-        </h3>
-        <p>
-          Conteúdos referentes ao pirmeiro ano de informática
-        </p>
-      </div>
-    </section>
-
-    <section class="livros1ano">
-        <div class="secao">
-               <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
-       
-  v-slot="{ currentSlide }">
-          <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
-  :key="index"
-  v-show="currentSlide === index + 1">
-           <div class="livros-lista">
-
-  <LivroCard
-      v-for="livro in grupo" :key="livro.id"   :livro="livro" :id="livro.id"
-        :titulo="livro.titulo"  :categoria="livro.categoria"
-        :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado"
+  <section class="livros1ano">
+    <div class="secao">
+      <div class="livros-carrossel">
+        <Carroussel
+          class="carousel"
+          :totalSlides="slidesLivros.length"
+          tipo="livros"
+          v-slot="{ currentSlide }"
         >
-      </LivroCard>
+          <Slide
+            class="livros-lista"
+            v-for="(grupo, index) in slidesLivros"
+            :key="index"
+            v-show="currentSlide === index + 1"
+          >
+            <div class="livros-lista">
+              <LivroCard
+                v-for="livro in grupo"
+                :key="livro.id"
+                :livro="livro"
+                :id="livro.id"
+                :titulo="livro.titulo"
+                :categoria="livro.categoria"
+                :capa="livro.capa"
+                :link="livro.link"
+                :autor="livro.autor"
+                :descricao="livro.descricao"
+                :classe="'carrossel'"
+                @favoritar="LivroFavoritado"
+              >
+              </LivroCard>
+            </div>
+          </Slide>
+        </Carroussel>
+      </div>
+    </div>
+  </section>
 
-     </div>
-  </Slide>
+  <section class="titulo" id="livros">
+    <div>
+      <h3>1° Ano de informática</h3>
+      <p>Conteúdos referentes ao pirmeiro ano de informática</p>
+    </div>
+  </section>
+
+  <section class="livros1ano">
+    <div class="secao">
+      <div class="livros-carrossel">
+        <Carroussel
+          class="carousel"
+          :totalSlides="slidesLivros.length"
+          tipo="livros"
+          v-slot="{ currentSlide }"
+        >
+          <Slide
+            class="livros-lista"
+            v-for="(grupo, index) in slidesLivros"
+            :key="index"
+            v-show="currentSlide === index + 1"
+          >
+            <div class="livros-lista">
+              <LivroCard
+                v-for="livro in grupo"
+                :key="livro.id"
+                :livro="livro"
+                :id="livro.id"
+                :titulo="livro.titulo"
+                :categoria="livro.categoria"
+                :capa="livro.capa"
+                :link="livro.link"
+                :autor="livro.autor"
+                :descricao="livro.descricao"
+                :classe="'carrossel'"
+                @favoritar="LivroFavoritado"
+              >
+              </LivroCard>
+            </div>
+          </Slide>
         </Carroussel>
       </div>
     </div>
     <div class="visu">
-      <ButtonChild id="visu" @clique="mostrarLivros = true">
-        Visualizar mais Livros
-      </ButtonChild>
+      <ButtonChild id="visu" @clique="mostrarLivros = true"> Visualizar mais Livros </ButtonChild>
     </div>
 
     <Transition name="modal">
       <div class="modal-livros" v-show="mostrarLivros" @click.stop>
         <div class="todos-livros">
-
-          <LivroCard v-for="livros in primeiro" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
-            :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
-            :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+          <LivroCard
+            v-for="livros in primeiro"
+            :key="livros.id"
+            :id="livros.id"
+            :titulo="livros.titulo"
+            :categoria="livros.categoria"
+            :capa="livros.capa"
+            :link="livros.link"
+            :autor="livros.autor"
+            :descricao="livros.descricao"
+            :classe="'carrossel'"
+            @favoritar="LivroFavoritado"
+            :livro="livros"
+          >
           </LivroCard>
         </div>
         <div class="ffe">
-          <ButtonChild id="fef" @clique="mostrarLivros = false">
-            Fechar
-          </ButtonChild>
+          <ButtonChild id="fef" @clique="mostrarLivros = false"> Fechar </ButtonChild>
         </div>
-
       </div>
     </Transition>
-
   </section>
 
   <section class="titulo">
     <div>
-      <h3>
-        2° Ano de informática
-      </h3>
-      <p>
-        Conteúdos referentes ao segundo ano de informática
-      </p>
+      <h3>2° Ano de informática</h3>
+      <p>Conteúdos referentes ao segundo ano de informática</p>
     </div>
   </section>
 
   <section class="livros2ano">
     <div class="secao">
       <div class="livros-carrossel">
-        <Carroussel class="carousel" :totalSlides="slides2Ano.length" tipo="livros" v-slot="{ currentSlide }">
-
-          <Slide class="livros-lista" v-for="(grupo, index) in slides2Ano" :key="index"
-            v-show="currentSlide === index + 1">
+        <Carroussel
+          class="carousel"
+          :totalSlides="slides2Ano.length"
+          tipo="livros"
+          v-slot="{ currentSlide }"
+        >
+          <Slide
+            class="livros-lista"
+            v-for="(grupo, index) in slides2Ano"
+            :key="index"
+            v-show="currentSlide === index + 1"
+          >
             <div class="livros-lista">
-
-              <LivroCard v-for="livro in grupo" :key="livro.id" :livro="livro" :id="livro.id" :titulo="livro.titulo"
-                :categoria="livro.categoria" :capa="livro.capa" :link="livro.link" :autor="livro.autor"
-                :descricao="livro.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado">
+              <LivroCard
+                v-for="livro in grupo"
+                :key="livro.id"
+                :livro="livro"
+                :id="livro.id"
+                :titulo="livro.titulo"
+                :categoria="livro.categoria"
+                :capa="livro.capa"
+                :link="livro.link"
+                :autor="livro.autor"
+                :descricao="livro.descricao"
+                :classe="'carrossel'"
+                @favoritar="LivroFavoritado"
+              >
               </LivroCard>
-
             </div>
           </Slide>
         </Carroussel>
@@ -419,107 +409,139 @@ const slidesAutores = computed(() => {
     </div>
 
     <div class="visu">
-      <ButtonChild id="visu" @clique="mostrarLivros2 = true">
-        Visualizar mais Livros
-      </ButtonChild>
+      <ButtonChild id="visu" @clique="mostrarLivros2 = true"> Visualizar mais Livros </ButtonChild>
     </div>
 
     <Transition name="modal">
       <div class="modal-livros" v-show="mostrarLivros2" @click.stop>
         <div class="todos-livros">
-
-          <LivroCard v-for="livros in segundo" :key="livros.id" :livro="livros" :id="livros.id" :titulo="livros.titulo"
-            :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
-            :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado">
+          <LivroCard
+            v-for="livros in segundo"
+            :key="livros.id"
+            :livro="livros"
+            :id="livros.id"
+            :titulo="livros.titulo"
+            :categoria="livros.categoria"
+            :capa="livros.capa"
+            :link="livros.link"
+            :autor="livros.autor"
+            :descricao="livros.descricao"
+            :classe="'carrossel'"
+            @favoritar="LivroFavoritado"
+          >
           </LivroCard>
         </div>
         <div class="ffe">
-          <ButtonChild id="fef" @clique="mostrarLivros2 = false">
-            Fechar
-          </ButtonChild>
+          <ButtonChild id="fef" @clique="mostrarLivros2 = false"> Fechar </ButtonChild>
         </div>
-
       </div>
     </Transition>
-
   </section>
 
   <section class="titulo">
     <div>
-      <h3>
-        3° Ano de informática
-      </h3>
-      <p>
-        Conteúdos referentes ao terceiro ano de informática
-      </p>
+      <h3>3° Ano de informática</h3>
+      <p>Conteúdos referentes ao terceiro ano de informática</p>
     </div>
   </section>
 
   <section class="livros3ano">
     <div class="secao">
       <div class="livros-carrossel">
-        <Carroussel class="carousel" :totalSlides="slides3Ano.length" tipo="livros" v-slot="{ currentSlide }">
-          <Slide class="livros-lista" v-for="(grupo, index) in slides3Ano" :key="index"
-            v-show="currentSlide === index + 1">
+        <Carroussel
+          class="carousel"
+          :totalSlides="slides3Ano.length"
+          tipo="livros"
+          v-slot="{ currentSlide }"
+        >
+          <Slide
+            class="livros-lista"
+            v-for="(grupo, index) in slides3Ano"
+            :key="index"
+            v-show="currentSlide === index + 1"
+          >
             <div class="livros-lista">
-
-              <LivroCard v-for="livro in grupo" :key="livro.id" :id="livro.id" :titulo="livro.titulo"
-                :categoria="livro.categoria" :capa="livro.capa" :link="livro.link" :autor="livro.autor"
-                :descricao="livro.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livro">
+              <LivroCard
+                v-for="livro in grupo"
+                :key="livro.id"
+                :id="livro.id"
+                :titulo="livro.titulo"
+                :categoria="livro.categoria"
+                :capa="livro.capa"
+                :link="livro.link"
+                :autor="livro.autor"
+                :descricao="livro.descricao"
+                :classe="'carrossel'"
+                @favoritar="LivroFavoritado"
+                :livro="livro"
+              >
               </LivroCard>
-
             </div>
           </Slide>
         </Carroussel>
       </div>
     </div>
 
-
-
     <div class="visu">
-      <ButtonChild id="visu" @clique="mostrarLivros3 = true">
-        Visualizar mais Livros
-      </ButtonChild>
+      <ButtonChild id="visu" @clique="mostrarLivros3 = true"> Visualizar mais Livros </ButtonChild>
     </div>
 
     <Transition name="modal">
       <div class="modal-livros" v-show="mostrarLivros3" @click.stop>
         <div class="todos-livros">
-
-          <LivroCard v-for="livros in terceiro" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
-            :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
-            :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
+          <LivroCard
+            v-for="livros in terceiro"
+            :key="livros.id"
+            :id="livros.id"
+            :titulo="livros.titulo"
+            :categoria="livros.categoria"
+            :capa="livros.capa"
+            :link="livros.link"
+            :autor="livros.autor"
+            :descricao="livros.descricao"
+            :classe="'carrossel'"
+            @favoritar="LivroFavoritado"
+            :livro="livros"
+          >
           </LivroCard>
         </div>
         <div class="ffe">
-          <ButtonChild id="fef" @clique="mostrarLivros3 = false">
-            Fechar
-          </ButtonChild>
+          <ButtonChild id="fef" @clique="mostrarLivros3 = false"> Fechar </ButtonChild>
         </div>
-
       </div>
     </Transition>
-
   </section>
 
   <section class="flutuante">
-
-    <ButtonChild @clique="mostrarFavoritos = true" v-if="listaFav.length > 0" class="carrinho-flutuante">
+    <ButtonChild
+      @clique="mostrarFavoritos = true"
+      v-if="listaFav.length > 0"
+      class="carrinho-flutuante"
+    >
       <span class="icone-carrinho"><i class="fa-regular fa-heart"></i></span>
       <span class="notificacao">{{ quantidadeTotal }}</span>
-
     </ButtonChild>
 
     <Transition name="modal-fav">
       <div class="favo" v-show="mostrarFavoritos" @click="mostrarFavoritos = false">
         <div class="favo-modal" @click.stop>
-          <LivrosFavoritos class="icone-modal" v-for="livros in listaFav" :key="livros.id" :id="livros.id"
-            :titulo="livros.titulo" :categoria="livros.categoria" :capa="livros.capa" :link="livros.link"
-            :autor="livros.autor" :descricao="livros.descricao" @remover="removerLivro" :livros="livros">
+          <LivrosFavoritos
+            class="icone-modal"
+            v-for="livros in listaFav"
+            :key="livros.id"
+            :id="livros.id"
+            :titulo="livros.titulo"
+            :categoria="livros.categoria"
+            :capa="livros.capa"
+            :link="livros.link"
+            :autor="livros.autor"
+            :descricao="livros.descricao"
+            @remover="removerLivro"
+            :livros="livros"
+          >
           </LivrosFavoritos>
           <div v-if="listaFav.length === 0" class="carrinho-vazio">
             <p>Ops! Parece que sua lista de favoritos está vazia</p>
-
           </div>
 
           <div class="bot">
@@ -530,31 +552,21 @@ const slidesAutores = computed(() => {
             </div>
 
             <div id="fechar">
-              <ButtonChild @clique="mostrarFavoritos = false">
-                Fechar
-              </ButtonChild>
+              <ButtonChild @clique="mostrarFavoritos = false"> Fechar </ButtonChild>
             </div>
           </div>
         </div>
-
       </div>
     </Transition>
 
     <Transition name="alerta">
       <div v-if="mostrarAlerta" class="alerta-favorito">
-        <p> Você já favoritou esse livro!</p>
+        <p>Você já favoritou esse livro!</p>
 
-        <ButtonChild id="alerta" @clique="mostrarAlerta = false">
-          Fechar
-        </ButtonChild>
-
-
+        <ButtonChild id="alerta" @clique="mostrarAlerta = false"> Fechar </ButtonChild>
       </div>
     </Transition>
-
-
   </section>
-
 </template>
 
 <style scoped>
@@ -569,13 +581,12 @@ const slidesAutores = computed(() => {
   width: 100%;
   max-width: 500px;
   z-index: 9999;
-
 }
 
 .alerta-favorito p {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 2rem;
-  color: #135F7D;
+  color: #135f7d;
   font-weight: 600;
   text-align: center;
 }
@@ -586,12 +597,12 @@ const slidesAutores = computed(() => {
   width: 100%;
   padding: 6px;
   border-radius: 10px;
-  background-color: #135F7D;
+  background-color: #135f7d;
   color: white;
 }
 
 #alerta:hover {
-  color: #135F7D;
+  color: #135f7d;
   background-color: white;
 }
 
@@ -642,7 +653,9 @@ const slidesAutores = computed(() => {
 
 .modal-fav-enter-active,
 .modal-fav-leave-active {
-  transition: transform 0.6s ease, opacity 0.4s ease;
+  transition:
+    transform 0.6s ease,
+    opacity 0.4s ease;
 }
 
 .modal-fav-enter-to,
@@ -664,10 +677,10 @@ const slidesAutores = computed(() => {
 }
 
 .carrinho-vazio p {
-  color: #135F7D;
+  color: #135f7d;
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 button #fechar,
@@ -679,7 +692,6 @@ button #fechar,
 #limpar {
   justify-content: center;
   margin: 1vw;
-
 }
 
 #limpar .ativo {
@@ -690,7 +702,6 @@ button #fechar,
   display: flex;
   justify-content: center;
   margin: 1vw;
-
 }
 
 .bot {
@@ -716,18 +727,16 @@ button #fechar,
   height: 100vh;
   background: white;
   overflow-y: auto;
-  box-shadow: -5px 0 20px rgba(0, 0, 0, .2);
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2vw;
-
 }
 
 .icone-modal {
   display: flex;
   justify-content: center;
-
 }
 
 .carrinho-flutuante {
@@ -737,7 +746,7 @@ button #fechar,
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #135F7D;
+  background: #135f7d;
   color: white;
   display: flex;
   align-items: center;
@@ -745,7 +754,9 @@ button #fechar,
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   z-index: 999;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
   border: none;
 }
 
@@ -777,7 +788,6 @@ button #fechar,
   border: 2px solid white;
 }
 
-
 .modal-enter-from {
   opacity: 0;
   transform: scale(0.8);
@@ -785,7 +795,6 @@ button #fechar,
 
 .modal-enter-active {
   transition: opacity 0.3s ease;
-
 }
 
 .modal-enter-active .todos-livros {
@@ -820,7 +829,6 @@ button #fechar,
 
 .modal-enter-active {
   transition: opacity 0.3s ease;
-
 }
 
 .modal-enter-active .modal {
@@ -841,7 +849,7 @@ button #fechar,
 
 .modal-leave-active .modal {
   transition: transform 0.3s ease;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .modal-leave-to .modal {
@@ -853,9 +861,9 @@ button #fechar,
   padding-bottom: 300px;
 }
 .autores-carrossel {
-    width: 650px;
-    max-width: calc(100% - 100px);
-    margin: 0 auto;
+  width: 650px;
+  max-width: calc(100% - 100px);
+  margin: 0 auto;
 }
 
 .todos-livros {
@@ -865,7 +873,7 @@ button #fechar,
   gap: 10px;
   padding: 0.7vw;
   grid-template-columns: repeat(4, 1fr);
-  background-color: #135F7D;
+  background-color: #135f7d;
 }
 
 .visu {
@@ -881,7 +889,6 @@ button #fechar,
   padding: 0.8vw;
   font-size: 2rem;
   margin: 2rem 0;
-
 }
 
 .ffe {
@@ -892,7 +899,6 @@ button #fechar,
 #visu {
   margin: 2.7vw;
   font-size: 2.2rem;
-
 }
 
 .livros-lista {
@@ -912,47 +918,46 @@ button #fechar,
 }
 
 .secao {
-  background-color: #135F7D;
+  background-color: #135f7d;
 }
 
 .titulo p {
   margin: 3vw;
   font-size: 2.3rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: #555555;
 }
 
 .titulo h3 {
   font-size: 3.5rem;
-  color: #135F7D;
-  font-family: "Josefin Sans", sans-serif;
+  color: #135f7d;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 3vw;
 }
 
 .titulo h3::after {
-  content: "";
+  content: '';
   display: flex;
   width: 700px;
   height: 3px;
-  background: #135F7D;
+  background: #135f7d;
   border-radius: 20px;
 }
 
 .livros {
   display: flex;
-
 }
 
 .card-esquerda p {
   font-size: 3.1rem;
-  color: #135F7D;
-  font-family: "Josefin Sans", sans-serif;
+  color: #135f7d;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 0.6px;
   padding: 1.5vw;
 }
 
 .card-esquerda {
-  background-color: #CCDAF4;
+  background-color: #ccdaf4;
   border-radius: 2vw;
   height: auto;
   position: relative;
@@ -977,25 +982,22 @@ button #fechar,
   top: 54%;
   left: 22%;
   transform: translate(-50%, -50%);
-
 }
 
 .dois img {
   top: 60%;
   left: 35%;
   transform: translate(-50%, -50%);
-
 }
 
 .tres img {
   top: 70%;
   left: 45%;
   transform: translate(-50%, -50%);
-
 }
 
 #vermais {
-  background-color: #135F7D;
+  background-color: #135f7d;
   font-size: 1.4rem;
   padding: 15px;
   margin: 2vw;
@@ -1011,44 +1013,41 @@ button #fechar,
   box-shadow: 0 8px 10px rgba(95, 61, 196, 0.25);
   background-color: #1486b3;
   padding: 15px;
-
-
 }
 
 button {
   background-color: white;
-  color: #135F7D;
+  color: #135f7d;
   border: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.6rem;
   border-radius: 20px;
-  border: 1px solid #135F7D;
+  border: 1px solid #135f7d;
   padding: 15px;
-
 }
 
 button:hover {
   transition: 0.5s all ease;
-  background-color: #135F7D;
+  background-color: #135f7d;
   color: white;
   cursor: pointer;
 }
 
 #router {
-  background-color: #135F7D;
+  background-color: #135f7d;
   font-size: 1.6rem;
   padding: 15px;
   margin: 0;
   border-radius: 20px;
   color: white;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #router:hover {
   background-color: white;
   transition: 0.5s all ease;
-  color: #135F7D;
-  border: 1px solid #135F7D;
+  color: #135f7d;
+  border: 1px solid #135f7d;
   cursor: pointer;
 }
 
@@ -1070,7 +1069,7 @@ button:hover {
 }
 
 .card-direita {
-  background-color: #CCDAF4;
+  background-color: #ccdaf4;
   border-radius: 2vw;
   width: 30%;
   height: auto;
@@ -1079,9 +1078,9 @@ button:hover {
 
 .card-direita p {
   text-align: center;
-  color: #135F7D;
+  color: #135f7d;
   font-size: 3rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   padding: 0.9vw;
   margin: 0.9vw;
 }
@@ -1090,7 +1089,6 @@ button:hover {
   width: 100%;
   margin: 0;
   height: auto;
-
 }
 
 .imagem-direita {
@@ -1098,15 +1096,12 @@ button:hover {
   justify-content: flex-end;
   width: 100%;
   max-width: 340px;
-
 }
 
 .link-image {
   display: flex;
   align-items: flex-end;
-
 }
-
 
 .modal-overlay {
   position: fixed;
@@ -1141,17 +1136,15 @@ button:hover {
   line-height: 1.6;
   font-size: 1.4rem;
   padding: 1vw;
-
 }
 
 .modal h3 {
   font-size: 2.3rem;
-  color: #135F7D;
+  color: #135f7d;
   padding: 1vw;
   font-weight: 500;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
-
 
 .autores-lista {
   max-width: 1050px;
@@ -1166,17 +1159,15 @@ button:hover {
 .autores {
   text-align: center;
   font-size: 2.8rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   padding: 3vw;
-  color: #135F7D;
-
+  color: #135f7d;
 }
 
 .autores p {
   color: rgb(70, 70, 70);
   text-align: center;
 }
-
 
 .banner {
   position: relative;
@@ -1186,7 +1177,6 @@ button:hover {
   width: 100vw;
   align-items: center;
   display: flex;
-
 }
 
 .banner::before {
@@ -1201,24 +1191,22 @@ h1 {
   z-index: 1;
   font-size: 5rem;
   padding: 2vw;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-left: 3vw;
   position: relative;
-
 }
 
 .banner a {
   color: white;
-  background-color: #135F7D;
+  background-color: #135f7d;
   border-radius: 20px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 2.6rem;
   padding: 18px;
   cursor: pointer;
   position: relative;
   z-index: 1;
   margin-left: 5vw;
-
 }
 
 a:hover {
@@ -1260,13 +1248,12 @@ a:hover {
     width: 100%;
     max-width: 200px;
     z-index: 9999;
-
   }
 
   .alerta-favorito p {
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1rem;
-    color: #135F7D;
+    color: #135f7d;
     font-weight: 600;
     text-align: center;
   }
@@ -1277,7 +1264,7 @@ a:hover {
     width: 100%;
     padding: 3px;
     border-radius: 6px;
-    background-color: #135F7D;
+    background-color: #135f7d;
     color: white;
     font-size: 0.8rem;
   }
@@ -1294,10 +1281,8 @@ a:hover {
   }
 
   .banner {
-
     min-height: 100vh;
     width: 100%;
-
   }
 
   .banner::before {
@@ -1309,21 +1294,19 @@ a:hover {
 
   .banner h1 {
     font-size: 2.4rem;
-
   }
 
   .banner a {
     color: white;
-    background-color: #135F7D;
+    background-color: #135f7d;
     border-radius: 10px;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 1.3rem;
     padding: 10px;
     cursor: pointer;
     position: relative;
     z-index: 1;
     margin-left: 5vw;
-
   }
 
   .titulo {
@@ -1337,7 +1320,7 @@ a:hover {
 
   .titulo h3 {
     font-size: 2rem;
-    color: #135F7D;
+    color: #135f7d;
     margin: 3vw;
   }
 
@@ -1366,101 +1349,97 @@ a:hover {
     margin-bottom: 30px;
   }
 
+  #vermais {
+    font-size: 1.4rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 28px 8px 28px;
+  }
+  .vermais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .referencias {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+  }
+  .card-direita {
+    border-radius: 17px;
+    width: 100%;
+    height: 30%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .card-esquerda {
+    border-radius: 17px;
+    height: auto;
+    position: relative;
+    width: 100%;
+  }
+  .card-esquerda img {
+    border-radius: 12px;
+    position: absolute;
+    transform: translate(-20%, -50%);
+    align-items: center;
+    transition: transform 0.2s ease;
+    width: 47%;
+  }
+  .card-direita p {
+    font-size: 2rem;
+    margin: 10px;
+    padding: 10px;
+  }
+  .card-direita img {
+    width: 100%;
+    max-width: 190px;
+    margin: 0;
+    height: auto;
+  }
+  .card-esquerda p {
+    font-size: 2.2rem;
+    margin: 10px;
+    padding: 20px;
+  }
+  .imagem-direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-
-#vermais{
-  font-size:1.4rem;
-  border-radius: 10px;
- width: 100%;
- max-width: 200px;
-  padding: 8px 28px 8px 28px;
-}
-.vermais{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.referencias{
-  display: block;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
-}
-.card-direita{
-  border-radius: 17px;
-  width: 100%;
-  height: 30%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.card-esquerda{
-  border-radius: 17px;
-  height: auto;
-  position: relative;
-   width: 100%;
-}
-.card-esquerda img{
-  border-radius: 12px;
-  position: absolute;
-  transform: translate(-20%, -50%);
-  align-items: center;
-   transition: transform 0.2s ease;
-   width: 47%;
-}
-.card-direita p {
-  font-size: 2rem;
-  margin: 10px;
-  padding: 10px;
-}
-.card-direita img{
-  width: 100%;
-  max-width: 190px;
-  margin: 0;
-  height: auto;
-  
-}
-.card-esquerda p{
-  font-size: 2.2rem;
-   margin: 10px;
-   padding: 20px;
-}
-.imagem-direita{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.link-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-.modal {
-  padding: 1.5rem;
-  border-radius: 17px;
-  width: 100%;
-  max-width: 300px;
-  max-height: 85vh;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-.modal p {
-  margin: 0.75rem 0;
-   font-size: 1rem;
-   padding: 1vw;
-}
-.modal h3{
-  font-size: 2rem;
-  color: #135F7D;
-  padding: 1vw;
-}
- #visu {
-  padding: 10px;
-  font-size: 1rem;
-}
-
+  .link-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .modal {
+    padding: 1.5rem;
+    border-radius: 17px;
+    width: 100%;
+    max-width: 300px;
+    max-height: 85vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  .modal p {
+    margin: 0.75rem 0;
+    font-size: 1rem;
+    padding: 1vw;
+  }
+  .modal h3 {
+    font-size: 2rem;
+    color: #135f7d;
+    padding: 1vw;
+  }
+  #visu {
+    padding: 10px;
+    font-size: 1rem;
+  }
 
   #router {
     font-size: 1rem;
@@ -1472,7 +1451,7 @@ a:hover {
   button {
     font-size: 1rem;
     border-radius: 10px;
-    border: 1px solid #135F7D;
+    border: 1px solid #135f7d;
     padding: 8px;
   }
 
@@ -1532,7 +1511,6 @@ a:hover {
     max-width: 190px;
     margin: 0;
     height: auto;
-
   }
 
   .card-esquerda p {
@@ -1570,7 +1548,7 @@ a:hover {
 
   .modal h3 {
     font-size: 2rem;
-    color: #135F7D;
+    color: #135f7d;
     padding: 1vw;
   }
 
@@ -1578,7 +1556,6 @@ a:hover {
     padding: 10px;
     font-size: 1rem;
   }
-
 
   .carrinho-vazio {
     text-align: center;
@@ -1588,10 +1565,10 @@ a:hover {
   }
 
   .carrinho-vazio p {
-    color: #135F7D;
+    color: #135f7d;
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   button #fechar,
@@ -1603,14 +1580,12 @@ a:hover {
   #limpar {
     justify-content: center;
     margin: 1vw;
-
   }
 
   #fechar {
     display: flex;
     justify-content: center;
     margin: 1vw;
-
   }
 
   .bot {
@@ -1636,18 +1611,16 @@ a:hover {
     height: 100vh;
     background: white;
     overflow-y: auto;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, .2);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2vw;
-
   }
 
   .icone-modal {
     display: flex;
     justify-content: center;
-
   }
 
   .carrinho-flutuante {
@@ -1657,7 +1630,7 @@ a:hover {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #135F7D;
+    background: #135f7d;
     color: white;
     display: flex;
     align-items: center;
@@ -1665,7 +1638,9 @@ a:hover {
     text-decoration: none;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     z-index: 999;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
     border: none;
   }
 
@@ -1695,11 +1670,10 @@ a:hover {
     text-align: center;
     margin-top: 1rem;
     padding: 0;
-
   }
 
   .carrinho-vazio p {
-    color: #135F7D;
+    color: #135f7d;
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
@@ -1729,6 +1703,5 @@ a:hover {
   .bot {
     display: block;
   }
-
 }
 </style>

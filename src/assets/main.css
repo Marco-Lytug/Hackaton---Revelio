@@ -1,9 +1,9 @@
 @import './base.css';
 
-@view-transition{
-  navigation: auto
+@view-transition {
+  navigation: auto;
 }
-::view-transition-old(:root){
+::view-transition-old(:root) {
   animation-duration: 1s;
 }
 
@@ -12,7 +12,6 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-
 }
 
 html {
@@ -21,7 +20,6 @@ html {
 a {
   text-decoration: none;
   transition: 0.4s;
-
 }
 
 @media (hover: hover) {
@@ -32,6 +30,4 @@ a {
     display: flex;
     place-items: center;
   }
-
-
 }

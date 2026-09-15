@@ -32,7 +32,6 @@ const progresso = computed(() => {
 const ehUltimaPergunta = computed(() => perguntaAtualIndex.value === totalPerguntas.value - 1)
 
 function selecionarOpcao(indexOpcao) {
-
   if (respostaConfirmada.value) return
   opcaoSelecionada.value = indexOpcao
 }
@@ -120,7 +119,7 @@ function classeOpcao(indexOpcao) {
 
         <ul class="opcoes-lista">
           <li
-          v-for="(opcao, index) in perguntaAtual.alternativas"
+            v-for="(opcao, index) in perguntaAtual.alternativas"
             :key="index"
             :class="classeOpcao(index)"
             @click="selecionarOpcao(index)"
@@ -157,7 +156,6 @@ function classeOpcao(indexOpcao) {
 
 <style scoped>
 .quiz {
-
   width: 100%;
   max-width: 820px;
 
@@ -167,26 +165,18 @@ function classeOpcao(indexOpcao) {
 
   background: white;
 
-  border:
-    2px solid
-    var(--cor-curso, #135F7D);
+  border: 2px solid var(--cor-curso, #135f7d);
 
   border-radius: 24px;
 
-  box-shadow:
-    0 12px 35px
-    rgba(0, 0, 0, 0.10);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
 
-  font-family:
-    "Josefin Sans",
-    sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
-
 
 /* QUIZ VAZIO */
 
 .quiz-vazio {
-
   text-align: center;
 
   color: #555;
@@ -196,7 +186,6 @@ function classeOpcao(indexOpcao) {
   padding: 3rem 1rem;
 }
 
-
 /* CABEÇALHO */
 
 .quiz-header {
@@ -204,20 +193,16 @@ function classeOpcao(indexOpcao) {
 }
 
 .quiz-header h2 {
-
   margin: 0 0 1rem;
 
-  color:
-    var(--cor-curso, #135F7D);
+  color: var(--cor-curso, #135f7d);
 
   font-size: 2rem;
 }
 
-
 /* PROGRESSO */
 
 .barra-progresso {
-
   width: 100%;
   height: 9px;
 
@@ -231,11 +216,9 @@ function classeOpcao(indexOpcao) {
 }
 
 .barra-progresso-preenchida {
-
   height: 100%;
 
-  background:
-    var(--cor-curso, #135F7D);
+  background: var(--cor-curso, #135f7d);
 
   border-radius: 999px;
 
@@ -243,22 +226,18 @@ function classeOpcao(indexOpcao) {
 }
 
 .contador {
-
   font-size: 1rem;
 
   color: #777;
 }
 
-
 /* PERGUNTA */
 
 .pergunta-bloco {
-
   margin-top: 2rem;
 }
 
 .pergunta-texto {
-
   font-size: 1.4rem;
 
   font-weight: 600;
@@ -270,11 +249,9 @@ function classeOpcao(indexOpcao) {
   margin-bottom: 1.5rem;
 }
 
-
 /* ALTERNATIVAS */
 
 .opcoes-lista {
-
   list-style: none;
 
   padding: 0;
@@ -288,13 +265,9 @@ function classeOpcao(indexOpcao) {
 }
 
 .opcao {
+  padding: 16px 18px;
 
-  padding:
-    16px
-    18px;
-
-  border:
-    2px solid #dddddd;
+  border: 2px solid #dddddd;
 
   border-radius: 14px;
 
@@ -315,65 +288,50 @@ function classeOpcao(indexOpcao) {
 }
 
 .opcao:hover {
+  border-color: var(--cor-curso, #135f7d);
 
-  border-color:
-    var(--cor-curso, #135F7D);
-
-  transform:
-    translateX(4px);
+  transform: translateX(4px);
 }
-
 
 /* SELECIONADA */
 
 .opcao.selecionada {
+  border-color: var(--cor-curso, #135f7d);
 
-  border-color:
-    var(--cor-curso, #135F7D);
-
-  background:
-    var(--cor-clara, #E8F4F8);
+  background: var(--cor-clara, #e8f4f8);
 }
-
 
 /* CORRETA */
 
 .opcao.correta {
+  border-color: #2e7d32;
 
-  border-color: #2E7D32;
+  background: #e8f5e9;
 
-  background: #E8F5E9;
-
-  color: #1B5E20;
+  color: #1b5e20;
 }
-
 
 /* ERRADA */
 
 .opcao.errada {
+  border-color: #c62828;
 
-  border-color: #C62828;
+  background: #ffebee;
 
-  background: #FFEBEE;
-
-  color: #B71C1C;
+  color: #b71c1c;
 }
-
 
 /* DESABILITADA */
 
 .opcao.desabilitada {
-
   opacity: 0.6;
 
   cursor: default;
 }
 
-
 /* BOTÕES */
 
 .quiz-acoes {
-
   margin-top: 2rem;
 
   display: flex;
@@ -382,27 +340,21 @@ function classeOpcao(indexOpcao) {
 }
 
 .botao {
-
   min-width: 180px;
 
-  padding:
-    13px
-    22px;
+  padding: 13px 22px;
 
   border: none;
 
   border-radius: 14px;
 
-  background:
-    var(--cor-curso, #135F7D);
+  background: var(--cor-curso, #135f7d);
 
   color: white;
 
   cursor: pointer;
 
-  font-family:
-    "Josefin Sans",
-    sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 
   font-size: 1.05rem;
 
@@ -414,41 +366,32 @@ function classeOpcao(indexOpcao) {
 }
 
 .botao:hover:not(:disabled) {
+  background: var(--cor-hover, #1a92c2);
 
-  background:
-    var(--cor-hover, #1a92c2);
-
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .botao:disabled {
-
   opacity: 0.45;
 
   cursor: not-allowed;
 }
 
-
 /* RESULTADO */
 
 .quiz-resultado {
-
   text-align: center;
 
   padding: 2rem 0;
 }
 
 .quiz-resultado h2 {
-
-  color:
-    var(--cor-curso, #135F7D);
+  color: var(--cor-curso, #135f7d);
 
   font-size: 2.5rem;
 }
 
 .pontuacao-final {
-
   font-size: 1.3rem;
 
   margin: 1.5rem 0 2rem;
@@ -456,13 +399,10 @@ function classeOpcao(indexOpcao) {
   color: #444;
 }
 
-
 /* RESPONSIVO */
 
 @media (max-width: 600px) {
-
   .quiz {
-
     padding: 1.4rem;
 
     border-radius: 18px;
@@ -477,7 +417,6 @@ function classeOpcao(indexOpcao) {
   }
 
   .opcao {
-
     padding: 14px;
 
     font-size: 1rem;
@@ -491,6 +430,5 @@ function classeOpcao(indexOpcao) {
     width: 100%;
     min-width: 0;
   }
-
 }
 </style>

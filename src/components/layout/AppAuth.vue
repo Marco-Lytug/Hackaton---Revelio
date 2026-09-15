@@ -100,7 +100,9 @@ function handleFormSubmit(payload) {
   cursor: pointer;
   transition: color 0.3s ease;
 }
-.tab-btn.active { color: var(--ink); }
+.tab-btn.active {
+  color: var(--ink);
+}
 
 .tab-indicator {
   position: absolute;
@@ -110,18 +112,32 @@ function handleFormSubmit(payload) {
   background: var(--accent);
   transition: transform 0.3s ease;
 }
-.tab-indicator.login { transform: translateX(0); }
-.tab-indicator.cadastro { transform: translateX(100%); }
+.tab-indicator.login {
+  transform: translateX(0);
+}
+.tab-indicator.cadastro {
+  transform: translateX(100%);
+}
 
 /* Transição entre os dois formulários */
 .swap-enter-active,
 .swap-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
-.swap-enter-from { opacity: 0; transform: translateY(6px); }
-.swap-leave-to { opacity: 0; transform: translateY(-6px); }
+.swap-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.swap-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  * {
+    transition: none !important;
+  }
 }
 </style>

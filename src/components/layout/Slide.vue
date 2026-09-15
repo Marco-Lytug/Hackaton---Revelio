@@ -1,15 +1,12 @@
-<script>
-
-</script>
+<script></script>
 
 <template>
-<div class="slide">
-        <slot />
-</div>
+  <div class="slide">
+    <slot />
+  </div>
 </template>
 
 <style scoped>
-
 .slide {
   animation: passar 0.5s ease;
 }
@@ -24,11 +21,10 @@
     transform: translateX(0);
   }
 }
-.slide{
-    width: 100%;
+.slide {
+  width: 100%;
 }
-.slide{
-    min-height:320px;
+.slide {
+  min-height: 320px;
 }
-
 </style>

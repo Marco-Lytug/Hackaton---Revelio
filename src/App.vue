@@ -1,15 +1,12 @@
 <script setup>
 import { RouterView } from 'vue-router'
-
 </script>
 
 <template>
   <div>
     <main>
       <RouterView />
-
     </main>
-
   </div>
 </template>
 
@@ -23,5 +20,4 @@ import { RouterView } from 'vue-router'
 main {
   flex: 1 1 auto;
 }
-
 </style>

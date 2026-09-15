@@ -4,18 +4,13 @@ import { ref, computed } from 'vue'
 
 const CHAVE_STORAGE = 'videosAssistidos_quimica'
 
-const videosAssistidos = ref(
-  JSON.parse(localStorage.getItem(CHAVE_STORAGE)) || []
-)
+const videosAssistidos = ref(JSON.parse(localStorage.getItem(CHAVE_STORAGE)) || [])
 
 const marcarComoAssistido = (numero) => {
   if (!videosAssistidos.value.includes(numero)) {
     videosAssistidos.value.push(numero)
 
-    localStorage.setItem(
-      CHAVE_STORAGE,
-      JSON.stringify(videosAssistidos.value)
-    )
+    localStorage.setItem(CHAVE_STORAGE, JSON.stringify(videosAssistidos.value))
   }
 }
 
@@ -25,89 +20,49 @@ const progresso = computed(() => {
 </script>
 
 <template>
-
   <div class="flecha">
-    <RouterLink to="/cursos">
-      <fa icon="arrow-left" /> Voltar
-    </RouterLink>
+    <RouterLink to="/cursos"> <fa icon="arrow-left" /> Voltar </RouterLink>
   </div>
 
   <section class="principal">
-
     <div class="progresso-container">
-
       <div class="progresso-info">
         <span>Progresso do curso</span>
         <span>{{ progresso }}%</span>
       </div>
 
       <div class="barra">
-        <div
-          class="barra-preenchida"
-          :style="{ width: progresso + '%' }"
-        ></div>
+        <div class="barra-preenchida" :style="{ width: progresso + '%' }"></div>
       </div>
 
-      <p>
-        {{ videosAssistidos.length }} de 4 vídeos concluídos
-      </p>
-
+      <p>{{ videosAssistidos.length }} de 4 vídeos concluídos</p>
     </div>
-
 
     <div class="video-container">
+      <div class="video">
+        <h3></h3>
+        <video controls src="/public/videos/quimi1.mp4" @ended="marcarComoAssistido(1)"></video>
+      </div>
 
       <div class="video">
         <h3></h3>
-        <video
-          controls
-          src="/public/videos/quimi1.mp4"
-          @ended="marcarComoAssistido(1)"
-        ></video>
-
+        <video controls src="/public/videos/quimi2.mp4" @ended="marcarComoAssistido(2)"></video>
       </div>
-
 
       <div class="video">
         <h3></h3>
-        <video
-          controls
-          src="/public/videos/quimi2.mp4"
-          @ended="marcarComoAssistido(2)"
-        ></video>
-
+        <video controls src="#" @ended="marcarComoAssistido(3)"></video>
       </div>
-
 
       <div class="video">
         <h3></h3>
-        <video
-          controls
-          src="#"
-          @ended="marcarComoAssistido(3)"
-        ></video>
-
+        <video controls src="#" @ended="marcarComoAssistido(4)"></video>
       </div>
-
-
-      <div class="video">
-        <h3></h3>
-        <video
-          controls
-          src="#"
-          @ended="marcarComoAssistido(4)"
-        ></video>
-
-      </div>
-
     </div>
-
   </section>
-
 </template>
 
 <style scoped>
-
 .flecha {
   position: absolute;
   top: 5rem;
@@ -132,8 +87,13 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #135F7D;
-  background: linear-gradient(152deg, rgba(19, 95, 125, 1) 0%, rgba(130, 185, 207, 1) 50%, rgba(255, 255, 255, 1) 100%);
+  background: #135f7d;
+  background: linear-gradient(
+    152deg,
+    rgba(19, 95, 125, 1) 0%,
+    rgba(130, 185, 207, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
   padding: 2vw 4vw 2vw 4vw;
   border-radius: 15px;
   border: 2px solid #000000;
@@ -207,5 +167,4 @@ a {
     grid-template-columns: 1fr;
   }
 }
-
 </style>

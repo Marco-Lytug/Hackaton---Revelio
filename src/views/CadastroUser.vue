@@ -120,7 +120,9 @@ function handleSubmit() {
   color: var(--ink);
   background: var(--surface);
   border: 1px solid var(--border);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .field input:focus-visible {
   outline: none;
@@ -134,8 +136,14 @@ function handleSubmit() {
   padding: 0.55rem 0.7rem;
   border-left: 3px solid currentColor;
 }
-.feedback.success { color: #166534; background: #eefaf1; }
-.feedback.error { color: #991b1b; background: #fdecec; }
+.feedback.success {
+  color: #166534;
+  background: #eefaf1;
+}
+.feedback.error {
+  color: #991b1b;
+  background: #fdecec;
+}
 
 .submit-btn {
   margin-top: 0.4rem;
@@ -148,8 +156,12 @@ function handleSubmit() {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.submit-btn:hover { filter: brightness(1.08); }
-.submit-btn:active { filter: brightness(0.96); }
+.submit-btn:hover {
+  filter: brightness(1.08);
+}
+.submit-btn:active {
+  filter: brightness(0.96);
+}
 
 .switch-line {
   margin: 0.2rem 0 0;
@@ -168,5 +180,7 @@ function handleSubmit() {
   cursor: pointer;
   transition: color 0.3s ease;
 }
-.switch-link:hover { text-decoration: underline; }
+.switch-link:hover {
+  text-decoration: underline;
+}
 </style>

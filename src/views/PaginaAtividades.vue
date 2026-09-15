@@ -5,18 +5,17 @@ import { quizzesAgro } from '@/Data/quizAgro.js'
 import { quizzesQuimi } from '@/Data/quizQuimi.js'
 
 const quizzesInformatica = {
-  ...quizzesInfo
+  ...quizzesInfo,
 }
 const quizzesAgropecuaria = {
-  ...quizzesAgro
+  ...quizzesAgro,
 }
 const quizzesQuimica = {
-  ...quizzesQuimi
+  ...quizzesQuimi,
 }
 
 function irPara(secao) {
-  const elemento = 
-  document.getElementById(secao)
+  const elemento = document.getElementById(secao)
   if (elemento) {
     elemento.scrollIntoView({
       behavior: 'smooth',
@@ -24,7 +23,6 @@ function irPara(secao) {
     })
   }
 }
-
 </script>
 
 <template>
@@ -35,74 +33,63 @@ function irPara(secao) {
   <section class="banner">
     <div>
       <h1>
-        Aqui, você acha <br> atividades diversificadas <br> sobre suas matérias.
+        Aqui, você acha <br />
+        atividades diversificadas <br />
+        sobre suas matérias.
       </h1>
       <h3><span>Revelio</span> te ajuda a testar seus conhecimentos!</h3>
 
       <div>
-        <button
-        class="botao"
-        @click="irPara('consulta-cursos')">
-          Ver Quizzes
-        </button>
+        <button class="botao" @click="irPara('consulta-cursos')">Ver Quizzes</button>
       </div>
     </div>
   </section>
   <section class="apresentacao">
-    <h3>Seu espaço para aprender sem complicação.
-Aqui você encontra atividades, quizzes e testes pensados 
-para ajudar nos estudos dos cursos técnicos em Informática, Química e Agropecuária. 
-Tudo de forma simples, prática e acessível, para revisar conteúdos, testar conhecimentos
- e ganhar mais confiança no aprendizado, no seu ritmo e quando precisar.</h3>
+    <h3>
+      Seu espaço para aprender sem complicação. Aqui você encontra atividades, quizzes e testes
+      pensados para ajudar nos estudos dos cursos técnicos em Informática, Química e Agropecuária.
+      Tudo de forma simples, prática e acessível, para revisar conteúdos, testar conhecimentos e
+      ganhar mais confiança no aprendizado, no seu ritmo e quando precisar.
+    </h3>
 
- <a class="botao-aprender"
- href="#consulta-cursos">
- Quero Aprender!
-</a>
+    <a class="botao-aprender" href="#consulta-cursos"> Quero Aprender! </a>
   </section>
-  <section id="consulta-cursos"
-  class="consulta-cursos">
-  <h2>
-    Consulta por curso técnico
-  </h2>
-  <div class="linha-titulo"></div>
+  <section id="consulta-cursos" class="consulta-cursos">
+    <h2>Consulta por curso técnico</h2>
+    <div class="linha-titulo"></div>
     <div class="cards-cursos">
+      <a href="#quizzes-info" class="card-curso">
+        <img src="/images/iconinfo.png" alt="Informática" />
 
-    <a href="#quizzes-info" class="card-curso">
-      <img src="/images/iconinfo.png" alt="Informática">
+        <h3>Informática</h3>
+        <p>Quizzes e atividades</p>
+      </a>
 
-      <h3>Informática</h3>
-      <p>Quizzes e atividades</p>
-    </a>
+      <a href="#quizzes-agro" class="card-curso">
+        <img src="/images/iconagro.png" alt="Agropecuária" />
 
-    <a href="#quizzes-agro" class="card-curso">
-      <img src="/images/iconagro.png" alt="Agropecuária">
+        <h3>Agropecuária</h3>
+        <p>Quizzes e atividades</p>
+      </a>
 
-      <h3>Agropecuária</h3>
-      <p>Quizzes e atividades</p>
-    </a>
-
-    <a href="#quizzes-quimica" class="card-curso">
-      <img src="/images/iconquimi.png" alt="Química">
-    <h3>Química</h3>
-      <p>Quizzes e atividades</p>
-    </a>
-  </div>
+      <a href="#quizzes-quimica" class="card-curso">
+        <img src="/images/iconquimi.png" alt="Química" />
+        <h3>Química</h3>
+        <p>Quizzes e atividades</p>
+      </a>
+    </div>
   </section>
 
   <section class="titulo tema-info" id="quizzes-info">
     <div>
-      <h3>
-        Quizzes de Informática
-      </h3>
+      <h3>Quizzes de Informática</h3>
       <p>
         Teste seus conhecimentos com os quizzes voltados para o curso de Informática do IFC Araquari
       </p>
     </div>
   </section>
 
-  <section class="secao-quizzes
-  tema-info">
+  <section class="secao-quizzes tema-info">
     <div v-for="categoria in quizzesInformatica" :key="categoria.ano" class="bloco-categoria">
       <h4>{{ categoria.nome }}</h4>
       <div class="grid-cards">
@@ -110,15 +97,16 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
           <h5>{{ quiz.titulo }}</h5>
           <p>{{ quiz.descricao }}</p>
           <RouterLink
-          :to="{
-            name: 'quiz',
-            params: {
-              curso: 'informatica',
-              ano: categoria.ano,
-              id: quiz.id
-            }
-          }"
-          class="btn-acessar">
+            :to="{
+              name: 'quiz',
+              params: {
+                curso: 'informatica',
+                ano: categoria.ano,
+                id: quiz.id,
+              },
+            }"
+            class="btn-acessar"
+          >
             Fazer Quiz
           </RouterLink>
         </div>
@@ -128,122 +116,99 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
   <section class="titulo tema-agro" id="quizzes-agro">
     <div>
-      <h3>
-        Quizzes de Agropecuária
-      </h3>
+      <h3>Quizzes de Agropecuária</h3>
       <p>
-        Teste seus conhecimentos com os quizzes voltados para o curso de Agropecuária do IFC Araquari
+        Teste seus conhecimentos com os quizzes voltados para o curso de Agropecuária do IFC
+        Araquari
       </p>
     </div>
   </section>
 
-  <section class="secao-quizzes
-  tema-agro">
-  <div
-    v-for="categoria in quizzesAgropecuaria"
-    :key="categoria.ano"
-    class="bloco-categoria"
-  >
-    <h4>{{ categoria.nome }}</h4>
+  <section class="secao-quizzes tema-agro">
+    <div v-for="categoria in quizzesAgropecuaria" :key="categoria.ano" class="bloco-categoria">
+      <h4>{{ categoria.nome }}</h4>
 
-    <div class="grid-cards">
-      <div
-        v-for="quiz in categoria.quizzes"
-        :key="quiz.id"
-        class="card-quiz"
-      >
-        <h5>{{ quiz.titulo }}</h5>
-        <p>{{ quiz.descricao }}</p>
+      <div class="grid-cards">
+        <div v-for="quiz in categoria.quizzes" :key="quiz.id" class="card-quiz">
+          <h5>{{ quiz.titulo }}</h5>
+          <p>{{ quiz.descricao }}</p>
 
-        <RouterLink
-          :to="{
-            name: 'quiz',
-            params: {
-              curso: 'agropecuaria',
-              ano: categoria.ano,
-              id: quiz.id
-            }
-          }"
-          class="btn-acessar"
-        >
-          Fazer Quiz
-        </RouterLink>
+          <RouterLink
+            :to="{
+              name: 'quiz',
+              params: {
+                curso: 'agropecuaria',
+                ano: categoria.ano,
+                id: quiz.id,
+              },
+            }"
+            class="btn-acessar"
+          >
+            Fazer Quiz
+          </RouterLink>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="titulo tema-quimica" id="quizzes-quimi">
     <div>
-      <h3>
-        Quizzes de Química
-      </h3>
+      <h3>Quizzes de Química</h3>
       <p>
- Teste seus conhecimentos com os quizzes voltados para o curso de Química do IFC Araquari
+        Teste seus conhecimentos com os quizzes voltados para o curso de Química do IFC Araquari
       </p>
     </div>
   </section>
 
-  <section class="secao-quizzes
-  tema-quimica ultima-secao">
-  <div
-    v-for="categoria in quizzesQuimica"
-    :key="categoria.ano"
-    class="bloco-categoria"
-  >
-    <h4>{{ categoria.nome }}</h4>
+  <section class="secao-quizzes tema-quimica ultima-secao">
+    <div v-for="categoria in quizzesQuimica" :key="categoria.ano" class="bloco-categoria">
+      <h4>{{ categoria.nome }}</h4>
 
-    <div class="grid-cards">
-      <div
-        v-for="quiz in categoria.quizzes"
-        :key="quiz.id"
-        class="card-quiz"
-      >
-        <h5>{{ quiz.titulo }}</h5>
-        <p>{{ quiz.descricao }}</p>
+      <div class="grid-cards">
+        <div v-for="quiz in categoria.quizzes" :key="quiz.id" class="card-quiz">
+          <h5>{{ quiz.titulo }}</h5>
+          <p>{{ quiz.descricao }}</p>
 
-        <RouterLink
-          :to="{
-            name: 'quiz',
-            params: {
-              curso: 'quimica',
-              ano: categoria.ano,
-              id: quiz.id
-            }
-          }"
-          class="btn-acessar"
-        >
-          Fazer Quiz
-        </RouterLink>
+          <RouterLink
+            :to="{
+              name: 'quiz',
+              params: {
+                curso: 'quimica',
+                ano: categoria.ano,
+                id: quiz.id,
+              },
+            }"
+            class="btn-acessar"
+          >
+            Fazer Quiz
+          </RouterLink>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 </template>
 
 <style scoped>
-
 .titulo p {
   margin: 3vw;
   font-size: 2.3rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: #555555;
 }
 
 .titulo h3 {
   font-size: 3.5rem;
-  color: #135F7D;
-  font-family: "Josefin Sans", sans-serif;
+  color: #135f7d;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 3vw;
 }
 
 .titulo h3::after {
-  content: "";
+  content: '';
   display: flex;
   width: 700px;
   height: 3px;
-  background: #135F7D;
+  background: #135f7d;
   border-radius: 20px;
 }
 
@@ -269,7 +234,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   z-index: 1;
   font-size: 4rem;
   padding: 2vw;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-left: 3vw;
   position: relative;
 }
@@ -279,7 +244,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   z-index: 1;
   font-size: 2.2rem;
   padding: 0 2vw;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-left: 3vw;
   position: relative;
 }
@@ -290,9 +255,9 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
 .banner .botao {
   color: white;
-  background-color: #135F7D;
+  background-color: #135f7d;
   border-radius: 20px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 2.2rem;
   padding: 15px 25px;
   cursor: pointer;
@@ -312,32 +277,31 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 /* CORES DOS CURSOS */
 
 .tema-info {
-  --cor-curso: #135F7D;
+  --cor-curso: #135f7d;
   --cor-hover: #1a92c2;
 }
 
 .tema-agro {
-  --cor-curso: #2E7D32;
-  --cor-hover: #43A047;
+  --cor-curso: #2e7d32;
+  --cor-hover: #43a047;
 }
 
 .tema-quimica {
   --cor-curso: #c20044;
-  --cor-hover: #FF0D62;
+  --cor-hover: #ff0d62;
 }
-
 
 /* TÍTULOS */
 
 .titulo h3 {
   font-size: 3.5rem;
   color: var(--cor-curso);
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 3vw;
 }
 
 .titulo h3::after {
-  content: "";
+  content: '';
   display: block;
   width: 700px;
   max-width: 100%;
@@ -350,10 +314,9 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 .titulo p {
   margin: 3vw;
   font-size: 2.3rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: #555555;
 }
-
 
 /* ÁREA DOS QUIZZES */
 
@@ -370,25 +333,22 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 .bloco-categoria h4 {
   font-size: 2.2rem;
   color: var(--cor-curso);
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 25px 0;
 }
-
 
 /* GRID CENTRALIZADO */
 
 .grid-cards {
   display: grid;
 
-  grid-template-columns:
-    repeat(auto-fit, minmax(260px, 320px));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
 
   justify-content: center;
 
   gap: 25px;
   width: 100%;
 }
-
 
 /* CARD */
 
@@ -417,15 +377,14 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 .card-quiz:hover {
   transform: translateY(-6px);
 
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
 }
 
 .card-quiz h5 {
   font-size: 1.8rem;
   color: var(--cor-curso);
 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 
   margin: 0 0 1rem;
 }
@@ -438,11 +397,10 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
   margin-bottom: 1.5rem;
 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 
   flex: 1;
 }
-
 
 /* BOTÃO */
 
@@ -451,7 +409,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
   color: white;
 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.3rem;
 
   padding: 13px 18px;
@@ -473,7 +431,6 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   transform: translateY(-2px);
 }
 
-
 .apresentacao {
   padding: 5vw;
   display: flex;
@@ -482,7 +439,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 }
 
 .apresentacao h3 {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.5rem;
   margin-top: 30px;
   margin-right: 60px;
@@ -490,12 +447,12 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 
 .botao-aprender {
   margin-top: 30px;
-  background-color: #135F7D;
+  background-color: #135f7d;
   color: white;
   padding: 14px 30px;
   border-radius: 25px;
   font-size: 1.5rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
   transition: 0.3s ease;
 }
@@ -513,8 +470,8 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 }
 
 .consulta-cursos h2 {
-  font-family: "Josefin Sans", sans-serif;
-  color: #135F7D;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #135f7d;
   font-size: 3rem;
   font-weight: 500;
 }
@@ -522,7 +479,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 .linha-titulo {
   width: 55%;
   height: 2px;
-  background-color: #135F7D;
+  background-color: #135f7d;
   margin: 25px auto 50px;
 }
 
@@ -557,15 +514,15 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
 }
 
 .card-curso h3 {
-  color: #135F7D;
-  font-family: "Josefin Sans", sans-serif;
+  color: #135f7d;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.6rem;
   margin-top: 15px;
 }
 
 .card-curso p {
   color: #555;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.2rem;
 }
 
@@ -599,7 +556,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   .linha-titulo {
     width: 80%;
   }
-    .ultima-secao {
+  .ultima-secao {
     padding-bottom: 200px;
   }
 }
