@@ -1,4 +1,8 @@
+<script setup> 
+import appHeader from '../components/layout/AppHeader.vue'
+</script>
 <template>
+  <appHeader></appHeader>
   <div class="sobre">
 
     <section class="titulo">

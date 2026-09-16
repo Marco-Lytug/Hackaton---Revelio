@@ -1,11 +1,5 @@
 @import './base.css';
 
-@view-transition{
-  navigation: auto
-}
-::view-transition-old(:root){
-  animation-duration: 1s;
-}
 
 #app {
   font-weight: normal;
