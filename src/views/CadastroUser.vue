@@ -1,119 +1,158 @@
 <template>
-  <form class="auth-form" @submit.prevent="handleSubmit">
-    <div class="field">
+  <form class="formulario-autenticacao" @submit.prevent="enviarFormulario">
+    <div class="campo">
       <label for="cad-nome">Nome completo</label>
       <input
         id="cad-nome"
-        v-model.trim="form.nome"
+        v-model.trim="formulario.nome"
         type="text"
         autocomplete="name"
         placeholder="Seu nome"
         required
+        :disabled="carregando"
       />
     </div>
 
-    <div class="field">
+    <div class="campo">
       <label for="cad-email">E-mail</label>
       <input
         id="cad-email"
-        v-model.trim="form.email"
+        v-model.trim="formulario.email"
         type="email"
         autocomplete="email"
         placeholder="voce@exemplo.com"
         required
+        :disabled="carregando"
       />
     </div>
 
-    <div class="field-row">
-      <div class="field">
+    <div class="linha-campos">
+      <div class="campo">
         <label for="cad-senha">Senha</label>
         <input
           id="cad-senha"
-          v-model="form.senha"
+          v-model="formulario.senha"
           type="password"
           autocomplete="new-password"
           placeholder="••••••••"
           required
           minlength="6"
+          :disabled="carregando"
         />
       </div>
 
-      <div class="field">
+      <div class="campo">
         <label for="cad-confirmar">Confirmar senha</label>
         <input
           id="cad-confirmar"
-          v-model="form.confirmar"
+          v-model="formulario.confirmar"
           type="password"
           autocomplete="new-password"
           placeholder="••••••••"
           required
           minlength="6"
+          :disabled="carregando"
         />
       </div>
     </div>
 
-    <p v-if="feedback" class="feedback" :class="feedback.type">{{ feedback.message }}</p>
+    <p v-if="respostaFeedback" class="retorno-feedback" :class="respostaFeedback.tipo">
+      {{ respostaFeedback.mensagem }}
+    </p>
 
-    <button type="submit" class="submit-btn">Criar conta</button>
+    <button type="submit" class="botao-enviar" :disabled="carregando">
+      {{ carregando ? 'Criando conta...' : 'Criar conta' }}
+    </button>
 
-    <p class="switch-line">
+    <p class="linha-alternar">
       Já tem conta?
-      <button type="button" class="switch-link" @click="$emit('switch-tab')">Entrar</button>
+      <button type="button" class="link-alternar" :disabled="carregando" @click="$emit('switch-tab')">
+        Entrar
+      </button>
     </p>
   </form>
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
+import { conexaoSupabase } from '@/supabase' // Conexão com o Supabase
 
-const emit = defineEmits(['switch-tab', 'submit'])
+defineEmits(['switch-tab', 'submit'])
 
-const form = reactive({ nome: '', email: '', senha: '', confirmar: '' })
-const feedback = ref(null)
+const formulario = reactive({ nome: '', email: '', senha: '', confirmar: '' })
+const respostaFeedback = ref(null)
+const carregando = ref(false)
 
-function handleSubmit() {
-  if (form.senha !== form.confirmar) {
-    feedback.value = { type: 'error', message: 'As senhas não coincidem.' }
+async function enviarFormulario() {
+  respostaFeedback.value = null
+
+  if (formulario.senha !== formulario.confirmar) {
+    respostaFeedback.value = { tipo: 'erro', mensagem: 'As senhas não coincidem.' }
     return
   }
 
-  // Sem chamadas HTTP: apenas simula o cadastro localmente.
-  console.info('[Cadastro] nova conta simulada', { nome: form.nome, email: form.email })
+  carregando.value = true
 
-  feedback.value = { type: 'success', message: `Cadastro simulado para ${form.nome}.` }
-  window.alert(`Cadastro realizado (simulação)\nNome: ${form.nome}\nE-mail: ${form.email}`)
+  // Cadastro em tempo real no Supabase
+  const { data, error } = await conexaoSupabase.auth.signUp({
+    email: formulario.email,
+    password: formulario.senha,
+    options: {
+      data: {
+        full_name: formulario.nome
+      }
+    }
+  })
 
-  emit('submit', { nome: form.nome, email: form.email, senha: form.senha })
+  carregando.value = false
+
+  if (error) {
+    respostaFeedback.value = { tipo: 'erro', mensagem: error.message }
+    return
+  }
+
+  respostaFeedback.value = { 
+    tipo: 'sucesso', 
+    mensagem: 'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar a conta.' 
+  }
+  
+  window.alert(`Cadastro realizado!\nNome: ${formulario.nome}\nPor favor, confirme a conta no seu e-mail antes de fazer o login.`)
+
+  // Limpa o formulário após o sucesso
+  formulario.nome = ''
+  formulario.email = ''
+  formulario.senha = ''
+  formulario.confirmar = ''
 }
 </script>
 
 <style scoped>
-.auth-form {
+.formulario-autenticacao {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
-.field-row {
+.linha-campos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.9rem;
 }
 
-.field {
+.campo {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.field label {
+.campo label {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--muted);
 }
 
-.field input {
+.campo input {
   padding: 0.65rem 0.8rem;
   font-size: 0.92rem;
   font-family: inherit;
@@ -124,28 +163,32 @@ function handleSubmit() {
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
-.field input:focus-visible {
+.campo input:focus-visible {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+.campo input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
 
-.feedback {
+.retorno-feedback {
   margin: -0.3rem 0 0;
   font-size: 0.84rem;
   padding: 0.55rem 0.7rem;
   border-left: 3px solid currentColor;
 }
-.feedback.success {
+.retorno-feedback.sucesso {
   color: #166534;
   background: #eefaf1;
 }
-.feedback.error {
+.retorno-feedback.erro {
   color: #991b1b;
   background: #fdecec;
 }
 
-.submit-btn {
+.botao-enviar {
   margin-top: 0.4rem;
   padding: 0.8rem 1rem;
   font-size: 0.95rem;
@@ -156,21 +199,27 @@ function handleSubmit() {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.submit-btn:hover {
+.botao-enviar:hover:not(:disabled) {
   filter: brightness(1.08);
 }
-.submit-btn:active {
+.botao-enviar:active:not(:disabled) {
   filter: brightness(0.96);
 }
+.botao-enviar:disabled {
+  background: #cbd5e1;
+  border-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
 
-.switch-line {
+.linha-alternar {
   margin: 0.2rem 0 0;
   font-size: 0.85rem;
   color: var(--muted);
   text-align: center;
 }
 
-.switch-link {
+.link-alternar {
   background: none;
   border: none;
   padding: 0;
@@ -180,7 +229,11 @@ function handleSubmit() {
   cursor: pointer;
   transition: color 0.3s ease;
 }
-.switch-link:hover {
+.link-alternar:hover:not(:disabled) {
   text-decoration: underline;
+}
+.link-alternar:disabled {
+  color: #94a3b8;
+  cursor: not-allowed;
 }
 </style>
