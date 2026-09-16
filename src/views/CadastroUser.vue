@@ -75,7 +75,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { conexaoSupabase } from '@/supabase' // Conexão com o Supabase
+import { conexaoSupabase } from '@/supabase'
 
 defineEmits(['switch-tab', 'submit'])
 
@@ -93,7 +93,6 @@ async function enviarFormulario() {
 
   carregando.value = true
 
-  // Cadastro em tempo real no Supabase
   const { data, error } = await conexaoSupabase.auth.signUp({
     email: formulario.email,
     password: formulario.senha,
