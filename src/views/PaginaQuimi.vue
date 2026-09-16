@@ -13,28 +13,40 @@ import AppHeader from '../components/layout/AppHeader.vue'
 
 defineEmits(['fechar'])
 
-const listaSalva = localStorage.getItem('livro')
-//COLOCAR LINK NOS LIVROS DE REFERENCIAS
-// AJEITAR TAMANHO DOS CARDS
-//COLOCAR ACTIVE NOS HOVER FF0D62
+const usuario = localStorage.getItem('usuarioRevelio')
+
+const listaSalva = usuario
+  ? localStorage.getItem('livro')
+  : null
 
 const listaFav = ref(
   listaSalva ? JSON.parse(listaSalva) : []
 )
-function LivroFavoritado (livro) {
-   const indice = listaFav.value.findIndex(item => item.id === livro.id)
-  if (indice !== -1) {
-   mostrarAlerta.value  = true
+
+function LivroFavoritado(livro) {
+
+  const usuario = localStorage.getItem('usuarioRevelio')
+
+  if (!usuario) {
+    mostrarUsuario.value = true
     return
   }
+
+  const indice = listaFav.value.findIndex(
+    item => item.id === livro.id
+  )
+
+  if (indice !== -1) {
+    mostrarAlerta.value = true
+    return
+  }
+
   listaFav.value.push(livro)
-   localStorage.setItem(
+  localStorage.setItem(
     'livro',
     JSON.stringify(listaFav.value)
   )
 }
-//setItem converter em string e getItem string em objeto
-
 function removerLivro(id) {
   const indice = listaFav.value.findIndex(livros => livros.id === id)
   if (indice !== -1) {
@@ -64,6 +76,7 @@ const mostrarLivros = ref(false)
 const mostrarLivros2 = ref(false)
 const mostrarLivros3 = ref(false)
 const mostrarAlerta = ref(false)
+const mostrarUsuario = ref(false)
 
 const TodosOsLivros = [
  ...livros1AnoQuimi,
@@ -526,6 +539,18 @@ const slidesAutores = computed(() => {
     <p > Você já favoritou esse livro!</p>
 
     <ButtonChild id="alerta" @clique="mostrarAlerta = false">
+      Fechar
+    </ButtonChild>
+
+
+  </div>
+  </Transition>
+
+   <Transition name="alerta">
+      <div v-if="mostrarUsuario" class="alerta-favorito" >
+    <p >Faça seu cadastro para favoritar esse livro!</p>
+
+    <ButtonChild id="alerta" @clique="mostrarUsuario = false">
       Fechar
     </ButtonChild>
 
@@ -1285,6 +1310,39 @@ a:hover{
 
 
 @media (max-width: 732px) {
+  .alerta-favorito {
+    position: fixed;
+    top: 10%;
+    right: 1%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 200px;
+    z-index: 9999;
+
+  }
+
+  .alerta-favorito p {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    color: #135F7D;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  #alerta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 3px;
+    border-radius: 6px;
+    background-color: #135F7D;
+    color: white;
+    font-size: 0.8rem;
+  }
+
  
   #fef{
     font-size: 1rem;
