@@ -75,6 +75,21 @@ const abrirLivros = ref(false)
         <li>
           <RouterLink to="/login">Login</RouterLink>
         </li>
+        <li> <RouterLink to="/perfilUser" class="icone-perfil">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+      <path d="M17.925 20.056a6 6 0 0 0-11.851.001"/>
+      <circle cx="12" cy="11" r="4"/>
+      <circle cx="12" cy="12" r="10"/>
+                </svg>
+              </RouterLink></li>
       </ul>
     </nav>
 
@@ -113,6 +128,24 @@ const abrirLivros = ref(false)
 
             <li>
               <RouterLink to="/login">Login</RouterLink>
+            </li>
+
+            <li>
+              <RouterLink to="/perfilUser" class="icone-perfil">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+      <path d="M17.925 20.056a6 6 0 0 0-11.851.001"/>
+      <circle cx="12" cy="11" r="4"/>
+      <circle cx="12" cy="12" r="10"/>
+                </svg>
+              </RouterLink>
             </li>
           </ul>
         </div>
@@ -296,6 +329,19 @@ a:hover {
   color: white;
   cursor: pointer;
 }
+
+.icone-perfil {
+  color:#3790b3;
+  display: flex;
+  align-items: center;
+}
+
+.icone-perfil svg {
+  width: 35px;
+  height: 35px;
+
+}
+
 @media (max-width: 732px) {
   ul .abriu {
     animation: abrir 0.3s ease;

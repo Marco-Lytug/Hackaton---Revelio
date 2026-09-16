@@ -69,7 +69,16 @@ const router = createRouter({
     },
     {
   path: '/perfilUser',
-  component: PerfilUser
+  component: PerfilUser,
+   beforeEnter: () => {
+    const usuario = localStorage.getItem('usuarioRevelio')
+
+    if (!usuario) {
+      return '/Login'
+    }
+
+    return true
+  }
     },
     {
       path:'/Login',
