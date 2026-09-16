@@ -14,7 +14,7 @@ library.add(faArrowLeft)
 
 const app = createApp(App)
 
-app.component('fa', FontAwesomeIcon)
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 
