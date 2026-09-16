@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import { conexaoSupabase } from '@/supabase'
 import HomeView from '@/components/layout/HomeView.vue'
 import PaginaAgro from '@/views/PaginaAgro.vue'
 import PaginaQuimi from '@/views/PaginaQuimi.vue'
@@ -81,3 +81,18 @@ const router = createRouter({
 })
 
 export default router
+// Redireciona para o cadastro/login antes de entrar na Home, a menos que:
+// se a pessoa já tenha uma sessão real no Supabase (já é usuária), ou
+// se a pessoa já tenha optado por pular o cadastro antes (marca no navegador)
+router.beforeEach(async (to) => {
+  if (to.path !== '/') return true
+
+  const { data } = await conexaoSupabase.auth.getSession()
+  const cadastroPulado = localStorage.getItem('cadastroPulado')
+
+  if (!data.session && !cadastroPulado) {
+    return { path: '/Login', query: { tab: 'register' } }
+  }
+
+  return true
+})
