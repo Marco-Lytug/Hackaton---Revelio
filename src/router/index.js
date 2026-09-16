@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '@/components/layout/HomeView.vue'
 import PaginaAgro from '@/views/PaginaAgro.vue'
+import LoginUser from '@/views/LoginUser.vue'
 import PaginaQuimi from '@/views/PaginaQuimi.vue'
 import PaginaInfo from '@/views/PaginaInfo.vue'
 import PaginaAtividades from '@/views/PaginaAtividades.vue'
@@ -11,6 +12,7 @@ import CursoInfo from '@/views/CursoInfo.vue'
 import CursoAgro from '@/views/CursoAgro.vue'
 import CursoQuimi from '@/views/CursoQuimi.vue'
 import SobreNos from '@/views/SobreNos.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,10 +61,14 @@ const router = createRouter({
     {
           path: '/cursoQuimi',
       component: CursoQuimi
-
+    },
     {
       path: '/sobre',
       component: SobreNos
+    },
+    {
+      path:'/Login',
+      component: LoginUser
     }
 
   ],
