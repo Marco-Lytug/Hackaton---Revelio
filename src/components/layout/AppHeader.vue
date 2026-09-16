@@ -2,6 +2,10 @@
 import { RouterLink } from 'vue-router'
 import { ref, onMounted, onUnmounted } from 'vue'
 import ButtonChild from './ButtonChild.vue'
+
+const usuario = ref(
+  JSON.parse(localStorage.getItem('usuarioRevelio')) || {}
+)
 const isHidden = ref(false)
 const isTop = ref(true)
 const lastScrollY = ref(0)
@@ -75,21 +79,33 @@ const abrirLivros = ref(false)
         <li>
           <RouterLink to="/login">Login</RouterLink>
         </li>
-        <li> <RouterLink to="/perfilUser" class="icone-perfil">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
+        <li><RouterLink to="/perfilUser" class="link-perfil">
+  <div class="icone-perfil">
+    <img
+      v-if="usuario?.foto"
+      :src="usuario.foto"
+      alt="Foto de perfil"
+    >
+
+    <svg
+      v-else
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
       <path d="M17.925 20.056a6 6 0 0 0-11.851.001"/>
       <circle cx="12" cy="11" r="4"/>
       <circle cx="12" cy="12" r="10"/>
-                </svg>
-              </RouterLink></li>
+    </svg>
+  </div>
+</RouterLink>
+</li>
       </ul>
     </nav>
 
@@ -155,6 +171,32 @@ const abrirLivros = ref(false)
 </template>
 
 <style scoped>
+
+.link-perfil {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icone-perfil {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.icone-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .desktop-nav {
   display: block;
 }
