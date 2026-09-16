@@ -43,7 +43,7 @@ const abrirLivros = ref(false)
         <li><RouterLink to="/">Principal</RouterLink></li>
 
         <li class="nav-item">
-          <RouterLink class="livro" to="#">Livros</RouterLink>
+          <a class="livro">Livros</a>
 
           <ul class="mais">
             <li class="verde">
