@@ -118,7 +118,7 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
         <img src="/images/help.png" alt="">
       </div>
     </div>
-    <RouterLink to="atividade">AQUI!</RouterLink>
+    <RouterLink to="/atividades">AQUI!</RouterLink>
   </section>
   <appFooter></appFooter>
 </template>

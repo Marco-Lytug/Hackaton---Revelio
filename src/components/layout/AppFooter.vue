@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script setup>
 import { RouterLink } from 'vue-router'
 
@@ -62,9 +75,10 @@ onUnmounted(() => {
 
 .texto{
   position: absolute;
-  top: 80%;
-  color: #BCB2A0;
+  top: 75%;
+  color: black;
   display: flex;
+  font-size: 2rem;
 }
 .img{
   position: relative;
@@ -118,7 +132,7 @@ nav {
 }
 
 a{
-  color: #BCB2A0;
+  color: black;
   padding: 10px;
   font-size: 1.5rem;
   transition: 1s;

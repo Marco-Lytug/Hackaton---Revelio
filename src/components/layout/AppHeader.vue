@@ -41,7 +41,8 @@ const abrirLivros = ref(false)
     <nav class="desktop-nav">
       <ul class="principal">
         <li><RouterLink to="/">Principal</RouterLink></li>
-
+       
+        
         <li class="nav-item">
           <a class="livro">Livros</a>
 
@@ -57,9 +58,7 @@ const abrirLivros = ref(false)
             </li>
           </ul>
         </li>
-
-        <li><img src="/images/Revelio.png" /></li>
-        <li class="nav-item">
+<li class="nav-item">
           <RouterLink to="/atividades">Atividades</RouterLink>
           <ul class="mais">
             <li>
@@ -67,18 +66,13 @@ const abrirLivros = ref(false)
             </li>
           </ul>
         </li>
-        <li>
-          <RouterLink to="/extras">Extras</RouterLink>
-
-          <ul class="mais">
-            <li>
-              <RouterLink to="/sobre">Sobre nós</RouterLink>
-            </li>
-          </ul>
-        </li>
+        <li><img src="/images/Revelio.png" /></li>
+        
+            <li><RouterLink to="/sobre">Sobre Nós</RouterLink></li>
         <li>
           <RouterLink to="/login">Login</RouterLink>
         </li>
+        
         <li><RouterLink to="/perfilUser" class="link-perfil">
   <div class="icone-perfil">
     <img
