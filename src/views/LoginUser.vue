@@ -163,7 +163,7 @@ function irParaHomeSemCadastro() {
     <!-- ESQUERDA -->
     <section class="brand-side">
       <button type="button" class="back-home" @click="irParaHomeSemCadastro">
-        ← Voltar ao início
+        ← Ir para a página principal
       </button>
 
       <div class="decor decor-1"></div>
