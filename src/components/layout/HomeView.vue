@@ -7,7 +7,9 @@ import AppHeader from '../../components/layout/AppHeader.vue'
 import { livrosInfo1Ano} from '@/Data/livrosInfo.js'
 import { livrosAgro1Ano } from '@/Data/livrosAgro.js'
 import { livros1AnoQuimi } from '@/Data/livrosQuimi.js'
+import AppFooter from './AppFooter.vue'
 
+import AppPomodoro from '../AppPomodoro.vue'
 
 const mostrarDetalhes = ref(false);
 
@@ -26,6 +28,7 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
   <header>
     <AppHeader></AppHeader>
   </header>
+  <AppPomodoro></AppPomodoro>
   <section class="banner">
     <h1>Ache o fim de suas <br> preocupações aqui, na <span>Revelio</span>! </h1>
   </section>
@@ -117,6 +120,7 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
     </div>
     <RouterLink to="atividade">AQUI!</RouterLink>
   </section>
+  <appFooter></appFooter>
 </template>
 
 <style scoped>
@@ -461,9 +465,10 @@ div {
   }
 }
 
-.josefin-sans-uniquifier> {
+.josefin-sans-uniquifier{
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
+
 </style>

@@ -1,13 +1,13 @@
 <script setup>
 import { RouterView } from 'vue-router'
-
+import AppPomodoro from './components/AppPomodoro.vue';
 </script>
 
 <template>
   <div>
     <main>
       <RouterView />
-
+      <AppPomodoro></AppPomodoro>
     </main>
 
   </div>

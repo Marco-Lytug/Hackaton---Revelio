@@ -7,7 +7,7 @@ export const quizzesAgro = [
     quizzes: [
       // -----QUIZ 1-----
       {
-        id: "1-quiz-1",
+        id: "1-quiz-agro-1",
         titulo: "Mestre do Pasto: O Quiz de Zootecnia Geral",
         descricao: "Prove que você entende tudo sobre nutrição animal, melhoramento genético e o funcionamento do rebanho neste desafio prático.",
         perguntas: [

@@ -10,23 +10,40 @@ import ButtonChild from '@/components/layout/ButtonChild.vue';
 import LivroCard from '@/components/layout/livros/LivroCard.vue';
 import LivrosFavoritos from '@/components/layout/livros/LivrosFavoritos.vue';
 import AppHeader from '../components/layout/AppHeader.vue'
+import AppFooter from '../components/layout/AppFooter.vue'
+
+
 
 defineEmits(['fechar'])
 
-const listaSalva = localStorage.getItem('livro')
-//COLOCAR LINK NOS LIVROS DE REFERENCIAS
-// AJEITAR TAMANHO DOS CARDS
-//COLOCAR ACTIVE NOS HOVER
+const usuario = localStorage.getItem('usuarioRevelio')
+
+const listaSalva = usuario
+  ? localStorage.getItem('livro')
+  : null
 
 const listaFav = ref(
   listaSalva ? JSON.parse(listaSalva) : []
 )
+
 function LivroFavoritado(livro) {
-  const indice = listaFav.value.findIndex(item => item.id === livro.id)
+
+  const usuario = localStorage.getItem('usuarioRevelio')
+
+  if (!usuario) {
+    mostrarUsuario.value = true
+    return
+  }
+
+  const indice = listaFav.value.findIndex(
+    item => item.id === livro.id
+  )
+
   if (indice !== -1) {
     mostrarAlerta.value = true
     return
   }
+
   listaFav.value.push(livro)
   localStorage.setItem(
     'livro',
@@ -50,6 +67,7 @@ function removerLivro(id) {
 const quantidadeTotal = computed(() => {
   return listaFav.value.length
 })
+
 function limparLista() {
   listaFav.value.splice(0, listaFav.value.length)
   localStorage.setItem(
@@ -65,6 +83,7 @@ const mostrarLivros = ref(false)
 const mostrarLivros2 = ref(false)
 const mostrarLivros3 = ref(false)
 const mostrarAlerta = ref(false)
+const mostrarUsuario = ref(false)
 
 const TodosOsLivros = [
   ...livrosInfo1Ano,
@@ -552,9 +571,21 @@ const slidesAutores = computed(() => {
       </div>
     </Transition>
 
+     <Transition name="alerta">
+      <div v-if="mostrarUsuario" class="alerta-favorito" >
+    <p >Faça seu cadastro para favoritar esse livro!</p>
+
+    <ButtonChild id="alerta" @clique="mostrarUsuario = false">
+      Fechar
+    </ButtonChild>
+
+
+  </div>
+  </Transition>
+
 
   </section>
-
+    <appFooter></appFooter>
 </template>
 
 <style scoped>
