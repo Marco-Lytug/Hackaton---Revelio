@@ -215,380 +215,177 @@ import appHeader from '../components/layout/AppHeader.vue'
 
 
 <style scoped>
-
-.sobre {
-  width: 100vw;
-  min-height: 100vh;
-
-  margin-left: 50%;
-  transform: translateX(-50%);
-
-  padding: 100px 5%;
-  box-sizing: border-box;
-  flex: content;
-  justify-content: center;
-  align-items: center;
-
-}
-
 .sobre {
   min-height: 100vh;
-
   padding: 100px 20px;
-
   box-sizing: border-box;
-
-  background-color: white;
-
+  background: #fff;
   color: #141c21;
-
   font-family: Arial, sans-serif;
-
   text-align: center;
 }
-
 
 .titulo {
-  width: 100%;
   max-width: 1100px;
-
-  margin: 0 auto 100px;
-
-  text-align: center;
+  margin: 0 auto 80px;
 }
 
 .titulo h1 {
   margin: 0 0 20px;
-
-  font-size: 60px;
+  color: #135f7d;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: normal;
 }
 
 .titulo p {
   margin: 0;
-
-  font-size: 28px;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
 }
 
-
-.equipe {
-  width: 100;
+.equipe,
+.sobre-revelio {
+  width: 100%;
   max-width: 1200px;
-
-  margin: 0 auto 120px;
-
-  padding: 70px;
-
+  margin: 0 auto 80px;
+  padding: clamp(25px, 5vw, 70px);
   box-sizing: border-box;
-
-  background-color: #F4E6CC;
-
-  border: 5px solid #135F7D;
-
-  border-radius: 50px;
-
-  text-align: center;
+  background: #f4e6cc;
+  border: 5px solid #135f7d;
+  border-radius: 40px;
 }
 
-.equipe h2 {
-  margin: 0 0 60px;
-
-  font-size: 42px;
+.equipe h2,
+.sobre-revelio > h2 {
+  margin: 0 0 50px;
+  color: #135f7d;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: normal;
 }
 
 .pessoas {
-  width: 100%;
-
   display: flex;
-
   flex-wrap: wrap;
-
   justify-content: center;
-
-  align-items: center;
-
-  gap: 80px;
+  gap: 50px;
 }
 
 .pessoa {
-  width: 450px;
-
-  text-align: center;
+  width: min(100%, 300px);
 }
 
 .pessoa img {
   display: block;
-
-  width: 450px;
-  height: 450px;
-
+  width: 100%;
+  aspect-ratio: 1;
   margin: 0 auto;
-
   object-fit: cover;
-
-  border-radius: 35px;
+  border-radius: 30px;
 }
-
-
 
 .pessoa h3 {
   margin: 20px 0 0;
-
   font-family: Georgia, serif;
-
-  font-size: 27px;
-
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
   font-weight: normal;
-
   line-height: 1.2;
-
-  text-align: center;
 }
 
 .foto-davi {
-  object-position: center 0%;
+  object-position: center top;
 }
-
-.sobre-revelio {
-  width: 100%;
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  padding: 70px;
-
-  box-sizing: border-box;
-
-  background-color: #F4E6CC;
-
-  border: 5px solid #135F7D;
-
-  border-radius: 50px;
-
-  text-align: center;
-}
-
-
-.sobre-revelio > h2 {
-  margin: 0 0 30px;
-
-  font-size: 45px;
-
-  font-weight: normal;
-
-  text-align: center;
-}
-
-
 
 .descricao {
-  max-width: 1000px;
-
-  margin: 0 auto 60px;
-
-  font-size: 23px;
-
-  line-height: 1.7;
-
+  max-width: 950px;
+  margin: 0 auto 50px;
   color: #444;
-
-  text-align: center;
+  font-size: 1.35rem;
+  line-height: 1.7;
 }
-
 
 .objetivo {
-  width: 100%;
-
-  margin: 0 auto 60px;
-
-  padding: 35px;
-
-  box-sizing: border-box;
-
-  background-color: white;
-
-  border: 2px solid #135F7D;
-
-  border-radius: 30px;
-
-  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: white;
+  border: 2px solid #135f7d;
+  border-radius: 25px;
 }
 
-
-.objetivo h3 {
-  margin-top: 0;
-
-  color: #135F7D;
-
-  font-size: 28px;
+.objetivo h3,
+.card h3 {
+  color: #135f7d;
+  font-size: 1.6rem;
 }
 
-
-.objetivo p {
-  font-size: 21px;
-
+.objetivo p,
+.card p,
+.desenvolvimento p {
+  font-size: 1.15rem;
   line-height: 1.7;
 }
-
-
 
 .cards {
-  width: 100%;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: stretch;
-
-  gap: 30px;
-
-  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 70px;
 }
-
 
 .card {
-  flex: 1;
-
-  min-height: 320px;
-
-  padding: 30px;
-
-  box-sizing: border-box;
-
-  border: 2px solid #135F7D;
-
-  border-radius: 30px;
-
-  text-align: center;
-}
-
-
-.card h3 {
-  color: #135F7D;
-
-  font-size: 25px;
-}
-
-
-.card p {
-  font-size: 19px;
-
-  line-height: 1.7;
+  min-height: 250px;
+  padding: 25px;
+  border: 2px solid #135f7d;
+  border-radius: 25px;
 }
 
 .desenvolvimento {
-  width: 100%;
-
-  margin: 0 auto 60px;
-
-  text-align: center;
+  margin-bottom: 50px;
 }
 
-
 .desenvolvimento h2 {
-  margin-bottom: 25px;
-
-  font-size: 35px;
-
+  margin-bottom: 20px;
+  color: #135f7d;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
   font-weight: normal;
 }
 
-
-.desenvolvimento p {
-  max-width: 1000px;
-
-  margin: 0 auto;
-
-  font-size: 21px;
-
-  line-height: 1.7;
-}
-
 .final {
-  width: 100%;
-
-  margin: 0 auto;
-
-  padding: 35px;
-
-  box-sizing: border-box;
-
-  background-color: #135F7D;
-
+  padding: 30px;
+  background: #135f7d;
   color: white;
-
-  border-radius: 30px;
-
-  text-align: center;
+  border-radius: 25px;
 }
-
 
 .final p {
   margin: 0;
-
-  font-size: 24px;
-
+  font-size: 1.3rem;
   line-height: 1.6;
 }
 
-
-@media (max-width: 800px) {
-
+@media (max-width: 700px) {
   .sobre {
-    padding: 70px 20px;
+    padding: 70px 15px;
   }
 
-
-  .titulo h1 {
-    font-size: 42px;
+  .equipe,
+  .sobre-revelio {
+    border-width: 3px;
+    border-radius: 25px;
   }
-
-
-  .titulo p {
-    font-size: 22px;
-  }
-
-
-  .equipe h2 {
-    font-size: 32px;
-  }
-
 
   .pessoas {
-    flex-direction: column;
+    gap: 35px;
   }
-
 
   .pessoa {
-    width: 100%;
-    max-width: 450px;
+    max-width: 280px;
   }
-
-
-  .pessoa img,
-
-
-  .sobre-revelio {
-    padding: 35px 25px;
-  }
-
-
-  .sobre-revelio > h2 {
-    font-size: 32px;
-  }
-
 
   .cards {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-
-  .card {
-    width: 100%;
+  .objetivo {
+    padding: 20px;
   }
-
 }
-
 </style>
