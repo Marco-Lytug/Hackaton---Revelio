@@ -1,14 +1,16 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { conexaoSupabase } from '@/supabase'
 const router = useRouter()
+const route = useRoute()
 const categories = [
   { value: 'theme-info', label: 'Info', class: 'info' },
   { value: 'theme-agro', label: 'Agro', class: 'agro' },
   { value: 'theme-quimica', label: 'Química', class: 'quimica' },
 ]
 
-const activeTab = ref('login')
+const activeTab = ref(route.query.tab === 'register' ? 'register' : 'login')
 const activeTheme = ref('theme-info')
 const isProfessor = ref(false)
 const loading = ref(false)
@@ -50,30 +52,30 @@ function switchTab(tab) {
   showLoginPassword.value = false
   showRegisterPassword.value = false
 }
-function handleLogin() {
+async function handleLogin() {
   loginFeedback.value = null
+  loading.value = true
 
-  const usuario = JSON.parse(localStorage.getItem('usuarioRevelio'))
+  const { data, error } = await conexaoSupabase.auth.signInWithPassword({
+    email: loginForm.email,
+    password: loginForm.senha,
+  })
 
-  if (!usuario) {
+  loading.value = false
+
+  if (error) {
     loginFeedback.value = {
       type: 'error',
-      message: 'Nenhum usuário cadastrado.',
+      message: error.message,
     }
     return
   }
 
-  if (loginForm.email !== usuario.email || loginForm.senha !== usuario.senha) {
-    loginFeedback.value = {
-      type: 'error',
-      message: 'E-mail ou senha incorretos.',
-    }
-    return
-  }
+  const nomeUsuario = data.user?.user_metadata?.full_name || data.user?.email
 
   loginFeedback.value = {
     type: 'success',
-    message: `Bem-vindo, ${usuario.nome}!`,
+    message: `Bem-vindo, ${nomeUsuario}!`,
   }
 
   loginForm.senha = ''
@@ -83,7 +85,7 @@ function handleLogin() {
   }, 800)
 }
 
-function handleRegister() {
+async function handleRegister() {
   registerFeedback.value = null
 
   if (!registerForm.nome || !registerForm.email) {
@@ -110,18 +112,31 @@ function handleRegister() {
     return
   }
 
-  // Salva o usuário no navegador
-  const usuario = {
-    nome: registerForm.nome,
+  loading.value = true
+ 
+  const { data, error } = await conexaoSupabase.auth.signUp({
     email: registerForm.email,
-    senha: registerForm.senha,
-  }
+    password: registerForm.senha,
+    options: {
+      data: {
+        full_name: registerForm.nome,
+      },
+    },
+  })
 
-  localStorage.setItem('usuarioRevelio', JSON.stringify(usuario))
+  loading.value = false
+
+  if (error) {
+    registerFeedback.value = {
+      type: 'error',
+      message: error.message,
+    }
+    return
+  }
 
   registerFeedback.value = {
     type: 'success',
-    message: 'Cadastro realizado com sucesso!',
+    message: 'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar a conta.',
   }
 
   registerForm.nome = ''
@@ -136,12 +151,21 @@ function forgotPassword() {
     message: 'Em breve você poderá recuperar sua senha por e-mail.',
   }
 }
+
+function irParaHomeSemCadastro() {
+  localStorage.setItem('cadastroPulado', 'true')
+  router.push('/')
+}
 </script>
 
 <template>
   <main class="auth-page" :class="[activeTheme, { 'is-professor': isProfessor }]">
     <!-- ESQUERDA -->
     <section class="brand-side">
+      <button type="button" class="back-home" @click="irParaHomeSemCadastro">
+        ← Voltar ao início
+      </button>
+
       <div class="decor decor-1"></div>
       <div class="decor decor-2"></div>
       <div class="decor decor-3"></div>
@@ -287,7 +311,6 @@ function forgotPassword() {
                 >
                   {{ showLoginPassword ? 'Ocultar' : 'Mostrar' }}
                 </button>
-                <button class="back-home" @click="router.push('/')">← Voltar ao início</button>
               </div>
             </div>
 
@@ -387,7 +410,6 @@ function forgotPassword() {
 
               Mostrar senha
             </label>
-            <button class="back-home" @click="router.push('/')">← Voltar ao início</button>
 
             <Transition name="feedback">
               <div v-if="registerFeedback" class="feedback" :class="registerFeedback.type">
@@ -724,18 +746,21 @@ function forgotPassword() {
 ========================= */
 
 .back-home {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 3;
+
   display: inline-flex;
   align-items: center;
 
   gap: 0.4rem;
-
-  margin-bottom: 1.8rem;
   padding: 0;
 
   border: none;
   background: none;
 
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.85);
 
   font-family: inherit;
   font-size: 0.85rem;
@@ -749,7 +774,7 @@ function forgotPassword() {
 }
 
 .back-home:hover {
-  color: var(--accent-dark);
+  color: white;
   transform: translateX(-3px);
 }
 
@@ -983,6 +1008,32 @@ function forgotPassword() {
 
   color: #94a3b8;
   pointer-events: none;
+}
+
+.password-btn {
+  position: absolute;
+
+  right: 1rem;
+
+  border: none;
+  background: none;
+  padding: 0;
+
+  color: var(--accent);
+
+  font: 700 0.72rem inherit;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.password-btn:hover {
+  color: var(--accent-dark);
+}
+
+.input-wrapper:has(.password-btn) input {
+  padding-right: 4.3rem;
 }
 
 .field input {
