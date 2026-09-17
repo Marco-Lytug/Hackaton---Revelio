@@ -46,8 +46,7 @@ onUnmounted(() => {
           </div>
           <div class="left">
             <RouterLink to="/">Principal</RouterLink>
-            <RouterLink to="/">Atividades</RouterLink>
-            <RouterLink to="/">Extras</RouterLink>
+            <RouterLink to="/atividades">Atividades</RouterLink>
             <RouterLink to="/sobre">Sobre nós</RouterLink>
           </div>
           <div class="right">
