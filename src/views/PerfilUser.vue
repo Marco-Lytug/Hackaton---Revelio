@@ -1,12 +1,8 @@
-```vue
 <script setup>
-
 import { ref } from 'vue'
-
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
 const usuarioSalvo = JSON.parse(localStorage.getItem('usuarioRevelio'))
 
 const usuario = ref({
@@ -18,7 +14,6 @@ const usuario = ref({
   })
 
 const editando = ref(false)
-
 const nomeEditado = ref('')
 const descricaoEditada = ref('')
 const fotoEditada = ref('')
@@ -204,6 +199,27 @@ function selecionarFoto(event) {
 </template>
 
 <style scoped>
+main{
+  animation: efeito 0.5s ease;
+}
+@keyframes efeito {
+  from {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes efeito {
+  from {
+    opacity: 0;
+    scale: 1.02;
+  }
+}
 
 main {
   min-height: 100vh;
@@ -288,11 +304,8 @@ main > section:first-of-type button {
 }
 
 .foto-perfil {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background-color: white;
-  border: 8px solid #135F7D;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
