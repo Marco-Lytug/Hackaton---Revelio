@@ -12,6 +12,7 @@ import CursoInfo from '@/views/CursoInfo.vue'
 import CursoAgro from '@/views/CursoAgro.vue'
 import CursoQuimi from '@/views/CursoQuimi.vue'
 import SobreNos from '@/views/SobreNos.vue'
+import PerfilUser from '../views/PerfilUser.vue'
 
 
 const router = createRouter({
@@ -67,9 +68,22 @@ const router = createRouter({
       component: SobreNos
     },
     {
+  path: '/perfilUser',
+  component: PerfilUser,
+   beforeEnter: () => {
+    const usuario = localStorage.getItem('usuarioRevelio')
+
+    if (!usuario) {
+      return '/Login'
+    }
+
+    return true
+  }
+    },
+    {
       path:'/Login',
       component: LoginUser
-    }
+}
 
   ],
   scrollBehavior() {

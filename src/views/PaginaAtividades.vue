@@ -3,6 +3,8 @@ import AppHeader from '../components/layout/AppHeader.vue'
 import { quizzesInfo } from '@/Data/quizInfo.js'
 import { quizzesAgro } from '@/Data/quizAgro.js'
 import { quizzesQuimi } from '@/Data/quizQuimi.js'
+import AppFooter from '../components/layout/AppFooter.vue'
+
 
 const quizzesInformatica = {
   ...quizzesInfo
@@ -219,7 +221,7 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
     </div>
   </div>
 </section>
-
+<appFooter></appFooter>
 </template>
 
 <style scoped>
@@ -568,7 +570,9 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.2rem;
 }
-
+.ultima-secao{
+  padding-bottom: 10vw;
+}
 #quizzes-info,
 #quizzes-agro,
 #quizzes-quimica {
@@ -603,4 +607,5 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
     padding-bottom: 200px;
   }
 }
+
 </style>

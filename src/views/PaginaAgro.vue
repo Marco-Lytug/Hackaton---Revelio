@@ -10,6 +10,7 @@ import ButtonChild from '@/components/layout/ButtonChild.vue';
 import LivroCard from '@/components/layout/livros/LivroCard.vue';
 import LivrosFavoritos from '@/components/layout/livros/LivrosFavoritos.vue';
 import AppHeader from '../components/layout/AppHeader.vue'
+import AppFooter from '../components/layout/AppFooter.vue'
 
 defineEmits(['fechar'])
 
@@ -568,7 +569,7 @@ const slidesAutores = computed(() => {
 
 
     </section>
-
+    <appFooter></appFooter>
 </template>
 
 <style scoped>
