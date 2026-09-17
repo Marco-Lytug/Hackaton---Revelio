@@ -2,70 +2,54 @@
 import { ref, reactive, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { conexaoSupabase } from '@/supabase'
-
 const router = useRouter()
 const route = useRoute()
-
 const categories = [
   { value: 'theme-info', label: 'Info', class: 'info' },
   { value: 'theme-agro', label: 'Agro', class: 'agro' },
   { value: 'theme-quimica', label: 'Química', class: 'quimica' }
 ]
-
 const activeTab = ref(
   route.query.tab === 'register' ? 'register' : 'login'
 )
-
 const activeTheme = ref('theme-info')
 const isProfessor = ref(false)
 const loading = ref(false)
-
 const showLoginPassword = ref(false)
 const showRegisterPassword = ref(false)
-
 const loginForm = reactive({
   email: '',
   senha: ''
 })
-
 const registerForm = reactive({
   nome: '',
   email: '',
   senha: '',
   confirmar: ''
 })
-
 const loginFeedback = ref(null)
 const registerFeedback = ref(null)
-
 const welcomeText = computed(() =>
   isProfessor.value
     ? 'Área do professor'
     : 'Bem-vindo de volta'
 )
-
 const titleText = computed(() =>
   activeTab.value === 'login'
     ? 'Acesse sua conta'
     : 'Crie sua conta'
 )
-
 const descriptionText = computed(() =>
   activeTab.value === 'login'
     ? 'Entre para continuar sua jornada de aprendizagem.'
     : 'Cadastre-se gratuitamente e comece a aprender.'
 )
-
 function switchTab(tab) {
   activeTab.value = tab
-
   loginFeedback.value = null
   registerFeedback.value = null
-
   showLoginPassword.value = false
   showRegisterPassword.value = false
-
-  // Atualiza a URL sem recarregar a página
   router.replace({
     path: '/Login',
     query: {
@@ -134,8 +118,6 @@ async function handleLogin() {
       data.user.email ||
       'usuário'
 
-    // Remove a marca de cadastro pulado,
-    // pois agora existe um usuário autenticado.
     localStorage.removeItem('cadastroPulado')
 
     loginFeedback.value = {
@@ -145,7 +127,6 @@ async function handleLogin() {
 
     loginForm.senha = ''
 
-    // Pequeno atraso apenas para mostrar a mensagem
     setTimeout(() => {
       router.push('/')
     }, 700)
@@ -199,9 +180,7 @@ async function handleRegister() {
 
     return
   }
-
   loading.value = true
-
   try {
     const { data, error } =
       await conexaoSupabase.auth.signUp({
@@ -226,10 +205,6 @@ async function handleRegister() {
       return
     }
 
-    /*
-     * Dependendo da configuração do Supabase,
-     * o usuário pode precisar confirmar o e-mail.
-     */
     if (data?.user && !data?.session) {
       registerFeedback.value = {
         type: 'success',
@@ -242,10 +217,7 @@ async function handleRegister() {
         message: 'Conta criada com sucesso!'
       }
     }
-
     limparCadastro()
-
-    // Vai para a aba de login após alguns segundos
     setTimeout(() => {
       switchTab('login')
     }, 1500)
@@ -260,18 +232,14 @@ async function handleRegister() {
     loading.value = false
   }
 }
-
 async function forgotPassword() {
   loginFeedback.value = null
-
   const email = loginForm.email.trim()
-
   if (!email) {
     loginFeedback.value = {
       type: 'error',
       message: 'Digite seu e-mail antes de recuperar a senha.'
     }
-
     return
   }
 
@@ -367,6 +335,7 @@ function obterMensagemErro(error) {
   >
     <!-- ESQUERDA -->
     <section class="brand-side">
+
       <button
         type="button"
         class="back-home"
@@ -374,11 +343,6 @@ function obterMensagemErro(error) {
       >
         ← Ir para a página principal
       </button>
-
-      <div class="decor decor-1"></div>
-      <div class="decor decor-2"></div>
-      <div class="decor decor-3"></div>
-
       <div class="brand-content">
         <div class="logo-wrapper">
           <img
@@ -815,34 +779,44 @@ function obterMensagemErro(error) {
 </template>
 
 <style scoped>
+
+/* =========================================================
+   VARIÁVEIS E BASE
+========================================================= */
+
 .auth-page {
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-soft: #dbeafe;
+  --accent: #135F7D;
+  --accent-dark: #0E4A62;
+  --accent-soft: #DCEBF0;
 
-  --bg-left: #0f172a;
+  --bg-left: #135F7D;
+
   --surface: #ffffff;
-  --surface-soft: #f8fafc;
+  --surface-soft: #fffaf2;
 
-  --ink: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
+  --cream: #F4E6CC;
+
+  --ink: #222222;
+  --muted: #666666;
+  --border: #D8D0C2;
 
   --success: #15803d;
   --error: #b91c1c;
 
   min-height: 100vh;
+
   display: flex;
 
-  background: var(--surface);
+  background-color: var(--surface);
   color: var(--ink);
 
   font-family:
+    "Josefin Sans",
     Inter,
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
+    "Segoe UI",
     sans-serif;
 }
 
@@ -852,37 +826,44 @@ function obterMensagemErro(error) {
   box-sizing: border-box;
 }
 
-/* TEMAS */
+
+/* =========================================================
+   TEMAS
+========================================================= */
 
 .theme-info {
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-soft: #dbeafe;
+  --accent: #135F7D;
+  --accent-dark: #0E4A62;
+  --accent-soft: #DCEBF0;
 }
 
 .theme-agro {
-  --accent: #16a34a;
-  --accent-dark: #15803d;
-  --accent-soft: #dcfce7;
+  --accent: #3F7D45;
+  --accent-dark: #2F6335;
+  --accent-soft: #E3F0E4;
 }
 
 .theme-quimica {
   --accent: #800020;
   --accent-dark: #650019;
-  --accent-soft: #f8e6e9;
+  --accent-soft: #F8E6E9;
 }
 
 .is-professor {
-  --accent: #111111;
-  --accent-dark: #000000;
-  --accent-soft: #e5e5e5;
-  --bg-left: #050505;
+  --accent: #222222;
+  --accent-dark: #111111;
+  --accent-soft: #E8E8E8;
+  --bg-left: #222222;
 }
 
-/* LADO ESQUERDO */
+
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
 
 .brand-side {
   position: relative;
+
   flex: 1;
   min-height: 100vh;
 
@@ -891,22 +872,19 @@ function obterMensagemErro(error) {
   justify-content: center;
 
   padding: 4rem;
+
   overflow: hidden;
 
   background:
     radial-gradient(
       circle at 15% 20%,
-      color-mix(
-        in srgb,
-        var(--accent) 20%,
-        transparent
-      ),
-      transparent 40%
+      rgba(244, 230, 204, 0.16),
+      transparent 35%
     ),
     radial-gradient(
-      circle at 90% 90%,
-      rgba(255, 255, 255, 0.04),
-      transparent 35%
+      circle at 90% 80%,
+      rgba(244, 230, 204, 0.12),
+      transparent 32%
     ),
     var(--bg-left);
 
@@ -923,10 +901,61 @@ function obterMensagemErro(error) {
   max-width: 460px;
 }
 
+
+/* =========================================================
+   BOTÃO — PÁGINA PRINCIPAL
+========================================================= */
+
+.back-home {
+  position: absolute;
+
+  top: 1.5rem;
+  left: 1.5rem;
+
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  margin: 0;
+  padding: 0.65rem 1.2rem;
+
+  border: 2px solid var(--cream);
+  border-radius: 30px;
+
+  background: transparent;
+  color: var(--cream);
+
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-home:hover {
+  background: var(--cream);
+  color: var(--accent);
+
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   DECORAÇÕES
+========================================================= */
+
 .decor {
   position: absolute;
 
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 2px solid rgba(244, 230, 204, 0.18);
   border-radius: 50%;
 
   pointer-events: none;
@@ -955,8 +984,13 @@ function obterMensagemErro(error) {
   top: 18%;
   right: 8%;
 
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(244, 230, 204, 0.08);
 }
+
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo-wrapper {
   width: 78px;
@@ -968,10 +1002,10 @@ function obterMensagemErro(error) {
 
   margin-bottom: 1.5rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 4px solid var(--cream);
   border-radius: 22px;
 
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 
   transition:
     transform 0.25s ease,
@@ -980,7 +1014,8 @@ function obterMensagemErro(error) {
 
 .logo-wrapper:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .logo {
@@ -990,12 +1025,17 @@ function obterMensagemErro(error) {
   object-fit: contain;
 }
 
+
+/* =========================================================
+   TEXTOS DA MARCA
+========================================================= */
+
 .brand-tag {
   display: inline-block;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--cream);
 
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
 
   letter-spacing: 0.16em;
@@ -1005,7 +1045,9 @@ function obterMensagemErro(error) {
 .brand-title {
   margin: 0.7rem 0 1rem;
 
-  font-size: clamp(3.4rem, 7vw, 5.2rem);
+  color: white;
+
+  font-size: clamp(3.4rem, 7vw, 5.5rem);
   font-weight: 800;
 
   line-height: 0.9;
@@ -1017,21 +1059,27 @@ function obterMensagemErro(error) {
 
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.82);
 
   font-size: 1rem;
   line-height: 1.7;
 }
 
 .brand-subtitle strong {
-  color: white;
+  color: var(--cream);
 }
+
+
+/* =========================================================
+   RECURSOS
+========================================================= */
 
 .brand-features {
   display: flex;
   flex-direction: column;
 
   gap: 1rem;
+
   margin-top: 3rem;
 }
 
@@ -1043,8 +1091,8 @@ function obterMensagemErro(error) {
 }
 
 .feature-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
 
   flex-shrink: 0;
 
@@ -1052,6 +1100,7 @@ function obterMensagemErro(error) {
   align-items: center;
   justify-content: center;
 
+  border: 2px solid var(--cream);
   border-radius: 50%;
 
   background: var(--accent);
@@ -1066,17 +1115,21 @@ function obterMensagemErro(error) {
 }
 
 .feature strong {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
 }
 
 .feature small {
   margin-top: 0.2rem;
 
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 0.76rem;
 }
 
-/* LADO DIREITO */
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
 
 .form-side {
   flex: 1;
@@ -1088,7 +1141,7 @@ function obterMensagemErro(error) {
 
   padding: 3rem 4rem;
 
-  background: var(--surface);
+  background: white;
 }
 
 .form-wrapper {
@@ -1096,44 +1149,10 @@ function obterMensagemErro(error) {
   max-width: 440px;
 }
 
-/* VOLTAR */
 
-.back-home {
-  position: absolute;
-
-  top: 2rem;
-  left: 2rem;
-  z-index: 3;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 0.4rem;
-
-  padding: 0;
-
-  border: none;
-  background: none;
-
-  color: rgba(255, 255, 255, 0.85);
-
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.back-home:hover {
-  color: white;
-  transform: translateX(-3px);
-}
-
-/* CONTROLES */
+/* =========================================================
+   CONTROLES
+========================================================= */
 
 .theme-controls {
   display: flex;
@@ -1145,19 +1164,20 @@ function obterMensagemErro(error) {
   margin-bottom: 2.5rem;
   padding-bottom: 1.25rem;
 
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--cream);
 }
 
 .category-buttons {
   display: flex;
+
   gap: 0.25rem;
 
-  padding: 0.3rem;
+  padding: 0.35rem;
 
-  background: var(--surface-soft);
+  background: var(--cream);
 
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid var(--cream);
+  border-radius: 15px;
 }
 
 .category-buttons.disabled {
@@ -1169,10 +1189,11 @@ function obterMensagemErro(error) {
   align-items: center;
 
   gap: 0.4rem;
-  padding: 0.45rem 0.7rem;
+
+  padding: 0.5rem 0.75rem;
 
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
 
   background: transparent;
   color: var(--muted);
@@ -1180,12 +1201,13 @@ function obterMensagemErro(error) {
   font: 700 0.76rem inherit;
 
   cursor: pointer;
+
   transition: 0.2s ease;
 }
 
 .category-btn:hover:not(:disabled) {
   background: white;
-  color: var(--ink);
+  color: var(--accent);
 
   transform: translateY(-1px);
 }
@@ -1194,8 +1216,7 @@ function obterMensagemErro(error) {
   background: white;
   color: var(--accent);
 
-  box-shadow:
-    0 2px 8px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .category-btn:disabled {
@@ -1203,25 +1224,28 @@ function obterMensagemErro(error) {
 }
 
 .category-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 
   border-radius: 50%;
 }
 
 .category-dot.info {
-  background: #2563eb;
+  background: #135F7D;
 }
 
 .category-dot.agro {
-  background: #16a34a;
+  background: #3F7D45;
 }
 
 .category-dot.quimica {
   background: #800020;
 }
 
-/* PROFESSOR */
+
+/* =========================================================
+   PROFESSOR
+========================================================= */
 
 .professor-toggle {
   display: flex;
@@ -1235,12 +1259,13 @@ function obterMensagemErro(error) {
 
 .professor-toggle input {
   position: absolute;
+
   opacity: 0;
 }
 
 .toggle {
-  width: 40px;
-  height: 22px;
+  width: 42px;
+  height: 23px;
 
   padding: 2px;
 
@@ -1249,14 +1274,14 @@ function obterMensagemErro(error) {
 
   border-radius: 999px;
 
-  background: #cbd5e1;
+  background: #cfc8bd;
 
   transition: background 0.25s ease;
 }
 
 .toggle-circle {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
 
   border-radius: 50%;
 
@@ -1269,10 +1294,8 @@ function obterMensagemErro(error) {
   background: var(--accent);
 }
 
-.professor-toggle input:checked
-  + .toggle
-  .toggle-circle {
-  transform: translateX(18px);
+.professor-toggle input:checked + .toggle .toggle-circle {
+  transform: translateX(19px);
 }
 
 .toggle-label {
@@ -1280,7 +1303,10 @@ function obterMensagemErro(error) {
   font-weight: 700;
 }
 
-/* CABEÇALHO */
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
 
 .form-header {
   margin-bottom: 2rem;
@@ -1289,7 +1315,7 @@ function obterMensagemErro(error) {
 .welcome-label {
   color: var(--accent);
 
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
 
   letter-spacing: 0.14em;
@@ -1299,7 +1325,9 @@ function obterMensagemErro(error) {
 .form-header h2 {
   margin: 0.55rem 0 0;
 
-  font-size: 2rem;
+  color: var(--accent);
+
+  font-size: 2.3rem;
   font-weight: 800;
 
   line-height: 1.15;
@@ -1310,11 +1338,14 @@ function obterMensagemErro(error) {
 
   color: var(--muted);
 
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
-/* FORMULÁRIO */
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
 
 .auth-form {
   display: flex;
@@ -1331,7 +1362,9 @@ function obterMensagemErro(error) {
 }
 
 .field label {
-  font-size: 0.76rem;
+  color: var(--accent);
+
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
@@ -1341,7 +1374,22 @@ function obterMensagemErro(error) {
   justify-content: space-between;
 }
 
-/* INPUTS */
+.field-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.8rem;
+}
+
+.field-row .field input {
+  padding-left: 1rem;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
 
 .input-wrapper {
   position: relative;
@@ -1352,54 +1400,30 @@ function obterMensagemErro(error) {
 
 .input-icon {
   position: absolute;
-
   left: 1rem;
-
-  color: #94a3b8;
-
-  pointer-events: none;
-}
-
-.password-btn {
-  position: absolute;
-
-  right: 1rem;
-
-  border: none;
-  background: none;
-  padding: 0;
 
   color: var(--accent);
 
-  font: 700 0.72rem inherit;
+  pointer-events: none;
 
-  cursor: pointer;
-}
-
-.password-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.input-wrapper:has(.password-btn) input {
-  padding-right: 4.3rem;
+  z-index: 2;
 }
 
 .field input {
   width: 100%;
-  height: 50px;
+  height: 52px;
 
-  padding: 0 1rem 0 2.5rem;
+  padding: 0 1rem 0 2.8rem;
 
-  border: 1px solid var(--border);
-  border-radius: 11px;
+  border: 3px solid var(--accent);
+  border-radius: 15px;
 
   outline: none;
 
   background: var(--surface-soft);
   color: var(--ink);
 
-  font: 0.86rem inherit;
+  font: 0.88rem inherit;
 
   transition:
     border-color 0.2s ease,
@@ -1407,13 +1431,8 @@ function obterMensagemErro(error) {
     box-shadow 0.2s ease;
 }
 
-.field input:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.field input:hover:not(:disabled) {
-  border-color: #cbd5e1;
+.field input:hover {
+  border-color: var(--accent-dark);
 }
 
 .field input:focus {
@@ -1422,40 +1441,89 @@ function obterMensagemErro(error) {
   border-color: var(--accent);
 
   box-shadow:
-    0 0 0 4px var(--accent-soft);
+    0 0 0 4px rgba(19, 95, 125, 0.14);
 }
 
-.field-row {
-  display: grid;
+.field input:disabled {
+  opacity: 0.65;
 
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
+  cursor: not-allowed;
 }
 
-.field-row .field input {
-  padding-left: 1rem;
+
+/* =========================================================
+   BOTÃO MOSTRAR / OCULTAR SENHA
+========================================================= */
+
+.password-btn {
+  position: absolute;
+
+  top: 50%;
+  right: 1rem;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 55px;
+  height: 30px;
+
+  padding: 0;
+
+  border: none;
+
+  transform: translateY(-50%);
+
+  background: transparent;
+  color: var(--accent);
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* LINKS */
+.password-btn:hover:not(:disabled) {
+  color: var(--accent-dark);
+}
+
+.password-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* Espaço para o botão não ficar em cima do texto */
+.input-wrapper .password-btn ~ input {
+  padding-right: 5.2rem;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
 
 .forgot-btn,
 .switch-link {
   padding: 0;
 
   border: none;
-  background: none;
 
+  background: none;
   color: var(--accent);
 
-  font: 700 0.7rem inherit;
+  font: 700 0.72rem inherit;
 
   cursor: pointer;
-}
-
-.forgot-btn:disabled,
-.switch-link:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .switch-link {
@@ -1467,7 +1535,17 @@ function obterMensagemErro(error) {
   text-decoration: underline;
 }
 
-/* MOSTRAR SENHA */
+.forgot-btn:disabled,
+.switch-link:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MOSTRAR SENHA — CADASTRO
+========================================================= */
 
 .show-password {
   display: inline-flex;
@@ -1496,9 +1574,27 @@ function obterMensagemErro(error) {
   accent-color: var(--accent);
 
   cursor: pointer;
+
+  box-shadow: none;
 }
 
-/* FEEDBACK */
+.show-password input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.show-password input:disabled {
+  cursor: not-allowed;
+}
+
+.show-password:hover {
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
 
 .feedback {
   display: flex;
@@ -1506,30 +1602,32 @@ function obterMensagemErro(error) {
 
   gap: 0.65rem;
 
-  padding: 0.8rem;
+  padding: 0.9rem;
 
-  border-radius: 10px;
+  border-radius: 15px;
 
   font-size: 0.76rem;
 }
 
 .feedback.error {
   color: var(--error);
+
   background: #fef2f2;
 
-  border: 1px solid #fecaca;
+  border: 2px solid #fecaca;
 }
 
 .feedback.success {
   color: var(--success);
+
   background: #f0fdf4;
 
-  border: 1px solid #bbf7d0;
+  border: 2px solid #bbf7d0;
 }
 
 .feedback-icon {
-  width: 21px;
-  height: 21px;
+  width: 22px;
+  height: 22px;
 
   flex-shrink: 0;
 
@@ -1545,11 +1643,14 @@ function obterMensagemErro(error) {
   font-size: 0.7rem;
 }
 
-/* BOTÃO */
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
 
 .submit-btn {
   width: 100%;
-  min-height: 51px;
+  min-height: 53px;
 
   display: flex;
   align-items: center;
@@ -1557,26 +1658,30 @@ function obterMensagemErro(error) {
 
   gap: 0.6rem;
 
-  border: none;
-  border-radius: 11px;
+  border: 4px solid var(--cream);
+  border-radius: 30px;
 
   background: var(--accent);
   color: white;
 
-  font: 800 0.84rem inherit;
+  font: 800 0.88rem inherit;
 
   cursor: pointer;
 
   transition:
     background 0.2s ease,
+    color 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: var(--accent-dark);
+  background: var(--cream);
+  color: var(--accent);
 
-  transform: translateY(-2px);
+  border-color: var(--accent);
+
+  transform: translateY(-3px);
 
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.12);
@@ -1602,13 +1707,16 @@ function obterMensagemErro(error) {
   transform: translateX(4px);
 }
 
-/* LOADING */
+
+/* =========================================================
+   LOADING
+========================================================= */
 
 .spinner {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
 
-  border: 2px solid rgba(255, 255, 255, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.45);
   border-top-color: white;
 
   border-radius: 50%;
@@ -1622,7 +1730,10 @@ function obterMensagemErro(error) {
   }
 }
 
-/* RODAPÉ */
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
 
 .switch-line {
   margin: 0;
@@ -1630,19 +1741,24 @@ function obterMensagemErro(error) {
   color: var(--muted);
 
   text-align: center;
-  font-size: 0.76rem;
+
+  font-size: 0.78rem;
 }
 
 .security-note {
   margin-top: 1.8rem;
 
-  color: #94a3b8;
+  color: #999;
 
   text-align: center;
-  font-size: 0.67rem;
+
+  font-size: 0.68rem;
 }
 
-/* TRANSIÇÕES */
+
+/* =========================================================
+   TRANSIÇÕES
+========================================================= */
 
 .form-enter-active,
 .form-leave-active,
@@ -1654,24 +1770,32 @@ function obterMensagemErro(error) {
 .form-enter-from,
 .form-leave-to {
   opacity: 0;
+
   transform: translateX(10px);
 }
 
 .feedback-enter-from,
 .feedback-leave-to {
   opacity: 0;
+
   transform: translateY(-5px);
 }
 
-/* FOCO */
+
+/* =========================================================
+   FOCO
+========================================================= */
 
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid rgba(19, 95, 125, 0.3);
   outline-offset: 3px;
 }
 
-/* RESPONSIVO */
+
+/* =========================================================
+   RESPONSIVO — TABLET
+========================================================= */
 
 @media (max-width: 900px) {
   .auth-page {
@@ -1680,11 +1804,13 @@ input:focus-visible {
 
   .brand-side {
     min-height: auto;
-    padding: 3rem 2rem;
+
+    padding: 5rem 2rem 3rem;
   }
 
   .brand-content {
     max-width: 600px;
+
     text-align: center;
   }
 
@@ -1704,13 +1830,28 @@ input:focus-visible {
 
   .form-side {
     min-height: auto;
+
     padding: 3rem 2rem;
   }
 }
 
+
+/* =========================================================
+   RESPONSIVO — MOBILE
+========================================================= */
+
 @media (max-width: 600px) {
   .brand-side {
-    padding: 2.5rem 1.5rem;
+    padding: 5rem 1.5rem 2.5rem;
+  }
+
+  .back-home {
+    top: 1rem;
+    left: 1rem;
+
+    padding: 0.55rem 1rem;
+
+    font-size: 0.78rem;
   }
 
   .brand-title {
@@ -1732,6 +1873,7 @@ input:focus-visible {
 
   .category-btn {
     flex: 1;
+
     justify-content: center;
   }
 
@@ -1740,11 +1882,29 @@ input:focus-visible {
   }
 
   .form-header h2 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 }
 
+
+/* =========================================================
+   RESPONSIVO — MOBILE PEQUENO
+========================================================= */
+
 @media (max-width: 430px) {
+  .brand-side {
+    padding: 4.5rem 1rem 2.5rem;
+  }
+
+  .back-home {
+    top: 0.8rem;
+    left: 0.8rem;
+
+    padding: 0.5rem 0.8rem;
+
+    font-size: 0.72rem;
+  }
+
   .brand-title {
     font-size: 2.8rem;
   }
@@ -1755,11 +1915,23 @@ input:focus-visible {
 
   .category-btn {
     padding: 0.45rem 0.5rem;
+
     font-size: 0.7rem;
   }
 
   .form-side {
     padding: 2rem 1rem 3rem;
   }
+
+  .password-btn {
+    right: 0.8rem;
+
+    min-width: 50px;
+  }
+
+  .input-wrapper .password-btn ~ input {
+    padding-right: 4.8rem;
+  }
 }
+
 </style>
