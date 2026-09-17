@@ -132,17 +132,9 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
 
 .slidesLivros .imagens {
   display: flex;
-  animation: scrollLeftToRight 20s none infinite;
 }
 
-@keyframes scrollLeftToRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
+
 .titulo p {
   margin: 3vw;
   font-size: 2.3rem;
