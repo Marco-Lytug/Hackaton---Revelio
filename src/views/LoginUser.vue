@@ -280,11 +280,6 @@ async function forgotPassword() {
   }
 }
 
-function irParaHomeSemCadastro() {
-  localStorage.setItem('cadastroPulado', 'true')
-
-  router.push('/')
-}
 
 function obterMensagemErro(error) {
   const mensagemOriginal =
@@ -339,7 +334,6 @@ function obterMensagemErro(error) {
       <button
         type="button"
         class="back-home"
-        @click="irParaHomeSemCadastro"
       >
         ← Ir para a página principal
       </button>
