@@ -54,32 +54,9 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
       </div>
     </div>
   </section>
-  <section class="titulo" id="livros">
-    <div>
-      <h3>
-        Livros de informática
-      </h3>
-    </div>
-  </section>
-  <section class="slidesLivros">
 
-      <div class="imagens">
-        <LivroCard v-for="livros in livrosDestaque" :key="livros.id" :id="livros.id" :titulo="livros.titulo"
-        :categoria="livros.categoria" :capa="livros.capa" :link="livros.link" :autor="livros.autor"
-        :descricao="livros.descricao" :classe="'carrossel'" @favoritar="LivroFavoritado" :livro="livros">
-      </LivroCard>
-    </div>
-
-
-  </section>
-   <section class="titulo" id="livros">
-    <div>
-      <h3>
-        Livros de Agropecuária
-      </h3>
-    </div>
-  </section>
  
+
   <section class="help">
     <h2>Help!</h2>
     <div class="all">
