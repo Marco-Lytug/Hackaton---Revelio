@@ -1,6 +1,6 @@
 <script setup>
 import { ref,computed, onMounted, onBeforeUnmount,  } from 'vue';
-import Carroussel from '@/components/layout/Carroussel.vue';
+import AppCarrocel from '@/components/layout/AppCarrocel.vue';
 import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
 import{ livros1AnoQuimi, livros2AnoQuimi, livros3AnoQuimi } from '@/Data/livrosQuimi';
@@ -214,7 +214,7 @@ const slidesAutores = computed(() => {
 
 
       <div class="autores-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesAutores.length"  tipo="autores"
+        <AppCarrocel class="carousel"  :totalSlides="slidesAutores.length"  tipo="autores"
          :class="'carousel'"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
@@ -222,11 +222,11 @@ const slidesAutores = computed(() => {
   <autores
       v-for="autor in grupo" :key="autor.id"  :id="autor.id"  :nome="autor.nome" :foto="autor.foto"
     :biografia="autor.biografia" :principaisObras="autor.principaisObras"
-    
+
   />
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
     </section>
 
@@ -260,7 +260,7 @@ const slidesAutores = computed(() => {
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
-           
+
            <div class="vermais">
        <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
               Ver mais
@@ -320,7 +320,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="quimica" 
+        <AppCarrocel class="carousel"  :totalSlides="slidesLivros.length"  tipo="quimica"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -331,13 +331,13 @@ const slidesAutores = computed(() => {
       v-for="livro in grupo" :key="livro.id"   :livro="livro" :id="livro.id"
         :titulo="livro.titulo"  :categoria="livro.categoria"
         :capa="livro.capa" :link="livro.link" :autor="livro.autor" :descricao="livro.descricao"
-         :classe="'carrossel'"   @favoritar="LivroFavoritado" 
+         :classe="'carrossel'"   @favoritar="LivroFavoritado"
         >
       </LivroCard>
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
         <div  class="visu">
@@ -382,7 +382,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="quimica"
+        <AppCarrocel class="carousel"  :totalSlides="slides2Ano.length"   tipo="quimica"
   v-slot="{ currentSlide }">
 
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -400,7 +400,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
 
@@ -446,7 +446,7 @@ const slidesAutores = computed(() => {
       <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="quimica"
+        <AppCarrocel class="carousel"  :totalSlides="slides3Ano.length"   tipo="quimica"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
@@ -463,7 +463,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
          <div  class="visu">
@@ -848,7 +848,7 @@ button #fechar, #limpar{
  }
  .favo :deep(button:hover){
   background-color: #e90354;
- 
+
  }
  .livros-lista :deep(button){
   background-color: #c20044;
@@ -930,7 +930,7 @@ button #fechar, #limpar{
  .pesquisa :deep(input::placeholder){
   color: rgb(66, 66, 66)
  }
- 
+
 
 .livros3ano,
 .modal-livros {
@@ -1345,7 +1345,7 @@ a:hover{
     font-size: 0.8rem;
   }
 
- 
+
   #fef{
     font-size: 1rem;
     padding: 8px;
@@ -1465,7 +1465,7 @@ a:hover{
     margin-top: 50px;
     margin-bottom: 50px;
   }
- 
+
   .card-esquerda{
     border-radius: 17px;
     height: auto;

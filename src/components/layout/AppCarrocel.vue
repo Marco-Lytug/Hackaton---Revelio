@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted, watch} from "vue"
+import {ref, watch} from "vue"
 import ButtonChild from "./ButtonChild.vue";
 
   const currentSlide = ref (1);

@@ -1,6 +1,6 @@
 <script setup>
 import { ref,computed, onMounted, onBeforeUnmount } from 'vue';
-import Carroussel from '@/components/layout/Carroussel.vue';
+import AppCarrocel from '@/components/layout/AppCarrocel.vue';
 import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
 import { livrosAgro1Ano, livrosAgro2Ano, livrosAgro3Ano } from '@/Data/livrosAgro.js'
@@ -214,7 +214,7 @@ const slidesAutores = computed(() => {
 
 
       <div class="autores-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesAutores.length"   tipo="autores"
+        <AppCarrocel class="carousel"  :totalSlides="slidesAutores.length"   tipo="autores"
          :class="'carousel'"
   v-slot="{ currentSlide }">
           <Slide class="autores-lista"  v-for="(grupo,index) in slidesAutores" :key="index" v-show="currentSlide === index + 1">
@@ -226,7 +226,7 @@ const slidesAutores = computed(() => {
   />
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
     </section>
 
@@ -322,7 +322,7 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"    tipo="agro"
+        <AppCarrocel class="carousel"  :totalSlides="slidesLivros.length"    tipo="agro"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -339,7 +339,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
         <div  class="visu">
@@ -384,7 +384,7 @@ const slidesAutores = computed(() => {
     <section class="livros2ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides2Ano.length"   tipo="agro"
+        <AppCarrocel class="carousel"  :totalSlides="slides2Ano.length"   tipo="agro"
   v-slot="{ currentSlide }">
 
           <Slide class="livros-lista"   v-for="(grupo,index) in slides2Ano"
@@ -402,7 +402,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
 
@@ -448,7 +448,7 @@ const slidesAutores = computed(() => {
         <section class="livros3ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slides3Ano.length"   tipo="agro"
+        <AppCarrocel class="carousel"  :totalSlides="slides3Ano.length"   tipo="agro"
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slides3Ano"
   :key="index"
@@ -465,7 +465,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
         </div>
 
@@ -959,7 +959,7 @@ button #fechar, #limpar{
 
 .card-esquerda img:hover{
   transform: translate(-50%, -50%) scale(1.1);
-} 
+}
 
 .um img{
   top: 54%;
@@ -996,7 +996,7 @@ div.favo :deep(a){
  }
  .livros-lista :deep(button:hover){
   background-color: #113513 ;
-  
+
  }
  .livros-lista :deep(a){
   color: #2E7D32;
@@ -1048,7 +1048,7 @@ div.favo :deep(a){
 
  .autores-carrossel :deep(button:hover){
   background-color: #113513 ;
-  
+
  }
  .pesquisa :deep(.barra-pesquisa){
   background-color: #143f16;
