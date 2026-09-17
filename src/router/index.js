@@ -17,9 +17,8 @@ import PerfilUser from '../views/PerfilUser.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-
   routes: [
-    {
+   {
       path: '/',
       component: HomeView
     },
@@ -88,7 +87,6 @@ const router = createRouter({
   ],
   scrollBehavior() {
     return { top: 0, left: 0 }
-
   }
 })
 
