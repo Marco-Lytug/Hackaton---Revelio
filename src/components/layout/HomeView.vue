@@ -30,7 +30,7 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
   </header>
   <AppPomodoro></AppPomodoro>
   <section class="banner">
-    <h1>Ache o fim de suas <br> preocupações aqui, na <span>Revelio</span>! </h1>
+    <h1>Ache o fim de suas <br> preocupações aqui, na <span>Revelio</span> ! </h1>
   </section>
   <section class="dificuldades">
     <h2>COM DIFICULDADES?</h2>
@@ -355,6 +355,9 @@ h1 span {
   color: #135F7D;
   z-index: 1;
   font-size: 4rem;
+  background-color: rgba(255, 255, 255, 0.767);
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .help {
