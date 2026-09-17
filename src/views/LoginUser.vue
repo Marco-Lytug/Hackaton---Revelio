@@ -1,0 +1,1937 @@
+<script setup>
+import { ref, reactive, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { conexaoSupabase } from '@/supabase'
+const router = useRouter()
+const route = useRoute()
+const categories = [
+  { value: 'theme-info', label: 'Info', class: 'info' },
+  { value: 'theme-agro', label: 'Agro', class: 'agro' },
+  { value: 'theme-quimica', label: 'Química', class: 'quimica' }
+]
+const activeTab = ref(
+  route.query.tab === 'register' ? 'register' : 'login'
+)
+const activeTheme = ref('theme-info')
+const isProfessor = ref(false)
+const loading = ref(false)
+const showLoginPassword = ref(false)
+const showRegisterPassword = ref(false)
+const loginForm = reactive({
+  email: '',
+  senha: ''
+})
+const registerForm = reactive({
+  nome: '',
+  email: '',
+  senha: '',
+  confirmar: ''
+})
+const loginFeedback = ref(null)
+const registerFeedback = ref(null)
+const welcomeText = computed(() =>
+  isProfessor.value
+    ? 'Área do professor'
+    : 'Bem-vindo de volta'
+)
+const titleText = computed(() =>
+  activeTab.value === 'login'
+    ? 'Acesse sua conta'
+    : 'Crie sua conta'
+)
+const descriptionText = computed(() =>
+  activeTab.value === 'login'
+    ? 'Entre para continuar sua jornada de aprendizagem.'
+    : 'Cadastre-se gratuitamente e comece a aprender.'
+)
+function switchTab(tab) {
+  activeTab.value = tab
+  loginFeedback.value = null
+  registerFeedback.value = null
+  showLoginPassword.value = false
+  showRegisterPassword.value = false
+  router.replace({
+    path: '/Login',
+    query: {
+      tab
+    }
+  })
+}
+
+function limparCadastro() {
+  registerForm.nome = ''
+  registerForm.email = ''
+  registerForm.senha = ''
+  registerForm.confirmar = ''
+}
+
+async function handleLogin() {
+  loginFeedback.value = null
+
+  if (loading.value) {
+    return
+  }
+
+  const email = loginForm.email.trim()
+  const senha = loginForm.senha
+
+  if (!email || !senha) {
+    loginFeedback.value = {
+      type: 'error',
+      message: 'Preencha o e-mail e a senha.'
+    }
+
+    return
+  }
+
+  loading.value = true
+
+  try {
+    const { data, error } =
+      await conexaoSupabase.auth.signInWithPassword({
+        email,
+        password: senha
+      })
+
+    if (error) {
+      console.error('Erro ao fazer login:', error)
+
+      loginFeedback.value = {
+        type: 'error',
+        message: obterMensagemErro(error)
+      }
+
+      return
+    }
+
+    if (!data?.user) {
+      loginFeedback.value = {
+        type: 'error',
+        message: 'Não foi possível identificar o usuário.'
+      }
+
+      return
+    }
+
+    const nomeUsuario =
+      data.user.user_metadata?.full_name ||
+      data.user.email ||
+      'usuário'
+
+    localStorage.removeItem('cadastroPulado')
+
+    loginFeedback.value = {
+      type: 'success',
+      message: `Bem-vindo, ${nomeUsuario}!`
+    }
+
+    loginForm.senha = ''
+
+    setTimeout(() => {
+      router.push('/')
+    }, 700)
+  } catch (error) {
+    console.error('Erro inesperado no login:', error)
+
+    loginFeedback.value = {
+      type: 'error',
+      message: 'Ocorreu um erro inesperado. Tente novamente.'
+    }
+  } finally {
+    loading.value = false
+  }
+}
+
+async function handleRegister() {
+  registerFeedback.value = null
+
+  if (loading.value) {
+    return
+  }
+
+  const nome = registerForm.nome.trim()
+  const email = registerForm.email.trim()
+  const senha = registerForm.senha
+  const confirmar = registerForm.confirmar
+
+  if (!nome || !email || !senha || !confirmar) {
+    registerFeedback.value = {
+      type: 'error',
+      message: 'Preencha todos os campos.'
+    }
+
+    return
+  }
+
+  if (senha.length < 6) {
+    registerFeedback.value = {
+      type: 'error',
+      message: 'A senha deve ter pelo menos 6 caracteres.'
+    }
+
+    return
+  }
+
+  if (senha !== confirmar) {
+    registerFeedback.value = {
+      type: 'error',
+      message: 'As senhas não coincidem.'
+    }
+
+    return
+  }
+  loading.value = true
+  try {
+    const { data, error } =
+      await conexaoSupabase.auth.signUp({
+        email,
+        password: senha,
+
+        options: {
+          data: {
+            full_name: nome
+          }
+        }
+      })
+
+    if (error) {
+      console.error('Erro ao cadastrar:', error)
+
+      registerFeedback.value = {
+        type: 'error',
+        message: obterMensagemErro(error)
+      }
+
+      return
+    }
+
+    if (data?.user && !data?.session) {
+      registerFeedback.value = {
+        type: 'success',
+        message:
+          'Cadastro realizado! Verifique seu e-mail para confirmar sua conta antes de fazer login.'
+      }
+    } else {
+      registerFeedback.value = {
+        type: 'success',
+        message: 'Conta criada com sucesso!'
+      }
+    }
+    limparCadastro()
+    setTimeout(() => {
+      switchTab('login')
+    }, 1500)
+  } catch (error) {
+    console.error('Erro inesperado no cadastro:', error)
+
+    registerFeedback.value = {
+      type: 'error',
+      message: 'Ocorreu um erro inesperado. Tente novamente.'
+    }
+  } finally {
+    loading.value = false
+  }
+}
+async function forgotPassword() {
+  loginFeedback.value = null
+  const email = loginForm.email.trim()
+  if (!email) {
+    loginFeedback.value = {
+      type: 'error',
+      message: 'Digite seu e-mail antes de recuperar a senha.'
+    }
+    return
+  }
+
+  loading.value = true
+
+  try {
+    const { error } =
+      await conexaoSupabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/Login`
+      })
+
+    if (error) {
+      console.error('Erro ao recuperar senha:', error)
+
+      loginFeedback.value = {
+        type: 'error',
+        message: obterMensagemErro(error)
+      }
+
+      return
+    }
+
+    loginFeedback.value = {
+      type: 'success',
+      message:
+        'Se esse e-mail estiver cadastrado, você receberá as instruções para redefinir sua senha.'
+    }
+  } catch (error) {
+    console.error('Erro inesperado:', error)
+
+    loginFeedback.value = {
+      type: 'error',
+      message:
+        'Não foi possível solicitar a recuperação da senha.'
+    }
+  } finally {
+    loading.value = false
+  }
+}
+
+function irParaHomeSemCadastro() {
+  localStorage.setItem('cadastroPulado', 'true')
+
+  router.push('/')
+}
+
+function obterMensagemErro(error) {
+  const mensagemOriginal =
+    error?.message?.toLowerCase() || ''
+
+  if (
+    mensagemOriginal.includes('invalid login credentials')
+  ) {
+    return 'E-mail ou senha incorretos.'
+  }
+
+  if (
+    mensagemOriginal.includes('email not confirmed')
+  ) {
+    return 'Confirme seu e-mail antes de fazer login.'
+  }
+
+  if (
+    mensagemOriginal.includes('user already registered') ||
+    mensagemOriginal.includes('already registered')
+  ) {
+    return 'Este e-mail já está cadastrado.'
+  }
+
+  if (
+    mensagemOriginal.includes('password should be at least')
+  ) {
+    return 'A senha deve ter pelo menos 6 caracteres.'
+  }
+
+  if (
+    mensagemOriginal.includes('rate limit')
+  ) {
+    return 'Muitas tentativas. Aguarde um pouco e tente novamente.'
+  }
+
+  return error?.message || 'Ocorreu um erro. Tente novamente.'
+}
+</script>
+
+<template>
+  <main
+    class="auth-page"
+    :class="[
+      activeTheme,
+      { 'is-professor': isProfessor }
+    ]"
+  >
+    <!-- ESQUERDA -->
+    <section class="brand-side">
+
+      <button
+        type="button"
+        class="back-home"
+        @click="irParaHomeSemCadastro"
+      >
+        ← Ir para a página principal
+      </button>
+      <div class="brand-content">
+        <div class="logo-wrapper">
+          <img
+            src="/images/Revelio.png"
+            alt="Logo Revelio"
+            class="logo"
+          />
+        </div>
+
+        <span class="brand-tag">
+          Plataforma educacional
+        </span>
+
+        <h1 class="brand-title">
+          Revelio
+        </h1>
+
+        <p class="brand-subtitle">
+          Sua plataforma integrada de
+          <strong>
+            conhecimento, aprendizagem e gestão.
+          </strong>
+        </p>
+
+        <div class="brand-features">
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+
+            <div>
+              <strong>Conteúdo organizado</strong>
+              <small>
+                Materiais separados por área
+              </small>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+
+            <div>
+              <strong>Aprendizado interativo</strong>
+              <small>
+                Quiz, atividades e conteúdos
+              </small>
+            </div>
+          </div>
+
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+
+            <div>
+              <strong>Área do professor</strong>
+              <small>
+                Ferramentas para acompanhamento
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIREITA -->
+    <section class="form-side">
+      <div class="form-wrapper">
+
+        <!-- CONTROLES -->
+        <div class="theme-controls">
+          <div
+            class="category-buttons"
+            :class="{ disabled: isProfessor }"
+          >
+            <button
+              v-for="category in categories"
+              :key="category.value"
+              type="button"
+              class="category-btn"
+              :class="{
+                active:
+                  activeTheme === category.value &&
+                  !isProfessor
+              }"
+              :disabled="isProfessor"
+              @click="activeTheme = category.value"
+            >
+              <span
+                class="category-dot"
+                :class="category.class"
+              ></span>
+
+              {{ category.label }}
+            </button>
+          </div>
+
+          <label class="professor-toggle">
+            <input
+              v-model="isProfessor"
+              type="checkbox"
+            />
+
+            <span class="toggle">
+              <span class="toggle-circle"></span>
+            </span>
+
+            <span class="toggle-label">
+              Sou Professor
+            </span>
+          </label>
+        </div>
+
+        <!-- CABEÇALHO -->
+        <header class="form-header">
+          <span class="welcome-label">
+            {{ welcomeText }}
+          </span>
+
+          <h2>
+            {{ titleText }}
+          </h2>
+
+          <p>
+            {{ descriptionText }}
+          </p>
+        </header>
+
+        <!-- FORMULÁRIOS -->
+        <Transition
+          name="form"
+          mode="out-in"
+        >
+
+          <!-- LOGIN -->
+          <form
+            v-if="activeTab === 'login'"
+            key="login"
+            class="auth-form"
+            @submit.prevent="handleLogin"
+          >
+            <div class="field">
+              <label for="login-email">
+                E-mail
+              </label>
+
+              <div class="input-wrapper">
+                <span class="input-icon">@</span>
+
+                <input
+                  id="login-email"
+                  v-model.trim="loginForm.email"
+                  type="email"
+                  placeholder="voce@exemplo.com"
+                  autocomplete="email"
+                  required
+                  :disabled="loading"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="label-line">
+                <label for="login-senha">
+                  Senha
+                </label>
+
+                <button
+                  type="button"
+                  class="forgot-btn"
+                  :disabled="loading"
+                  @click="forgotPassword"
+                >
+                  Esqueceu a senha?
+                </button>
+              </div>
+
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  •••
+                </span>
+
+                <input
+                  id="login-senha"
+                  v-model="loginForm.senha"
+                  :type="
+                    showLoginPassword
+                      ? 'text'
+                      : 'password'
+                  "
+                  placeholder="Digite sua senha"
+                  minlength="6"
+                  autocomplete="current-password"
+                  required
+                  :disabled="loading"
+                />
+
+                <button
+                  type="button"
+                  class="password-btn"
+                  :disabled="loading"
+                  @click="
+                    showLoginPassword =
+                      !showLoginPassword
+                  "
+                >
+                  {{
+                    showLoginPassword
+                      ? 'Ocultar'
+                      : 'Mostrar'
+                  }}
+                </button>
+              </div>
+            </div>
+
+            <Transition name="feedback">
+              <div
+                v-if="loginFeedback"
+                class="feedback"
+                :class="loginFeedback.type"
+              >
+                <span class="feedback-icon">
+                  {{
+                    loginFeedback.type === 'error'
+                      ? '!'
+                      : '✓'
+                  }}
+                </span>
+
+                {{ loginFeedback.message }}
+              </div>
+            </Transition>
+
+            <button
+              type="submit"
+              class="submit-btn"
+              :disabled="loading"
+            >
+              <span
+                v-if="loading"
+                class="spinner"
+              ></span>
+
+              {{
+                loading
+                  ? 'Entrando...'
+                  : 'Entrar na conta'
+              }}
+
+              <span
+                v-if="!loading"
+                class="arrow"
+              >
+                →
+              </span>
+            </button>
+
+            <p class="switch-line">
+              Ainda não possui uma conta?
+
+              <button
+                type="button"
+                class="switch-link"
+                :disabled="loading"
+                @click="switchTab('register')"
+              >
+                Criar conta
+              </button>
+            </p>
+          </form>
+
+          <!-- CADASTRO -->
+          <form
+            v-else
+            key="register"
+            class="auth-form"
+            @submit.prevent="handleRegister"
+          >
+            <div class="field">
+              <label for="cad-nome">
+                Nome completo
+              </label>
+
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  ◎
+                </span>
+
+                <input
+                  id="cad-nome"
+                  v-model.trim="registerForm.nome"
+                  type="text"
+                  placeholder="Digite seu nome completo"
+                  autocomplete="name"
+                  required
+                  :disabled="loading"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cad-email">
+                E-mail
+              </label>
+
+              <div class="input-wrapper">
+                <span class="input-icon">@</span>
+
+                <input
+                  id="cad-email"
+                  v-model.trim="registerForm.email"
+                  type="email"
+                  placeholder="voce@exemplo.com"
+                  autocomplete="email"
+                  required
+                  :disabled="loading"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="cad-senha">
+                  Senha
+                </label>
+
+                <input
+                  id="cad-senha"
+                  v-model="registerForm.senha"
+                  :type="
+                    showRegisterPassword
+                      ? 'text'
+                      : 'password'
+                  "
+                  placeholder="••••••••"
+                  minlength="6"
+                  autocomplete="new-password"
+                  required
+                  :disabled="loading"
+                />
+              </div>
+
+              <div class="field">
+                <label for="cad-confirmar">
+                  Confirmar
+                </label>
+
+                <input
+                  id="cad-confirmar"
+                  v-model="registerForm.confirmar"
+                  :type="
+                    showRegisterPassword
+                      ? 'text'
+                      : 'password'
+                  "
+                  placeholder="••••••••"
+                  minlength="6"
+                  autocomplete="new-password"
+                  required
+                  :disabled="loading"
+                />
+              </div>
+            </div>
+
+            <label class="show-password">
+              <input
+                v-model="showRegisterPassword"
+                type="checkbox"
+                :disabled="loading"
+              />
+
+              Mostrar senha
+            </label>
+
+            <Transition name="feedback">
+              <div
+                v-if="registerFeedback"
+                class="feedback"
+                :class="registerFeedback.type"
+              >
+                <span class="feedback-icon">
+                  {{
+                    registerFeedback.type === 'error'
+                      ? '!'
+                      : '✓'
+                  }}
+                </span>
+
+                {{ registerFeedback.message }}
+              </div>
+            </Transition>
+
+            <button
+              type="submit"
+              class="submit-btn"
+              :disabled="loading"
+            >
+              <span
+                v-if="loading"
+                class="spinner"
+              ></span>
+
+              {{
+                loading
+                  ? 'Criando conta...'
+                  : 'Criar minha conta'
+              }}
+
+              <span
+                v-if="!loading"
+                class="arrow"
+              >
+                →
+              </span>
+            </button>
+
+            <p class="switch-line">
+              Já possui uma conta?
+
+              <button
+                type="button"
+                class="switch-link"
+                :disabled="loading"
+                @click="switchTab('login')"
+              >
+                Entrar
+              </button>
+            </p>
+          </form>
+        </Transition>
+
+        <p class="security-note">
+          🔒 Seus dados são tratados com segurança.
+        </p>
+      </div>
+    </section>
+  </main>
+</template>
+
+<style scoped>
+
+/* =========================================================
+   VARIÁVEIS E BASE
+========================================================= */
+
+.auth-page {
+  --accent: #135F7D;
+  --accent-dark: #0E4A62;
+  --accent-soft: #DCEBF0;
+
+  --bg-left: #135F7D;
+
+  --surface: #ffffff;
+  --surface-soft: #fffaf2;
+
+  --cream: #F4E6CC;
+
+  --ink: #222222;
+  --muted: #666666;
+  --border: #D8D0C2;
+
+  --success: #15803d;
+  --error: #b91c1c;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  background-color: var(--surface);
+  color: var(--ink);
+
+  font-family:
+    "Josefin Sans",
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.auth-page *,
+.auth-page *::before,
+.auth-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TEMAS
+========================================================= */
+
+.theme-info {
+  --accent: #135F7D;
+  --accent-dark: #0E4A62;
+  --accent-soft: #DCEBF0;
+}
+
+.theme-agro {
+  --accent: #3F7D45;
+  --accent-dark: #2F6335;
+  --accent-soft: #E3F0E4;
+}
+
+.theme-quimica {
+  --accent: #800020;
+  --accent-dark: #650019;
+  --accent-soft: #F8E6E9;
+}
+
+.is-professor {
+  --accent: #222222;
+  --accent-dark: #111111;
+  --accent-soft: #E8E8E8;
+  --bg-left: #222222;
+}
+
+
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
+
+.brand-side {
+  position: relative;
+
+  flex: 1;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4rem;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(244, 230, 204, 0.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(244, 230, 204, 0.12),
+      transparent 32%
+    ),
+    var(--bg-left);
+
+  color: white;
+
+  transition: background 0.3s ease;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 460px;
+}
+
+
+/* =========================================================
+   BOTÃO — PÁGINA PRINCIPAL
+========================================================= */
+
+.back-home {
+  position: absolute;
+
+  top: 1.5rem;
+  left: 1.5rem;
+
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  margin: 0;
+  padding: 0.65rem 1.2rem;
+
+  border: 2px solid var(--cream);
+  border-radius: 30px;
+
+  background: transparent;
+  color: var(--cream);
+
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-home:hover {
+  background: var(--cream);
+  color: var(--accent);
+
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   DECORAÇÕES
+========================================================= */
+
+.decor {
+  position: absolute;
+
+  border: 2px solid rgba(244, 230, 204, 0.18);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.decor-1 {
+  width: 420px;
+  height: 420px;
+
+  top: -210px;
+  left: -210px;
+}
+
+.decor-2 {
+  width: 320px;
+  height: 320px;
+
+  right: -160px;
+  bottom: -160px;
+}
+
+.decor-3 {
+  width: 180px;
+  height: 180px;
+
+  top: 18%;
+  right: 8%;
+
+  background: rgba(244, 230, 204, 0.08);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-wrapper {
+  width: 78px;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+
+  border: 4px solid var(--cream);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.logo-wrapper:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TEXTOS DA MARCA
+========================================================= */
+
+.brand-tag {
+  display: inline-block;
+
+  color: var(--cream);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.brand-title {
+  margin: 0.7rem 0 1rem;
+
+  color: white;
+
+  font-size: clamp(3.4rem, 7vw, 5.5rem);
+  font-weight: 800;
+
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.brand-subtitle {
+  max-width: 390px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.brand-subtitle strong {
+  color: var(--cream);
+}
+
+
+/* =========================================================
+   RECURSOS
+========================================================= */
+
+.brand-features {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  margin-top: 3rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+
+  gap: 0.9rem;
+}
+
+.feature-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+
+  background: var(--accent);
+  color: white;
+
+  font-weight: bold;
+}
+
+.feature strong,
+.feature small {
+  display: block;
+}
+
+.feature strong {
+  font-size: 0.9rem;
+}
+
+.feature small {
+  margin-top: 0.2rem;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 0.76rem;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
+
+.form-side {
+  flex: 1;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem 4rem;
+
+  background: white;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 440px;
+}
+
+
+/* =========================================================
+   CONTROLES
+========================================================= */
+
+.theme-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+
+  border-bottom: 2px solid var(--cream);
+}
+
+.category-buttons {
+  display: flex;
+
+  gap: 0.25rem;
+
+  padding: 0.35rem;
+
+  background: var(--cream);
+
+  border: 2px solid var(--cream);
+  border-radius: 15px;
+}
+
+.category-buttons.disabled {
+  opacity: 0.45;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  padding: 0.5rem 0.75rem;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+  color: var(--muted);
+
+  font: 700 0.76rem inherit;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.category-btn:hover:not(:disabled) {
+  background: white;
+  color: var(--accent);
+
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  background: white;
+  color: var(--accent);
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.category-btn:disabled {
+  cursor: not-allowed;
+}
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}
+
+.category-dot.info {
+  background: #135F7D;
+}
+
+.category-dot.agro {
+  background: #3F7D45;
+}
+
+.category-dot.quimica {
+  background: #800020;
+}
+
+
+/* =========================================================
+   PROFESSOR
+========================================================= */
+
+.professor-toggle {
+  display: flex;
+  align-items: center;
+
+  gap: 0.55rem;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.professor-toggle input {
+  position: absolute;
+
+  opacity: 0;
+}
+
+.toggle {
+  width: 42px;
+  height: 23px;
+
+  padding: 2px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 999px;
+
+  background: #cfc8bd;
+
+  transition: background 0.25s ease;
+}
+
+.toggle-circle {
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transition: transform 0.25s ease;
+}
+
+.professor-toggle input:checked + .toggle {
+  background: var(--accent);
+}
+
+.professor-toggle input:checked + .toggle .toggle-circle {
+  transform: translateX(19px);
+}
+
+.toggle-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.welcome-label {
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.form-header h2 {
+  margin: 0.55rem 0 0;
+
+  color: var(--accent);
+
+  font-size: 2.3rem;
+  font-weight: 800;
+
+  line-height: 1.15;
+}
+
+.form-header p {
+  margin-top: 0.7rem;
+
+  color: var(--muted);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.35rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.45rem;
+}
+
+.field label {
+  color: var(--accent);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.label-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.8rem;
+}
+
+.field-row .field input {
+  padding-left: 1rem;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.input-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+
+  color: var(--accent);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.field input {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 1rem 0 2.8rem;
+
+  border: 3px solid var(--accent);
+  border-radius: 15px;
+
+  outline: none;
+
+  background: var(--surface-soft);
+  color: var(--ink);
+
+  font: 0.88rem inherit;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field input:hover {
+  border-color: var(--accent-dark);
+}
+
+.field input:focus {
+  background: white;
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 4px rgba(19, 95, 125, 0.14);
+}
+
+.field input:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   BOTÃO MOSTRAR / OCULTAR SENHA
+========================================================= */
+
+.password-btn {
+  position: absolute;
+
+  top: 50%;
+  right: 1rem;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 55px;
+  height: 30px;
+
+  padding: 0;
+
+  border: none;
+
+  transform: translateY(-50%);
+
+  background: transparent;
+  color: var(--accent);
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.password-btn:hover:not(:disabled) {
+  color: var(--accent-dark);
+}
+
+.password-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* Espaço para o botão não ficar em cima do texto */
+.input-wrapper .password-btn ~ input {
+  padding-right: 5.2rem;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.forgot-btn,
+.switch-link {
+  padding: 0;
+
+  border: none;
+
+  background: none;
+  color: var(--accent);
+
+  font: 700 0.72rem inherit;
+
+  cursor: pointer;
+}
+
+.switch-link {
+  font-size: inherit;
+}
+
+.forgot-btn:hover:not(:disabled),
+.switch-link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.forgot-btn:disabled,
+.switch-link:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MOSTRAR SENHA — CADASTRO
+========================================================= */
+
+.show-password {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  width: fit-content;
+
+  color: var(--muted);
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.show-password input {
+  width: 15px;
+  height: 15px;
+
+  margin: 0;
+  padding: 0;
+
+  accent-color: var(--accent);
+
+  cursor: pointer;
+
+  box-shadow: none;
+}
+
+.show-password input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.show-password input:disabled {
+  cursor: not-allowed;
+}
+
+.show-password:hover {
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.feedback {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding: 0.9rem;
+
+  border-radius: 15px;
+
+  font-size: 0.76rem;
+}
+
+.feedback.error {
+  color: var(--error);
+
+  background: #fef2f2;
+
+  border: 2px solid #fecaca;
+}
+
+.feedback.success {
+  color: var(--success);
+
+  background: #f0fdf4;
+
+  border: 2px solid #bbf7d0;
+}
+
+.feedback-icon {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: currentColor;
+  color: white;
+
+  font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.submit-btn {
+  width: 100%;
+  min-height: 53px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  border: 4px solid var(--cream);
+  border-radius: 30px;
+
+  background: var(--accent);
+  color: white;
+
+  font: 800 0.88rem inherit;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--cream);
+  color: var(--accent);
+
+  border-color: var(--accent);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+.arrow {
+  font-size: 1.05rem;
+
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) .arrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.spinner {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.switch-line {
+  margin: 0;
+
+  color: var(--muted);
+
+  text-align: center;
+
+  font-size: 0.78rem;
+}
+
+.security-note {
+  margin-top: 1.8rem;
+
+  color: #999;
+
+  text-align: center;
+
+  font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   TRANSIÇÕES
+========================================================= */
+
+.form-enter-active,
+.form-leave-active,
+.feedback-enter-active,
+.feedback-leave-active {
+  transition: 0.25s ease;
+}
+
+.form-enter-from,
+.form-leave-to {
+  opacity: 0;
+
+  transform: translateX(10px);
+}
+
+.feedback-enter-from,
+.feedback-leave-to {
+  opacity: 0;
+
+  transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(19, 95, 125, 0.3);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .brand-side {
+    min-height: auto;
+
+    padding: 5rem 2rem 3rem;
+  }
+
+  .brand-content {
+    max-width: 600px;
+
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .brand-subtitle {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .brand-features {
+    display: none;
+  }
+
+  .form-side {
+    min-height: auto;
+
+    padding: 3rem 2rem;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVO — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .brand-side {
+    padding: 5rem 1.5rem 2.5rem;
+  }
+
+  .back-home {
+    top: 1rem;
+    left: 1rem;
+
+    padding: 0.55rem 1rem;
+
+    font-size: 0.78rem;
+  }
+
+  .brand-title {
+    font-size: 3.2rem;
+  }
+
+  .form-side {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .theme-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-buttons {
+    width: 100%;
+  }
+
+  .category-btn {
+    flex: 1;
+
+    justify-content: center;
+  }
+
+  .professor-toggle {
+    align-self: flex-end;
+  }
+
+  .form-header h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVO — MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 430px) {
+  .brand-side {
+    padding: 4.5rem 1rem 2.5rem;
+  }
+
+  .back-home {
+    top: 0.8rem;
+    left: 0.8rem;
+
+    padding: 0.5rem 0.8rem;
+
+    font-size: 0.72rem;
+  }
+
+  .brand-title {
+    font-size: 2.8rem;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .category-btn {
+    padding: 0.45rem 0.5rem;
+
+    font-size: 0.7rem;
+  }
+
+  .form-side {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .password-btn {
+    right: 0.8rem;
+
+    min-width: 50px;
+  }
+
+  .input-wrapper .password-btn ~ input {
+    padding-right: 4.8rem;
+  }
+}
+
+</style>
