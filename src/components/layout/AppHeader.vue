@@ -41,8 +41,8 @@ const abrirLivros = ref(false)
     <nav class="desktop-nav">
       <ul class="principal">
         <li><RouterLink to="/">Principal</RouterLink></li>
-       
-        
+
+
         <li class="nav-item">
           <a class="livro">Livros</a>
 
@@ -67,12 +67,12 @@ const abrirLivros = ref(false)
           </ul>
         </li>
         <li><img src="/images/Revelio.png" /></li>
-        
+
             <li><RouterLink to="/sobre">Sobre Nós</RouterLink></li>
         <li>
           <RouterLink to="/login">Login</RouterLink>
         </li>
-        
+
         <li><RouterLink to="/perfilUser" class="link-perfil">
   <div class="icone-perfil">
     <img
@@ -173,16 +173,14 @@ const abrirLivros = ref(false)
 }
 
 .icone-perfil {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border-radius: 60%;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-
   cursor: pointer;
 }
 
@@ -191,6 +189,7 @@ const abrirLivros = ref(false)
   height: 100%;
   object-fit: cover;
 }
+
 .desktop-nav {
   display: block;
 }

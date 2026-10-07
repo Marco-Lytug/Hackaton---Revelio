@@ -1,27 +1,17 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import LivroCard from './livros/LivroCard.vue'
+
 import {  ref } from 'vue'
 import ButtonChild from './ButtonChild.vue'
 import AppHeader from '../../components/layout/AppHeader.vue'
-import { livrosInfo1Ano} from '@/Data/livrosInfo.js'
-import { livrosAgro1Ano } from '@/Data/livrosAgro.js'
-import { livros1AnoQuimi } from '@/Data/livrosQuimi.js'
+
 import AppFooter from './AppFooter.vue'
 
 import AppPomodoro from '../AppPomodoro.vue'
 
 const mostrarDetalhes = ref(false);
 
-const livrosDestaque = livrosInfo1Ano.filter(livro =>
-  [1, 4, 7, 10, ].includes(livro.id)
-)
-const livrosDestaque2 = livrosAgro1Ano.filter(livro =>
-  [1, 2, 3, 4, ].includes(livro.id)
-)
-const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
-  [1, 2, 3, 4, ].includes(livro.id)
-)
+
 </script>
 
 <template>
@@ -55,7 +45,7 @@ const livrosDestaque3 = livros1AnoQuimi.filter(livro =>
     </div>
   </section>
 
- 
+
 
   <section class="help">
     <h2>Help!</h2>
@@ -388,6 +378,133 @@ button:hover {
 div {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 732px) {
+  .banner {
+    min-height: 68svh;
+    height: auto;
+    padding: 6rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .banner h1 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.2;
+    padding: 0;
+  }
+
+  .banner h1 span {
+    font-size: 1.05em;
+  }
+
+  .dificuldades h2,
+  .help h2 {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    padding: 2rem 1rem 0;
+  }
+
+  .dificuldades p,
+  .help p {
+    font-size: clamp(1.35rem, 5.6vw, 1.8rem);
+    padding: 1rem 1.25rem 0;
+    line-height: 1.45;
+  }
+
+  .all {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .all > div:first-child {
+    text-align: center;
+  }
+
+  .img {
+    width: min(100%, 26rem);
+    max-width: 100%;
+  }
+
+  .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  button,
+  .help a {
+    display: inline-flex;
+    justify-content: center;
+    width: calc(100% - 2.5rem);
+    margin: 0 1.25rem 4rem;
+    padding: 1rem 1.25rem;
+    border-width: 4px;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .help {
+    margin-bottom: 2rem;
+  }
+
+  .help h2 {
+    margin: 0 1rem;
+  }
+
+  .help a {
+    width: calc(100% - 2.5rem);
+  }
+
+  .modal .cursos {
+    flex-direction: column;
+    gap: 1rem;
+    width: min(90%, 22rem);
+    padding: 1.25rem;
+  }
+
+  .modal .cursos img {
+    width: min(70vw, 8rem);
+    height: min(70vw, 8rem);
+  }
+
+  .modal .cursos img:hover {
+    width: min(70vw, 8rem);
+    height: min(70vw, 8rem);
+  }
+
+  .modal .cursos .info:hover,
+  .modal .cursos .agro:hover,
+  .modal .cursos .quimi:hover {
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .dificuldades p br,
+  .dificuldades p br + br {
+    display: none;
+  }
+
+  .dificuldades p {
+    font-size: 1.25rem;
+  }
+
+  .help h2 {
+    padding-top: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .dificuldades p,
+  .dificuldades h2,
+  .img {
+    animation: none;
+  }
 }
 
 @keyframes fadeIn {

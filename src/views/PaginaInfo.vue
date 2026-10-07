@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import Carroussel from '@/components/layout/Carroussel.vue';
+import AppCarrocel from '@/components/layout/AppCarrocel.vue';
 import Slide from '@/components/layout/Slide.vue';
 import LivroLista from '@/components/layout/livros/LivroLista.vue';
 import { livrosInfo1Ano, livrosInfo2Ano, livrosInfo3Ano } from '@/Data/livrosInfo.js'
@@ -222,7 +222,7 @@ const slidesAutores = computed(() => {
 
 
     <div class="autores-carrossel">
-      <Carroussel class="carousel" :totalSlides="slidesAutores.length" tipo="autores"  :class="'carousel'" v-slot="{ currentSlide }">
+      <AppCarrocel class="carousel" :totalSlides="slidesAutores.length" tipo="autores"  :class="'carousel'" v-slot="{ currentSlide }">
         <Slide class="autores-lista" v-for="(grupo, index) in slidesAutores" :key="index"
           v-show="currentSlide === index + 1">
           <div class="autores-lista">
@@ -230,7 +230,7 @@ const slidesAutores = computed(() => {
               :biografia="autor.biografia" :principaisObras="autor.principaisObras" />
           </div>
         </Slide>
-      </Carroussel>
+      </AppCarrocel>
     </div>
   </section>
 
@@ -254,7 +254,7 @@ const slidesAutores = computed(() => {
 
     </div>
 
-     
+
       <div class="card-direita">
         <p>
           Com videoaulas e materiais de estudo
@@ -265,7 +265,7 @@ const slidesAutores = computed(() => {
       <div class="imagem-direita">
      <img src="/images/help.png" alt="">
         </div>
-           
+
            <div class="vermais">
        <ButtonChild id="vermais" @clique="mostrarDetalhes = true">
               Ver mais
@@ -328,7 +328,7 @@ const slidesAutores = computed(() => {
 <section class="livros1ano">
   <div class="secao">
     <div class="livros-carrossel">
-      <Carroussel class="carousel" :totalSlides="slidesLivros.length" tipo="livros" v-slot="{ currentSlide }">
+      <AppCarrocel class="carousel" :totalSlides="slidesLivros.length" tipo="livros" v-slot="{ currentSlide }">
         <Slide class="livros-lista" v-for="(grupo, index) in slidesLivros" :key="index"
           v-show="currentSlide === index + 1">
           <div class="livros-lista">
@@ -340,7 +340,7 @@ const slidesAutores = computed(() => {
 
           </div>
         </Slide>
-      </Carroussel>
+      </AppCarrocel>
     </div>
   </div>
 </section>
@@ -359,8 +359,8 @@ const slidesAutores = computed(() => {
     <section class="livros1ano">
         <div class="secao">
                <div class="livros-carrossel">
-        <Carroussel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
-       
+        <AppCarrocel class="carousel"  :totalSlides="slidesLivros.length"  tipo="livros"
+
   v-slot="{ currentSlide }">
           <Slide class="livros-lista"   v-for="(grupo,index) in slidesLivros"
   :key="index"
@@ -377,7 +377,7 @@ const slidesAutores = computed(() => {
 
      </div>
   </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
     </div>
     <div class="visu">
@@ -420,7 +420,7 @@ const slidesAutores = computed(() => {
   <section class="livros2ano">
     <div class="secao">
       <div class="livros-carrossel">
-        <Carroussel class="carousel" :totalSlides="slides2Ano.length" tipo="livros" v-slot="{ currentSlide }">
+        <AppCarrocel class="carousel" :totalSlides="slides2Ano.length" tipo="livros" v-slot="{ currentSlide }">
 
           <Slide class="livros-lista" v-for="(grupo, index) in slides2Ano" :key="index"
             v-show="currentSlide === index + 1">
@@ -433,7 +433,7 @@ const slidesAutores = computed(() => {
 
             </div>
           </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
     </div>
 
@@ -477,7 +477,7 @@ const slidesAutores = computed(() => {
   <section class="livros3ano">
     <div class="secao">
       <div class="livros-carrossel">
-        <Carroussel class="carousel" :totalSlides="slides3Ano.length" tipo="livros" v-slot="{ currentSlide }">
+        <AppCarrocel class="carousel" :totalSlides="slides3Ano.length" tipo="livros" v-slot="{ currentSlide }">
           <Slide class="livros-lista" v-for="(grupo, index) in slides3Ano" :key="index"
             v-show="currentSlide === index + 1">
             <div class="livros-lista">
@@ -489,7 +489,7 @@ const slidesAutores = computed(() => {
 
             </div>
           </Slide>
-        </Carroussel>
+        </AppCarrocel>
       </div>
     </div>
 
@@ -1448,7 +1448,7 @@ a:hover {
   max-width: 190px;
   margin: 0;
   height: auto;
-  
+
 }
 .card-esquerda p{
   font-size: 2.2rem;
