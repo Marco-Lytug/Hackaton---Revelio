@@ -591,21 +591,277 @@ Tudo de forma simples, prática e acessível, para revisar conteúdos, testar co
   }
 }
 
+/* =========================
+   RESPONSIVO
+========================= */
+
 @media (max-width: 732px) {
-  .cards-cursos {
-    grid-template-columns: 1fr;
+
+  /* EVITA ESTOURO HORIZONTAL */
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* =========================
+     BANNER
+  ========================= */
+
+  .banner {
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .banner > div {
+    width: 88%;
+    margin: 0 auto;
+  }
+
+  .banner h1 {
+    font-size: 2.3rem;
+    line-height: 1.1;
+
+    padding: 0;
+    margin: 0 0 15px;
+  }
+
+  .banner h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  .banner .botao {
+    margin: 22px 0 0;
+
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
+
+
+  /* =========================
+     APRESENTAÇÃO
+  ========================= */
+
+  .apresentacao {
+    width: 100%;
+    padding: 45px 7%;
+  }
+
+  .apresentacao h3 {
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    margin: 15px 0 0;
+  }
+
+  .botao-aprender {
+    font-size: 1.05rem;
+
+    padding: 12px 22px;
+    margin-top: 22px;
+  }
+
+
+  /* =========================
+     CONSULTA DOS CURSOS
+  ========================= */
+
+  .consulta-cursos {
+    padding: 45px 7%;
   }
 
   .consulta-cursos h2 {
-    font-size: 2rem;
+    font-size: 1.85rem;
+    line-height: 1.15;
   }
 
   .linha-titulo {
-    width: 80%;
+    width: 70%;
+
+    margin: 18px auto 30px;
   }
-    .ultima-secao {
-    padding-bottom: 200px;
+
+  .cards-cursos {
+    grid-template-columns: 1fr;
+    gap: 17px;
   }
+
+  .card-curso {
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .card-curso img {
+    height: 100px;
+    max-width: 160px;
+  }
+
+  .card-curso h3 {
+    font-size: 1.35rem;
+    margin-top: 10px;
+  }
+
+  .card-curso p {
+    font-size: 0.95rem;
+  }
+
+
+  /* =========================
+     TÍTULOS DOS CURSOS
+  ========================= */
+
+  .titulo {
+    width: 86%;
+    margin: 0 auto;
+  }
+
+  .titulo h3 {
+    font-size: 1.95rem;
+    line-height: 1.1;
+
+    margin: 35px 0 0;
+  }
+
+  .titulo h3::after {
+    width: 100%;
+    height: 2px;
+
+    margin-top: 8px;
+  }
+
+  .titulo p {
+    margin: 15px 0 0;
+
+    font-size: 0.98rem;
+    line-height: 1.4;
+  }
+
+
+  /* =========================
+     ÁREA DOS QUIZZES
+  ========================= */
+
+  .secao-quizzes {
+    padding: 0 7% 55px;
+  }
+
+  .bloco-categoria {
+    margin-bottom: 38px;
+  }
+
+  .bloco-categoria h4 {
+    font-size: 1.4rem;
+
+    margin: 20px 0 15px;
+  }
+
+
+  /* =========================
+     GRID
+  ========================= */
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+
+  /* =========================
+     CARDS
+  ========================= */
+
+  .card-quiz {
+    min-height: 185px;
+
+    padding: 1.15rem;
+
+    border-radius: 15px;
+  }
+
+  .card-quiz h5 {
+    font-size: 1.3rem;
+    line-height: 1.2;
+
+    margin-bottom: 0.7rem;
+  }
+
+  .card-quiz p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+
+    margin-bottom: 1rem;
+  }
+
+
+  /* =========================
+     BOTÃO
+  ========================= */
+
+  .btn-acessar {
+    width: 100%;
+
+    font-size: 1rem;
+    padding: 11px 14px;
+
+    border-radius: 10px;
+  }
+
+
+  /* =========================
+     FINAL
+  ========================= */
+
+  .ultima-secao {
+    padding-bottom: 100px;
+  }
+}
+
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
+@media (max-width: 400px) {
+
+  .banner {
+    min-height: 600px;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner h3 {
+    font-size: 1.05rem;
+  }
+
+  .consulta-cursos h2 {
+    font-size: 1.7rem;
+  }
+
+  .titulo h3 {
+    font-size: 1.75rem;
+  }
+
+  .card-quiz h5 {
+    font-size: 1.2rem;
+  }
+
 }
 
 </style>
