@@ -2,54 +2,101 @@
 import { ref, reactive, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { conexaoSupabase } from '@/supabase'
+
 const router = useRouter()
 const route = useRoute()
+
+/* =========================================================
+   CATEGORIAS / TEMAS
+========================================================= */
+
 const categories = [
-  { value: 'theme-info', label: 'Info', class: 'info' },
-  { value: 'theme-agro', label: 'Agro', class: 'agro' },
-  { value: 'theme-quimica', label: 'Química', class: 'quimica' }
+  {
+    value: 'theme-info',
+    label: 'Info',
+    class: 'info'
+  },
+  {
+    value: 'theme-agro',
+    label: 'Agro',
+    class: 'agro'
+  },
+  {
+    value: 'theme-quimica',
+    label: 'Química',
+    class: 'quimica'
+  }
 ]
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
 const activeTab = ref(
-  route.query.tab === 'register' ? 'register' : 'login'
+  route.query.tab === 'register'
+    ? 'register'
+    : 'login'
 )
+
 const activeTheme = ref('theme-info')
+
 const isProfessor = ref(false)
+
 const loading = ref(false)
+
 const showLoginPassword = ref(false)
 const showRegisterPassword = ref(false)
+
 const loginForm = reactive({
   email: '',
   senha: ''
 })
+
 const registerForm = reactive({
   nome: '',
   email: '',
   senha: '',
   confirmar: ''
 })
+
 const loginFeedback = ref(null)
 const registerFeedback = ref(null)
+
+/* =========================================================
+   TEXTOS DINÂMICOS
+========================================================= */
+
 const welcomeText = computed(() =>
   isProfessor.value
     ? 'Área do professor'
     : 'Bem-vindo de volta'
 )
+
 const titleText = computed(() =>
   activeTab.value === 'login'
     ? 'Acesse sua conta'
     : 'Crie sua conta'
 )
+
 const descriptionText = computed(() =>
   activeTab.value === 'login'
     ? 'Entre para continuar sua jornada de aprendizagem.'
     : 'Cadastre-se gratuitamente e comece a aprender.'
 )
+
+/* =========================================================
+   TROCAR LOGIN / CADASTRO
+========================================================= */
+
 function switchTab(tab) {
   activeTab.value = tab
+
   loginFeedback.value = null
   registerFeedback.value = null
+
   showLoginPassword.value = false
   showRegisterPassword.value = false
+
   router.replace({
     path: '/Login',
     query: {
@@ -58,12 +105,31 @@ function switchTab(tab) {
   })
 }
 
+/* =========================================================
+   LIMPAR CADASTRO
+========================================================= */
+
 function limparCadastro() {
   registerForm.nome = ''
   registerForm.email = ''
   registerForm.senha = ''
   registerForm.confirmar = ''
 }
+
+/* =========================================================
+   VALIDAR E-MAIL
+========================================================= */
+
+function emailValido(email) {
+  const regex =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  return regex.test(email)
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
 
 async function handleLogin() {
   loginFeedback.value = null
@@ -72,8 +138,12 @@ async function handleLogin() {
     return
   }
 
-  const email = loginForm.email.trim()
+  const email = loginForm.email.trim().toLowerCase()
   const senha = loginForm.senha
+
+  /* -------------------------
+     VALIDAÇÕES
+  ------------------------- */
 
   if (!email || !senha) {
     loginFeedback.value = {
@@ -84,17 +154,47 @@ async function handleLogin() {
     return
   }
 
+  if (!emailValido(email)) {
+    loginFeedback.value = {
+      type: 'error',
+      message: 'Digite um e-mail válido.'
+    }
+
+    return
+  }
+
+  if (senha.length < 6) {
+    loginFeedback.value = {
+      type: 'error',
+      message:
+        'A senha deve ter pelo menos 6 caracteres.'
+    }
+
+    return
+  }
+
   loading.value = true
 
   try {
+    /* -------------------------
+       LOGIN SUPABASE
+    ------------------------- */
+
     const { data, error } =
       await conexaoSupabase.auth.signInWithPassword({
         email,
         password: senha
       })
 
+    /* -------------------------
+       ERRO DO SUPABASE
+    ------------------------- */
+
     if (error) {
-      console.error('Erro ao fazer login:', error)
+      console.error(
+        'Erro ao fazer login:',
+        error
+      )
 
       loginFeedback.value = {
         type: 'error',
@@ -104,14 +204,45 @@ async function handleLogin() {
       return
     }
 
+    /* -------------------------
+       VERIFICAR USUÁRIO
+    ------------------------- */
+
     if (!data?.user) {
       loginFeedback.value = {
         type: 'error',
-        message: 'Não foi possível identificar o usuário.'
+        message:
+          'Não foi possível identificar o usuário.'
       }
 
       return
     }
+
+    /* -------------------------
+       VERIFICAR E-MAIL
+    ------------------------- */
+
+    if (!data.user.email_confirmed_at) {
+      loginFeedback.value = {
+        type: 'error',
+        message:
+          'Confirme seu e-mail antes de fazer login.'
+      }
+
+      /*
+       * Se por alguma configuração o Supabase
+       * tiver criado uma sessão mesmo sem confirmação,
+       * encerramos essa sessão.
+       */
+
+      await conexaoSupabase.auth.signOut()
+
+      return
+    }
+
+    /* -------------------------
+       USUÁRIO CONFIRMADO
+    ------------------------- */
 
     const nomeUsuario =
       data.user.user_metadata?.full_name ||
@@ -127,20 +258,34 @@ async function handleLogin() {
 
     loginForm.senha = ''
 
+    /* -------------------------
+       REDIRECIONAMENTO
+    ------------------------- */
+
     setTimeout(() => {
       router.push('/')
     }, 700)
+
   } catch (error) {
-    console.error('Erro inesperado no login:', error)
+    console.error(
+      'Erro inesperado no login:',
+      error
+    )
 
     loginFeedback.value = {
       type: 'error',
-      message: 'Ocorreu um erro inesperado. Tente novamente.'
+      message:
+        'Ocorreu um erro inesperado. Tente novamente.'
     }
+
   } finally {
     loading.value = false
   }
 }
+
+/* =========================================================
+   CADASTRO
+========================================================= */
 
 async function handleRegister() {
   registerFeedback.value = null
@@ -150,11 +295,22 @@ async function handleRegister() {
   }
 
   const nome = registerForm.nome.trim()
-  const email = registerForm.email.trim()
+  const email =
+    registerForm.email.trim().toLowerCase()
+
   const senha = registerForm.senha
   const confirmar = registerForm.confirmar
 
-  if (!nome || !email || !senha || !confirmar) {
+  /* -------------------------
+     CAMPOS OBRIGATÓRIOS
+  ------------------------- */
+
+  if (
+    !nome ||
+    !email ||
+    !senha ||
+    !confirmar
+  ) {
     registerFeedback.value = {
       type: 'error',
       message: 'Preencha todos os campos.'
@@ -163,25 +319,68 @@ async function handleRegister() {
     return
   }
 
-  if (senha.length < 6) {
+  /* -------------------------
+     NOME
+  ------------------------- */
+
+  if (nome.length < 2) {
     registerFeedback.value = {
       type: 'error',
-      message: 'A senha deve ter pelo menos 6 caracteres.'
+      message:
+        'Digite seu nome completo.'
     }
 
     return
   }
+
+  /* -------------------------
+     E-MAIL
+  ------------------------- */
+
+  if (!emailValido(email)) {
+    registerFeedback.value = {
+      type: 'error',
+      message: 'Digite um e-mail válido.'
+    }
+
+    return
+  }
+
+  /* -------------------------
+     SENHA
+  ------------------------- */
+
+  if (senha.length < 6) {
+    registerFeedback.value = {
+      type: 'error',
+      message:
+        'A senha deve ter pelo menos 6 caracteres.'
+    }
+
+    return
+  }
+
+  /* -------------------------
+     CONFIRMAÇÃO DA SENHA
+  ------------------------- */
 
   if (senha !== confirmar) {
     registerFeedback.value = {
       type: 'error',
-      message: 'As senhas não coincidem.'
+      message:
+        'As senhas não coincidem.'
     }
 
     return
   }
+
   loading.value = true
+
   try {
+    /* -------------------------
+       CADASTRO SUPABASE
+    ------------------------- */
+
     const { data, error } =
       await conexaoSupabase.auth.signUp({
         email,
@@ -189,13 +388,30 @@ async function handleRegister() {
 
         options: {
           data: {
-            full_name: nome
-          }
+            full_name: nome,
+            tipo: isProfessor.value
+              ? 'professor'
+              : 'aluno'
+          },
+
+          /*
+           * Depois que o usuário confirmar
+           * o e-mail, ele volta para esta página.
+           */
+          emailRedirectTo:
+            `${window.location.origin}/Login`
         }
       })
 
+    /* -------------------------
+       ERRO
+    ------------------------- */
+
     if (error) {
-      console.error('Erro ao cadastrar:', error)
+      console.error(
+        'Erro ao cadastrar:',
+        error
+      )
 
       registerFeedback.value = {
         type: 'error',
@@ -204,6 +420,10 @@ async function handleRegister() {
 
       return
     }
+
+    /* -------------------------
+       CADASTRO REALIZADO
+    ------------------------- */
 
     if (data?.user && !data?.session) {
       registerFeedback.value = {
@@ -214,32 +434,76 @@ async function handleRegister() {
     } else {
       registerFeedback.value = {
         type: 'success',
-        message: 'Conta criada com sucesso!'
+        message:
+          'Conta criada com sucesso!'
       }
     }
+
+    /* -------------------------
+       LIMPAR FORMULÁRIO
+    ------------------------- */
+
     limparCadastro()
+
+    /* -------------------------
+       IR PARA LOGIN
+    ------------------------- */
+
     setTimeout(() => {
       switchTab('login')
     }, 1500)
+
   } catch (error) {
-    console.error('Erro inesperado no cadastro:', error)
+    console.error(
+      'Erro inesperado no cadastro:',
+      error
+    )
 
     registerFeedback.value = {
       type: 'error',
-      message: 'Ocorreu um erro inesperado. Tente novamente.'
+      message:
+        'Ocorreu um erro inesperado. Tente novamente.'
     }
+
   } finally {
     loading.value = false
   }
 }
+
+/* =========================================================
+   RECUPERAR SENHA
+========================================================= */
+
 async function forgotPassword() {
   loginFeedback.value = null
-  const email = loginForm.email.trim()
+
+  if (loading.value) {
+    return
+  }
+
+  const email =
+    loginForm.email.trim().toLowerCase()
+
+  /* -------------------------
+     VERIFICAR E-MAIL
+  ------------------------- */
+
   if (!email) {
     loginFeedback.value = {
       type: 'error',
-      message: 'Digite seu e-mail antes de recuperar a senha.'
+      message:
+        'Digite seu e-mail antes de recuperar a senha.'
     }
+
+    return
+  }
+
+  if (!emailValido(email)) {
+    loginFeedback.value = {
+      type: 'error',
+      message: 'Digite um e-mail válido.'
+    }
+
     return
   }
 
@@ -247,12 +511,19 @@ async function forgotPassword() {
 
   try {
     const { error } =
-      await conexaoSupabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/Login`
-      })
+      await conexaoSupabase.auth.resetPasswordForEmail(
+        email,
+        {
+          redirectTo:
+            `${window.location.origin}/Login`
+        }
+      )
 
     if (error) {
-      console.error('Erro ao recuperar senha:', error)
+      console.error(
+        'Erro ao recuperar senha:',
+        error
+      )
 
       loginFeedback.value = {
         type: 'error',
@@ -262,61 +533,152 @@ async function forgotPassword() {
       return
     }
 
+    /*
+     * Mensagem propositalmente genérica.
+     *
+     * Isso evita revelar se determinado
+     * e-mail possui ou não uma conta.
+     */
+
     loginFeedback.value = {
       type: 'success',
       message:
         'Se esse e-mail estiver cadastrado, você receberá as instruções para redefinir sua senha.'
     }
+
   } catch (error) {
-    console.error('Erro inesperado:', error)
+    console.error(
+      'Erro inesperado:',
+      error
+    )
 
     loginFeedback.value = {
       type: 'error',
       message:
         'Não foi possível solicitar a recuperação da senha.'
     }
+
   } finally {
     loading.value = false
   }
 }
 
+/* =========================================================
+   TRATAR ERROS DO SUPABASE
+========================================================= */
 
 function obterMensagemErro(error) {
   const mensagemOriginal =
     error?.message?.toLowerCase() || ''
 
+  /* -------------------------
+     LOGIN
+  ------------------------- */
+
   if (
-    mensagemOriginal.includes('invalid login credentials')
+    mensagemOriginal.includes(
+      'invalid login credentials'
+    )
   ) {
     return 'E-mail ou senha incorretos.'
   }
 
   if (
-    mensagemOriginal.includes('email not confirmed')
+    mensagemOriginal.includes(
+      'email not confirmed'
+    )
   ) {
     return 'Confirme seu e-mail antes de fazer login.'
   }
 
+  /* -------------------------
+     CADASTRO
+  ------------------------- */
+
   if (
-    mensagemOriginal.includes('user already registered') ||
-    mensagemOriginal.includes('already registered')
+    mensagemOriginal.includes(
+      'user already registered'
+    ) ||
+    mensagemOriginal.includes(
+      'already registered'
+    )
   ) {
     return 'Este e-mail já está cadastrado.'
   }
 
   if (
-    mensagemOriginal.includes('password should be at least')
+    mensagemOriginal.includes(
+      'password should be at least'
+    )
   ) {
     return 'A senha deve ter pelo menos 6 caracteres.'
   }
 
+  /* -------------------------
+     E-MAIL INVÁLIDO
+  ------------------------- */
+
   if (
-    mensagemOriginal.includes('rate limit')
+    mensagemOriginal.includes(
+      'invalid email'
+    )
+  ) {
+    return 'Digite um e-mail válido.'
+  }
+
+  /* -------------------------
+     RATE LIMIT
+  ------------------------- */
+
+  if (
+    mensagemOriginal.includes(
+      'rate limit'
+    ) ||
+    mensagemOriginal.includes(
+      'too many requests'
+    )
   ) {
     return 'Muitas tentativas. Aguarde um pouco e tente novamente.'
   }
 
-  return error?.message || 'Ocorreu um erro. Tente novamente.'
+  /* -------------------------
+     SENHA
+  ------------------------- */
+
+  if (
+    mensagemOriginal.includes(
+      'password'
+    ) &&
+    mensagemOriginal.includes(
+      'weak'
+    )
+  ) {
+    return 'Escolha uma senha mais forte.'
+  }
+
+  /* -------------------------
+     REDE
+  ------------------------- */
+
+  if (
+    mensagemOriginal.includes(
+      'network'
+    ) ||
+    mensagemOriginal.includes(
+      'fetch'
+    )
+  ) {
+    return 'Não foi possível conectar ao servidor. Verifique sua internet.'
+  }
+
+  /* -------------------------
+     ERRO GENÉRICO
+  ------------------------- */
+
+  return (
+    error?.message ||
+    'Ocorreu um erro. Tente novamente.'
+  )
 }
 </script>
 
@@ -331,12 +693,12 @@ function obterMensagemErro(error) {
     <!-- ESQUERDA -->
     <section class="brand-side">
 
-      <button
+      <RouterLink to="/"
         type="button"
         class="back-home"
       >
         ← Ir para a página principal
-      </button>
+      </RouterLink>
       <div class="brand-content">
         <div class="logo-wrapper">
           <img
@@ -398,11 +760,9 @@ function obterMensagemErro(error) {
       </div>
     </section>
 
-    <!-- DIREITA -->
     <section class="form-side">
       <div class="form-wrapper">
 
-        <!-- CONTROLES -->
         <div class="theme-controls">
           <div
             class="category-buttons"

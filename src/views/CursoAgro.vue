@@ -647,7 +647,6 @@ const progresso = computed(() => {
 }
 
 
-/* RESPONSIVO */
 
 @media (max-width: 800px) {
 
